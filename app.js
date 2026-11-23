@@ -1703,6 +1703,106 @@ function pantallaReto(id) {
   });
 }
 
+/* ----- Código de progreso (sin cuentas ni datos personales) -----
+   El código guarda SOLO qué actividades están completas, como una lista de sí/no:
+   lecciones, juegos, experimentos y retos, en el orden de datos/primero.json.
+   Formato: EQ1-XXX-XXX-XXX-X  (EQ = EcoQuest, 1 = versión, la última letra es de control).
+   IMPORTANTE: para que los códigos viejos sigan sirviendo, el contenido nuevo
+   (temas, juegos, etc.) siempre se agrega AL FINAL de cada lista en primero.json. */
+
+const ALFABETO_32 = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";   // sin I, L, O, U para evitar confusiones
+
+/** Lista fija de todas las actividades, en orden. */
+function actividadesCodigo() {
+  return [
+    ...datos.unidades.map(u => `aprende:${u.id}`),
+    ...datos.juegos.map(j => `juego:${j.id}`),
+    ...datos.experimentos.map(e => `experimento:${e.id}`),
+    ...datos.retos.map(r => `reto:${r.id}`)
+  ];
+}
+
+/** Letra de control: detecta si alguien se equivocó al escribir el código. */
+function letraControl(cuerpo) {
+  let s = 7;
+  for (let i = 0; i < cuerpo.length; i++) s = (s * 31 + ALFABETO_32.indexOf(cuerpo[i]) * (i + 3)) % 32;
+  return ALFABETO_32[s];
+}
+
+/** Crea el código a partir del progreso actual. */
+function codigoProgreso() {
+  const bits = actividadesCodigo().map(c => estado.hechos[c] ? 1 : 0);
+  while (bits.length % 5) bits.push(0);
+  let cuerpo = "";
+  for (let i = 0; i < bits.length; i += 5) cuerpo += ALFABETO_32[bits.slice(i, i + 5).reduce((n, b) => n * 2 + b, 0)];
+  const grupos = cuerpo.match(/.{1,3}/g).join("-");   // grupos de 3, fáciles de dictar
+  return `EQ1-${grupos}-${letraControl(cuerpo)}`;
+}
+
+/** Dirección web que abre EcoQuest y carga este progreso (se usa en el QR). */
+function enlaceProgreso() {
+  return location.href.split("#")[0] + "#cargar/" + codigoProgreso();
+}
+
+/** Lee un código y SUMA sus actividades al progreso de este dispositivo. */
+function aplicarCodigo(texto, soloRevisar = false) {
+  const limpio = String(texto).toUpperCase().replace(/[^0-9A-Z]/g, "").replace(/O/g, "0").replace(/[IL]/g, "1");
+  if (!limpio.startsWith("EQ1") || limpio.length < 5) return { ok: false, mensaje: "Ese código no es de EcoQuest. Revisa que empiece con EQ1." };
+  const cuerpo = limpio.slice(3, -1), control = limpio.slice(-1);
+  if ([...cuerpo].some(c => !ALFABETO_32.includes(c)) || letraControl(cuerpo) !== control) {
+    return { ok: false, mensaje: "El código tiene un error. Revisa letra por letra y vuelve a intentarlo." };
+  }
+  const bits = [...cuerpo].flatMap(c => { const v = ALFABETO_32.indexOf(c); return [16, 8, 4, 2, 1].map(p => (v & p) ? 1 : 0); });
+  const lista = actividadesCodigo();
+  const nuevas = lista.filter((c, i) => bits[i] && !estado.hechos[c]);
+  const enCodigo = lista.filter((c, i) => bits[i]).length;
+  if (soloRevisar) return { ok: true, enCodigo, nuevas: nuevas.length };
+  nuevas.forEach(c => { estado.hechos[c] = true; });
+  guardarEstado();
+  return {
+    ok: true, enCodigo, nuevas: nuevas.length,
+    mensaje: nuevas.length
+      ? `🎉 ¡Listo! Se agregaron ${nuevas.length} actividad(es). El código tenía ${enCodigo} en total.`
+      : `✓ El código es correcto. Ya tenías todas sus actividades (${enCodigo}).`
+  };
+}
+
+/** Dibuja un QR con la librería qrcode-generator (lib/qrcode.min.js). */
+function dibujarQR(caja, texto) {
+  if (!caja) return;
+  if (typeof qrcode !== "function") { caja.innerHTML = `<p class="pequeno">No se pudo dibujar el QR. Usa el código de letras.</p>`; return; }
+  const qr = qrcode(0, "M");
+  qr.addData(texto);
+  qr.make();
+  caja.innerHTML = qr.createSvgTag({ cellSize: 5, margin: 2, scalable: true });
+}
+
+/** Pantalla que se abre al escanear el QR: pide confirmación antes de cargar. */
+function pantallaCargar(codigo) {
+  const revision = aplicarCodigo(codigo, true);
+  if (!revision.ok) {
+    app.innerHTML = `<section class="panel en-construccion">${mascota("Hmm, ese código no funcionó.", 120)}<p>${esc(revision.mensaje)}</p><a class="boton" href="#progreso">Ir a Mi progreso</a></section>`;
+    return;
+  }
+  app.innerHTML = `
+    <section class="panel en-construccion">
+      ${mascota("¡Encontré un progreso guardado!", 130)}
+      <h1>¿Cargar este progreso?</h1>
+      <p>El código <b>${esc(codigo)}</b> tiene <b>${revision.enCodigo}</b> actividad(es) completadas.
+        ${revision.nuevas ? `Se agregarán <b>${revision.nuevas}</b> que aún no tienes en este dispositivo.` : "Ya tienes todas en este dispositivo."}</p>
+      <p class="pequeno">No se borra nada de lo que ya tengas aquí.</p>
+      <div class="acciones" style="justify-content:center">
+        <button class="boton" id="confirmarCarga">Sí, cargar mi progreso</button>
+        <a class="boton secundario" href="#inicio">No, gracias</a>
+      </div>
+    </section>`;
+  document.getElementById("confirmarCarga").addEventListener("click", () => {
+    const res = aplicarCodigo(codigo);
+    avisar(res.mensaje);
+    location.hash = "progreso";
+  });
+}
+
 /* ----- Progreso e insignias ----- */
 
 function pantallaProgreso() {
@@ -1726,11 +1826,59 @@ function pantallaProgreso() {
         </div>`;
       }).join("")}
     </div>
+    <section class="panel codigo-progreso" id="guardarProgreso">
+      <h2>💾 Guardar mi progreso</h2>
+      <p>Con este código o este QR puedes continuar en otra computadora, tableta o celular. No guarda nombres ni datos personales: solo qué actividades completaste.</p>
+      <div class="caja-codigo">
+        <div class="qr" id="qrProgreso" aria-label="Código QR de tu progreso"></div>
+        <div>
+          <p class="pequeno">Tu código de progreso</p>
+          <p class="codigo" id="textoCodigo">${esc(codigoProgreso())}</p>
+          <div class="acciones">
+            <button class="boton" id="copiarCodigo">📋 Copiar código</button>
+            <button class="boton secundario" id="imprimirCodigo">🖨️ Imprimir</button>
+          </div>
+          <p class="pequeno">Escanea el QR con la cámara de otro celular para abrir EcoQuest con tu progreso.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel codigo-progreso">
+      <h2>📥 Cargar un progreso</h2>
+      <p>¿Ya tienes un código? Escríbelo aquí. Se sumará a lo que ya tengas en este dispositivo; no se borra nada.</p>
+      <form class="cargar-codigo" id="formCargar">
+        <input id="entradaCodigo" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="EQ1-XXX-XXX-XXX-X" aria-label="Código de progreso">
+        <button class="boton" type="submit">Cargar</button>
+      </form>
+      <p class="retro" id="retroCargar" aria-live="polite"></p>
+    </section>
+
     <section class="panel">
       <h2>¿Dónde se guarda mi progreso?</h2>
-      <p>Se guarda solo en este navegador y en este dispositivo. No se envía a internet y no pide nombres. Si cambias de computadora, usas otro navegador o se borran los datos de navegación, el progreso empieza de cero.</p>
+      <p>Se guarda solo en este navegador y en este dispositivo. No se envía a internet y no pide nombres. Si cambias de dispositivo, usa tu <a href="#guardarProgreso">código de progreso</a>. Si se borran los datos de navegación sin haber guardado el código, el progreso empieza de cero.</p>
       <button class="boton secundario" id="borrar">🗑️ Borrar mi progreso</button>
     </section>`;
+
+  // QR que abre EcoQuest con este progreso (#cargar/CÓDIGO)
+  dibujarQR(document.getElementById("qrProgreso"), enlaceProgreso());
+  document.getElementById("copiarCodigo").addEventListener("click", async () => {
+    const codigo = codigoProgreso();
+    try { await navigator.clipboard.writeText(codigo); avisar("📋 Código copiado: " + codigo); }
+    catch (e) { avisar("Escribe el código en un papel: " + codigo); }
+  });
+  document.getElementById("imprimirCodigo").addEventListener("click", () => {
+    document.body.classList.add("imprimir-codigo");
+    window.print();
+    setTimeout(() => document.body.classList.remove("imprimir-codigo"), 500);
+  });
+  document.getElementById("formCargar").addEventListener("submit", ev => {
+    ev.preventDefault();
+    const res = aplicarCodigo(document.getElementById("entradaCodigo").value);
+    const retro = document.getElementById("retroCargar");
+    retro.className = "retro " + (res.ok ? "bien" : "mal");
+    retro.textContent = res.mensaje;
+    if (res.ok) setTimeout(pantallaProgreso, 1800);
+  });
   document.getElementById("borrar").addEventListener("click", () => {
     if (!confirm("¿Seguro que quieres borrar todo tu progreso en este dispositivo?")) return;
     const p = estado.perfil;
@@ -1837,6 +1985,7 @@ function enrutar() {
     familia: pantallaFamilia,
     acerca: pantallaAcerca,
     buscar: () => pantallaBuscar(decodeURIComponent(id || "")),
+    cargar: () => pantallaCargar(decodeURIComponent(id || "")),
     grado: () => pantallaGrado(id)
   };
   (pantallas[ruta] || pantallaNoEncontrada)();
