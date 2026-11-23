@@ -1962,27 +1962,101 @@ function pantallaExploradores() {
 }
 
 /* ----- Panel del grupo (perfil Docente) -----
-   La maestra pega los códigos de progreso de su grupo y ve el avance de cada niño.
-   La lista se guarda SOLO en este dispositivo. Se recomienda usar número de lista o apodo. */
+   La maestra reúne los códigos de progreso de su grupo (escaneando el QR con la cámara
+   o escribiéndolos) y ve el avance de cada niño, tema por tema.
+   Todo se guarda SOLO en este dispositivo. Se recomienda usar número de lista o apodo. */
+
+let ordenGrupo = "lista";      // lista | mayor | menor
+let abiertoGrupo = null;       // etiqueta del alumno con el detalle abierto
+const UMBRAL_APOYO = 25;       // % de avance por debajo del cual se sugiere apoyo
+
+/** Agrega o actualiza un alumno en la lista del grupo. Devuelve "nuevo" o "actualizado". */
+function guardarEnGrupo(etiqueta, codigo) {
+  almacen.grupo = almacen.grupo || [];
+  const fecha = new Date().toISOString();
+  const existente = almacen.grupo.find(f => f.etiqueta === etiqueta);
+  if (existente) { existente.codigo = codigo; existente.fecha = fecha; guardarEstado(); return "actualizado"; }
+  almacen.grupo.push({ etiqueta, codigo, fecha });
+  guardarEstado();
+  return "nuevo";
+}
+/** Siguiente etiqueta libre «Alumno N». */
+function etiquetaLibre() {
+  let n = (almacen.grupo || []).length + 1;
+  while ((almacen.grupo || []).some(f => f.etiqueta === `Alumno ${n}`)) n++;
+  return `Alumno ${n}`;
+}
+/** Ordena «2» antes que «10» y «Alumno 3» antes que «Alumno 12». */
+const compararEtiquetas = (a, b) => a.localeCompare(b, "es", { numeric: true, sensitivity: "base" });
+const fechaCorta = iso => iso ? new Date(iso).toLocaleDateString("es-MX", { day: "numeric", month: "short", year: "numeric" }) : "—";
+
+/** Primera actividad pendiente de un tema, con su enlace. */
+function pendientesDe(h, u) {
+  const nombres = ["Aprende", "Juega", "Experimenta", "Actúa"];
+  const enlaces = [`#aprende/${u.id}`, `#juega/${juegoDe(u.id)?.id}`, `#experimenta/${experimentoDe(u.id)?.id}`, `#actua/${retoDe(u.id)?.id}`];
+  return actividadesDe(u).map((c, k) => ({ nombre: nombres[k], enlace: enlaces[k], hecha: completoEn(h, c) }));
+}
 
 function pantallaGrupo() {
-  const filas = (almacen.grupo || []).map(f => ({ ...f, leido: leerCodigo(f.codigo) }));
-  const validas = filas.filter(f => f.leido.ok).map(f => ({ ...f, a: avanceDe(f.leido.hechos) }));
+  const filas = (almacen.grupo || []).map(f => {
+    const leido = leerCodigo(f.codigo);
+    return { ...f, leido, a: leido.ok ? avanceDe(leido.hechos) : null };
+  });
+  const validas = filas.filter(f => f.a);
+  const orden = {
+    lista: (x, y) => compararEtiquetas(x.etiqueta, y.etiqueta),
+    mayor: (x, y) => (y.a?.pct ?? -1) - (x.a?.pct ?? -1) || compararEtiquetas(x.etiqueta, y.etiqueta),
+    menor: (x, y) => (x.a?.pct ?? 999) - (y.a?.pct ?? 999) || compararEtiquetas(x.etiqueta, y.etiqueta)
+  }[ordenGrupo];
+  filas.sort(orden);
   const promedio = validas.length ? Math.round(validas.reduce((s, f) => s + f.a.pct, 0) / validas.length) : 0;
-  const temaCompletos = datos.unidades.map((u, k) => validas.filter(f => f.a.porTema[k] === 4).length);
+  const apoyo = validas.filter(f => f.a.pct < UMBRAL_APOYO);
+
+  // Avance por tema: % de alumnos con el tema completo y promedio de actividades (de 4)
+  const temas = datos.unidades.map((u, k) => {
+    const completos = validas.filter(f => f.a.porTema[k] === 4).length;
+    const prom = validas.length ? validas.reduce((s, f) => s + f.a.porTema[k], 0) / validas.length : 0;
+    const campos = [...new Set(u.curriculo.map(c => c.campo))];
+    return { u, completos, pct: validas.length ? Math.round(completos / validas.length * 100) : 0, prom, campos };
+  });
+  // «Reforzar»: el tema (o los 2) con menor promedio. Si empatan muchos (p. ej. todos en cero al inicio), no se marca ninguno.
+  const minProm = temas.length ? Math.min(...temas.map(t => t.prom)) : 0;
+  const empatados = temas.filter(t => t.prom === minProm).length;
+  temas.forEach(t => { t.reforzar = validas.length > 1 && empatados <= 2 && t.prom === minProm; });
+
   app.innerHTML = `
-    ${encabezadoSeccion("👩‍🏫", "Avance del grupo", "Pegue los códigos de progreso de sus alumnos para ver su avance tema por tema.")}
-    <section class="panel">
-      <form id="formGrupo">
-        <label for="codigosGrupo"><b>Códigos del grupo</b> <span class="pequeno">(uno por renglón; puede anteponer número de lista o apodo y dos puntos)</span></label>
-        <textarea id="codigosGrupo" rows="5" spellcheck="false" placeholder="1: EQ1-J10-008-0G0-B&#10;2: EQ1-804-000-040-X&#10;Cachora Azul: EQ1-..."></textarea>
-        <div class="acciones">
-          <button class="boton" type="submit">Agregar al grupo</button>
-          ${filas.length ? `<button class="boton secundario" type="button" id="imprimirGrupo">🖨️ Imprimir tabla</button><button class="boton secundario" type="button" id="vaciarGrupo">Vaciar lista</button>` : ""}
+    ${encabezadoSeccion("👩‍🏫", "Avance del grupo", "Reúna los códigos de progreso de sus alumnos y vea su avance tema por tema.")}
+
+    <section class="panel agregar-grupo">
+      <h2>Agregar alumnos</h2>
+      <div class="formas-agregar">
+        <div class="forma">
+          <h3>📷 Escanear su QR</h3>
+          <p>Cada alumno abre <b>Mi progreso</b> y usted escanea el QR con la cámara de este dispositivo.</p>
+          <button class="boton" id="abrirEscaner">Abrir la cámara</button>
         </div>
-      </form>
+        <form class="forma" id="formGrupo">
+          <h3>⌨️ Escribir los códigos</h3>
+          <label for="codigosGrupo" class="pequeno">Uno por renglón. Puede anteponer número de lista o apodo y dos puntos.</label>
+          <textarea id="codigosGrupo" rows="3" spellcheck="false" placeholder="1: EQ1-J10-008-0G0-B&#10;2: EQ1-804-000-040-X"></textarea>
+          <button class="boton secundario" type="submit">Agregar</button>
+        </form>
+      </div>
+      <div id="escaner" class="escaner" hidden>
+        <div class="escaner-video"><video id="videoEscaner" playsinline muted></video><div class="marco-escaner" aria-hidden="true"></div></div>
+        <div class="escaner-lado">
+          <p id="estadoEscaner" class="retro" aria-live="polite">Apunte la cámara al QR del alumno…</p>
+          <form id="formEtiqueta" hidden>
+            <label for="etiquetaEscaneo"><b>Número de lista o apodo</b></label>
+            <input id="etiquetaEscaneo" type="text" maxlength="40" autocomplete="off">
+            <div class="acciones"><button class="boton" type="submit">Guardar y escanear otro</button><button class="boton secundario" type="button" id="descartarEscaneo">Descartar</button></div>
+          </form>
+          <ul id="escaneados" class="escaneados"></ul>
+          <button class="boton secundario" id="cerrarEscaner">Terminar de escanear</button>
+        </div>
+      </div>
       <p class="retro" id="retroGrupo" aria-live="polite"></p>
-      <p class="pequeno">🔒 La lista se guarda solo en esta computadora; no se envía a ningún lado. Para proteger la privacidad, use el número de lista o el apodo en lugar del nombre completo.</p>
+      <p class="pequeno">🔒 La lista se guarda solo en este dispositivo; no se envía a ningún lado. Use número de lista o apodo en lugar del nombre completo.</p>
     </section>
 
     ${filas.length ? `
@@ -1990,60 +2064,209 @@ function pantallaGrupo() {
       <div class="dato-grupo"><b>${validas.length}</b><span>alumnos</span></div>
       <div class="dato-grupo"><b>${promedio}%</b><span>avance promedio</span></div>
       <div class="dato-grupo"><b>${validas.reduce((s, f) => s + f.a.insignias, 0)}</b><span>insignias en total</span></div>
+      <div class="dato-grupo ${apoyo.length ? "alerta" : ""}"><b>${apoyo.length}</b><span>necesitan apoyo (menos de ${UMBRAL_APOYO}%)</span></div>
     </section>
-    <div class="tabla-envoltura">
-      <table class="tabla tabla-grupo">
-        <thead><tr><th>Alumno</th><th>Avance</th>${datos.unidades.map(u => `<th class="col-tema" title="${esc(u.titulo)}"><span aria-hidden="true">${u.icono}</span><span class="solo-lector">${esc(u.titulo)}</span></th>`).join("")}<th>Insignias</th><th></th></tr></thead>
-        <tbody>
-          ${filas.map((f, i) => {
-            if (!f.leido.ok) return `<tr class="fila-error"><td>${esc(f.etiqueta)}</td><td colspan="${datos.unidades.length + 2}">⚠️ Código con error: ${esc(f.codigo)}</td><td><button class="quitar-fila" data-i="${i}" aria-label="Quitar">✕</button></td></tr>`;
-            const a = avanceDe(f.leido.hechos);
-            return `<tr>
-              <td><b>${esc(f.etiqueta)}</b></td>
-              <td><div class="mini-barra"><span style="width:${a.pct}%"></span></div><small>${a.hechas}/${a.total} · ${a.pct}%</small></td>
-              ${a.porTema.map(n => `<td class="celda-tema n${n}" title="${n} de 4">${n === 4 ? "🏅" : n ? `${n}/4` : "·"}</td>`).join("")}
-              <td>${a.insignias}</td>
-              <td><button class="quitar-fila" data-i="${i}" aria-label="Quitar a ${esc(f.etiqueta)}">✕</button></td>
-            </tr>`;
-          }).join("")}
-        </tbody>
-        <tfoot><tr><td><b>Temas completos</b></td><td></td>${temaCompletos.map(n => `<td>${n}</td>`).join("")}<td></td><td></td></tr></tfoot>
-      </table>
-    </div>
-    <p class="pequeno">🏅 = tema completo (4 de 4 actividades: Aprende, Juega, Experimenta y Actúa). n/4 = actividades hechas del tema.</p>` : `
-    <section class="panel en-construccion">${mascota("Aún no hay códigos. Pida a cada alumno su código de «Mi progreso».", 110)}</section>`}`;
 
+    <section class="panel">
+      <div class="cabeza-tabla">
+        <h2>Alumnos</h2>
+        <label class="ordenar">Ordenar por
+          <select id="ordenGrupo">
+            <option value="lista" ${ordenGrupo === "lista" ? "selected" : ""}>Número de lista</option>
+            <option value="menor" ${ordenGrupo === "menor" ? "selected" : ""}>Menor avance primero</option>
+            <option value="mayor" ${ordenGrupo === "mayor" ? "selected" : ""}>Mayor avance primero</option>
+          </select>
+        </label>
+        <button class="boton chico secundario" id="descargarGrupo">📥 Descargar Excel (CSV)</button>
+        <button class="boton chico secundario" id="imprimirGrupo">🖨️ Imprimir</button>
+        <button class="boton chico secundario" id="vaciarGrupo">Vaciar lista</button>
+      </div>
+      <p class="pequeno">Toque el nombre de un alumno para ver qué le falta.</p>
+      <div class="tabla-envoltura">
+        <table class="tabla tabla-grupo">
+          <thead><tr><th>Alumno</th><th>Avance</th>${datos.unidades.map(u => `<th class="col-tema" title="${esc(u.titulo)}"><span aria-hidden="true">${u.icono}</span><span class="solo-lector">${esc(u.titulo)}</span></th>`).join("")}<th>Insignias</th><th>Actualizado</th><th></th></tr></thead>
+          <tbody>
+            ${filas.map(f => {
+              const i = almacen.grupo.findIndex(g => g.etiqueta === f.etiqueta);
+              if (!f.a) return `<tr class="fila-error"><td>${esc(f.etiqueta)}</td><td colspan="${datos.unidades.length + 3}">⚠️ Código con error: ${esc(f.codigo)}</td><td><button class="quitar-fila" data-i="${i}" aria-label="Quitar">✕</button></td></tr>`;
+              const abierto = abiertoGrupo === f.etiqueta;
+              const fila = `<tr class="${f.a.pct < UMBRAL_APOYO ? "fila-apoyo" : ""}">
+                <td><button class="nombre-alumno" data-e="${esc(f.etiqueta)}" aria-expanded="${abierto}">${abierto ? "▾" : "▸"} ${esc(f.etiqueta)}</button>${f.a.pct < UMBRAL_APOYO ? ` <span class="chip-apoyo" title="Avance menor a ${UMBRAL_APOYO}%">🚩 apoyo</span>` : ""}</td>
+                <td><div class="mini-barra"><span style="width:${f.a.pct}%"></span></div><small>${f.a.hechas}/${f.a.total} · ${f.a.pct}%</small></td>
+                ${f.a.porTema.map(n => `<td class="celda-tema n${n}" title="${n} de 4">${n === 4 ? "🏅" : n ? `${n}/4` : "·"}</td>`).join("")}
+                <td>${f.a.insignias}</td>
+                <td><small>${fechaCorta(f.fecha)}</small></td>
+                <td><button class="quitar-fila" data-i="${i}" aria-label="Quitar a ${esc(f.etiqueta)}">✕</button></td>
+              </tr>`;
+              if (!abierto) return fila;
+              const pend = datos.unidades.map(u => ({ u, lista: pendientesDe(f.leido.hechos, u) }));
+              const siguiente = pend.map(p => ({ u: p.u, act: p.lista.find(x => !x.hecha) })).find(p => p.act);
+              return fila + `<tr class="fila-detalle"><td colspan="${datos.unidades.length + 5}">
+                <div class="detalle-alumno">
+                  ${siguiente ? `<p class="sugerencia">💡 <b>Siguiente paso sugerido:</b> ${esc(siguiente.u.titulo)} → <a href="${siguiente.act.enlace}">${siguiente.act.nombre}</a></p>` : `<p class="sugerencia">🎉 ¡Completó todas las actividades!</p>`}
+                  <div class="detalle-temas">${pend.map(p => `
+                    <div class="detalle-tema ${p.lista.every(x => x.hecha) ? "completo" : ""}">
+                      <b>${p.u.icono} ${esc(p.u.titulo)}</b>
+                      <ul>${p.lista.map(x => `<li class="${x.hecha ? "hecha" : ""}">${x.hecha ? "✅" : "⬜"} ${x.hecha ? x.nombre : `<a href="${x.enlace}">${x.nombre}</a>`}</li>`).join("")}</ul>
+                    </div>`).join("")}</div>
+                </div></td></tr>`;
+            }).join("")}
+          </tbody>
+          <tfoot><tr><td><b>Temas completos</b></td><td></td>${temas.map(t => `<td>${t.completos}</td>`).join("")}<td></td><td></td><td></td></tr></tfoot>
+        </table>
+      </div>
+      <p class="pequeno">🏅 = tema completo (Aprende, Juega, Experimenta y Actúa). n/4 = actividades hechas del tema. 🚩 = avance menor a ${UMBRAL_APOYO}%.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Avance por tema</h2>
+      <p>Porcentaje de alumnos que completaron cada tema, con su campo formativo del Programa Sintético de la Fase 3. ${temas.some(t => t.reforzar) ? "El tema con menor avance aparece marcado para reforzar." : ""}</p>
+      <div class="temas-grupo">${temas.map(t => `
+        <div class="tema-grupo ${t.reforzar ? "reforzar" : ""}">
+          <div class="tema-grupo-cabeza"><span class="ico-tema" aria-hidden="true">${t.u.icono}</span><b><a href="#aprende/${t.u.id}">${esc(t.u.titulo)}</a></b>${t.reforzar ? `<span class="chip-apoyo">Reforzar</span>` : ""}</div>
+          <div class="campos-tema">${t.campos.map(c => `<span class="campo-chip">${esc(c)}</span>`).join("")}</div>
+          <div class="barra-tema"><span style="width:${t.pct}%"></span></div>
+          <small>${t.completos} de ${validas.length} completaron el tema (${t.pct}%) · promedio ${t.prom.toFixed(1)} de 4 actividades</small>
+        </div>`).join("")}</div>
+      <a class="boton secundario" href="#docente">Ver contenidos y PDA de cada tema →</a>
+    </section>` : `
+    <section class="panel en-construccion">${mascota("Aún no hay alumnos. Escanee su QR o escriba su código de «Mi progreso».", 110)}</section>`}`;
+
+  /* --- Agregar escribiendo --- */
   document.getElementById("formGrupo").addEventListener("submit", ev => {
     ev.preventDefault();
     const lineas = document.getElementById("codigosGrupo").value.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-    let agregados = 0, errores = 0;
-    almacen.grupo = almacen.grupo || [];
+    let nuevos = 0, actualizados = 0, errores = 0;
     lineas.forEach(l => {
       const m = l.match(/^(.*?)[:\t]\s*(EQ1.*)$/i);
-      // Sin etiqueta: «Alumno N» según su lugar en la lista (sin repetir una existente)
-      let n = almacen.grupo.length + 1;
-      while (almacen.grupo.some(f => f.etiqueta === `Alumno ${n}`)) n++;
-      const etiqueta = m && m[1].trim() ? m[1].trim().slice(0, 40) : `Alumno ${n}`;
+      const etiqueta = m && m[1].trim() ? m[1].trim().slice(0, 40) : etiquetaLibre();
       const codigo = (m ? m[2] : l).trim();
       if (!leerCodigo(codigo).ok) errores++;
-      const existente = almacen.grupo.find(f => f.etiqueta === etiqueta);
-      if (existente) existente.codigo = codigo; else almacen.grupo.push({ etiqueta, codigo });
-      agregados++;
+      guardarEnGrupo(etiqueta, codigo) === "nuevo" ? nuevos++ : actualizados++;
     });
-    guardarEstado();
     pantallaGrupo();
     const retro = document.getElementById("retroGrupo");
     retro.className = "retro " + (errores ? "mal" : "bien");
-    retro.textContent = `${agregados} código(s) procesados${errores ? `; ${errores} con error (revíselos en la tabla)` : ""}. Si una etiqueta ya existía, se actualizó su código.`;
+    retro.textContent = `${nuevos} alumno(s) nuevo(s), ${actualizados} actualizado(s)${errores ? `; ${errores} código(s) con error (revíselos en la tabla)` : ""}.`;
   });
+
+  /* --- Tabla: detalle, ordenar, quitar, descargar, imprimir, vaciar --- */
+  app.querySelectorAll(".nombre-alumno").forEach(b => b.addEventListener("click", () => {
+    abiertoGrupo = abiertoGrupo === b.dataset.e ? null : b.dataset.e; pantallaGrupo();
+  }));
+  document.getElementById("ordenGrupo")?.addEventListener("change", ev => { ordenGrupo = ev.target.value; pantallaGrupo(); });
   app.querySelectorAll(".quitar-fila").forEach(b => b.addEventListener("click", () => {
+    const f = almacen.grupo[Number(b.dataset.i)];
+    if (!confirm(`¿Quitar a «${f.etiqueta}» de la lista?`)) return;
     almacen.grupo.splice(Number(b.dataset.i), 1); guardarEstado(); pantallaGrupo();
   }));
   document.getElementById("vaciarGrupo")?.addEventListener("click", () => {
-    if (!confirm("¿Vaciar la lista del grupo en esta computadora?")) return;
+    if (!confirm("¿Vaciar toda la lista del grupo en este dispositivo?")) return;
     almacen.grupo = []; guardarEstado(); pantallaGrupo();
   });
   document.getElementById("imprimirGrupo")?.addEventListener("click", () => window.print());
+  document.getElementById("descargarGrupo")?.addEventListener("click", () => descargarCSVGrupo(filas));
+
+  /* --- Escáner de QR con la cámara --- */
+  document.getElementById("abrirEscaner").addEventListener("click", abrirEscaner);
+}
+
+/** Descarga la tabla como CSV (se abre en Excel o en Hojas de cálculo de Google). */
+function descargarCSVGrupo(filas) {
+  const celda = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const cabeza = ["Alumno", "Código", "Actualizado", "Actividades", "Total", "Avance %", "Insignias", "Necesita apoyo", ...datos.unidades.map(u => u.titulo)];
+  const lineas = [cabeza.map(celda).join(",")];
+  filas.forEach(f => {
+    if (!f.a) { lineas.push([f.etiqueta, f.codigo, fechaCorta(f.fecha), "", "", "", "", "Código con error"].map(celda).join(",")); return; }
+    lineas.push([f.etiqueta, f.codigo, fechaCorta(f.fecha), f.a.hechas, f.a.total, f.a.pct, f.a.insignias, f.a.pct < UMBRAL_APOYO ? "Sí" : "No", ...f.a.porTema.map(n => `${n}/4`)].map(celda).join(","));
+  });
+  // "﻿" hace que Excel reconozca los acentos
+  const blob = new Blob(["﻿" + lineas.join("\r\n")], { type: "text/csv;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `avance-grupo-ecoquest-${new Date().toISOString().slice(0, 10)}.csv`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  avisar("📥 Archivo descargado. Ábralo con Excel.");
+}
+
+/** Carga jsQR (lib/jsQR.js) solo cuando se necesita, para no hacer lenta la página. */
+function cargarLectorQR() {
+  if (typeof jsQR === "function") return Promise.resolve();
+  return new Promise((ok, error) => {
+    const s = document.createElement("script");
+    s.src = "lib/jsQR.js"; s.onload = ok; s.onerror = error;
+    document.head.appendChild(s);
+  });
+}
+
+let flujoCamara = null;
+function cerrarCamara() {
+  if (flujoCamara) { flujoCamara.getTracks().forEach(t => t.stop()); flujoCamara = null; }
+}
+
+async function abrirEscaner() {
+  const caja = document.getElementById("escaner");
+  const estadoEl = document.getElementById("estadoEscaner");
+  const video = document.getElementById("videoEscaner");
+  const formEt = document.getElementById("formEtiqueta");
+  const entrada = document.getElementById("etiquetaEscaneo");
+  const lista = document.getElementById("escaneados");
+  caja.hidden = false;
+  caja.scrollIntoView({ behavior: "smooth", block: "start" });
+  estadoEl.className = "retro"; estadoEl.textContent = "Abriendo la cámara…";
+  try {
+    await cargarLectorQR();
+    flujoCamara = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false });
+  } catch (e) {
+    estadoEl.className = "retro mal";
+    estadoEl.textContent = "No se pudo usar la cámara. Revise que el navegador tenga permiso de usarla (o escriba los códigos a mano).";
+    return;
+  }
+  video.srcObject = flujoCamara;
+  await video.play().catch(() => {});
+  estadoEl.textContent = "Apunte la cámara al QR del alumno…";
+  const lienzo = document.createElement("canvas");
+  const ctx = lienzo.getContext("2d", { willReadFrequently: true });
+  let pausado = false, codigoLeido = null;
+
+  function cuadro() {
+    if (!flujoCamara || !document.body.contains(video)) return cerrarCamara();
+    if (!pausado && video.readyState >= 2 && video.videoWidth) {
+      lienzo.width = video.videoWidth; lienzo.height = video.videoHeight;
+      ctx.drawImage(video, 0, 0);
+      const img = ctx.getImageData(0, 0, lienzo.width, lienzo.height);
+      const qr = jsQR(img.data, img.width, img.height, { inversionAttempts: "dontInvert" });
+      const m = qr && qr.data.match(/EQ1[-0-9A-Z]+/i);
+      if (m) {
+        const leido = leerCodigo(m[0]);
+        if (leido.ok) {
+          pausado = true; codigoLeido = m[0].toUpperCase();
+          const a = avanceDe(leido.hechos);
+          notas([[880, 0, 0.1], [1175, 0.08, 0.15]], "sine", 0.08);
+          estadoEl.className = "retro bien";
+          estadoEl.textContent = `✓ Código leído: ${a.hechas} actividades, ${a.insignias} insignia(s).`;
+          formEt.hidden = false; entrada.value = etiquetaLibre(); entrada.focus(); entrada.select();
+        }
+      }
+    }
+    requestAnimationFrame(cuadro);
+  }
+  requestAnimationFrame(cuadro);
+
+  formEt.onsubmit = ev => {
+    ev.preventDefault();
+    const etiqueta = entrada.value.trim().slice(0, 40) || etiquetaLibre();
+    const r = guardarEnGrupo(etiqueta, codigoLeido);
+    lista.insertAdjacentHTML("afterbegin", `<li>✓ <b>${esc(etiqueta)}</b> ${r === "nuevo" ? "agregado" : "actualizado"}</li>`);
+    formEt.hidden = true; pausado = false;
+    estadoEl.className = "retro"; estadoEl.textContent = "Listo. Apunte al QR del siguiente alumno…";
+  };
+  document.getElementById("descartarEscaneo").onclick = () => {
+    formEt.hidden = true; pausado = false;
+    estadoEl.className = "retro"; estadoEl.textContent = "Apunte la cámara al QR del alumno…";
+  };
+  document.getElementById("cerrarEscaner").onclick = () => { cerrarCamara(); pantallaGrupo(); };
 }
 
 /* ----- Progreso e insignias ----- */
@@ -2216,6 +2439,7 @@ function pantallaNoEncontrada() {
 function enrutar() {
   if (hayVoz) speechSynthesis.cancel();
   if (salidaActual && ctxAudio) { salidaActual.gain.setTargetAtTime(0, ctxAudio.currentTime, 0.03); salidaActual = null; } // apaga sonidos al cambiar de pantalla
+  cerrarCamara();   // apaga la cámara del escáner de QR si estaba encendida
   const [ruta, id] = (location.hash.slice(1) || "inicio").split("/");
   const pantallas = {
     inicio: pantallaInicio,
