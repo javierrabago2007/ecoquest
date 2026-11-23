@@ -1074,3 +1074,20 @@ body[data-ruta="actua"] { background: linear-gradient(180deg, #f1ebfc 0, #f6f8f3
 }@media (max-width: 760px) {
   .banner.banner-perrito { padding: 22px 16px 200px; background-color: #8fd8fb; background-size: 240% auto; background-position: 80% bottom; }
 }
+/* ----- Código de progreso ----- */
+.caja-codigo { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+.qr { width: 170px; height: 170px; flex-shrink: 0; padding: 8px; background: #fff; border: 1px solid var(--borde-suave); border-radius: 16px; }
+.qr svg { width: 100%; height: 100%; display: block; }
+.codigo { margin: 2px 0 10px !important; font: 700 clamp(24px, 3vw, 34px) / 1.1 "Courier New", monospace; letter-spacing: .08em; color: var(--bosque); background: var(--verde-c); border: 2px dashed #a9dcb4; border-radius: 14px; padding: 10px 16px; display: inline-block; word-break: break-all; }
+.cargar-codigo { display: flex; flex-wrap: wrap; gap: 10px; }
+.cargar-codigo input { flex: 1 1 220px; min-height: 50px; padding: 10px 14px; border: 2px solid var(--borde-suave); border-radius: 14px; font: 600 20px "Courier New", monospace; letter-spacing: .06em; text-transform: uppercase; }
+.cargar-codigo input:focus { border-color: var(--verde-s); outline: none; }
+@media (max-width: 640px) { .caja-codigo { justify-content: center; text-align: center; } .caja-codigo .acciones { justify-content: center; } }
+
+/* Al imprimir desde "Imprimir": solo el código y el QR */
+@media print {
+  body.imprimir-codigo .encabezado, body.imprimir-codigo .lateral, body.imprimir-codigo #app > *:not(#guardarProgreso) { display: none !important; }
+  body.imprimir-codigo #guardarProgreso { box-shadow: none; border: 2px solid #000; }
+  body.imprimir-codigo #guardarProgreso .acciones { display: none; }
+  body.imprimir-codigo .estructura { display: block; }
+}
