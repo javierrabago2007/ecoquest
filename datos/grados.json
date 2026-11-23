@@ -1,0 +1,11 @@
+{
+  "_nota": "Lista de grados. 'archivo' apunta al contenido del grado dentro de datos/. Si 'estado' es 'en-construccion', la plataforma muestra un aviso en lugar de contenido.",
+  "grados": [
+    { "grado": 1, "nombre": "1.º grado", "fase": 3, "estado": "listo", "archivo": "primero.json" },
+    { "grado": 2, "nombre": "2.º grado", "fase": 3, "estado": "en-construccion", "resumen": "Fase 3. Seguirá los mismos contenidos del Programa Sintético de la Fase 3 (columna de segundo grado)." },
+    { "grado": 3, "nombre": "3.º grado", "fase": 4, "estado": "en-construccion", "resumen": "Fase 4. Pendiente de incorporar el Programa Sintético de la Fase 4." },
+    { "grado": 4, "nombre": "4.º grado", "fase": 4, "estado": "en-construccion", "resumen": "Fase 4. Pendiente de incorporar el Programa Sintético de la Fase 4." },
+    { "grado": 5, "nombre": "5.º grado", "fase": 5, "estado": "en-construccion", "resumen": "Fase 5. Pendiente de incorporar el Programa Sintético de la Fase 5." },
+    { "grado": 6, "nombre": "6.º grado", "fase": 5, "estado": "en-construccion", "resumen": "Fase 5. Pendiente de incorporar el Programa Sintético de la Fase 5." }
+  ]
+}
