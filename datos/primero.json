@@ -1,0 +1,1150 @@
+{
+  "_nota": "Contenido de 1.º grado. Los textos de 'curriculo' (contenido y pda) están copiados textualmente del Programa Sintético de la Fase 3 (SEP, 2024). Todo lo demás es Propuesta didáctica EcoQuest. Para agregar o cambiar contenido, edita este archivo; no hace falta tocar el código.",
+  "grado": 1,
+  "nombreGrado": "1.º grado",
+  "fase": 3,
+  "fuenteOficial": "SEP (2024). Programa de Estudio para la Educación Primaria: Programa Sintético de la Fase 3. Dirección General de Desarrollo Curricular.",
+  "librosDeTexto": [
+    "Nuestros saberes: Libro para alumnos, maestros y familia. Primer grado (SEP)",
+    "Proyectos de Aula. Primer grado (SEP)",
+    "Proyectos Escolares. Primer grado (SEP)",
+    "Proyectos Comunitarios. Primer grado (SEP)"
+  ],
+
+  "unidades": [
+    {
+      "id": "u1",
+      "insignia": "Guardián del agua",
+      "titulo": "El agua es vida",
+      "icono": "💧",
+      "color": "azul",
+      "resumen": "Descubre para qué usamos el agua y cómo cuidarla en casa y en la escuela.",
+      "curriculo": [
+        {
+          "campo": "Ética, Naturaleza y Sociedades",
+          "contenido": "Impacto de las actividades humanas en la naturaleza y sustentabilidad: actividades humanas que afectan a la naturaleza, y la necesidad de establecer compromisos que contribuyan a la preservación, prevención y disminución del impacto socioambiental.",
+          "pda": ["Describe las actividades que se realizan de manera cotidiana en su casa, escuela y comunidad, e identifica en cada caso, la relación que dicha actividad guarda con la naturaleza, para reconocer situaciones que la benefician o dañan y así valorar sus acciones."],
+          "pagina": 55
+        },
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Beneficios del consumo de alimentos saludables, de agua simple potable, y de la práctica de actividad física.",
+          "pda": ["Explica y representa los beneficios de consumir alimentos saludables (frutas, verduras, cereales, leguminosas y de origen animal), y agua simple potable, al compararlos con alimentos con alto contenido de azúcar, grasa y sal, y bebidas azucaradas; toma decisiones a favor de una alimentación saludable."],
+          "pagina": 40
+        },
+        {
+          "campo": "Lenguajes",
+          "contenido": "Producción e interpretación de avisos, carteles, anuncios publicitarios y letreros en la vida cotidiana.",
+          "pda": ["Propone ideas para la elaboración colectiva de letreros, carteles y/o avisos que contribuyan a lograr propósitos individuales y colectivos."],
+          "pagina": 28
+        }
+      ],
+      "libros": [
+        { "libro": "Nuestros saberes", "tema": "Purificación del agua", "pagina": 140 },
+        { "libro": "Proyectos Escolares", "tema": "Mi escuela, amigable con la salud y el medio ambiente", "pagina": 244 }
+      ],
+      "aprende": {
+        "ilustracion": "💧",
+        "explicacion": [
+          "Todos los seres vivos necesitamos agua: las personas, los animales y las plantas.",
+          "Usamos agua para beber, bañarnos, lavarnos las manos, cocinar y regar.",
+          "En Sonora llueve poco y hace mucho calor. Por eso el agua es un tesoro que debemos cuidar.",
+          "Tomar agua simple es lo mejor para tu cuerpo, mucho mejor que los refrescos."
+        ],
+        "ejemplos": [
+          "Cierro la llave mientras me cepillo los dientes.",
+          "Uso un vaso con agua para enjuagarme la boca.",
+          "Aviso a un adulto si veo una llave que gotea.",
+          "Llevo mi botella de agua simple a la escuela."
+        ],
+        "conceptos": [
+          { "termino": "Agua potable", "definicion": "Agua limpia que podemos beber sin enfermarnos." },
+          { "termino": "Desperdicio", "definicion": "Usar más de lo que necesitamos o dejar que algo se pierda sin usarlo." },
+          { "termino": "Sequía", "definicion": "Cuando pasa mucho tiempo sin llover y falta agua." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Quiénes necesitan agua para vivir?", "opciones": ["Solo las personas", "Personas, animales y plantas", "Solo las plantas"], "correcta": 1, "explicacion": "Todos los seres vivos necesitamos agua." },
+          { "pregunta": "¿Qué es mejor tomar cuando tienes sed?", "opciones": ["Refresco", "Agua simple", "Jugo con mucha azúcar"], "correcta": 1, "explicacion": "El agua simple hidrata tu cuerpo y no tiene azúcar." },
+          { "pregunta": "¿Qué haces mientras te cepillas los dientes?", "opciones": ["Cierro la llave", "Dejo la llave abierta"], "correcta": 0, "explicacion": "Cerrar la llave evita desperdiciar mucha agua." }
+        ],
+        "actividad": {
+          "titulo": "Mi cartel del agua",
+          "instrucciones": "Dibuja en una hoja una acción para cuidar el agua. Escribe o dicta a un adulto una frase corta, por ejemplo: «Cierra la llave». Pega tu cartel cerca de un lavabo."
+        }
+      },
+      "familia": "Platiquen en casa: ¿dónde usamos más agua? Elijan juntos una acción sencilla para ahorrarla esta semana.",
+      "docente": "Inicie preguntando: ¿de dónde llega el agua a nuestra escuela? Registre las respuestas en un cartel colectivo y retómelo al final de la unidad."
+    },
+
+    {
+      "id": "u2",
+      "insignia": "Explorador del desierto",
+      "titulo": "Vecinos del desierto",
+      "icono": "🌵",
+      "color": "verde",
+      "resumen": "Conoce plantas y animales del desierto de Sonora y compara cómo son.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Características del entorno natural y sociocultural.",
+          "pda": [
+            "Distingue, describe y registra, en su lengua materna, las características del entorno natural: plantas, animales, cuerpos de agua, si hace frío o calor, frecuencia de lluvias y sequías, entre otras.",
+            "Observa, compara y registra características de plantas y animales, como color, estructura y cubierta corporal, si son domésticos o silvestres; tienen flores, frutos o tienen espinas, raíces u hojas, entre otras, para clasificarlos a partir de criterios propios o consensuados."
+          ],
+          "pagina": 41
+        },
+        {
+          "campo": "Lenguajes",
+          "contenido": "Descripción de objetos, lugares y seres vivos.",
+          "pda": ["Describe de manera oral y/o escrita, en su lengua materna, objetos, lugares y seres vivos reales o ficticios."],
+          "pagina": 26
+        }
+      ],
+      "libros": [
+        { "libro": "Nuestros saberes", "tema": "Entorno natural", "pagina": 82 },
+        { "libro": "Nuestros saberes", "tema": "Animales", "pagina": 84 },
+        { "libro": "Nuestros saberes", "tema": "Plantas", "pagina": 86 },
+        { "libro": "Nuestros saberes", "tema": "Hábitat", "pagina": 182 },
+        { "libro": "Proyectos Comunitarios", "tema": "Los beneficios de las plantas", "pagina": 174 }
+      ],
+      "aprende": {
+        "ilustracion": "🌵",
+        "explicacion": [
+          "El desierto de Sonora es caliente y seco, pero está lleno de vida.",
+          "Las plantas del desierto guardan agua y muchas tienen espinas, como el saguaro y el nopal.",
+          "Algunos animales salen de noche, cuando hace menos calor, como el coyote.",
+          "Cada ser vivo tiene su forma de vivir en el lugar donde habita."
+        ],
+        "ejemplos": [
+          "El saguaro es un cactus muy alto que guarda agua en su tronco.",
+          "El venado bura vive en el monte y come hojas y frutos.",
+          "La cachora es una lagartija que toma el sol sobre las piedras.",
+          "El mezquite da sombra y sus vainas sirven de alimento a muchos animales."
+        ],
+        "conceptos": [
+          { "termino": "Ser vivo", "definicion": "Algo que nace, crece, se alimenta y necesita agua, como las plantas y los animales." },
+          { "termino": "Desierto", "definicion": "Lugar donde llueve muy poco y casi siempre hace calor de día." },
+          { "termino": "Espinas", "definicion": "Picos duros que protegen a algunas plantas." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Cómo es el desierto de Sonora?", "opciones": ["Frío y con mucha lluvia", "Caliente y seco", "Cubierto de nieve"], "correcta": 1, "explicacion": "En el desierto llueve poco y hace calor." },
+          { "pregunta": "¿Dónde guarda agua el saguaro?", "opciones": ["En su tronco", "En sus espinas", "No guarda agua"], "correcta": 0, "explicacion": "Su tronco grueso guarda agua para los días secos." },
+          { "pregunta": "¿Cuál de estos es un animal?", "opciones": ["Nopal", "Mezquite", "Venado bura"], "correcta": 2, "explicacion": "El venado bura es un animal; el nopal y el mezquite son plantas." }
+        ],
+        "actividad": {
+          "titulo": "Adivina quién soy",
+          "instrucciones": "Elige una planta o un animal del desierto. Descríbelo a tu grupo con tres pistas (color, tamaño, si tiene espinas, pelo o escamas) y que los demás adivinen."
+        }
+      },
+      "familia": "Den un paseo corto por su colonia o un parque. Busquen juntos una planta y un animal y platiquen cómo son. ¡Solo observen, sin tocar!",
+      "docente": "Proponga a los alumnos clasificar imágenes de seres vivos con criterios que ellos mismos elijan (espinas / sin espinas, plantas / animales) y que expliquen su criterio."
+    },
+
+    {
+      "id": "u3",
+      "insignia": "Amigo de los seres vivos",
+      "titulo": "Cuido a los seres vivos",
+      "icono": "🐞",
+      "color": "naranja",
+      "resumen": "Aprende a tratar con respeto y cariño a las plantas, los animales y la naturaleza.",
+      "curriculo": [
+        {
+          "campo": "Ética, Naturaleza y Sociedades",
+          "contenido": "Respeto, cuidado y empatía hacia la naturaleza, como parte de un todo interdependiente.",
+          "pda": [
+            "Describe y reconoce la existencia de otros seres vivos (animales, plantas, hongos y microorganismos), y componentes de la naturaleza (ríos, mares, lagos, distintos suelos, montañas, valles y aire, entre otros) presentes en el lugar donde vive.",
+            "Analiza las formas de interactuar y explora las relaciones de cuidado y afectividad, con otros seres vivos y componentes de la naturaleza, los sentimientos que provocan, la importancia de promover el respeto y la empatía hacia todos los seres vivos y a la naturaleza.",
+            "Comprende cómo las acciones de los seres humanos pueden preservar, modificar o dañar los distintos componentes sociales y naturales del entorno."
+          ],
+          "pagina": 54
+        }
+      ],
+      "libros": [
+        { "libro": "Proyectos Escolares", "tema": "Nos comprometemos con otros seres vivos", "pagina": 188 },
+        { "libro": "Proyectos de Aula", "tema": "La importancia del bosque", "pagina": 158 },
+        { "libro": "Nuestros saberes", "tema": "Cuidado del entorno", "pagina": 130 },
+        { "libro": "Nuestros saberes", "tema": "Derechos de los animales", "pagina": 188 }
+      ],
+      "aprende": {
+        "ilustracion": "🐞",
+        "explicacion": [
+          "Las plantas, los animales, el agua, el aire y el suelo están unidos: si dañamos uno, afectamos a los demás.",
+          "Los árboles nos dan sombra y aire limpio. Los animales cumplen tareas importantes, como las abejas que ayudan a las flores.",
+          "Cuidar a los seres vivos es tratarlos con respeto: observar sin lastimar, regar las plantas y no tirar basura.",
+          "Cuando cuidamos la naturaleza, también nos cuidamos a nosotros."
+        ],
+        "ejemplos": [
+          "Riego las plantas de mi casa o de mi escuela.",
+          "Observo a los insectos sin aplastarlos.",
+          "No arranco hojas ni flores sin necesidad.",
+          "Le doy agua limpia y sombra a mi mascota."
+        ],
+        "conceptos": [
+          { "termino": "Respeto", "definicion": "Tratar bien a las personas, a los animales y a la naturaleza." },
+          { "termino": "Empatía", "definicion": "Imaginar cómo se siente otro ser vivo y actuar con cuidado." },
+          { "termino": "Naturaleza", "definicion": "Todo lo que no hicieron las personas: plantas, animales, agua, aire, suelo y cielo." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Qué nos dan los árboles?", "opciones": ["Sombra y aire limpio", "Basura", "Ruido"], "correcta": 0, "explicacion": "Los árboles dan sombra, refrescan y ayudan a limpiar el aire." },
+          { "pregunta": "Si ves una hormiga, ¿qué haces?", "opciones": ["La aplasto", "La observo sin lastimarla"], "correcta": 1, "explicacion": "Observar sin lastimar es una forma de respeto." },
+          { "pregunta": "¿Qué pasa si tiramos basura en el monte?", "opciones": ["No pasa nada", "Dañamos a plantas y animales"], "correcta": 1, "explicacion": "La basura ensucia el suelo y el agua, y puede lastimar a los animales." }
+        ],
+        "actividad": {
+          "titulo": "Mi ser vivo favorito",
+          "instrucciones": "Dibuja una planta o un animal que te guste. Abajo dibuja o escribe una forma de cuidarlo. Compártelo con tu grupo y di cómo te sientes cuando lo cuidas."
+        }
+      },
+      "familia": "Elijan una planta de la casa o del patio y háganse cargo de ella en familia: quién la riega y cada cuándo.",
+      "docente": "Abra un diálogo sobre los sentimientos: ¿cómo te sientes al ver un árbol cortado o un animal lastimado? Vincule con acuerdos de cuidado del grupo."
+    },
+
+    {
+      "id": "u4",
+      "insignia": "Héroe del reciclaje",
+      "titulo": "Mis residuos, mi responsabilidad",
+      "icono": "♻️",
+      "color": "morado",
+      "resumen": "Separa la basura, descubre de qué están hechos los objetos y qué acciones ayudan o dañan.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Impacto de las actividades humanas en el entorno natural, así como acciones y prácticas socioculturales para su cuidado.",
+          "pda": [
+            "Identifica actividades personales, familiares y de la comunidad que impactan en la naturaleza y en la salud de las personas, las registra y clasifica como positivas o negativas.",
+            "Propone y participa en acciones y prácticas socioculturales de su comunidad que favorecen el cuidado del entorno natural; expresa la importancia de establecer relaciones más armónicas con la naturaleza."
+          ],
+          "pagina": 42
+        },
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Objetos del entorno: características, propiedades, estados físicos y usos en la vida cotidiana.",
+          "pda": ["Observa, manipula y compara diversos objetos a partir de características como color, tamaño, olor, textura, material de qué están hechos (madera, vidrio, metal, plástico), entre otras, para clasificarlos con base en criterios propios o consensuados."],
+          "pagina": 42
+        }
+      ],
+      "libros": [
+        { "libro": "Nuestros saberes", "tema": "Acciones del ser humano en el entorno natural", "pagina": 128 },
+        { "libro": "Nuestros saberes", "tema": "Materiales", "pagina": 120 },
+        { "libro": "Proyectos Escolares", "tema": "Nuestros hábitos de consumo responsable", "pagina": 254 },
+        { "libro": "Proyectos de Aula", "tema": "¿Qué tan resistente es un tubo de papel?", "pagina": 112 }
+      ],
+      "aprende": {
+        "ilustracion": "♻️",
+        "explicacion": [
+          "Los residuos son lo que sobra después de usar algo: cáscaras, envolturas, botellas, papeles.",
+          "Si los separamos, algunos se pueden aprovechar otra vez.",
+          "Los orgánicos vienen de plantas o animales, como las cáscaras. Los reciclables son materiales como el papel, el cartón, el vidrio, las latas y algunas botellas de plástico.",
+          "Lo mejor es generar menos basura: usar un termo, una lonchera y reutilizar lo que se pueda."
+        ],
+        "ejemplos": [
+          "La cáscara de plátano va con los orgánicos.",
+          "La botella de plástico limpia va con los reciclables.",
+          "Llevo mi lonche en un recipiente que puedo volver a usar.",
+          "Uso las hojas de mi cuaderno por los dos lados."
+        ],
+        "conceptos": [
+          { "termino": "Residuo", "definicion": "Lo que queda después de usar o comer algo." },
+          { "termino": "Orgánico", "definicion": "Residuo que viene de plantas o animales y se deshace con el tiempo." },
+          { "termino": "Reciclar", "definicion": "Convertir un material usado en algo nuevo." },
+          { "termino": "Reutilizar", "definicion": "Volver a usar algo en lugar de tirarlo." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Dónde va una cáscara de naranja?", "opciones": ["Orgánicos", "Reciclables"], "correcta": 0, "explicacion": "Viene de una planta, por eso es orgánica." },
+          { "pregunta": "¿De qué material está hecha una lata?", "opciones": ["Madera", "Metal", "Papel"], "correcta": 1, "explicacion": "Las latas son de metal y se pueden reciclar." },
+          { "pregunta": "¿Qué acción ayuda a la naturaleza?", "opciones": ["Tirar basura en la calle", "Usar un termo todos los días", "Comprar muchas cosas desechables"], "correcta": 1, "explicacion": "Un termo se usa muchas veces y evita botellas desechables." }
+        ],
+        "actividad": {
+          "titulo": "¿Ayuda o daña?",
+          "instrucciones": "Haz dos columnas en tu cuaderno: 😊 Ayuda y 😟 Daña. Dibuja en cada una dos acciones que veas en tu casa o en tu escuela."
+        }
+      },
+      "familia": "Revisen juntos qué basura sale de la cocina en un día. ¿Qué podrían separar o dejar de usar? La forma de separar cambia en cada municipio: pregunten cómo se hace en el suyo.",
+      "docente": "Organice una colecta de objetos limpios (papel, plástico, metal, vidrio, madera) para que el grupo los manipule y los clasifique por material."
+    },
+
+    {
+      "id": "u5",
+      "insignia": "Experto contra el calor",
+      "titulo": "Me cuido del calor",
+      "icono": "☀️",
+      "color": "amarillo",
+      "resumen": "Conoce el clima de tu comunidad y qué hacer en familia cuando hace mucho calor.",
+      "curriculo": [
+        {
+          "campo": "De lo Humano y lo Comunitario",
+          "contenido": "Prácticas de prevención y respuesta ante desastres ambientales.",
+          "pda": ["Participa en las prácticas familiares de prevención y respuesta ante fenómenos naturales que ponen en riesgo su integridad."],
+          "pagina": 70
+        },
+        {
+          "campo": "De lo Humano y lo Comunitario",
+          "contenido": "La comunidad como el espacio en el que se vive y se encuentra la escuela.",
+          "pda": ["Platica sobre las características geográficas, climáticas, ambientales, socioculturales y lingüísticas de su comunidad y escuela."],
+          "pagina": 67
+        }
+      ],
+      "libros": [
+        { "libro": "Proyectos Escolares", "tema": "Situaciones de riesgo en la escuela", "pagina": 210 },
+        { "libro": "Nuestros saberes", "tema": "Protección civil", "pagina": 180 }
+      ],
+      "aprende": {
+        "ilustracion": "☀️",
+        "explicacion": [
+          "En Sonora el verano es muy caluroso: algunos días pasan de 40 grados.",
+          "Con tanto calor el cuerpo pierde agua y nos podemos sentir mareados o cansados.",
+          "Para cuidarnos: tomamos agua seguido, buscamos la sombra, usamos gorra y ropa clara.",
+          "Las horas de más calor son a mediodía y en la tarde. En esas horas es mejor jugar adentro o en la sombra."
+        ],
+        "ejemplos": [
+          "Llevo gorra y botella de agua al recreo.",
+          "Juego bajo la sombra de un árbol.",
+          "Nunca me quedo dentro de un carro cerrado.",
+          "Si me siento mareado, aviso a un adulto."
+        ],
+        "conceptos": [
+          { "termino": "Clima", "definicion": "Cómo es el tiempo de un lugar casi siempre: si hace calor o frío, si llueve mucho o poco." },
+          { "termino": "Golpe de calor", "definicion": "Cuando el cuerpo se calienta demasiado y nos sentimos muy mal. Hay que avisar a un adulto." },
+          { "termino": "Prevención", "definicion": "Lo que hacemos antes para evitar un peligro." }
+        ],
+        "preguntas": [
+          { "pregunta": "Hace mucho calor. ¿Qué haces?", "opciones": ["Tomo agua y busco la sombra", "Corro al sol al mediodía"], "correcta": 0, "explicacion": "El agua y la sombra protegen tu cuerpo del calor." },
+          { "pregunta": "¿Qué ropa conviene en un día caluroso?", "opciones": ["Suéter grueso y oscuro", "Ropa ligera y clara, y gorra"], "correcta": 1, "explicacion": "La ropa clara y ligera se calienta menos." },
+          { "pregunta": "Si te sientes mareado por el calor, ¿qué haces?", "opciones": ["Me quedo callado", "Aviso a un adulto"], "correcta": 1, "explicacion": "Un adulto puede ayudarte a refrescarte y cuidarte." }
+        ],
+        "actividad": {
+          "titulo": "El clima de mi comunidad",
+          "instrucciones": "Dibuja tu escuela y el cielo de hoy: ¿hay sol, nubes o lluvia? Platica con tu grupo cómo es el clima donde vives y qué ropa usas."
+        }
+      },
+      "familia": "Hagan juntos un plan para los días de mucho calor: dónde está la sombra, cuánta agua llevar y a qué horas no salir.",
+      "docente": "Recorra la escuela con el grupo para ubicar los lugares con sombra y los que más se calientan; acuerden dónde jugar en los días de calor."
+    },
+
+    {
+      "id": "u6",
+      "insignia": "Cuidador de los oídos",
+      "titulo": "Sonidos de la naturaleza y el ruido",
+      "icono": "🔊",
+      "color": "azul",
+      "resumen": "Escucha los sonidos de tu entorno y descubre cuándo el ruido nos hace daño.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Características del sonido y la luz.",
+          "pda": [
+            "Indaga y describe los sonidos producidos en su entorno; experimenta con diversos objetos o instrumentos musicales, para identificar la fuente sonora y cómo se produce el sonido (golpear, rasgar o soplar).",
+            "Distingue, clasifica y registra en tablas, algunas características del sonido a partir de percibir distintos sonidos, como intensidad o volumen (qué tan fuerte o débil es), tono (agudo o grave) y duración (largo o corto).",
+            "Establece relaciones entre la intensidad del sonido, la generación de problemas auditivos y la contaminación auditiva; propone y difunde medidas para el cuidado de la salud.",
+            "Indaga cómo fabricar un juguete o instrumento musical que produzca sonido, construye uno y explica su funcionamiento y las características del sonido que produce."
+          ],
+          "pagina": 43
+        }
+      ],
+      "libros": [
+        { "libro": "Proyectos Escolares", "tema": "Los sonidos en la naturaleza", "pagina": 152 },
+        { "libro": "Nuestros saberes", "tema": "Sonido", "pagina": 113 }
+      ],
+      "aprende": {
+        "ilustracion": "🔊",
+        "explicacion": [
+          "Todo el tiempo escuchamos sonidos: el canto de los pájaros, la lluvia, las voces y los carros.",
+          "Los sonidos se producen al golpear, soplar o rasgar algo. Algunos son fuertes y otros suaves.",
+          "Cuando hay demasiado ruido y por mucho tiempo, nuestros oídos se lastiman. A eso le llamamos contaminación por ruido.",
+          "Los animales también se asustan con el ruido. Cuidar el silencio es cuidar la naturaleza."
+        ],
+        "ejemplos": [
+          "En la mañana escucho cantar a los pájaros.",
+          "Bajo el volumen de la tele o de la música.",
+          "No grito dentro del salón.",
+          "Me tapo los oídos si un ruido es muy fuerte."
+        ],
+        "conceptos": [
+          { "termino": "Sonido", "definicion": "Lo que escuchamos con los oídos." },
+          { "termino": "Volumen", "definicion": "Qué tan fuerte o qué tan suave es un sonido." },
+          { "termino": "Ruido", "definicion": "Sonido molesto que, si es muy fuerte, puede lastimar los oídos." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Cómo podemos producir un sonido?", "opciones": ["Golpeando, soplando o rasgando", "Solo mirando"], "correcta": 0, "explicacion": "Al golpear un tambor, soplar una flauta o rasgar una guitarra se produce sonido." },
+          { "pregunta": "¿Qué sonido es más fuerte?", "opciones": ["Una sirena de ambulancia", "Un susurro"], "correcta": 0, "explicacion": "La sirena tiene mucho volumen para que todos la escuchen." },
+          { "pregunta": "¿Qué ayuda a cuidar tus oídos?", "opciones": ["Escuchar música muy fuerte", "Bajar el volumen"], "correcta": 1, "explicacion": "Un volumen bajo protege tus oídos." }
+        ],
+        "actividad": {
+          "titulo": "Un minuto de oídos atentos",
+          "instrucciones": "Cierra los ojos un minuto en silencio. Después dibuja todos los sonidos que escuchaste y marca con un círculo los que vienen de la naturaleza."
+        }
+      },
+      "familia": "Durante la cena, apaguen un rato la tele y la música y escuchen juntos los sonidos de la casa y de la calle.",
+      "docente": "Haga con el grupo una tabla de sonidos del patio: fuerte o suave, agudo o grave, largo o corto; y comenten cuáles molestan y por qué."
+    },
+
+    {
+      "id": "u7",
+      "insignia": "Observador del cielo",
+      "titulo": "El Sol, el día y la noche",
+      "icono": "🌞",
+      "color": "amarillo",
+      "resumen": "Observa el cielo, registra cómo cambia el día y descubre lo que hace el Sol por nosotros.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Cambios y regularidades de fenómenos naturales y actividades de las personas.",
+          "pda": [
+            "Reconoce la sucesión del día y la noche a partir de describir cronológicamente las actividades personales, familiares y comunitarias que se realizan, teniendo como referencia la presencia del Sol y la Luna, así como algunas de sus características perceptibles como forma, cambio de posición, y emisión de luz y calor.",
+            "Describe y registra de manera cronológica cambios y regularidades del entorno natural durante el día, la noche y a lo largo de una semana, utilizando términos, como ayer, hoy, mañana, los nombres y orden de los días de la semana y las relaciones temporales “antes de” y “después de”."
+          ],
+          "pagina": 44
+        },
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Organización e interpretación de datos.",
+          "pda": ["Elabora registros de datos mediante distintos recursos como pictogramas o tablas para responder preguntas de su interés."],
+          "pagina": 48
+        }
+      ],
+      "libros": [
+        { "libro": "Nuestros saberes", "tema": "El día y la noche", "pagina": 94 },
+        { "libro": "Nuestros saberes", "tema": "Los días de la semana", "pagina": 96 },
+        { "libro": "Nuestros saberes", "tema": "Pictogramas", "pagina": 100 },
+        { "libro": "Proyectos Comunitarios", "tema": "Cuentaestrellas", "pagina": 124 },
+        { "libro": "Proyectos de Aula", "tema": "Lámparas de luz solar", "pagina": 122 }
+      ],
+      "aprende": {
+        "ilustracion": "🌞",
+        "explicacion": [
+          "En el día vemos el Sol: nos da luz y calor. En la noche ya no lo vemos, y a veces aparecen la Luna y las estrellas.",
+          "El Sol no se queda quieto en el cielo: en la mañana sale por un lado, al mediodía está arriba y en la tarde se va por el otro lado.",
+          "Las plantas usan la luz del Sol para crecer. Sin el Sol no habría vida.",
+          "El Sol también nos puede dar energía, por ejemplo con lámparas solares. Pero nunca debemos mirarlo directamente."
+        ],
+        "ejemplos": [
+          "En la mañana me levanto y voy a la escuela.",
+          "Al mediodía mi sombra es pequeña.",
+          "En la noche duermo y descanso.",
+          "Algunas casas tienen paneles que usan la luz del Sol."
+        ],
+        "conceptos": [
+          { "termino": "Día", "definicion": "El tiempo en que hay luz del Sol." },
+          { "termino": "Noche", "definicion": "El tiempo en que no vemos el Sol y está oscuro." },
+          { "termino": "Sombra", "definicion": "La parte oscura que se forma cuando algo tapa la luz." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Qué nos da el Sol?", "opciones": ["Luz y calor", "Lluvia y nieve"], "correcta": 0, "explicacion": "El Sol ilumina y calienta la Tierra." },
+          { "pregunta": "¿Cuándo vemos la Luna y las estrellas?", "opciones": ["Casi siempre en la noche", "Solo al mediodía"], "correcta": 0, "explicacion": "Se ven mejor cuando está oscuro." },
+          { "pregunta": "¿Podemos mirar el Sol directamente?", "opciones": ["Sí, un ratito", "Nunca, lastima los ojos"], "correcta": 1, "explicacion": "La luz del Sol es tan fuerte que puede dañar los ojos." }
+        ],
+        "actividad": {
+          "titulo": "Mi día, de la mañana a la noche",
+          "instrucciones": "Dobla una hoja en tres partes. Dibuja lo que haces en la mañana, en la tarde y en la noche, y dibuja en cada parte si se ve el Sol o la Luna."
+        }
+      },
+      "familia": "Antes de dormir, asómense juntos al cielo: ¿se ve la Luna? ¿Qué forma tiene? Repítanlo varios días y comparen.",
+      "docente": "Elabore con el grupo un pictograma del clima de la semana (soleado, nublado, lluvioso) y respondan juntos: ¿cuántos días hubo sol?"
+    },
+
+    {
+      "id": "u8",
+      "insignia": "Explorador de mi colonia",
+      "titulo": "Mi colonia y sus áreas verdes",
+      "icono": "🏘️",
+      "color": "verde",
+      "resumen": "Conoce tu colonia, ubica sus áreas verdes y descubre cómo ha cambiado.",
+      "curriculo": [
+        {
+          "campo": "Ética, Naturaleza y Sociedades",
+          "contenido": "Diversos contextos sociales, naturales y territoriales: cambios y continuidades.",
+          "pda": [
+            "Identifica que es parte de un barrio, colonia, vecindad, comunidad, pueblo o localidad, y describe las características y diversidad de su entorno, en términos naturales, sociales y territoriales.",
+            "Ubica algunos sitios de interés del lugar donde vive y/o donde se encuentra la escuela con referencias básicas y los representa en dibujos y croquis."
+          ],
+          "pagina": 54
+        },
+        {
+          "campo": "Ética, Naturaleza y Sociedades",
+          "contenido": "Historia de la vida cotidiana: cambios en el tiempo y el espacio ocurridos en la comunidad.",
+          "pda": ["Indaga en fuentes orales, escritas, fotográficas, testimoniales y digitales, los cambios en la vida cotidiana, en el tiempo y el espacio, ocurridos en la comunidad, con relación a las viviendas, los trabajos y las áreas verdes."],
+          "pagina": 60
+        }
+      ],
+      "libros": [
+        { "libro": "Proyectos Escolares", "tema": "Mi comunidad escolar", "pagina": 180 },
+        { "libro": "Proyectos Escolares", "tema": "Mi escuela y el paisaje que la rodea", "pagina": 196 },
+        { "libro": "Proyectos Comunitarios", "tema": "Conozco, cuido y aprecio mi comunidad", "pagina": 196 },
+        { "libro": "Nuestros saberes", "tema": "Paisaje", "pagina": 166 },
+        { "libro": "Nuestros saberes", "tema": "Sentido del espacio", "pagina": 178 }
+      ],
+      "aprende": {
+        "ilustracion": "🏘️",
+        "explicacion": [
+          "Vivo en una colonia, barrio o pueblo. Ahí están mi casa, mi escuela, las tiendas y los parques.",
+          "Las áreas verdes son lugares con plantas y árboles, como los parques y los jardines.",
+          "Las áreas verdes dan sombra, refrescan el aire y son casa de pájaros e insectos. En una ciudad calurosa son muy valiosas.",
+          "Las colonias cambian con el tiempo: antes pudo haber más monte o menos casas. Las personas mayores nos pueden contar cómo era."
+        ],
+        "ejemplos": [
+          "Cerca de mi casa hay un parque con árboles.",
+          "En mi escuela hay un jardín o una jardinera.",
+          "Mi abuela me cuenta que antes había más monte.",
+          "Juego en el parque y no tiro basura."
+        ],
+        "conceptos": [
+          { "termino": "Colonia", "definicion": "Parte de una ciudad donde viven muchas familias." },
+          { "termino": "Área verde", "definicion": "Lugar con pasto, plantas y árboles, como un parque." },
+          { "termino": "Croquis", "definicion": "Dibujo sencillo que muestra dónde están los lugares." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Qué es un área verde?", "opciones": ["Un lugar con plantas y árboles", "Un estacionamiento"], "correcta": 0, "explicacion": "Los parques y jardines son áreas verdes." },
+          { "pregunta": "¿Para qué sirven los árboles en la colonia?", "opciones": ["Dan sombra y refrescan", "Hacen más calor"], "correcta": 0, "explicacion": "Su sombra baja el calor y limpia el aire." },
+          { "pregunta": "¿Quién te puede contar cómo era tu colonia antes?", "opciones": ["Una persona mayor", "Nadie"], "correcta": 0, "explicacion": "Las abuelas, los abuelos y los vecinos mayores recuerdan cómo era antes." }
+        ],
+        "actividad": {
+          "titulo": "Mi croquis",
+          "instrucciones": "Dibuja el camino de tu casa a la escuela. Marca con verde los árboles y parques que ves, y con un círculo los lugares importantes."
+        }
+      },
+      "familia": "Pregunten a una abuela, un abuelo o un vecino mayor cómo era la colonia antes: ¿había más árboles? ¿Dónde jugaban?",
+      "docente": "Organice una entrevista a una persona mayor de la comunidad sobre los cambios en las viviendas, los trabajos y las áreas verdes."
+    },
+
+    {
+      "id": "u9",
+      "insignia": "Voz de mi escuela",
+      "titulo": "Juntos mejoramos nuestra escuela",
+      "icono": "✉️",
+      "color": "morado",
+      "resumen": "Encuentra un problema ambiental de tu escuela y pide ayuda para resolverlo.",
+      "curriculo": [
+        {
+          "campo": "Lenguajes",
+          "contenido": "Producción de textos dirigidos a autoridades y personas de la comunidad, en relación con necesidades, intereses o actividades escolares.",
+          "pda": [
+            "Identifica necesidades de la escuela y de la localidad a partir de preguntas y observaciones que involucran a las compañeras y los compañeros, familiares, las vecinas y los vecinos, las y los docentes, autoridades y otras personas.",
+            "Identifica a personas de la comunidad que pueden contribuir a la solución de necesidades previstas.",
+            "Elabora, en colectivo, dibujos y textos que expliquen las necesidades identificadas y mediante los cuales soliciten la intervención de personas que podrían contribuir para satisfacerlas."
+          ],
+          "pagina": 28
+        }
+      ],
+      "libros": [
+        { "libro": "Proyectos Comunitarios", "tema": "Juntos resolvemos problemas", "pagina": 12 },
+        { "libro": "Proyectos Escolares", "tema": "Mi escuela, amigable con la salud y el medio ambiente", "pagina": 244 },
+        { "libro": "Nuestros saberes", "tema": "Activismo ambiental", "pagina": 138 },
+        { "libro": "Nuestros saberes", "tema": "Campaña", "pagina": 35 },
+        { "libro": "Nuestros saberes", "tema": "Cartel", "pagina": 39 }
+      ],
+      "aprende": {
+        "ilustracion": "✉️",
+        "explicacion": [
+          "En la escuela a veces hay problemas: basura en el patio, una llave que gotea o poca sombra.",
+          "Para resolverlos, primero observamos y preguntamos a compañeros, maestros y familias.",
+          "Después pensamos quién nos puede ayudar: la directora o el director, el comité de familias o alguna autoridad.",
+          "Entre todos hacemos una carta o un cartel con dibujos para explicar el problema y pedir ayuda."
+        ],
+        "ejemplos": [
+          "Vimos basura en el patio y pedimos más botes.",
+          "Avisamos a la dirección que una llave gotea.",
+          "Pedimos plantar un árbol para tener más sombra.",
+          "Hicimos un cartel para que todos separen la basura."
+        ],
+        "conceptos": [
+          { "termino": "Problema", "definicion": "Algo que está mal y que queremos mejorar." },
+          { "termino": "Autoridad", "definicion": "Persona que puede tomar decisiones, como la directora o el director." },
+          { "termino": "Carta", "definicion": "Mensaje escrito para alguien, con saludo, lo que queremos decir y despedida." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Qué hacemos primero para resolver un problema?", "opciones": ["Observar y preguntar", "Quejarnos sin hacer nada"], "correcta": 0, "explicacion": "Observar y preguntar nos ayuda a entender el problema." },
+          { "pregunta": "Una llave gotea en la escuela. ¿A quién le avisamos?", "opciones": ["A la dirección o a un maestro", "A nadie"], "correcta": 0, "explicacion": "Las personas adultas de la escuela pueden arreglarla." },
+          { "pregunta": "¿Qué lleva una carta?", "opciones": ["Saludo, mensaje y despedida", "Solo un dibujo sin nada más"], "correcta": 0, "explicacion": "Así quien la lee entiende para qué la escribimos." }
+        ],
+        "actividad": {
+          "titulo": "Detectives de la escuela",
+          "instrucciones": "Con tu grupo, recorran la escuela y dibujen un problema ambiental que encuentren. Platiquen: ¿por qué pasa? ¿Quién nos puede ayudar?"
+        }
+      },
+      "familia": "Pregunten a su hija o hijo qué problema ambiental encontró en la escuela y cómo creen que se puede resolver.",
+      "docente": "Guíe la escritura colectiva de la carta por dictado al docente; acompañen la entrega y den seguimiento a la respuesta."
+    }
+  ],
+
+  "juegos": [
+    {
+      "id": "j1", "unidad": "u1", "tipo": "completar",
+      "titulo": "Palabras del agua",
+      "instrucciones": "Mira el dibujo y elige la letra que falta.",
+      "items": [
+        { "palabra": "AGUA", "falta": 2, "pista": "💧", "opciones": ["U", "O", "E"] },
+        { "palabra": "LLAVE", "falta": 2, "pista": "🚰", "opciones": ["E", "A", "I"] },
+        { "palabra": "VASO", "falta": 1, "pista": "🥛", "opciones": ["O", "U", "A"] },
+        { "palabra": "LLUVIA", "falta": 3, "pista": "🌧️", "opciones": ["V", "B", "D"] },
+        { "palabra": "RÍO", "falta": 0, "pista": "🏞️", "opciones": ["R", "L", "M"] }
+      ]
+    },
+    {
+      "id": "j2", "unidad": "u2", "tipo": "memorama",
+      "titulo": "Memorama del desierto",
+      "instrucciones": "Voltea dos tarjetas. Si son iguales, ¡encontraste un par!",
+      "pares": [
+        { "icono": "🌵", "nombre": "Saguaro" },
+        { "icono": "🦌", "nombre": "Venado bura" },
+        { "icono": "🦎", "nombre": "Cachora" },
+        { "icono": "🐺", "nombre": "Coyote" },
+        { "icono": "🐇", "nombre": "Liebre" },
+        { "icono": "🌳", "nombre": "Mezquite" }
+      ]
+    },
+    {
+      "id": "j3", "unidad": "u3", "tipo": "vf",
+      "titulo": "¿Cuido o no cuido?",
+      "instrucciones": "Escucha cada frase y elige: ¿es verdad o es falso?",
+      "items": [
+        { "frase": "Los árboles nos dan sombra.", "respuesta": true, "explicacion": "Su sombra nos protege del sol." },
+        { "frase": "Está bien arrancar flores para jugar.", "respuesta": false, "explicacion": "Las flores son parte de la planta; mejor obsérvalas." },
+        { "frase": "Las abejas ayudan a las flores.", "respuesta": true, "explicacion": "Llevan polen de flor en flor." },
+        { "frase": "Las plantas no necesitan agua.", "respuesta": false, "explicacion": "Todas las plantas necesitan agua, aunque las del desierto necesitan poca." },
+        { "frase": "Puedo observar a un insecto sin lastimarlo.", "respuesta": true, "explicacion": "Observar con respeto es una forma de cuidar." },
+        { "frase": "La basura en el monte no hace daño.", "respuesta": false, "explicacion": "Ensucia el suelo y puede lastimar a los animales." }
+      ]
+    },
+    {
+      "id": "j4", "unidad": "u4", "tipo": "clasificar",
+      "titulo": "Separa los residuos",
+      "instrucciones": "Toca un residuo y luego toca el bote donde va.",
+      "botes": [
+        { "id": "org", "nombre": "Orgánicos", "icono": "🍂" },
+        { "id": "rec", "nombre": "Reciclables", "icono": "♻️" },
+        { "id": "otr", "nombre": "Otros", "icono": "🗑️" }
+      ],
+      "items": [
+        { "nombre": "Cáscara de plátano", "icono": "🍌", "bote": "org", "explicacion": "Viene de una planta: es orgánico." },
+        { "nombre": "Hojas secas", "icono": "🍁", "bote": "org", "explicacion": "Las hojas son orgánicas." },
+        { "nombre": "Huesito de pollo", "icono": "🍗", "bote": "org", "explicacion": "Viene de un animal: es orgánico." },
+        { "nombre": "Botella de plástico limpia", "icono": "🧴", "bote": "rec", "explicacion": "El plástico limpio se puede reciclar." },
+        { "nombre": "Lata", "icono": "🥫", "bote": "rec", "explicacion": "El metal de las latas se recicla." },
+        { "nombre": "Periódico", "icono": "📰", "bote": "rec", "explicacion": "El papel limpio se recicla." },
+        { "nombre": "Bolsa de papitas", "icono": "🛍️", "bote": "otr", "explicacion": "Las bolsas brillantes de botanas casi nunca se reciclan." },
+        { "nombre": "Servilleta sucia", "icono": "🧻", "bote": "otr", "explicacion": "El papel sucio de grasa ya no se recicla." }
+      ],
+      "pista": "Piensa: ¿de qué está hecho? ¿Viene de una planta o de un animal?",
+      "nota": "La forma de separar cambia según el municipio. Aquí usamos tres grupos sencillos."
+    },
+    {
+      "id": "j5", "unidad": "u5", "tipo": "opcion",
+      "titulo": "Reto contra el calor",
+      "instrucciones": "Lee o escucha la pregunta y elige la mejor respuesta.",
+      "items": [
+        { "pregunta": "¿Qué llevas al recreo en un día de calor?", "opciones": ["Gorra y agua", "Suéter y chamarra", "Nada"], "correcta": 0, "explicacion": "La gorra te protege del sol y el agua te hidrata." },
+        { "pregunta": "¿Dónde es mejor jugar al mediodía en verano?", "opciones": ["En la sombra", "En el sol"], "correcta": 0, "explicacion": "La sombra es más fresca." },
+        { "pregunta": "¿Qué bebida te hidrata mejor?", "opciones": ["Refresco", "Agua simple", "Café"], "correcta": 1, "explicacion": "El agua simple es la mejor para tu cuerpo." },
+        { "pregunta": "¿Cómo es el clima en gran parte de Sonora?", "opciones": ["Muy lluvioso y frío", "Caluroso y seco"], "correcta": 1, "explicacion": "En gran parte de Sonora llueve poco y hace calor." },
+        { "pregunta": "¿Puedes quedarte solo en un carro cerrado?", "opciones": ["Sí, un ratito", "Nunca"], "correcta": 1, "explicacion": "Un carro cerrado se calienta muchísimo y es peligroso." }
+      ]
+    },
+    {
+      "id": "j6", "unidad": "u6", "tipo": "clasificar",
+      "titulo": "¿Fuerte o suave?",
+      "instrucciones": "Toca una tarjeta para escuchar su sonido. Luego elige si es fuerte o suave.",
+      "botes": [
+        { "id": "fuerte", "nombre": "Fuerte", "icono": "📢" },
+        { "id": "suave", "nombre": "Suave", "icono": "🤫" }
+      ],
+      "items": [
+        { "nombre": "Sirena de ambulancia", "icono": "🚑", "sonido": "sirena", "bote": "fuerte", "explicacion": "La sirena suena muy fuerte para avisar a todos." },
+        { "nombre": "Claxon de un carro", "icono": "🚗", "sonido": "claxon", "bote": "fuerte", "explicacion": "El claxon es fuerte; tocarlo sin necesidad hace ruido." },
+        { "nombre": "Taladro", "icono": "🛠️", "sonido": "taladro", "bote": "fuerte", "explicacion": "Las máquinas como el taladro hacen mucho ruido." },
+        { "nombre": "Música a todo volumen", "icono": "🎶", "sonido": "musica", "bote": "fuerte", "explicacion": "Muy fuerte y por mucho tiempo puede lastimar los oídos." },
+        { "nombre": "Canto de un pájaro", "icono": "🐦", "sonido": "pajaro", "bote": "suave", "explicacion": "El canto de los pájaros es un sonido suave de la naturaleza." },
+        { "nombre": "Hojas con el viento", "icono": "🍃", "sonido": "hojas", "bote": "suave", "explicacion": "Las hojas suenan suavecito cuando sopla el viento." },
+        { "nombre": "Gato ronroneando", "icono": "🐱", "sonido": "ronroneo", "bote": "suave", "explicacion": "El ronroneo es un sonido suave." },
+        { "nombre": "Llovizna", "icono": "🌦️", "sonido": "llovizna", "bote": "suave", "explicacion": "Las gotitas de lluvia suenan suave." }
+      ],
+      "pista": "Imagínalo: ¿te hace taparte los oídos o es tranquilo?"
+    },
+    {
+      "id": "j7", "unidad": "u7", "tipo": "completar",
+      "titulo": "Palabras del cielo",
+      "instrucciones": "Mira el dibujo y elige la letra que falta.",
+      "items": [
+        { "palabra": "SOL", "falta": 1, "pista": "☀️", "opciones": ["O", "A", "U"] },
+        { "palabra": "LUNA", "falta": 2, "pista": "🌙", "opciones": ["N", "M", "Ñ"] },
+        { "palabra": "NUBE", "falta": 2, "pista": "☁️", "opciones": ["B", "V", "D"] },
+        { "palabra": "NOCHE", "falta": 0, "pista": "🌃", "opciones": ["N", "M", "L"] },
+        { "palabra": "ESTRELLA", "falta": 1, "pista": "⭐", "opciones": ["S", "C", "Z"] }
+      ]
+    },
+    {
+      "id": "j8", "unidad": "u8", "tipo": "memorama",
+      "titulo": "Memorama de mi colonia",
+      "instrucciones": "Voltea dos tarjetas y encuentra los lugares iguales.",
+      "pares": [
+        { "icono": "🏠", "nombre": "Casa" },
+        { "icono": "🏫", "nombre": "Escuela" },
+        { "icono": "🌳", "nombre": "Parque" },
+        { "icono": "🏪", "nombre": "Tienda" },
+        { "icono": "🏥", "nombre": "Centro de salud" },
+        { "icono": "🚏", "nombre": "Parada del camión" }
+      ]
+    },
+    {
+      "id": "j9", "unidad": "u9", "tipo": "opcion",
+      "titulo": "Resolvemos juntos",
+      "instrucciones": "Lee o escucha cada situación y elige la mejor solución.",
+      "items": [
+        { "pregunta": "Hay mucha basura en el patio. ¿Qué hacemos?", "opciones": ["Pedimos más botes y hacemos un cartel", "La dejamos ahí"], "correcta": 0, "explicacion": "Con más botes y un aviso, todos ayudan a tener el patio limpio." },
+        { "pregunta": "Una llave del baño gotea. ¿A quién le avisamos?", "opciones": ["A la dirección o a un maestro", "A nadie"], "correcta": 0, "explicacion": "Las personas adultas pueden arreglarla y así se cuida el agua." },
+        { "pregunta": "En el recreo hace mucho calor y no hay sombra. ¿Qué podemos pedir?", "opciones": ["Plantar árboles o poner un techo", "Jugar al sol al mediodía"], "correcta": 0, "explicacion": "Los árboles y techos dan sombra y protegen del calor." },
+        { "pregunta": "¿Cómo pedimos ayuda a la directora o al director?", "opciones": ["Con una carta o un cartel", "Gritando en el patio"], "correcta": 0, "explicacion": "Una carta explica bien el problema y lo que necesitamos." },
+        { "pregunta": "¿Qué es mejor para resolver un problema de la escuela?", "opciones": ["Trabajar juntos", "Que lo resuelva una sola persona"], "correcta": 0, "explicacion": "Entre todos tenemos más ideas y ayudamos más." }
+      ]
+    },
+
+    {
+      "id": "j10", "unidad": "u1", "tipo": "gotas",
+      "titulo": "Atrapa las gotas",
+      "instrucciones": "Mueve la cubeta para atrapar las gotas de agua. Si aparece una llave abierta, ¡tócala para cerrarla!",
+      "segundos": 30,
+      "mensajeFinal": "Cada gota cuenta: en Sonora el agua es un tesoro."
+    },
+
+    {
+      "id": "j11", "unidad": "u3", "tipo": "planta",
+      "titulo": "Cuida tu planta",
+      "instrucciones": "Cada día decide si riegas tu planta y dónde la pones. ¡Cuidado! Hace calor y la tierra se seca.",
+      "dias": 5,
+      "etapas": ["🌰", "🌱", "🌿", "🪴", "🌻"],
+      "mensajes": {
+        "bien": "¡Tu planta está feliz! Tuvo agua y luz del Sol.",
+        "mucha": "¡Demasiada agua! Las raíces se ahogan. Riega solo un poquito.",
+        "poca": "La tierra está muy seca. Tu planta necesita agua.",
+        "sinSol": "En la sombra todo el día, la planta no recibe la luz que necesita para crecer.",
+        "final": "Las plantas necesitan agua y luz en la medida justa, igual que el frijol del experimento."
+      }
+    },
+
+    {
+      "id": "j12", "unidad": "u3", "tipo": "buraDice",
+      "titulo": "Jack dice: sonidos de la naturaleza",
+      "instrucciones": "Escucha los sonidos que toca Jack y repítelos en el mismo orden.",
+      "rondas": [2, 3, 4, 5],
+      "sonidos": [
+        { "sonido": "pajaro", "icono": "🐦", "nombre": "Pájaro" },
+        { "sonido": "ronroneo", "icono": "🐱", "nombre": "Gato" },
+        { "sonido": "hojas", "icono": "🍃", "nombre": "Hojas" },
+        { "sonido": "llovizna", "icono": "🌦️", "nombre": "Lluvia" }
+      ]
+    },
+
+    {
+      "id": "j13", "unidad": "u5", "tipo": "colonia",
+      "titulo": "Colonia verde",
+      "instrucciones": "Coloca árboles, plantas del desierto, sombras, bancas y botes en la colonia. ¡Baja la temperatura y cumple las metas!",
+      "cuadricula": { "columnas": 6, "filas": 4 },
+      "tempInicial": 44,
+      "fijos": [
+        { "celda": 0, "icono": "🏠", "nombre": "Casa" },
+        { "celda": 2, "icono": "🏠", "nombre": "Casa" },
+        { "celda": 5, "icono": "🏫", "nombre": "Escuela" },
+        { "celda": 13, "icono": "🏠", "nombre": "Casa" },
+        { "celda": 16, "icono": "🏠", "nombre": "Casa" },
+        { "celda": 22, "icono": "🏠", "nombre": "Casa" }
+      ],
+      "piezas": [
+        { "id": "arbol", "icono": "🌳", "nombre": "Árbol", "temp": -2 },
+        { "id": "nativa", "icono": "🌵", "nombre": "Planta del desierto", "temp": -1 },
+        { "id": "toldo", "icono": "⛱️", "nombre": "Sombra", "temp": -1 },
+        { "id": "banca", "icono": "🪑", "nombre": "Banca", "temp": 0 },
+        { "id": "bote", "icono": "♻️", "nombre": "Bote de basura", "temp": 0 }
+      ],
+      "metas": [
+        { "texto": "Baja la temperatura a 36 °C o menos", "tipo": "temp", "valor": 36 },
+        { "texto": "Pon al menos 2 plantas del desierto (ahorran agua)", "tipo": "pieza", "pieza": "nativa", "min": 2 },
+        { "texto": "Pon al menos 1 bote de basura", "tipo": "pieza", "pieza": "bote", "min": 1 },
+        { "texto": "Pon al menos 1 banca para descansar", "tipo": "pieza", "pieza": "banca", "min": 1 }
+      ],
+      "nota": "Los grados de este juego son de juego, no medidas reales. Pero es verdad: los árboles y la sombra hacen que un lugar se sienta más fresco.",
+      "mensajeFinal": "Los árboles y las plantas del desierto, como el mezquite y el palo verde, dan sombra y necesitan poca agua."
+    },
+
+    {
+      "id": "j14", "unidad": "u7", "tipo": "ordenar",
+      "titulo": "Ordena la historia",
+      "instrucciones": "Toca las tarjetas en el orden en que pasan las cosas.",
+      "secuencias": [
+        {
+          "titulo": "Mi día",
+          "pasos": [
+            { "icono": "🌅", "texto": "Sale el Sol y me levanto" },
+            { "icono": "🏫", "texto": "Voy a la escuela" },
+            { "icono": "🌇", "texto": "En la tarde juego en la sombra" },
+            { "icono": "🌙", "texto": "En la noche duermo" }
+          ],
+          "explicacion": "El día empieza cuando sale el Sol y termina cuando llega la noche."
+        },
+        {
+          "titulo": "El Sol en el cielo",
+          "pasos": [
+            { "icono": "🌄", "texto": "El Sol sale" },
+            { "icono": "☀️", "texto": "Al mediodía está arriba" },
+            { "icono": "🌇", "texto": "En la tarde se va ocultando" },
+            { "icono": "🌌", "texto": "Llega la noche y salen las estrellas" }
+          ],
+          "explicacion": "Cada día el Sol sale, sube, baja y se oculta. Por eso hay día y noche."
+        },
+        {
+          "titulo": "Del frijol a la planta",
+          "pasos": [
+            { "icono": "🌰", "texto": "Siembro la semilla" },
+            { "icono": "💧", "texto": "La riego" },
+            { "icono": "🌱", "texto": "Salen la raíz y el tallo" },
+            { "icono": "🌿", "texto": "Crecen las hojas con la luz del Sol" }
+          ],
+          "explicacion": "Con agua y luz del Sol, la semilla se convierte en planta."
+        }
+      ]
+    },
+
+    {
+      "id": "j15", "unidad": "u7", "tipo": "sombras",
+      "titulo": "Sombras misteriosas",
+      "instrucciones": "Cuando la luz del Sol choca con algo, se forma una sombra. ¿De quién es cada sombra?",
+      "pregunta": "¿De quién es esta sombra?",
+      "items": [
+        { "icono": "🌵", "opciones": ["Saguaro", "Árbol", "Flor"], "correcta": 0, "explicacion": "Es el saguaro, el cactus gigante del desierto." },
+        { "icono": "🦌", "opciones": ["Perro", "Venado bura", "Caballo"], "correcta": 1, "explicacion": "Es el venado bura, con sus grandes cuernos." },
+        { "icono": "🦎", "opciones": ["Cachora", "Serpiente", "Pez"], "correcta": 0, "explicacion": "Es la cachora, la lagartija que toma el sol." },
+        { "icono": "🐢", "opciones": ["Piedra", "Tortuga del desierto", "Rana"], "correcta": 1, "explicacion": "Es una tortuga del desierto, que vive en Sonora." },
+        { "icono": "🐇", "opciones": ["Gato", "Ratón", "Liebre"], "correcta": 2, "explicacion": "Es la liebre, con sus orejas largas." },
+        { "icono": "🐝", "opciones": ["Abeja", "Mosca", "Mariposa"], "correcta": 0, "explicacion": "Es una abeja, que ayuda a las flores." }
+      ]
+    },
+
+    {
+      "id": "j16", "unidad": "u9", "tipo": "detective",
+      "titulo": "Detective ambiental",
+      "instrucciones": "Investiga el parque, la colonia y la ciudad. Busca las cosas que dañan el ambiente y tócalas. Si te atoras, pide una pista.",
+      "escenas": [
+        {
+          "titulo": "El parque",
+          "icono": "🌳",
+          "fondo": "parque",
+          "elementos": [
+            { "ilus": "cardenal", "icono": "🐦", "nombre": "Cardenal", "x": 24, "y": 22, "efecto": "vuela", "problema": false, "texto": "El cardenal es un pájaro rojo que vive en el desierto de Sonora." },
+            { "ilus": "banca", "icono": "🪑", "nombre": "Banca", "x": 31, "y": 63, "problema": false, "texto": "La banca sirve para descansar a la sombra." },
+            { "ilus": "boteReciclaje", "icono": "♻️", "nombre": "Bote de reciclaje", "x": 41, "y": 58, "problema": false, "texto": "¡Qué bien, un bote para reciclar!" },
+            { "ilus": "pato", "icono": "🦆", "nombre": "Pato", "x": 76, "y": 76, "efecto": "flota", "problema": false, "texto": "El pato nada en el estanque limpio." },
+            { "ilus": "cachora", "icono": "🦎", "nombre": "Cachora", "x": 63, "y": 58, "problema": false, "texto": "La cachora toma el sol sobre la piedra. ¡Obsérvala sin molestarla!" },
+            { "ilus": "botellaTirada", "icono": "🧴", "nombre": "Botella tirada", "x": 50, "y": 86, "problema": true, "texto": "Va en el bote de reciclables, no en el pasto." },
+            { "ilus": "lataTirada", "icono": "🥫", "nombre": "Lata tirada con refresco derramado", "x": 66, "y": 69, "problema": true, "texto": "La lata se recicla y el refresco derramado atrae hormigas. ¡Hay que levantarla!" },
+            { "ilus": "llaveAbierta", "icono": "🚰", "nombre": "Llave abierta", "x": 17, "y": 80, "problema": true, "texto": "El agua se está desperdiciando y ya hizo un charco. ¡Hay que cerrarla!" },
+            { "ilus": "lamparaDia", "icono": "💡", "nombre": "Lámpara prendida de día", "x": 60, "y": 37, "problema": true, "texto": "De día no hace falta: apagarla ahorra energía." },
+            { "ilus": "bocina", "icono": "📢", "nombre": "Bocina a todo volumen", "x": 88, "y": 80, "problema": true, "texto": "El ruido fuerte molesta a las personas y asusta a los animales." }
+          ]
+        },
+        {
+          "titulo": "La colonia",
+          "icono": "🏘️",
+          "fondo": "colonia",
+          "elementos": [
+            { "ilus": "cardenal", "icono": "🐦", "nombre": "Cardenal en el cable", "x": 30, "y": 22, "efecto": "mece", "problema": false, "texto": "Un cardenal descansa en el cable." },
+            { "ilus": "maceta", "icono": "🪴", "nombre": "Maceta", "x": 5, "y": 63, "efecto": "mece", "problema": false, "texto": "Las plantas adornan y refrescan la casa." },
+            { "ilus": "perro", "icono": "🐕", "nombre": "Perro con correa", "x": 30, "y": 70, "problema": false, "texto": "Pasear al perro con correa es responsable." },
+            { "ilus": "bicicleta", "icono": "🚲", "nombre": "Bicicleta", "x": 60, "y": 86, "problema": false, "texto": "Ir en bici no contamina el aire." },
+            { "ilus": "botesSeparados", "icono": "♻️", "nombre": "Botes separados", "x": 66, "y": 63, "problema": false, "texto": "¡Esta familia separa sus residuos!" },
+            { "ilus": "gato", "icono": "🐈", "nombre": "Gato", "x": 94, "y": 62, "problema": false, "texto": "Un gato tomando el sol." },
+            { "ilus": "manguera", "icono": "🚿", "nombre": "Manguera lavando la banqueta", "x": 15, "y": 69, "problema": true, "texto": "Lavar la banqueta con manguera desperdicia mucha agua. ¡Mejor barrer!" },
+            { "ilus": "popo", "icono": "💩", "nombre": "Popó de perro sin recoger", "x": 40, "y": 72, "problema": true, "texto": "Hay que recogerla: ensucia y puede enfermarnos." },
+            { "ilus": "bolsasNegras", "icono": "🛍️", "nombre": "Bolsas de basura en la banqueta", "x": 49, "y": 65, "problema": true, "texto": "Los perros rompen las bolsas y la basura se riega. Sácala solo cuando pase el camión." },
+            { "ilus": "contaminacionVisual", "icono": "🖍️", "nombre": "Paredes rayadas y llenas de anuncios", "x": 25, "y": 53, "problema": true, "texto": "Esto es contaminación visual: rayones y anuncios pegados ensucian la colonia." },
+            { "ilus": "arbolCortado", "icono": "🪵", "nombre": "Árbol cortado", "x": 80, "y": 64, "problema": true, "texto": "Cortar árboles nos quita sombra y deja sin casa a los pájaros." },
+            { "ilus": "llantaTirada", "icono": "🛞", "nombre": "Llanta tirada con agua", "x": 88, "y": 84, "problema": true, "texto": "En el agua estancada de las llantas nacen los moscos que transmiten el dengue." }
+          ]
+        },
+        {
+          "titulo": "La ciudad",
+          "icono": "🏙️",
+          "fondo": "ciudad",
+          "elementos": [
+            { "ilus": "paloma", "icono": "🕊️", "nombre": "Paloma", "x": 50, "y": 20, "efecto": "vuela", "problema": false, "texto": "Las palomas también viven en la ciudad." },
+            { "ilus": "paradaCamion", "icono": "🚏", "nombre": "Parada del camión", "x": 6, "y": 58, "problema": false, "texto": "Viajar en camión contamina menos que muchos carros." },
+            { "ilus": "semaforo", "icono": "🚦", "nombre": "Semáforo", "x": 37, "y": 59, "problema": false, "texto": "El semáforo nos ayuda a cruzar con seguridad." },
+            { "ilus": "arbolBanqueta", "icono": "🌳", "nombre": "Árbol en la banqueta", "x": 47, "y": 58, "efecto": "mece", "problema": false, "texto": "Los árboles refrescan la ciudad." },
+            { "ilus": "boteReciclaje", "icono": "♻️", "nombre": "Contenedor de reciclaje", "x": 64, "y": 66, "problema": false, "texto": "¡Un contenedor para reciclar!" },
+            { "ilus": "bicicleta", "icono": "🚲", "nombre": "Bicicleta", "x": 12, "y": 88, "problema": false, "texto": "La bicicleta no echa humo." },
+            { "ilus": "humoFabrica", "icono": "💨", "nombre": "Humo negro de la fábrica", "x": 86, "y": 12, "problema": true, "texto": "El humo negro contamina el aire que respiramos." },
+            { "ilus": "carroHumo", "icono": "🚗", "nombre": "Carro echando humo", "x": 40, "y": 86, "problema": true, "texto": "Un carro sin mantenimiento echa humo negro y contamina." },
+            { "ilus": "carroAlarma", "icono": "🚨", "nombre": "Carro con la alarma sonando", "x": 80, "y": 86, "problema": true, "texto": "Las alarmas y los cláxones sin necesidad hacen mucho ruido." },
+            { "ilus": "basuraSoda", "icono": "🥤", "nombre": "Basura y refresco tirados", "x": 23, "y": 71, "problema": true, "texto": "La basura en la calle tapa las alcantarillas y el refresco atrae plagas." },
+            { "ilus": "fugaBanqueta", "icono": "🚰", "nombre": "Tubo roto en la banqueta", "x": 55, "y": 66, "problema": true, "texto": "¡Una fuga enorme! Se desperdicia mucha agua. Hay que reportarla." }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "j17", "unidad": "u9", "tipo": "loteria",
+      "titulo": "Lotería ecológica",
+      "instrucciones": "Toca «Sacar carta». Si la carta está en tu tabla, márcala. ¡Llena tu tabla y grita lotería! Pueden jugar varios niños, cada uno en su dispositivo.",
+      "cartas": [
+        { "icono": "☀️", "nombre": "El Sol", "frase": "El que nos da luz y calor" },
+        { "icono": "🌵", "nombre": "El saguaro", "frase": "El gigante del desierto que guarda agua" },
+        { "icono": "💧", "nombre": "La gota", "frase": "Gota a gota se llena el vaso" },
+        { "icono": "🌳", "nombre": "El árbol", "frase": "El que da sombra en el patio" },
+        { "icono": "🐝", "nombre": "La abeja", "frase": "La que ayuda a las flores" },
+        { "icono": "🦌", "nombre": "El venado", "frase": "El que corre por el monte" },
+        { "icono": "♻️", "nombre": "El reciclaje", "frase": "Ahí va la lata y el cartón" },
+        { "icono": "🌙", "nombre": "La Luna", "frase": "La que sale de noche" },
+        { "icono": "🌧️", "nombre": "La lluvia", "frase": "La que moja la tierra seca" },
+        { "icono": "🦎", "nombre": "La cachora", "frase": "La que toma el sol en la piedra" },
+        { "icono": "🌱", "nombre": "La semilla", "frase": "La que crece con agua y luz" },
+        { "icono": "🐦", "nombre": "El pájaro", "frase": "El que canta en la mañana" }
+      ]
+    }
+  ],
+
+  "experimentos": [
+    {
+      "id": "e1", "unidad": "u1",
+      "nombre": "Gota a gota",
+      "proposito": "Descubrir cuánta agua se pierde por una pequeña fuga.",
+      "supervision": true,
+      "aviso": "Un adulto hace el agujerito en la botella con una aguja o alfiler.",
+      "materiales": ["Una botella de plástico con tapa", "Un alfiler (lo usa el adulto)", "Un vaso transparente", "Agua", "Un reloj"],
+      "procedimiento": [
+        "El adulto hace un agujerito pequeño en la parte de abajo de la botella.",
+        "Llenen la botella con agua y pónganla sobre el vaso.",
+        "Esperen 10 minutos.",
+        "Observa cuánta agua cayó en el vaso.",
+        "Usa esa agua para regar una planta. ¡No la tires!"
+      ],
+      "registro": { "tipo": "texto", "pregunta": "¿Cuánta agua cayó en el vaso? (un poquito, medio vaso, el vaso lleno)" },
+      "explicacion": "Aunque cada gota es pequeña, muchas gotas juntas llenan un vaso. Una llave que gotea todo el día desperdicia mucha agua.",
+      "reflexion": ["¿Te sorprendió cuánta agua cayó?", "¿Qué harías si ves una llave que gotea?"],
+      "relacion": "En Sonora el agua es escasa. Arreglar fugas es una forma sencilla de cuidarla."
+    },
+    {
+      "id": "e2", "unidad": "u2",
+      "nombre": "Mi frijol crece",
+      "proposito": "Observar cómo nace y crece una planta.",
+      "supervision": false,
+      "aviso": "Lávate las manos después de manipular las semillas.",
+      "materiales": ["Un vaso o frasco transparente", "Algodón o servilletas de papel", "2 o 3 frijoles", "Un poco de agua"],
+      "procedimiento": [
+        "Pon el algodón dentro del vaso.",
+        "Coloca los frijoles entre el algodón y la pared del vaso, para que se vean.",
+        "Moja el algodón con un poquito de agua, sin encharcarlo.",
+        "Deja el vaso cerca de una ventana con luz.",
+        "Cada día observa y dibuja lo que pasa, durante una semana."
+      ],
+      "registro": { "tipo": "texto", "pregunta": "¿Qué salió primero: la raíz o las hojas?" },
+      "explicacion": "La semilla guarda alimento. Con agua despierta: primero sale la raíz, que busca agua, y después el tallo y las hojas, que buscan la luz.",
+      "reflexion": ["¿Qué necesitó el frijol para crecer?", "¿Qué pasaría si no le pones agua?"],
+      "relacion": "Las plantas necesitan agua y luz, igual que las del desierto, que aprovechan muy bien la poca lluvia."
+    },
+    {
+      "id": "e3", "unidad": "u3",
+      "nombre": "Detective de árboles",
+      "proposito": "Conocer un árbol de cerca usando el tacto y la vista, sin lastimarlo.",
+      "supervision": true,
+      "aviso": "Hazlo con un adulto. No metas las manos en huecos ni debajo de piedras: en Sonora puede haber alacranes.",
+      "materiales": ["Hojas blancas", "Crayolas sin envoltura", "Una lupa (si tienes)"],
+      "procedimiento": [
+        "Elige un árbol de tu escuela o de un parque.",
+        "Pon una hoja blanca sobre el tronco y frota la crayola acostada. ¡Aparece la textura de la corteza!",
+        "Busca una hoja que ya esté en el suelo y haz lo mismo.",
+        "Observa con la lupa si hay insectos, pero no los toques.",
+        "Abraza el árbol: ¿cuántos niños se necesitan para rodearlo?"
+      ],
+      "registro": { "tipo": "texto", "pregunta": "¿Cómo se siente la corteza: lisa o rugosa?" },
+      "explicacion": "Cada árbol tiene una corteza y hojas diferentes. Muchos seres vivos usan el árbol como casa o para comer.",
+      "reflexion": ["¿Qué seres vivos encontraste en el árbol?", "¿Cómo podemos cuidar ese árbol?"],
+      "relacion": "Los árboles dan sombra y refrescan nuestras ciudades calurosas. Cuidarlos ayuda a todos."
+    },
+    {
+      "id": "e4", "unidad": "u4",
+      "nombre": "¿Qué se deshace en la tierra?",
+      "proposito": "Comparar qué residuos se deshacen y cuáles no.",
+      "supervision": true,
+      "aviso": "Usen guantes o una pala pequeña y lávense las manos al terminar.",
+      "materiales": ["Una maceta o caja con tierra", "Un pedazo de cáscara de fruta", "Un pedazo de papel", "Un pedazo de bolsa de plástico", "Palitos para marcar", "Agua"],
+      "procedimiento": [
+        "Entierren los tres residuos separados, no muy hondo.",
+        "Marquen cada lugar con un palito.",
+        "Rieguen un poquito cada tercer día.",
+        "Después de dos semanas, desentierren con cuidado.",
+        "Comparen: ¿cuál cambió más?"
+      ],
+      "registro": { "tipo": "texto", "pregunta": "¿Cuál residuo cambió más? ¿Cuál quedó igual?" },
+      "explicacion": "La cáscara es orgánica: pequeños seres vivos de la tierra la deshacen. El plástico casi no cambia y puede durar muchísimos años.",
+      "reflexion": ["¿Por qué es mejor usar menos plástico?", "¿Qué podemos hacer con las cáscaras en casa?"],
+      "relacion": "Separar los orgánicos permite convertirlos en abono, y usar menos plástico evita basura que dura muchos años."
+    },
+    {
+      "id": "e5", "unidad": "u5",
+      "nombre": "¿Sol o sombra?",
+      "proposito": "Comparar qué tanto se calienta el agua al sol y a la sombra.",
+      "supervision": true,
+      "aviso": "Un adulto revisa primero la temperatura del agua. No te quedes al sol mientras esperas.",
+      "materiales": ["Dos vasos iguales", "Agua de la llave", "Un termómetro (opcional)", "Un reloj"],
+      "procedimiento": [
+        "Llenen los dos vasos con la misma cantidad de agua.",
+        "Pongan un vaso al sol y el otro en la sombra.",
+        "Esperen 30 minutos en un lugar fresco.",
+        "Con ayuda del adulto, toquen el agua con un dedo o mídanla con el termómetro.",
+        "Anoten en qué vaso está más caliente."
+      ],
+      "registro": { "tipo": "grafica", "pregunta": "Si usaron termómetro, escribe los grados de cada vaso.", "etiquetas": ["Vaso al sol", "Vaso a la sombra"], "unidad": "°C", "textoMayor": "Más caliente" },
+      "explicacion": "El sol calienta todo lo que toca. La sombra protege del calor; por eso los árboles y los techos nos ayudan en verano.",
+      "reflexion": ["¿Qué vaso se calentó más?", "¿Dónde es mejor jugar en un día caluroso?"],
+      "relacion": "Más árboles y sombra en la escuela y la colonia nos protegen del calor de Sonora."
+    },
+    {
+      "id": "e6", "unidad": "u6",
+      "nombre": "Teléfono de vasos",
+      "proposito": "Descubrir cómo viaja el sonido por un hilo.",
+      "supervision": true,
+      "aviso": "Un adulto hace el agujero en el fondo de los vasos con una tachuela o un clavo pequeño.",
+      "materiales": ["Dos vasos de plástico o de yogur (reutilizados)", "Un hilo o estambre de 3 a 5 metros", "Una tachuela (la usa el adulto)"],
+      "procedimiento": [
+        "El adulto hace un agujero pequeño en el fondo de cada vaso.",
+        "Pasa el hilo por los agujeros y haz un nudo grueso dentro de cada vaso.",
+        "Cada niño toma un vaso y se alejan hasta que el hilo quede estirado.",
+        "Uno habla bajito dentro del vaso y el otro se lo pone en la oreja.",
+        "Prueben con el hilo flojo. ¿Se escucha igual?"
+      ],
+      "registro": { "tipo": "texto", "pregunta": "¿Se escuchó mejor con el hilo estirado o flojo?" },
+      "explicacion": "Al hablar, el vaso vibra y esa vibración viaja por el hilo hasta el otro vaso. Con el hilo estirado el sonido llega mejor.",
+      "reflexion": ["¿Necesitaste gritar para que te escucharan?", "¿Qué otros sonidos podrías enviar por el hilo?"],
+      "relacion": "Hablar sin gritar y bajar el volumen reduce el ruido y cuida nuestros oídos y a los animales."
+    },
+    {
+      "id": "e7", "unidad": "u7",
+      "nombre": "El reloj de sombra",
+      "proposito": "Observar cómo cambia la sombra cuando el Sol se mueve en el cielo.",
+      "supervision": true,
+      "aviso": "Nunca mires directamente al Sol. Sal solo unos minutos para medir y usa gorra.",
+      "materiales": ["Un palito o lápiz", "Plastilina o una piedra para que se sostenga", "Una hoja blanca", "Una regla", "Un lugar con sol donde no se mueva nada"],
+      "procedimiento": [
+        "Paren el palito en la plastilina sobre la hoja, en un lugar con sol.",
+        "A las 9 de la mañana marquen la punta de la sombra y midan su largo con la regla.",
+        "Repitan a las 11 y a la 1 de la tarde, sin mover la hoja.",
+        "Anoten las tres medidas.",
+        "Comparen: ¿cuándo fue más larga la sombra?"
+      ],
+      "registro": { "tipo": "grafica", "pregunta": "Escribe el largo de la sombra en cada hora.", "etiquetas": ["9:00", "11:00", "13:00"], "unidad": "cm", "textoMayor": "Sombra más larga" },
+      "explicacion": "En la mañana el Sol está bajo y la sombra es larga. Al mediodía el Sol está más arriba y la sombra se hace pequeña.",
+      "reflexion": ["¿Hacia dónde se movió la sombra?", "¿A qué hora conviene buscar sombra para jugar?"],
+      "relacion": "Cuando el Sol está más alto calienta más. Por eso en Sonora es mejor evitar el sol del mediodía."
+    },
+    {
+      "id": "e8", "unidad": "u8",
+      "nombre": "El mapa verde de mi escuela",
+      "proposito": "Ubicar las áreas verdes, la sombra, el agua y los botes de la escuela en un croquis.",
+      "supervision": false,
+      "aviso": "Hagan el recorrido en grupo, con su maestra o maestro.",
+      "materiales": ["Una hoja grande o cartulina", "Lápiz y colores", "Una tabla o cuaderno para apoyarse"],
+      "procedimiento": [
+        "Dibujen el contorno de la escuela: salones, patio y entrada.",
+        "Recorran la escuela juntos.",
+        "Marquen con verde los árboles y plantas.",
+        "Marquen con azul las llaves de agua y con morado los botes de basura.",
+        "Cuenten: ¿cuántos árboles hay? ¿Dónde falta sombra?"
+      ],
+      "registro": { "tipo": "texto", "pregunta": "¿Cuántos árboles encontraron? ¿Dónde hace falta sombra?" },
+      "explicacion": "Un croquis nos ayuda a ver dónde están las cosas. Así descubrimos qué lugares necesitan más plantas o más sombra.",
+      "reflexion": ["¿Qué lugar de la escuela es el más fresco?", "¿Dónde plantarías un árbol?"],
+      "relacion": "Conocer las áreas verdes es el primer paso para cuidarlas y para pedir más en la escuela y la colonia."
+    },
+    {
+      "id": "e9", "unidad": "u9",
+      "nombre": "¿Qué tan limpio está el patio?",
+      "proposito": "Contar la basura del patio para saber qué problema es más grande.",
+      "supervision": true,
+      "aviso": "Usen guantes o bolsas en las manos. No toquen vidrios rotos ni objetos filosos: avisen a un adulto. Lávense las manos al terminar.",
+      "materiales": ["Guantes o bolsas de plástico para las manos", "Tres bolsas o cajas", "Una hoja para anotar"],
+      "procedimiento": [
+        "Después del recreo, recorran una parte del patio.",
+        "Recojan la basura y sepárenla: papel, plástico y otros.",
+        "Cuenten cuántas piezas hay de cada tipo.",
+        "Anoten los números en la tabla de abajo.",
+        "Tiren cada cosa en su bote y lávense las manos."
+      ],
+      "registro": { "tipo": "grafica", "pregunta": "¿Cuántas piezas encontraron de cada tipo?", "etiquetas": ["Papel", "Plástico", "Otros"], "unidad": "piezas", "textoMayor": "Lo que más encontraron" },
+      "explicacion": "Al contar, descubrimos cuál es el problema más grande. Con esos datos podemos escribir una carta y pedir una solución.",
+      "reflexion": ["¿Qué basura encontraron más?", "¿Qué podríamos pedir o hacer para que no haya basura?"],
+      "relacion": "Un patio limpio es más sano para las personas y evita que la basura llegue a la naturaleza."
+    }
+  ],
+
+  "retos": [
+    {
+      "id": "r1", "unidad": "u1",
+      "titulo": "Guardián del agua",
+      "explicacion": "Cerrar la llave cuando no la usas ahorra mucha agua.",
+      "instrucciones": ["Durante 3 días, cierra la llave mientras te cepillas los dientes y mientras te enjabonas las manos.", "Cada día marca una casilla.", "Al final, cuenta a tu familia lo que hiciste."],
+      "dias": 3,
+      "evidencia": "¿Cómo te sentiste al cuidar el agua?"
+    },
+    {
+      "id": "r2", "unidad": "u2",
+      "titulo": "Mi vecino del desierto",
+      "explicacion": "Conocer a los seres vivos de tu comunidad es el primer paso para cuidarlos.",
+      "instrucciones": ["Con un adulto, busca una planta o un animal cerca de tu casa o escuela.", "Dibújalo en tu cuaderno.", "Escribe o dicta una característica: color, tamaño, si tiene espinas, pelo o plumas."],
+      "dias": 0,
+      "evidencia": "¿Qué ser vivo encontraste y cómo es?"
+    },
+    {
+      "id": "r3", "unidad": "u3",
+      "titulo": "Cuido una planta",
+      "explicacion": "Las plantas necesitan agua, luz y cariño.",
+      "instrucciones": ["Elige una planta de tu casa o de tu escuela.", "Durante 5 días, revisa si necesita agua y riégala con poquita.", "Marca cada día que la cuidaste."],
+      "dias": 5,
+      "evidencia": "¿Cómo está tu planta después de cuidarla?"
+    },
+    {
+      "id": "r4", "unidad": "u4",
+      "titulo": "Separamos en casa",
+      "explicacion": "Separar los residuos en casa ayuda a reciclar y a tener menos basura.",
+      "instrucciones": ["Pide a tu familia tres botes o bolsas: orgánicos, reciclables y otros.", "Durante un día, ayuda a separar la basura de la cocina.", "Cuenta cuál bote se llenó más."],
+      "dias": 0,
+      "evidencia": "¿Qué bote se llenó más? ¿Qué podrían dejar de usar?"
+    },
+    {
+      "id": "r5", "unidad": "u5",
+      "titulo": "Plan contra el calor",
+      "explicacion": "Planear antes nos protege cuando hace mucho calor.",
+      "instrucciones": ["Con tu familia, dibujen un cartel con 3 reglas para los días de calor (por ejemplo: tomar agua, buscar sombra, usar gorra).", "Péguenlo en un lugar visible de la casa.", "Recuérdenlo cada día caluroso."],
+      "dias": 0,
+      "evidencia": "¿Cuáles son las 3 reglas de tu familia?"
+    },
+    {
+      "id": "r6", "unidad": "u6",
+      "titulo": "Cuido mis oídos",
+      "explicacion": "Menos ruido es mejor para las personas y para los animales.",
+      "instrucciones": ["Durante 3 días, pide que bajen el volumen de la tele o la música cuando esté muy fuerte.", "Cada día escucha en silencio un minuto los sonidos de afuera.", "Marca cada día que lo hiciste."],
+      "dias": 3,
+      "evidencia": "¿Qué sonidos de la naturaleza escuchaste?"
+    },
+    {
+      "id": "r7", "unidad": "u7",
+      "titulo": "Diario del cielo",
+      "explicacion": "Observar el cielo todos los días nos ayuda a descubrir cómo cambia el tiempo.",
+      "instrucciones": ["Durante 5 días, mira el cielo al llegar a la escuela.", "Dibuja en tu cuaderno si había sol ☀️, nubes ☁️ o lluvia 🌧️.", "Al final, cuenta cuántos días hubo sol."],
+      "dias": 5,
+      "evidencia": "¿Cuántos días hubo sol? ¿Hubo algún día con lluvia?"
+    },
+    {
+      "id": "r8", "unidad": "u8",
+      "titulo": "Antes y ahora en mi colonia",
+      "explicacion": "Las personas mayores guardan la historia de nuestra colonia.",
+      "instrucciones": ["Pregunta a una persona mayor de tu familia o tu colonia: ¿cómo era la colonia antes? ¿Había más árboles o más monte?", "Dibuja la colonia antes y ahora.", "Comparte tu dibujo con tu grupo."],
+      "dias": 0,
+      "evidencia": "¿Qué cambió en tu colonia?"
+    },
+    {
+      "id": "r9", "unidad": "u9",
+      "titulo": "Nuestra carta verde",
+      "explicacion": "Cuando pedimos ayuda de forma clara y respetuosa, podemos mejorar nuestra escuela.",
+      "instrucciones": ["Con tu grupo, elijan un problema ambiental de la escuela.", "Escriban juntos una carta (dictándola a su maestra o maestro) con dibujos: saludo, el problema, lo que piden y despedida.", "Entréguenla a la dirección y estén atentos a la respuesta."],
+      "dias": 0,
+      "evidencia": "¿Qué problema eligieron y qué pidieron?"
+    }
+  ]
+}
