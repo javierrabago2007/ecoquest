@@ -1091,3 +1091,58 @@ body[data-ruta="actua"] { background: linear-gradient(180deg, #f1ebfc 0, #f6f8f3
   body.imprimir-codigo #guardarProgreso .acciones { display: none; }
   body.imprimir-codigo .estructura { display: block; }
 }
+/* ----- Exploradores ----- */
+.avatar-ex { display: grid; place-items: center; width: 100%; height: 100%; border-radius: inherit; overflow: hidden; }
+.avatar-ex svg { width: 82%; height: 82%; }
+.avatar .avatar-ex { border-radius: 12px; }
+.barra-explorador { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; padding: 8px 10px 8px 8px; background: #fff; border: 1px solid var(--borde-suave); border-radius: 18px; }
+.barra-explorador > .avatar-ex { width: 46px; height: 46px; border-radius: 14px; }
+.barra-explorador span { flex: 1; min-width: 160px; }
+.rejilla-exploradores { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; margin-bottom: 18px; }
+.tarjeta-explorador { position: relative; }
+.elegir-explorador { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 18px 12px; background: #fff; border: 2px solid var(--borde-suave); border-radius: 22px; color: var(--tinta); transition: transform .2s, border-color .2s; }
+.elegir-explorador:hover { transform: translateY(-3px); border-color: #a9dcb4; }
+.tarjeta-explorador.activo .elegir-explorador { border-color: var(--verde-s); box-shadow: 0 8px 20px #1f8a5022; }
+.elegir-explorador .avatar-ex { width: 96px; height: 96px; border-radius: 50%; }
+.elegir-explorador b { font: 600 20px var(--titulo); }
+.elegir-explorador small { color: var(--suave); font-size: 14px; }
+.quitar-explorador, .quitar-fila { position: absolute; top: 8px; right: 8px; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--borde-suave); background: #fff; color: var(--suave); }
+.quitar-fila { position: static; width: 30px; height: 30px; }
+.nuevo-explorador h3 { margin: 14px 0 8px; font-size: 18px; }
+.opciones-personaje { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px; }
+.opcion-personaje { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px; border-radius: 16px; border: 2px solid var(--borde-suave); background: #fff; font-weight: 500; color: var(--tinta); }
+.opcion-personaje .avatar-ex { width: 62px; height: 62px; border-radius: 50%; }
+.opcion-personaje.elegida, .opcion-color.elegida { border-color: var(--verde-s); background: var(--verde-c); }
+.opciones-color { display: flex; flex-wrap: wrap; gap: 8px; }
+.opcion-color { display: flex; align-items: center; gap: 8px; padding: 8px 14px 8px 8px; border-radius: 999px; border: 2px solid var(--borde-suave); background: #fff; color: var(--tinta); font-weight: 500; }
+.opcion-color span { width: 26px; height: 26px; border-radius: 50%; background: var(--muestra); border: 1px solid #0000001a; }
+.vista-apodo { display: flex; align-items: center; gap: 14px; margin: 16px 0 6px; padding: 12px; border-radius: 16px; background: #f6f9f4; }
+.vista-apodo .avatar-ex { width: 64px; height: 64px; border-radius: 50%; }
+.vista-apodo small { display: block; color: var(--suave); }
+.vista-apodo b { font: 700 24px var(--titulo); color: var(--bosque); }
+#enlaceExplorador { display: block; margin-top: 2px; }
+
+/* ----- Panel del grupo ----- */
+#formGrupo textarea { margin: 8px 0 4px; font: 500 16px "Courier New", monospace; }
+.resumen-grupo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0 0 14px; }
+.dato-grupo { background: #fff; border: 1px solid var(--borde-suave); border-radius: 18px; padding: 14px; text-align: center; }
+.dato-grupo b { display: block; font: 700 32px var(--titulo); color: var(--verde-s); }
+.dato-grupo span { color: var(--suave); font-size: 14px; }
+.tabla-grupo { min-width: 900px; }
+.tabla-grupo th.col-tema { text-align: center; font-size: 20px; padding: 6px; }
+.tabla-grupo td { vertical-align: middle; }
+.celda-tema { text-align: center; font-weight: 600; font-size: 14px; }
+.celda-tema.n0 { color: #b9c1b8; }
+.celda-tema.n1, .celda-tema.n2, .celda-tema.n3 { background: #fff7e0; color: #9a6a00; }
+.celda-tema.n4 { background: var(--bien); font-size: 18px; }
+.mini-barra { height: 8px; background: #edf2e9; border-radius: 8px; overflow: hidden; margin-bottom: 4px; min-width: 90px; }
+.mini-barra span { display: block; height: 100%; background: #29a66a; border-radius: 8px; }
+.fila-error td { background: var(--mal); }
+.tabla-grupo tfoot td { font-weight: 600; text-align: center; background: #f6f9f4; }
+.solo-lector { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 640px) { .resumen-grupo { grid-template-columns: 1fr; } }
+/* Arreglo: los encabezados con emoji (Mi progreso, Exploradores, Grupo…) vuelven a mostrarlo;
+   los que tienen imagen la ajustan al círculo. */
+.icono-seccion { font-size: 40px; line-height: 1; }
+.icono-seccion .icono-img { width: 100%; height: 100%; }
+@media (max-width: 640px) { .icono-seccion { font-size: 30px; } }

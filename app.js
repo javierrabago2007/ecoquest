@@ -254,20 +254,70 @@ function avisar(mensaje) {
 /* ---------- 2. Progreso en el navegador ----------
    Se guarda solo en ESTE navegador y ESTE dispositivo. No se envía a ningún
    lado. Si se borran los datos del navegador, el progreso se pierde.
-   No guardamos nombres ni datos personales. */
+   No guardamos nombres ni datos personales.
 
-const CLAVE = "ecoquest-v1";
-const estadoInicial = () => ({ perfil: "alumno", hechos: {}, puntajes: {}, registros: {}, retos: {} });
+   Varios EXPLORADORES pueden compartir un dispositivo (p. ej. la tableta del salón).
+   Cada uno tiene un apodo hecho de personaje + color («Cachora Azul») y su propio progreso.
+   «almacen» guarda todo; «estado» es el progreso del explorador activo + el perfil de vista. */
+
+const CLAVE = "ecoquest-v2";
+const CLAVE_V1 = "ecoquest-v1";   // versión anterior (un solo progreso): se migra automáticamente
+const progresoVacio = () => ({ hechos: {}, puntajes: {}, registros: {}, retos: {} });
+const estadoInicial = () => ({ perfil: "alumno", ...progresoVacio() });
 let estado = estadoInicial();
+let almacen = { perfil: "alumno", activo: null, exploradores: [], grupo: [] };
+
+/** Personajes y colores para formar apodos (sin datos personales). Colores con nombre que no cambia de género. */
+const PERSONAJES = [
+  { id: "cardenal", nombre: "Cardenal" }, { id: "pato", nombre: "Pato" }, { id: "perro", nombre: "Perrito" },
+  { id: "gato", nombre: "Gatito" }, { id: "cachora", nombre: "Cachora" }, { id: "paloma", nombre: "Paloma" }
+];
+const COLORES = [
+  { id: "verde", nombre: "Verde", fondo: "#cdeccf" }, { id: "azul", nombre: "Azul", fondo: "#cfe6f7" },
+  { id: "naranja", nombre: "Naranja", fondo: "#ffdcbd" }, { id: "rosa", nombre: "Rosa", fondo: "#fbd6e1" },
+  { id: "lila", nombre: "Lila", fondo: "#e3d8fb" }, { id: "turquesa", nombre: "Turquesa", fondo: "#c8efe9" }
+];
+const apodoDe = ex => `${(PERSONAJES.find(p => p.id === ex.personaje) || PERSONAJES[2]).nombre} ${(COLORES.find(c => c.id === ex.color) || COLORES[0]).nombre}`;
+const exploradorActivo = () => almacen.exploradores.find(x => x.id === almacen.activo) || almacen.exploradores[0];
+
+function crearExplorador(personaje, color, progreso = progresoVacio()) {
+  const ex = { id: "x" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), personaje, color, progreso };
+  almacen.exploradores.push(ex);
+  return ex;
+}
 
 function cargarEstado() {
   try {
     const guardado = JSON.parse(localStorage.getItem(CLAVE));
-    if (guardado) estado = Object.assign(estadoInicial(), guardado);
-  } catch (e) { /* si falla, se usa el estado inicial */ }
+    if (guardado && Array.isArray(guardado.exploradores)) {
+      almacen = Object.assign({ perfil: "alumno", activo: null, exploradores: [], grupo: [] }, guardado);
+    } else {
+      // Migración: el progreso de la versión anterior pasa al primer explorador.
+      const v1 = JSON.parse(localStorage.getItem(CLAVE_V1));
+      if (v1) {
+        almacen.perfil = v1.perfil || "alumno";
+        crearExplorador("perro", "verde", { hechos: v1.hechos || {}, puntajes: v1.puntajes || {}, registros: v1.registros || {}, retos: v1.retos || {} });
+      }
+    }
+  } catch (e) { /* si falla, se empieza de cero */ }
+  if (!almacen.exploradores.length) crearExplorador("perro", "verde");
+  if (!almacen.exploradores.some(x => x.id === almacen.activo)) almacen.activo = almacen.exploradores[0].id;
+  estado = { perfil: almacen.perfil, ...progresoVacio(), ...exploradorActivo().progreso };
+  guardarEstado();
 }
 function guardarEstado() {
-  try { localStorage.setItem(CLAVE, JSON.stringify(estado)); } catch (e) { /* navegador en modo privado, etc. */ }
+  const ex = exploradorActivo();
+  if (ex) ex.progreso = { hechos: estado.hechos, puntajes: estado.puntajes, registros: estado.registros, retos: estado.retos };
+  almacen.perfil = estado.perfil;
+  try { localStorage.setItem(CLAVE, JSON.stringify(almacen)); } catch (e) { /* navegador en modo privado, etc. */ }
+}
+/** Cambia al explorador indicado (guarda antes el progreso del actual). */
+function cambiarExplorador(id) {
+  guardarEstado();
+  almacen.activo = id;
+  estado = { perfil: almacen.perfil, ...progresoVacio(), ...exploradorActivo().progreso };
+  guardarEstado();
+  if (typeof pintarPerfil === "function") pintarPerfil();
 }
 /** Marca una actividad como hecha. clave = "aprende:u1", "juego:j1", "experimento:e1", "reto:r1" */
 function marcarHecho(clave) {
@@ -395,6 +445,12 @@ function pantallaInicio() {
   const sigTipo = sig.startsWith("#aprende") ? "Lección" : sig.startsWith("#juega") ? "Juego" : sig.startsWith("#experimenta") ? "Experimento" : sig.startsWith("#actua") ? "Reto" : "Progreso";
   const dato = azar(DATOS_CURIOSOS);
   app.innerHTML = `
+    ${perfil() === "alumno" ? (() => { const ex = exploradorActivo(); return `
+    <div class="barra-explorador">
+      ${avatarExplorador(ex)}
+      <span>Explorando como <b>${esc(apodoDe(ex))}</b></span>
+      <a class="boton chico secundario" href="#exploradores">${almacen.exploradores.length > 1 ? "Cambiar de explorador" : "¿Eres otro explorador?"}</a>
+    </div>`; })() : ""}
     <section class="banner con-imagen banner-perrito">
       <div class="banner-texto">
         <h1>${saludo.replace("¡Hola, explorador o exploradora!", "¡Bienvenido(a) a EcoQuest!")}</h1>
@@ -435,7 +491,7 @@ function pantallaInicio() {
       </article>
     </section>
 
-    ${perfil() === "docente" ? `<section class="panel"><h2>Para docentes</h2><p>Consulte la vinculación curricular oficial de cada unidad (contenidos y PDA textuales del Programa Sintético de la Fase 3).</p><a class="boton" href="#docente">Ver vinculación curricular →</a></section>` : ""}
+    ${perfil() === "docente" ? `<section class="panel"><h2>Para docentes</h2><p>Consulte la vinculación curricular oficial de cada unidad (contenidos y PDA textuales del Programa Sintético de la Fase 3).</p><div class="acciones"><a class="boton" href="#grupo">👩‍🏫 Ver avance del grupo →</a><a class="boton secundario" href="#docente">Ver vinculación curricular →</a></div></section>` : ""}
     ${perfil() === "familia" ? `<section class="panel"><h2>Para familias</h2><p>Ideas breves para aprender en casa y cómo se guarda el progreso.</p><a class="boton" href="#familia">Ver guía para familias →</a></section>` : ""}
 
     <section class="panel">
@@ -1744,8 +1800,8 @@ function enlaceProgreso() {
   return location.origin + location.pathname + "#cargar/" + codigoProgreso();   // sin ?…, siempre la dirección principal
 }
 
-/** Lee un código y SUMA sus actividades al progreso de este dispositivo. */
-function aplicarCodigo(texto, soloRevisar = false) {
+/** Lee un código y devuelve las actividades que contiene: { ok, hechos: {"aprende:u1": true, ...} } */
+function leerCodigo(texto) {
   const limpio = String(texto).toUpperCase().replace(/[^0-9A-Z]/g, "").replace(/O/g, "0").replace(/[IL]/g, "1");
   if (!limpio.startsWith("EQ1") || limpio.length < 5) return { ok: false, mensaje: "Ese código no es de EcoQuest. Revisa que empiece con EQ1." };
   const cuerpo = limpio.slice(3, -1), control = limpio.slice(-1);
@@ -1753,9 +1809,31 @@ function aplicarCodigo(texto, soloRevisar = false) {
     return { ok: false, mensaje: "El código tiene un error. Revisa letra por letra y vuelve a intentarlo." };
   }
   const bits = [...cuerpo].flatMap(c => { const v = ALFABETO_32.indexOf(c); return [16, 8, 4, 2, 1].map(p => (v & p) ? 1 : 0); });
-  const lista = actividadesCodigo();
-  const nuevas = lista.filter((c, i) => bits[i] && !estado.hechos[c]);
-  const enCodigo = lista.filter((c, i) => bits[i]).length;
+  const hechos = {};
+  actividadesCodigo().forEach((c, i) => { if (bits[i]) hechos[c] = true; });
+  return { ok: true, hechos };
+}
+
+/** ¿Está completa esta actividad dentro de un conjunto de hechos? (igual que hecho(), pero para cualquier explorador o código) */
+function completoEn(h, clave) {
+  if (clave.startsWith("juegos:")) return juegosDe(clave.slice(7)).some(j => h[`juego:${j.id}`]);
+  return !!h[clave];
+}
+/** Avance de un conjunto de hechos: actividades, insignias y cuántas de 4 tiene cada tema. */
+function avanceDe(h) {
+  const porTema = datos.unidades.map(u => actividadesDe(u).filter(c => completoEn(h, c)).length);
+  const total = datos.unidades.length * 4;
+  const hechas = porTema.reduce((a, b) => a + b, 0);
+  return { hechas, total, pct: Math.round(hechas / total * 100), insignias: porTema.filter(n => n === 4).length, porTema };
+}
+
+/** Lee un código y SUMA sus actividades al progreso del explorador activo. */
+function aplicarCodigo(texto, soloRevisar = false) {
+  const leido = leerCodigo(texto);
+  if (!leido.ok) return leido;
+  const lista = Object.keys(leido.hechos);
+  const nuevas = lista.filter(c => !estado.hechos[c]);
+  const enCodigo = lista.length;
   if (soloRevisar) return { ok: true, enCodigo, nuevas: nuevas.length };
   nuevas.forEach(c => { estado.hechos[c] = true; });
   guardarEstado();
@@ -1790,6 +1868,7 @@ function pantallaCargar(codigo) {
       <h1>¿Cargar este progreso?</h1>
       <p>El código <b>${esc(codigo)}</b> tiene <b>${revision.enCodigo}</b> actividad(es) completadas.
         ${revision.nuevas ? `Se agregarán <b>${revision.nuevas}</b> que aún no tienes en este dispositivo.` : "Ya tienes todas en este dispositivo."}</p>
+      <p>Se cargará en el explorador <b>${esc(apodoDe(exploradorActivo()))}</b>. ¿No eres tú? <a href="#exploradores">Elige o crea tu explorador</a> y vuelve a escanear el código.</p>
       <p class="pequeno">No se borra nada de lo que ya tengas aquí.</p>
       <div class="acciones" style="justify-content:center">
         <button class="boton" id="confirmarCarga">Sí, cargar mi progreso</button>
@@ -1803,13 +1882,177 @@ function pantallaCargar(codigo) {
   });
 }
 
+/* ----- Exploradores (varios niños en un mismo dispositivo) ----- */
+
+/** Avatar de un explorador: su personaje ilustrado sobre un círculo de su color. */
+function avatarExplorador(ex) {
+  const il = typeof ILUS === "object" ? ILUS[ex.personaje] : null;
+  const fondo = (COLORES.find(c => c.id === ex.color) || COLORES[0]).fondo;
+  return `<span class="avatar-ex" style="background:${fondo}">${il ? `<svg viewBox="${il.vb}" aria-hidden="true">${il.svg}</svg>` : ""}</span>`;
+}
+
+function pantallaExploradores() {
+  let personaje = PERSONAJES[0].id, color = COLORES[0].id;
+  const existe = (p, c) => almacen.exploradores.some(x => x.personaje === p && x.color === c);
+  app.innerHTML = `
+    ${encabezadoSeccion("🧭", "¿Quién está explorando?", "Elige tu personaje. Cada explorador guarda su propio progreso en este dispositivo.")}
+    <div class="rejilla-exploradores">
+      ${almacen.exploradores.map(ex => {
+        const a = avanceDe(ex.id === almacen.activo ? estado.hechos : ex.progreso.hechos);
+        return `<div class="tarjeta-explorador ${ex.id === almacen.activo ? "activo" : ""}">
+          <button class="elegir-explorador" data-id="${ex.id}" aria-label="Explorar como ${esc(apodoDe(ex))}">
+            ${avatarExplorador(ex)}
+            <b>${esc(apodoDe(ex))}</b>
+            <small>${a.hechas} de ${a.total} actividades · ${a.insignias} insignia(s)</small>
+            ${ex.id === almacen.activo ? `<span class="hecho-chip">Explorando ahora</span>` : ""}
+          </button>
+          ${almacen.exploradores.length > 1 ? `<button class="quitar-explorador" data-id="${ex.id}" aria-label="Quitar a ${esc(apodoDe(ex))}">✕</button>` : ""}
+        </div>`;
+      }).join("")}
+    </div>
+
+    <section class="panel nuevo-explorador">
+      <h2>➕ Nuevo explorador</h2>
+      <p>Elige un personaje y un color. Así formas tu apodo; no hace falta escribir tu nombre.</p>
+      <h3>Personaje</h3>
+      <div class="opciones-personaje">${PERSONAJES.map((p, k) => `<button class="opcion-personaje ${k === 0 ? "elegida" : ""}" data-p="${p.id}">${avatarExplorador({ personaje: p.id, color: "verde" })}<span>${p.nombre}</span></button>`).join("")}</div>
+      <h3>Color</h3>
+      <div class="opciones-color">${COLORES.map((c, k) => `<button class="opcion-color ${k === 0 ? "elegida" : ""}" data-c="${c.id}" style="--muestra:${c.fondo}"><span></span>${c.nombre}</button>`).join("")}</div>
+      <div class="vista-apodo"><span id="vistaAvatar"></span><div><small>Tu apodo será</small><b id="vistaApodo"></b></div></div>
+      <p class="retro" id="retroExplorador" aria-live="polite"></p>
+      <button class="boton" id="crearExplorador">Crear y empezar a explorar →</button>
+    </section>`;
+
+  const vista = () => {
+    const ex = { personaje, color };
+    document.getElementById("vistaAvatar").innerHTML = avatarExplorador(ex);
+    document.getElementById("vistaApodo").textContent = apodoDe(ex);
+    const retro = document.getElementById("retroExplorador");
+    if (existe(personaje, color)) { retro.className = "retro mal"; retro.textContent = "Ya hay un explorador con ese apodo en este dispositivo. Elige otro personaje o color."; }
+    else { retro.className = "retro"; retro.textContent = ""; }
+  };
+  vista();
+  app.querySelectorAll(".opcion-personaje").forEach(b => b.addEventListener("click", () => {
+    personaje = b.dataset.p; app.querySelectorAll(".opcion-personaje").forEach(x => x.classList.toggle("elegida", x === b)); vista();
+  }));
+  app.querySelectorAll(".opcion-color").forEach(b => b.addEventListener("click", () => {
+    color = b.dataset.c; app.querySelectorAll(".opcion-color").forEach(x => x.classList.toggle("elegida", x === b)); vista();
+  }));
+  document.getElementById("crearExplorador").addEventListener("click", () => {
+    if (existe(personaje, color)) return vista();
+    const ex = crearExplorador(personaje, color);
+    cambiarExplorador(ex.id);
+    avisar(`¡Hola, ${apodoDe(ex)}! Empieza tu aventura.`);
+    location.hash = "inicio";
+  });
+  app.querySelectorAll(".elegir-explorador").forEach(b => b.addEventListener("click", () => {
+    cambiarExplorador(b.dataset.id);
+    avisar(`Explorando como ${apodoDe(exploradorActivo())}`);
+    location.hash = "inicio";
+  }));
+  app.querySelectorAll(".quitar-explorador").forEach(b => b.addEventListener("click", () => {
+    const ex = almacen.exploradores.find(x => x.id === b.dataset.id);
+    if (!confirm(`¿Quitar a «${apodoDe(ex)}» y borrar su progreso en este dispositivo? Si quieres conservarlo, primero guarda su código de progreso.`)) return;
+    guardarEstado();
+    almacen.exploradores = almacen.exploradores.filter(x => x.id !== ex.id);
+    if (almacen.activo === ex.id) { almacen.activo = almacen.exploradores[0].id; }
+    estado = { perfil: almacen.perfil, ...progresoVacio(), ...exploradorActivo().progreso };
+    guardarEstado(); pintarPerfil(); pantallaExploradores();
+  }));
+}
+
+/* ----- Panel del grupo (perfil Docente) -----
+   La maestra pega los códigos de progreso de su grupo y ve el avance de cada niño.
+   La lista se guarda SOLO en este dispositivo. Se recomienda usar número de lista o apodo. */
+
+function pantallaGrupo() {
+  const filas = (almacen.grupo || []).map(f => ({ ...f, leido: leerCodigo(f.codigo) }));
+  const validas = filas.filter(f => f.leido.ok).map(f => ({ ...f, a: avanceDe(f.leido.hechos) }));
+  const promedio = validas.length ? Math.round(validas.reduce((s, f) => s + f.a.pct, 0) / validas.length) : 0;
+  const temaCompletos = datos.unidades.map((u, k) => validas.filter(f => f.a.porTema[k] === 4).length);
+  app.innerHTML = `
+    ${encabezadoSeccion("👩‍🏫", "Avance del grupo", "Pegue los códigos de progreso de sus alumnos para ver su avance tema por tema.")}
+    <section class="panel">
+      <form id="formGrupo">
+        <label for="codigosGrupo"><b>Códigos del grupo</b> <span class="pequeno">(uno por renglón; puede anteponer número de lista o apodo y dos puntos)</span></label>
+        <textarea id="codigosGrupo" rows="5" spellcheck="false" placeholder="1: EQ1-J10-008-0G0-B&#10;2: EQ1-804-000-040-X&#10;Cachora Azul: EQ1-..."></textarea>
+        <div class="acciones">
+          <button class="boton" type="submit">Agregar al grupo</button>
+          ${filas.length ? `<button class="boton secundario" type="button" id="imprimirGrupo">🖨️ Imprimir tabla</button><button class="boton secundario" type="button" id="vaciarGrupo">Vaciar lista</button>` : ""}
+        </div>
+      </form>
+      <p class="retro" id="retroGrupo" aria-live="polite"></p>
+      <p class="pequeno">🔒 La lista se guarda solo en esta computadora; no se envía a ningún lado. Para proteger la privacidad, use el número de lista o el apodo en lugar del nombre completo.</p>
+    </section>
+
+    ${filas.length ? `
+    <section class="resumen-grupo">
+      <div class="dato-grupo"><b>${validas.length}</b><span>alumnos</span></div>
+      <div class="dato-grupo"><b>${promedio}%</b><span>avance promedio</span></div>
+      <div class="dato-grupo"><b>${validas.reduce((s, f) => s + f.a.insignias, 0)}</b><span>insignias en total</span></div>
+    </section>
+    <div class="tabla-envoltura">
+      <table class="tabla tabla-grupo">
+        <thead><tr><th>Alumno</th><th>Avance</th>${datos.unidades.map(u => `<th class="col-tema" title="${esc(u.titulo)}"><span aria-hidden="true">${u.icono}</span><span class="solo-lector">${esc(u.titulo)}</span></th>`).join("")}<th>Insignias</th><th></th></tr></thead>
+        <tbody>
+          ${filas.map((f, i) => {
+            if (!f.leido.ok) return `<tr class="fila-error"><td>${esc(f.etiqueta)}</td><td colspan="${datos.unidades.length + 2}">⚠️ Código con error: ${esc(f.codigo)}</td><td><button class="quitar-fila" data-i="${i}" aria-label="Quitar">✕</button></td></tr>`;
+            const a = avanceDe(f.leido.hechos);
+            return `<tr>
+              <td><b>${esc(f.etiqueta)}</b></td>
+              <td><div class="mini-barra"><span style="width:${a.pct}%"></span></div><small>${a.hechas}/${a.total} · ${a.pct}%</small></td>
+              ${a.porTema.map(n => `<td class="celda-tema n${n}" title="${n} de 4">${n === 4 ? "🏅" : n ? `${n}/4` : "·"}</td>`).join("")}
+              <td>${a.insignias}</td>
+              <td><button class="quitar-fila" data-i="${i}" aria-label="Quitar a ${esc(f.etiqueta)}">✕</button></td>
+            </tr>`;
+          }).join("")}
+        </tbody>
+        <tfoot><tr><td><b>Temas completos</b></td><td></td>${temaCompletos.map(n => `<td>${n}</td>`).join("")}<td></td><td></td></tr></tfoot>
+      </table>
+    </div>
+    <p class="pequeno">🏅 = tema completo (4 de 4 actividades: Aprende, Juega, Experimenta y Actúa). n/4 = actividades hechas del tema.</p>` : `
+    <section class="panel en-construccion">${mascota("Aún no hay códigos. Pida a cada alumno su código de «Mi progreso».", 110)}</section>`}`;
+
+  document.getElementById("formGrupo").addEventListener("submit", ev => {
+    ev.preventDefault();
+    const lineas = document.getElementById("codigosGrupo").value.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+    let agregados = 0, errores = 0;
+    almacen.grupo = almacen.grupo || [];
+    lineas.forEach(l => {
+      const m = l.match(/^(.*?)[:\t]\s*(EQ1.*)$/i);
+      // Sin etiqueta: «Alumno N» según su lugar en la lista (sin repetir una existente)
+      let n = almacen.grupo.length + 1;
+      while (almacen.grupo.some(f => f.etiqueta === `Alumno ${n}`)) n++;
+      const etiqueta = m && m[1].trim() ? m[1].trim().slice(0, 40) : `Alumno ${n}`;
+      const codigo = (m ? m[2] : l).trim();
+      if (!leerCodigo(codigo).ok) errores++;
+      const existente = almacen.grupo.find(f => f.etiqueta === etiqueta);
+      if (existente) existente.codigo = codigo; else almacen.grupo.push({ etiqueta, codigo });
+      agregados++;
+    });
+    guardarEstado();
+    pantallaGrupo();
+    const retro = document.getElementById("retroGrupo");
+    retro.className = "retro " + (errores ? "mal" : "bien");
+    retro.textContent = `${agregados} código(s) procesados${errores ? `; ${errores} con error (revíselos en la tabla)` : ""}. Si una etiqueta ya existía, se actualizó su código.`;
+  });
+  app.querySelectorAll(".quitar-fila").forEach(b => b.addEventListener("click", () => {
+    almacen.grupo.splice(Number(b.dataset.i), 1); guardarEstado(); pantallaGrupo();
+  }));
+  document.getElementById("vaciarGrupo")?.addEventListener("click", () => {
+    if (!confirm("¿Vaciar la lista del grupo en esta computadora?")) return;
+    almacen.grupo = []; guardarEstado(); pantallaGrupo();
+  });
+  document.getElementById("imprimirGrupo")?.addEventListener("click", () => window.print());
+}
+
 /* ----- Progreso e insignias ----- */
 
 function pantallaProgreso() {
   const total = contarProgreso();
   const ganadas = insigniasGanadas().map(i => i.id);
   app.innerHTML = `
-    ${encabezadoSeccion("⭐", "Mi progreso", "Completa las 4 actividades de un tema para ganar su insignia.")}
+    ${encabezadoSeccion("⭐", "Mi progreso", `Progreso de ${esc(apodoDe(exploradorActivo()))}. Completa las 4 actividades de un tema para ganar su insignia.`)}
     <section class="panel">${barraProgreso(total)}<p>${total.hechas} de ${total.total} actividades completadas.</p></section>
     <div class="insignias">
       ${datos.unidades.map(u => {
@@ -1897,6 +2140,7 @@ function pantallaDocente() {
     <section class="panel">
       <p>${ETQ_OFICIAL} Los contenidos y Procesos de Desarrollo de Aprendizaje (PDA) se transcriben textualmente de: <i>${esc(datos.fuenteOficial)}</i></p>
       <p>${ETQ_PROPUESTA} Las explicaciones, juegos, experimentos, retos y la relación con los libros de texto son propuesta de EcoQuest.</p>
+      <a class="boton" href="#grupo">👩‍🏫 Ver avance del grupo con los códigos de progreso →</a>
     </section>
     <div class="tabla-envoltura">
       <table class="tabla">
@@ -1986,6 +2230,8 @@ function enrutar() {
     acerca: pantallaAcerca,
     buscar: () => pantallaBuscar(decodeURIComponent(id || "")),
     cargar: () => pantallaCargar(decodeURIComponent(id || "")),
+    exploradores: pantallaExploradores,
+    grupo: pantallaGrupo,
     grado: () => pantallaGrado(id)
   };
   (pantallas[ruta] || pantallaNoEncontrada)();
@@ -2038,10 +2284,17 @@ const TEXTO_PERFIL = {
 function pintarPerfil() {
   const p = estado.perfil;
   document.body.dataset.perfil = p;
-  document.getElementById("avatarCabeza").innerHTML = avatarSVG(p);
-  document.getElementById("avatarLateral").innerHTML = avatarSVG(p);
-  document.getElementById("saludoCabeza").textContent = TEXTO_PERFIL[p].saludo;
-  document.getElementById("nombrePerfil").textContent = TEXTO_PERFIL[p].nombre;
+  // Alumno: se muestra el explorador activo (personaje + apodo). Docente y Familia: avatar genérico.
+  const ex = exploradorActivo();
+  const esAlumno = p === "alumno" && ex;
+  document.getElementById("avatarCabeza").innerHTML = esAlumno ? avatarExplorador(ex) : avatarSVG(p);
+  document.getElementById("avatarLateral").innerHTML = esAlumno ? avatarExplorador(ex) : avatarSVG(p);
+  document.getElementById("saludoCabeza").textContent = esAlumno ? `¡Hola, ${apodoDe(ex)}!` : TEXTO_PERFIL[p].saludo;
+  document.getElementById("nombrePerfil").textContent = esAlumno ? apodoDe(ex) : TEXTO_PERFIL[p].nombre;
+  const enlace = document.getElementById("enlaceExplorador");
+  if (enlace) enlace.hidden = !esAlumno;
+  const pastilla = document.querySelector(".pastilla-perfil");
+  if (pastilla) pastilla.setAttribute("href", esAlumno ? "#exploradores" : "#progreso");
   document.querySelectorAll(".cambiar-perfil button").forEach(b => {
     b.classList.toggle("activo", b.dataset.perfil === p);
     b.setAttribute("aria-pressed", String(b.dataset.perfil === p));
