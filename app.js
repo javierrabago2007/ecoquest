@@ -1741,7 +1741,7 @@ function codigoProgreso() {
 
 /** Dirección web que abre EcoQuest y carga este progreso (se usa en el QR). */
 function enlaceProgreso() {
-  return location.href.split("#")[0] + "#cargar/" + codigoProgreso();
+  return location.origin + location.pathname + "#cargar/" + codigoProgreso();   // sin ?…, siempre la dirección principal
 }
 
 /** Lee un código y SUMA sus actividades al progreso de este dispositivo. */
