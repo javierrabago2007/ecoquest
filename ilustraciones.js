@@ -305,3 +305,56 @@ const ILUS = {
     <path d="M200 40 L226 46 L222 72 L196 66Z" fill="#f2c230"/><path d="M204 48 L220 52" stroke="#d63b3b" stroke-width="4"/>
     ${mosca(150, 40)}` }
 };
+
+
+/* ==========================================================================
+   Íconos de MATERIALES (Experimenta). Estilo de «Materiales para EcoQuest»:
+   contorno de color, relleno claro y brillos. Cada material del .json se
+   relaciona con su ícono por palabras (REGLAS_MATERIAL, gana la primera).
+   ========================================================================== */
+const trazo = (color, dentro, g = 2) => `<g fill="none" stroke="${color}" stroke-width="${g}" stroke-linecap="round" stroke-linejoin="round">${dentro}</g>`;
+const VASO = (f, b) => trazo(b, `<path d="M11 10h26l-4 31q-9 3-18 0z" fill="${f}"/><ellipse cx="24" cy="10" rx="13.5" ry="3.6" fill="#f4fcff"/><path d="M16.5 17l2 18" stroke="#fff" stroke-width="3"/>`);
+const ICONOS_MATERIAL = {
+  botella: trazo("#17658f", `<g transform="rotate(22 24 24)"><path d="M20 11h8v4q5 3 5 8l-1 5 1 5v8q-9 4-18 0v-8l1-5-1-5q0-5 5-8z" fill="#bfe8f7"/><path d="M16 28h16M15 34h18" stroke="#6bbfdf"/><path d="M19 20q-1 2-1 6" stroke="#fff" stroke-width="3"/><rect x="19" y="4" width="10" height="7" rx="2" fill="#2d74b8" stroke="#174a7c"/></g>`),
+  alfiler: trazo("#5d6b78", `<path d="M30 18 10 40" stroke="#8494a3" stroke-width="3"/><path d="M30 18 10 40" stroke="#dfe7ee" stroke-width="1"/><circle cx="34" cy="14" r="8" fill="#ee5a52" stroke="#a42a27"/><path d="M30 11q2-3 5-2" stroke="#fff"/>`),
+  tachuela: trazo("#a42a27", `<path d="M24 31v12" stroke="#75838f" stroke-width="3"/><path d="M17 7h14l-2 5v9l6 6v4H13v-4l6-6v-9z" fill="#ee5a52"/><path d="M21 12v9" stroke="#fff"/>`),
+  vaso: VASO("#c9ecf8", "#17658f"),
+  dosVasos: `<g transform="translate(-4 8) scale(.72)">${VASO("#c9ecf8", "#17658f")}</g><g transform="translate(18 8) scale(.72)">${VASO("#dff2fb", "#17658f")}</g>`,
+  vasosYogur: `<g transform="translate(-4 8) scale(.72)">${VASO("#ffd9e2", "#b24a68")}</g><g transform="translate(18 8) scale(.72)">${VASO("#fff0c2", "#b17a16")}</g>`,
+  agua: trazo("#17658f", `<path d="M24 5Q10 22 10 30a14 14 0 0 0 28 0Q38 22 24 5z" fill="#6cc9ea"/><path d="M17 26q-2 4 1 9" stroke="#fff" stroke-width="3"/>`),
+  llave: trazo("#1c3f63", `<path d="M6 21h14v-4h8v4q11 0 11 12h-9q0-4-5-4H15v5H6z" fill="#b9c6d4"/><path d="M15 12q9-5 18 0" stroke-width="5"/><path d="M24 12v5"/><path d="M34.500 36q-3 4-3 6a3 3 0 0 0 6 0q0-2-3-6z" fill="#35b6ee" stroke="#1a5fc0"/>`),
+  reloj: trazo("#3f7d2c", `<circle cx="24" cy="24" r="18" fill="#fbfff6" stroke-width="3"/><path d="M24 10v2M24 36v2M10 24h2M36 24h2M24 24V15M24 24l8-4" stroke-width="2.600"/><circle cx="24" cy="24" r="1.500" fill="#3f7d2c"/>`),
+  algodon: trazo("#8aa5b8", `<path d="M13 37q-8-1-7-9 1-6 7-6 0-9 9-11 8-1 12 6 8 0 9 8 0 6-5 8-1 6-9 5-8 4-16-1z" fill="#fbfdff"/><path d="M16 28q3-4 7-2M27 22q4-2 6 2M22 34q4 1 7-2" stroke="#bfd0dc"/>`),
+  frijoles: trazo("#5f2c1c", `<path d="M9 17q6-8 13-3 5 5 0 10-4 3-5-1-7 3-9-1-1-3 1-5z" fill="#a5563a"/><path d="M26 25q7-7 14-1 4 6-1 10-5 3-6-2-7 2-8-2-1-3 1-5z" fill="#8c422a"/><path d="M11 33q4-5 9-1 3 4 0 7-4 2-5-1-4 1-5-1-1-2 1-4z" fill="#b8694a"/><path d="M12 17q3-3 6-1M30 25q3-2 6 1" stroke="#f0b99e"/>`),
+  hojas: trazo("#6a7f92", `<path d="M15 5h20v32H15z" fill="#e8eff5"/><path d="M10 10h21l5 5v28H10z" fill="#fff"/><path d="M31 10v5h5" fill="#dbe6ee"/><path d="M15 22h16M15 28h16M15 34h11" stroke="#bccbd7"/>`),
+  cartulina: trazo("#b17a16", `<path d="M7 9h34v30H7z" fill="#fff0c2"/><path d="M41 31l-8 8h8z" fill="#f0c862"/><path d="M13 31l8-10 6 7 4-4 5 5" stroke="#5c9c3d"/><circle cx="31" cy="17" r="3" fill="#ffd24a"/>`),
+  crayolas: `<g transform="rotate(-18 24 24)">${[["#ee5a52", "#a42a27", 8], ["#ffc93d", "#b17a16", 20], ["#4aa7e0", "#1c5f94", 32]].map(([f, b, x]) => trazo(b, `<path d="M${x + 1} 16 ${x + 4} 7l3 9v25h-6z" fill="${f}"/><path d="M${x + 1} 21h6M${x + 1} 35h6"/>`)).join("")}</g>`,
+  lupa: trazo("#17507c", `<path d="M30 30l11 11" stroke="#8a5a30" stroke-width="6"/><circle cx="20" cy="20" r="14" fill="#d8f1fb" stroke-width="3.500"/><path d="M12 19q1-6 7-8" stroke="#fff" stroke-width="3"/>`),
+  maceta: trazo("#8a3f1d", `<path d="M11 20h26l-4 22H15z" fill="#e2824b"/><path d="M9 15h30v7H9z" fill="#f09a62"/><path d="M13 15q11-9 22 0z" fill="#6b4328" stroke="#472a17"/>`),
+  cascara: trazo("#9a7a10", `<path d="M24 6q-3 3-2 8Q10 20 7 38q8-3 12-12-1 9 4 16 6-7 5-16 4 8 13 10Q37 20 27 14q0-5-3-8z" fill="#ffdc4a"/><path d="M22 15q-8 6-11 17M26 15q7 5 10 14" stroke="#d6ab1f"/>`),
+  papel: trazo("#6a7f92", `<path d="M8 12l8-4 5 4 6-5 5 4 8-1-1 28-7 3-6-3-5 4-6-3-7 2z" fill="#fbfdff"/><path d="M14 19l9 2M18 28l12-2M17 34l7 1" stroke="#bccbd7"/>`),
+  bolsa: trazo("#557a3a", `<path d="M10 16h28l3 27H7z" fill="#d8f0c6"/><path d="M17 20V12q0-7 7-7t7 7v8" /><path d="M14 22l-2 15" stroke="#fff" stroke-width="3"/>`),
+  bolsas: trazo("#39434c", `<path d="M24 13q4 1 5 4 12 8 10 22-15 6-30 0-2-14 10-22 1-3 5-4z" fill="#6c7884"/><path d="M24 13l-6-6M24 13l6-6M18 17h12"/><path d="M15 27q-2 4-1 8" stroke="#b3bec8" stroke-width="3"/>`),
+  palitos: `<g transform="rotate(14 24 24)">${[8, 20, 32].map((x, k) => trazo("#8a5a30", `<rect x="${x}" y="${6 + k * 2}" width="8" height="34" rx="4" fill="#f1cf9b"/><path d="M${x + 3} ${14 + k * 2}v16" stroke="#d3a767"/>`)).join("")}</g>`,
+  termometro: trazo("#2a5b86", `<path d="M19 27V10a5 5 0 0 1 10 0v17a9 9 0 1 1-10 0z" fill="#f7fcff"/><circle cx="24" cy="34" r="5" fill="#ee5a52" stroke="#a42a27"/><path d="M24 31V16" stroke="#ee5a52" stroke-width="4"/><path d="M33 12h4M33 18h4M33 24h4"/>`),
+  hilo: trazo("#8a5a1b", `<path d="M33 32q3 7 10 5" stroke-width="3"/><rect x="8" y="14" width="28" height="24" rx="11" fill="#f2bd62"/><ellipse cx="22" cy="15" rx="10" ry="4.500" fill="#b8792c"/><path d="M9 24q12 8 26 1M9 31q13 7 26 0M13 18q4 12 14 19" stroke="#c98c38"/>`),
+  lapiz: trazo("#8a5a1b", `<g transform="rotate(40 24 24)"><path d="M19 10h10v25l-5 8-5-8z" fill="#ffc93d"/><path d="M19 35h10l-5 8z" fill="#f5dcb4"/><path d="M22.500 40.500 24 43l1.500-2.500z" fill="#333"/><rect x="19" y="4" width="10" height="7" rx="2" fill="#f28a9a" stroke="#a84a5c"/><path d="M24 12v22" stroke="#e0a21d"/></g>`),
+  plastilina: trazo("#2c7c44", `<path d="M7 34q-2-9 7-11 0-10 10-10t11 10q8 2 6 11-2 6-17 6T7 34z" fill="#7fd08d"/><path d="M15 25q2-6 8-7" stroke="#d8f6dc" stroke-width="3"/>`),
+  regla: trazo("#b17a16", `<g transform="rotate(-28 24 24)"><rect x="3" y="17" width="42" height="14" rx="2" fill="#ffe08a"/><path d="M9 17v6M15 17v4M21 17v6M27 17v4M33 17v6M39 17v4"/></g>`),
+  sol: trazo("#d28b10", `<circle cx="24" cy="24" r="10" fill="#ffd84d"/><path d="M24 4v5M24 39v5M4 24h5M39 24h5M10 10l3 3M35 35l3 3M38 10l-3 3M10 38l3-3" stroke-width="3"/><path d="M18 22q1-4 5-4" stroke="#fff6cf"/>`),
+  cuaderno: trazo("#24518c", `<rect x="11" y="6" width="28" height="36" rx="3" fill="#5d9fe0"/><rect x="18" y="13" width="15" height="9" rx="2" fill="#fff"/><path d="M8 13h6M8 20h6M8 27h6M8 34h6" stroke="#7c8b99" stroke-width="3"/>`),
+  guantes: trazo("#b17a16", `<path d="M14 43V31L8 24q-2-4 2-4l5 4V11q0-3 2.500-3T20 11V8q0-3 2.500-3T25 8v3q0-3 2.500-3T30 11v5q0-3 2.500-3t2.500 3v15l-3 5v7z" fill="#ffe08a"/><path d="M14 37h18M20 11v10M25 11v10M30 16v6" stroke="#d6a32f"/>`),
+  caja: trazo("#8a5a30", `<path d="M6 17l18-8 18 8v20l-18 7-18-7z" fill="#e6bd87"/><path d="M6 17l18 8 18-8M24 25v19" /><path d="M15 13l18 8v6" stroke="#b98a52"/>`)
+};
+const REGLAS_MATERIAL = [
+  [/botella/, "botella"], [/alfiler/, "alfiler"], [/tachuela/, "tachuela"], [/vasos?.*(yogur|pl[aá]stico)/, "vasosYogur"], [/dos vasos/, "dosVasos"], [/vaso|frasco/, "vaso"],
+  [/agua de la llave/, "llave"], [/agua/, "agua"], [/reloj/, "reloj"], [/algod[oó]n|servilleta/, "algodon"], [/frijol/, "frijoles"], [/crayola/, "crayolas"], [/lupa/, "lupa"],
+  [/maceta|tierra/, "maceta"], [/c[aá]scara/, "cascara"], [/guantes/, "guantes"], [/(tres )?bolsas o cajas|caja/, "caja"], [/bolsa de pl[aá]stico/, "bolsa"], [/bolsa/, "bolsas"],
+  [/cuaderno|tabla/, "cuaderno"], [/cartulina|hoja grande/, "cartulina"], [/hoja/, "hojas"], [/papel/, "papel"], [/palito o l[aá]piz|l[aá]piz/, "lapiz"], [/palito/, "palitos"], [/term[oó]metro/, "termometro"],
+  [/hilo|estambre/, "hilo"], [/plastilina|piedra/, "plastilina"], [/regla/, "regla"], [/\bsol\b/, "sol"]
+];
+function iconoMaterial(texto) {
+  const t = String(texto).toLowerCase();
+  const r = REGLAS_MATERIAL.find(([re]) => re.test(t));
+  return `<svg viewBox="0 0 48 48" aria-hidden="true">${ICONOS_MATERIAL[r ? r[1] : "caja"]}</svg>`;
+}

@@ -1,4 +1,5 @@
 {
+  "ordenCodigo": ["aprende:u1", "aprende:u2", "aprende:u3", "aprende:u4", "aprende:u5", "aprende:u6", "aprende:u7", "aprende:u8", "aprende:u9", "juego:j1", "juego:j2", "juego:j3", "juego:j4", "juego:j5", "juego:j6", "juego:j7", "juego:j8", "juego:j9", "juego:j10", "juego:j11", "juego:j12", "juego:j13", "juego:j14", "juego:j15", "juego:j16", "juego:j17", "experimento:e1", "experimento:e2", "experimento:e3", "experimento:e4", "experimento:e5", "experimento:e6", "experimento:e7", "experimento:e8", "experimento:e9", "reto:r1", "reto:r2", "reto:r3", "reto:r4", "reto:r5", "reto:r6", "reto:r7", "reto:r8", "reto:r9"],
   "_nota": "Contenido de 1.º grado. Los textos de 'curriculo' (contenido y pda) están copiados textualmente del Programa Sintético de la Fase 3 (SEP, 2024). Todo lo demás es Propuesta didáctica EcoQuest. Para agregar o cambiar contenido, edita este archivo; no hace falta tocar el código.",
   "grado": 1,
   "nombreGrado": "1.º grado",
@@ -821,60 +822,52 @@
       "titulo": "Detective ambiental",
       "instrucciones": "Investiga el parque, la colonia y la ciudad. Busca las cosas que dañan el ambiente y tócalas. Si te atoras, pide una pista.",
       "escenas": [
-        {
-          "titulo": "El parque",
-          "icono": "🌳",
-          "fondo": "parque",
-          "elementos": [
-            { "ilus": "cardenal", "icono": "🐦", "nombre": "Cardenal", "x": 24, "y": 22, "efecto": "vuela", "problema": false, "texto": "El cardenal es un pájaro rojo que vive en el desierto de Sonora." },
-            { "ilus": "banca", "icono": "🪑", "nombre": "Banca", "x": 31, "y": 63, "problema": false, "texto": "La banca sirve para descansar a la sombra." },
-            { "ilus": "boteReciclaje", "icono": "♻️", "nombre": "Bote de reciclaje", "x": 41, "y": 58, "problema": false, "texto": "¡Qué bien, un bote para reciclar!" },
-            { "ilus": "pato", "icono": "🦆", "nombre": "Pato", "x": 76, "y": 76, "efecto": "flota", "problema": false, "texto": "El pato nada en el estanque limpio." },
-            { "ilus": "cachora", "icono": "🦎", "nombre": "Cachora", "x": 63, "y": 58, "problema": false, "texto": "La cachora toma el sol sobre la piedra. ¡Obsérvala sin molestarla!" },
-            { "ilus": "botellaTirada", "icono": "🧴", "nombre": "Botella tirada", "x": 50, "y": 86, "problema": true, "texto": "Va en el bote de reciclables, no en el pasto." },
-            { "ilus": "lataTirada", "icono": "🥫", "nombre": "Lata tirada con refresco derramado", "x": 66, "y": 69, "problema": true, "texto": "La lata se recicla y el refresco derramado atrae hormigas. ¡Hay que levantarla!" },
-            { "ilus": "llaveAbierta", "icono": "🚰", "nombre": "Llave abierta", "x": 17, "y": 80, "problema": true, "texto": "El agua se está desperdiciando y ya hizo un charco. ¡Hay que cerrarla!" },
-            { "ilus": "lamparaDia", "icono": "💡", "nombre": "Lámpara prendida de día", "x": 60, "y": 37, "problema": true, "texto": "De día no hace falta: apagarla ahorra energía." },
-            { "ilus": "bocina", "icono": "📢", "nombre": "Bocina a todo volumen", "x": 88, "y": 80, "problema": true, "texto": "El ruido fuerte molesta a las personas y asusta a los animales." }
-          ]
-        },
-        {
-          "titulo": "La colonia",
-          "icono": "🏘️",
-          "fondo": "colonia",
-          "elementos": [
-            { "ilus": "cardenal", "icono": "🐦", "nombre": "Cardenal en el cable", "x": 30, "y": 22, "efecto": "mece", "problema": false, "texto": "Un cardenal descansa en el cable." },
-            { "ilus": "maceta", "icono": "🪴", "nombre": "Maceta", "x": 5, "y": 63, "efecto": "mece", "problema": false, "texto": "Las plantas adornan y refrescan la casa." },
-            { "ilus": "perro", "icono": "🐕", "nombre": "Perro con correa", "x": 30, "y": 70, "problema": false, "texto": "Pasear al perro con correa es responsable." },
-            { "ilus": "bicicleta", "icono": "🚲", "nombre": "Bicicleta", "x": 60, "y": 86, "problema": false, "texto": "Ir en bici no contamina el aire." },
-            { "ilus": "botesSeparados", "icono": "♻️", "nombre": "Botes separados", "x": 66, "y": 63, "problema": false, "texto": "¡Esta familia separa sus residuos!" },
-            { "ilus": "gato", "icono": "🐈", "nombre": "Gato", "x": 94, "y": 62, "problema": false, "texto": "Un gato tomando el sol." },
-            { "ilus": "manguera", "icono": "🚿", "nombre": "Manguera lavando la banqueta", "x": 15, "y": 69, "problema": true, "texto": "Lavar la banqueta con manguera desperdicia mucha agua. ¡Mejor barrer!" },
-            { "ilus": "popo", "icono": "💩", "nombre": "Popó de perro sin recoger", "x": 40, "y": 72, "problema": true, "texto": "Hay que recogerla: ensucia y puede enfermarnos." },
-            { "ilus": "bolsasNegras", "icono": "🛍️", "nombre": "Bolsas de basura en la banqueta", "x": 49, "y": 65, "problema": true, "texto": "Los perros rompen las bolsas y la basura se riega. Sácala solo cuando pase el camión." },
-            { "ilus": "contaminacionVisual", "icono": "🖍️", "nombre": "Paredes rayadas y llenas de anuncios", "x": 25, "y": 53, "problema": true, "texto": "Esto es contaminación visual: rayones y anuncios pegados ensucian la colonia." },
-            { "ilus": "arbolCortado", "icono": "🪵", "nombre": "Árbol cortado", "x": 80, "y": 64, "problema": true, "texto": "Cortar árboles nos quita sombra y deja sin casa a los pájaros." },
-            { "ilus": "llantaTirada", "icono": "🛞", "nombre": "Llanta tirada con agua", "x": 88, "y": 84, "problema": true, "texto": "En el agua estancada de las llantas nacen los moscos que transmiten el dengue." }
-          ]
-        },
-        {
-          "titulo": "La ciudad",
-          "icono": "🏙️",
-          "fondo": "ciudad",
-          "elementos": [
-            { "ilus": "paloma", "icono": "🕊️", "nombre": "Paloma", "x": 50, "y": 20, "efecto": "vuela", "problema": false, "texto": "Las palomas también viven en la ciudad." },
-            { "ilus": "paradaCamion", "icono": "🚏", "nombre": "Parada del camión", "x": 6, "y": 58, "problema": false, "texto": "Viajar en camión contamina menos que muchos carros." },
-            { "ilus": "semaforo", "icono": "🚦", "nombre": "Semáforo", "x": 37, "y": 59, "problema": false, "texto": "El semáforo nos ayuda a cruzar con seguridad." },
-            { "ilus": "arbolBanqueta", "icono": "🌳", "nombre": "Árbol en la banqueta", "x": 47, "y": 58, "efecto": "mece", "problema": false, "texto": "Los árboles refrescan la ciudad." },
-            { "ilus": "boteReciclaje", "icono": "♻️", "nombre": "Contenedor de reciclaje", "x": 64, "y": 66, "problema": false, "texto": "¡Un contenedor para reciclar!" },
-            { "ilus": "bicicleta", "icono": "🚲", "nombre": "Bicicleta", "x": 12, "y": 88, "problema": false, "texto": "La bicicleta no echa humo." },
-            { "ilus": "humoFabrica", "icono": "💨", "nombre": "Humo negro de la fábrica", "x": 86, "y": 12, "problema": true, "texto": "El humo negro contamina el aire que respiramos." },
-            { "ilus": "carroHumo", "icono": "🚗", "nombre": "Carro echando humo", "x": 40, "y": 86, "problema": true, "texto": "Un carro sin mantenimiento echa humo negro y contamina." },
-            { "ilus": "carroAlarma", "icono": "🚨", "nombre": "Carro con la alarma sonando", "x": 80, "y": 86, "problema": true, "texto": "Las alarmas y los cláxones sin necesidad hacen mucho ruido." },
-            { "ilus": "basuraSoda", "icono": "🥤", "nombre": "Basura y refresco tirados", "x": 23, "y": 71, "problema": true, "texto": "La basura en la calle tapa las alcantarillas y el refresco atrae plagas." },
-            { "ilus": "fugaBanqueta", "icono": "🚰", "nombre": "Tubo roto en la banqueta", "x": 55, "y": 66, "problema": true, "texto": "¡Una fuga enorme! Se desperdicia mucha agua. Hay que reportarla." }
-          ]
-        }
+        { "titulo": "El parque", "icono": "🌳", "fondo": "parque", "elementos": [
+            {"nombre": "Cardenal", "x": 25.3, "y": 22.6, "w": 8.6, "h": 12.4, "problema": false, "texto": "El cardenal es un pájaro rojo que vive en el desierto de Sonora."},
+            {"nombre": "Banca", "x": 32.0, "y": 64.7, "w": 16.4, "h": 15.4, "problema": false, "texto": "La banca sirve para descansar a la sombra."},
+            {"nombre": "Bote de reciclaje", "x": 44.4, "y": 59.1, "w": 7.8, "h": 17.1, "problema": false, "texto": "¡Qué bien, un bote para reciclar!"},
+            {"nombre": "Pato", "x": 74.7, "y": 76.2, "w": 8.6, "h": 11.1, "problema": false, "texto": "El pato nada en el estanque limpio."},
+            {"nombre": "Árbol", "x": 14.6, "y": 41.9, "w": 21.2, "h": 28.5, "problema": false, "texto": "El árbol da sombra y es casa de pájaros e insectos."},
+            {"nombre": "Cactus", "x": 92.8, "y": 39.8, "w": 8.6, "h": 14.2, "problema": false, "texto": "El cactus guarda agua para aguantar el calor."},
+            {"nombre": "Botella tirada", "x": 48.7, "y": 86.6, "w": 9.7, "h": 7.7, "problema": true, "texto": "Va en el bote de reciclables, no en el pasto."},
+            {"nombre": "Lata tirada con refresco derramado", "x": 66.1, "y": 70.0, "w": 7.2, "h": 6.7, "problema": true, "texto": "La lata se recicla y el refresco derramado atrae hormigas. ¡Hay que levantarla!"},
+            {"nombre": "Llave abierta", "x": 16.9, "y": 80.7, "w": 14.7, "h": 24.8, "problema": true, "texto": "El agua se está desperdiciando y ya hizo un charco. ¡Hay que cerrarla!"},
+            {"nombre": "Lámpara prendida de día", "x": 58.9, "y": 49.5, "w": 7.4, "h": 39.4, "problema": true, "texto": "De día no hace falta: apagarla ahorra energía."},
+            {"nombre": "Bocina a todo volumen", "x": 86.8, "y": 80.7, "w": 7.4, "h": 19.4, "problema": true, "texto": "El ruido fuerte molesta a las personas y asusta a los animales."}
+        ] },
+        { "titulo": "La colonia", "icono": "🏘️", "fondo": "colonia", "elementos": [
+            {"nombre": "Cardenal en el cable", "x": 29.4, "y": 22.1, "w": 7.0, "h": 10.0, "problema": false, "texto": "Un cardenal descansa en el cable."},
+            {"nombre": "Maceta", "x": 4.4, "y": 63.2, "w": 6.7, "h": 16.3, "problema": false, "texto": "Las plantas adornan y refrescan la casa."},
+            {"nombre": "Perro con collar", "x": 30.0, "y": 71.6, "w": 11.5, "h": 14.1, "problema": false, "texto": "Este perrito lleva su collar. Para pasearlo hay que usar correa."},
+            {"nombre": "Bicicleta", "x": 60.4, "y": 87.5, "w": 16.0, "h": 17.6, "problema": false, "texto": "Ir en bici no contamina el aire."},
+            {"nombre": "Botes separados", "x": 65.7, "y": 63.6, "w": 16.9, "h": 14.6, "problema": false, "texto": "¡Esta familia separa sus residuos!"},
+            {"nombre": "Gato", "x": 94.9, "y": 64.7, "w": 7.4, "h": 15.0, "problema": false, "texto": "Un gato tomando el sol."},
+            {"nombre": "Manguera tirando agua", "x": 15.0, "y": 74.0, "w": 18.4, "h": 11.0, "problema": true, "texto": "Dejar la manguera abierta desperdicia mucha agua. ¡Hay que cerrarla!"},
+            {"nombre": "Popó de perro sin recoger", "x": 39.0, "y": 75.2, "w": 4.6, "h": 6.7, "problema": true, "texto": "Hay que recogerla: ensucia y puede enfermarnos."},
+            {"nombre": "Bolsas de basura en la banqueta", "x": 46.9, "y": 68.6, "w": 10.9, "h": 15.3, "problema": true, "texto": "Los perros rompen las bolsas y la basura se riega. Sácala solo cuando pase el camión."},
+            {"nombre": "Paredes rayadas y llenas de anuncios", "x": 25.0, "y": 53.6, "w": 13.9, "h": 15.3, "problema": true, "texto": "Esto es contaminación visual: rayones y anuncios pegados ensucian la colonia."},
+            {"nombre": "Árbol cortado", "x": 81.9, "y": 68.9, "w": 16.3, "h": 15.3, "problema": true, "texto": "Cortar árboles nos quita sombra y deja sin casa a los pájaros."},
+            {"nombre": "Llanta tirada con agua", "x": 87.4, "y": 85.9, "w": 10.9, "h": 11.3, "problema": true, "texto": "En el agua estancada de las llantas nacen los moscos que transmiten el dengue."},
+            {"nombre": "Lata y basura en la calle", "x": 56.4, "y": 74.2, "w": 7.6, "h": 6.0, "problema": true, "texto": "La basura en la calle tapa las alcantarillas. La lata se puede reciclar."}
+        ] },
+        { "titulo": "La ciudad", "icono": "🏙️", "fondo": "ciudad", "elementos": [
+            {"nombre": "Paloma", "x": 50.8, "y": 23.8, "w": 6.7, "h": 9.0, "problema": false, "texto": "Las palomas también viven en la ciudad."},
+            {"nombre": "Parada del camión", "x": 7.0, "y": 45.4, "w": 7.1, "h": 10.6, "problema": false, "texto": "Viajar en camión contamina menos que muchos carros."},
+            {"nombre": "Maceta", "x": 3.5, "y": 59.6, "w": 5.6, "h": 14.4, "problema": false, "texto": "Las plantas adornan y refrescan la ciudad."},
+            {"nombre": "Árbol en la banqueta", "x": 46.1, "y": 47.7, "w": 10.7, "h": 15.7, "problema": false, "texto": "Los árboles refrescan la ciudad."},
+            {"nombre": "Botes separados", "x": 68.0, "y": 59.7, "w": 15.6, "h": 12.8, "problema": false, "texto": "¡Aquí se separan los residuos!"},
+            {"nombre": "Bicicleta", "x": 11.6, "y": 81.4, "w": 13.8, "h": 15.7, "problema": false, "texto": "La bicicleta no echa humo."},
+            {"nombre": "Gato", "x": 94.6, "y": 61.0, "w": 7.1, "h": 12.2, "problema": false, "texto": "Un gato tomando el sol."},
+            {"nombre": "Carro azul", "x": 36.5, "y": 82.7, "w": 21.5, "h": 16.4, "problema": false, "texto": "Este carro no echa humo negro ni hace ruido. Caminar o ir en bici contamina todavía menos."},
+            {"nombre": "Humo negro de la fábrica", "x": 88.6, "y": 22.1, "w": 11.5, "h": 24.9, "problema": true, "texto": "El humo negro contamina el aire que respiramos."},
+            {"nombre": "Carro con la alarma sonando", "x": 81.1, "y": 80.4, "w": 20.7, "h": 20.9, "problema": true, "texto": "Las alarmas y los cláxones sin necesidad hacen mucho ruido."},
+            {"nombre": "Basura y refresco tirados", "x": 25.1, "y": 64.5, "w": 14.2, "h": 9.0, "problema": true, "texto": "La basura en la calle tapa las alcantarillas y el refresco atrae plagas."},
+            {"nombre": "Agua derramada en la banqueta", "x": 55.4, "y": 59.6, "w": 8.5, "h": 17.0, "problema": true, "texto": "El agua se sale y moja la banqueta. Hay que reportar la fuga para no desperdiciarla."},
+            {"nombre": "Bolsas de basura en la banqueta", "x": 44.9, "y": 62.1, "w": 11.6, "h": 11.9, "problema": true, "texto": "Los perros rompen las bolsas y la basura se riega. Sácala solo cuando pase el camión."},
+            {"nombre": "Rama cortada", "x": 81.9, "y": 63.1, "w": 11.8, "h": 11.9, "problema": true, "texto": "Cortar las ramas sin cuidado daña a los árboles y nos quita sombra."},
+            {"nombre": "Pared llena de anuncios", "x": 27.3, "y": 53.0, "w": 13.6, "h": 13.5, "problema": true, "texto": "Esto es contaminación visual: rayones y anuncios pegados ensucian la ciudad."},
+            {"nombre": "Lámpara prendida de día", "x": 18.8, "y": 49.6, "w": 5.3, "h": 18.9, "problema": true, "texto": "De día no hace falta: apagarla ahorra energía."}
+        ] }
       ]
     },
 

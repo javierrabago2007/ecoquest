@@ -10,7 +10,7 @@
 
 /* Tipografía: Fredoka (títulos, redondeada y amable) + Lexend (texto, diseñada para leer con facilidad).
    Si no hay internet, se usan las letras del sistema. */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Lexend:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@700&family=Lexend:wght@300;400;500;600;700&display=swap');
 
 /* ---------- 1. Colores y tipografía ---------- */
 :root {
@@ -164,7 +164,7 @@ b, strong { font-weight: 600; }
 
 /* Mascota */
 .mascota { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.mascota svg { animation: flotar 4s ease-in-out infinite; }
+.mascota svg, .mascota img { animation: flotar 4s ease-in-out infinite; }
 .globo { background: #fff; border-radius: 16px; padding: 10px 14px; box-shadow: var(--sombra); font-weight: 600; text-align: center; max-width: 260px; margin: 0; }
 
 /* ---------- 5. Tarjetas ---------- */
@@ -383,8 +383,8 @@ textarea, .form-grafica input {
 .bura-juego { display: flex; align-items: center; }
 .bura-juego .mascota { flex-direction: row; gap: 4px; }
 .bura-juego .globo { font-size: 15px; padding: 6px 10px; max-width: 150px; }
-.bura-juego.feliz svg { animation: saltito .6s; }
-.bura-juego.animo svg { animation: sacudir .4s; }
+.bura-juego.feliz img { animation: saltito .6s; }
+.bura-juego.animo img { animation: sacudir .4s; }
 @keyframes saltito { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-16px) rotate(-6deg); } }
 .confeti { position: fixed; inset: 0; pointer-events: none; z-index: 60; overflow: hidden; }
 .confeti i { position: absolute; top: -20px; width: 10px; height: 16px; border-radius: 3px; animation: caer 2.4s ease-in forwards; }
@@ -616,7 +616,7 @@ textarea, .form-grafica input {
 .pie a { color: #fff; }
 
 .aviso {
-  position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 140%);
+  position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, calc(100% + 40px));
   background: var(--bosque); color: #fff; padding: 14px 22px; border-radius: 30px; font-weight: 600;
   box-shadow: 0 10px 30px #0004; transition: transform .3s; z-index: 50; max-width: calc(100% - 32px); text-align: center;
 }
@@ -1195,3 +1195,113 @@ body[data-ruta="actua"] { background: linear-gradient(180deg, #f1ebfc 0, #f6f8f3
 @media print {
   .agregar-grupo, .cabeza-tabla .boton, .cabeza-tabla .ordenar, .quitar-fila, .temas-grupo + .boton { display: none !important; }
 }
+/* ==========================================================================
+   Imágenes de «referencias», materiales y perfiles
+   ========================================================================== */
+.mascota img { height: auto; max-width: 100%; }
+.cartel-lateral-img { display: block; width: 100%; height: auto; }
+.mini-juego img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .4s; }
+.tarjeta-juego:hover .mini-juego img { transform: scale(1.05); }
+.cartel-planeta { padding: 0; background: none; border: 0; box-shadow: none; border-radius: 0; }
+.cartel-planeta img { display: block; width: 100%; max-width: 340px; height: auto; margin: 0 auto; }
+.ico-grifo { width: 40px; height: auto; vertical-align: middle; }
+.fuga { padding: 0; border: 0; background: none; }
+.fuga .ico-grifo { width: 76px; display: block; }
+.fuga b { position: absolute; right: -4px; bottom: -4px; font-size: 26px; }
+
+/* Cartel de cada tema (Aprende): mismo fondo, texto propio */
+.franja-cartel { container-type: inline-size; margin-top: 18px; }
+.cartel-tema { position: relative; aspect-ratio: 1600 / 300; background: url("imagenes/cartel-tema.webp") center / 100% 100% no-repeat; }
+.cartel-tema p { position: absolute; left: 57%; right: 3.5%; top: 18%; height: 60%; margin: 0; display: flex; align-items: center; font: 700 2.45cqw/1.2 "Quicksand", var(--titulo); color: #1c4d33; }
+@container (max-width: 560px) {
+  .cartel-tema { aspect-ratio: auto; padding-top: 26.4cqw; background: url("imagenes/cartel-tema.webp") -1.8cqw -1.8cqw / 178cqw auto no-repeat, #d9f0d2; border-radius: 16px; border: 3px solid #166b2c; overflow: hidden; }
+  .cartel-tema p { position: static; height: auto; padding: 12px 14px; background: #fafcf9; font-size: 18px; }
+}
+
+/* Materiales */
+.materiales-tiles { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.material { padding: 14px 10px; border-radius: 20px; background: #fff8ef; border: 2px solid #f9dcc0; font: 700 16px/1.25 "Quicksand", var(--titulo); color: #1c4d33; }
+.material svg { width: 58px; height: 58px; fill: initial; stroke: initial; stroke-width: initial; }
+
+/* Detective con imágenes */
+.escena-desliza { overflow-x: auto; }
+.escena-fondo img, .mini-fondo img { width: 100%; height: 100%; display: block; user-select: none; }
+.mini-fondo img { object-fit: cover; }
+.elemento.zona { padding: 0; border-radius: 22px; font-size: 16px; min-width: 34px; min-height: 34px; }
+.elemento.zona.encontrado { background: #ffffff2e; }
+.elemento.zona.revisado { box-shadow: 0 0 0 3px #ffffffb0; }
+.elemento.zona.pista { animation: pistaZona .5s ease-in-out infinite alternate; }
+.elemento.zona.sacudir { animation: sacudirZona .35s; }
+.elemento.zona:focus-visible { outline: 4px solid #f3a047; }
+@keyframes pistaZona { from { box-shadow: 0 0 0 2px #f3a047; } to { box-shadow: 0 0 0 8px #f3a047, 0 0 30px 8px #ffd45e; } }
+@keyframes sacudirZona { 25% { translate: -5px 0; } 75% { translate: 5px 0; } }
+.nombre-hallazgo { z-index: 3; white-space: normal; width: max-content; max-width: 150px; text-align: center; }
+.solo-celular { display: none; }
+@media (max-width: 640px) { .escena { width: 640px; } .solo-celular { display: block; } }
+
+/* Perfiles de adulto */
+.portada-adulto { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 24px 30px 0; border-radius: 26px; margin-bottom: 18px; overflow: hidden; color: #fff; }
+.portada-adulto > div:first-child { padding-bottom: 24px; }
+.portada-adulto h1 { margin: 4px 0 8px; color: #fff; font-size: clamp(26px, 3.4vw, 40px); }
+.portada-adulto p { margin: 0; color: #fff; }
+.portada-adulto .mascota { flex: none; align-self: end; }
+.portada-adulto .mascota img { animation: none; display: block; }
+.portada-adulto.docente { background: linear-gradient(120deg, #1d4f80, #2d74a8); }
+.portada-adulto.familia { background: linear-gradient(120deg, #a3481a, #c9661f); }
+.rejilla-adulto { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 18px; }
+.tarjeta-adulto { display: flex; flex-direction: column; gap: 6px; padding: 20px; border-radius: 22px; background: #fff; border: 1px solid var(--borde-suave); text-decoration: none; color: var(--tinta); box-shadow: 0 2px 10px #1b3a2b0d; }
+.tarjeta-adulto:hover { transform: translateY(-3px); }
+.tarjeta-adulto h2 { margin: 0; font-size: 22px; }
+.tarjeta-adulto p { margin: 0; flex: 1; }
+.tarjeta-adulto .tarjeta-boton { font-weight: 600; color: var(--acento, var(--verde)); }
+.icono-adulto { width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center; background: var(--acento-c, var(--c-verde)); }
+.icono-adulto svg, .menu-lateral svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.icono-adulto svg { width: 28px; color: var(--acento, var(--verde)); }
+body[data-perfil="docente"] { --acento: #1d5f96; --acento-c: #e0effa; }
+body[data-perfil="familia"] { --acento: #b4531c; --acento-c: #ffebd9; }
+body:not([data-perfil="alumno"]) .menu-lateral a.actual, body:not([data-perfil="alumno"]) .cambiar-perfil button.activo { background: var(--acento-c); color: var(--acento); border-color: var(--acento); }
+body:not([data-perfil="alumno"]) .encabezado { border-bottom: 4px solid var(--acento); }
+.enlace-acerca { font-size: 14px !important; color: var(--suave) !important; }
+.caso { padding: 16px; border-radius: 16px; background: #f6f9f4; border: 1px solid var(--borde-suave); }
+.caso h3 { margin: 0 0 6px; }
+.caso p { margin: 0; }
+.pasos-casa { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 10px; }
+.pasos-casa li { padding: 14px 16px; border-radius: 16px; background: #fff8ef; border: 2px solid #f9dcc0; }
+.pasos-casa li.hecha { background: var(--bien); border-color: var(--bien-borde); }
+.pasos-casa label { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
+.pasos-casa input { width: 26px; height: 26px; flex: none; }
+.pasos-casa b { display: block; }
+.pasos-casa .pequeno { margin: 6px 0 0 38px; }
+.tema-casa summary { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+.tema-casa summary b { flex: 1; font: 600 19px var(--titulo); }
+.codigo-progreso > summary { cursor: pointer; font: 600 19px var(--titulo); }
+.hijo-cabeza { display: flex; align-items: center; gap: 14px; }
+.hijo-cabeza .avatar-ex { width: 70px; height: 70px; border-radius: 20px; }
+.hijo-cabeza h2, .hijo-cabeza p { margin: 0; }
+.detalle-tema label { display: flex; gap: 8px; align-items: center; min-height: 32px; cursor: pointer; }
+.detalle-tema input { width: 20px; height: 20px; }
+.formas-agregar { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.forma input[type="number"] { width: 80px; min-height: 42px; border-radius: 12px; border: 1px solid var(--borde-suave); padding: 4px 10px; }
+.hoja { background: #fff; border-radius: 18px; padding: 26px 30px; line-height: 1.4; }
+.hoja header { display: flex; justify-content: space-between; gap: 20px; border-bottom: 2px solid #15543e; }
+.hoja h1 { margin: 0; }
+.hoja h2 { margin: 14px 0 4px; font-size: 20px; }
+.hoja p { margin: 4px 0; }
+.hoja ol { margin: 4px 0; padding-left: 24px; }
+.cuadro { display: inline-block; width: 15px; height: 15px; border: 2px solid #20372b; border-radius: 3px; vertical-align: -2px; }
+.renglones { height: 64px; background: repeating-linear-gradient(#fff 0 30px, #999 30px 31px); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+/* En celular y tableta los adultos también necesitan su menú */
+@media (max-width: 980px) {
+  body:not([data-perfil="alumno"]) .lateral .menu-lateral { display: grid; }
+  .portada-adulto .mascota img { width: 100px; }
+}
+@media print {
+  .lateral, .no-imprimir { display: none !important; }
+  .estructura { display: block !important; }
+  .hoja { padding: 0; font-size: 11.5pt; }
+  .hoja h1 { font-size: 18pt; } .hoja h2 { font-size: 13pt; break-after: avoid; }
+}
+
+/* Arreglos */
+.progreso-escena { flex-wrap: wrap; }
+@media (min-width: 981px) and (max-width: 1400px) { .marca-texto small { display: none; } .buscador { flex: 0 1 150px; min-width: 0; width: 150px; } .buscador input { min-width: 0; width: 100%; } }

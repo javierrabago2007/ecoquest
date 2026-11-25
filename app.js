@@ -321,6 +321,7 @@ function cambiarExplorador(id) {
 }
 /** Marca una actividad como hecha. clave = "aprende:u1", "juego:j1", "experimento:e1", "reto:r1" */
 function marcarHecho(clave) {
+  if (perfil() !== "alumno") return avisar("👀 Vista de adulto: no se guarda en el progreso del alumno");
   if (estado.hechos[clave]) return;
   const antes = insigniasGanadas().length;
   estado.hechos[clave] = true;
@@ -370,52 +371,10 @@ function insigniasGanadas() {
 /** Nombre de la mascota. Cámbialo aquí y se actualiza en toda la plataforma. */
 const NOMBRE_MASCOTA = "Jack";
 
-/* Perrito schnauzer gris con cejas y barba claras, orejas caídas y
-   paliacate verde con una hoja (como en la ilustración del banner de Inicio). */
+/* Ilustración: imagenes/jack-sonriente.webp (de referencias/JACK SONRIENTE.png). */
 function mascota(mensaje = "", tam = 120) {
-  const id = "m" + Math.random().toString(36).slice(2, 7);   // ids únicos por si hay varias mascotas
   return `<div class="mascota">
-    <svg viewBox="0 0 200 230" width="${tam}" height="${Math.round(tam * 230 / 200)}" role="img" aria-label="${NOMBRE_MASCOTA}, el perrito mascota de EcoQuest">
-      <defs>
-        <radialGradient id="${id}g" cx=".4" cy=".3" r=".8"><stop offset="0" stop-color="#8a8480"/><stop offset="1" stop-color="#5c5653"/></radialGradient>
-        <linearGradient id="${id}o" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b6461"/><stop offset="1" stop-color="#4a4442"/></linearGradient>
-        <radialGradient id="${id}b" cx=".5" cy=".3" r=".8"><stop offset="0" stop-color="#fbf6ee"/><stop offset="1" stop-color="#e3d8c8"/></radialGradient>
-        <linearGradient id="${id}s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#21924f"/><stop offset="1" stop-color="#14693a"/></linearGradient>
-      </defs>
-      <!-- cuerpo y pecho -->
-      <path d="M58 168 Q100 150 142 168 L150 226 H50Z" fill="url(#${id}g)"/>
-      <path d="M78 176 Q100 168 122 176 L120 226 H80Z" fill="url(#${id}b)"/>
-      <!-- orejas caídas -->
-      <path d="M62 54 Q30 40 20 70 Q18 96 40 108 Q50 92 58 82Z" fill="url(#${id}o)"/>
-      <path d="M56 66 Q36 60 32 78 Q34 92 44 98 Q50 86 54 78Z" fill="#9b5d5a" opacity=".55"/>
-      <path d="M138 54 Q170 40 180 70 Q182 96 160 108 Q150 92 142 82Z" fill="url(#${id}o)"/>
-      <path d="M144 66 Q164 60 168 78 Q166 92 156 98 Q150 86 146 78Z" fill="#9b5d5a" opacity=".55"/>
-      <!-- cabeza -->
-      <path d="M100 40 Q142 40 148 86 Q152 120 132 140 L68 140 Q48 120 52 86 Q58 40 100 40Z" fill="url(#${id}g)"/>
-      <path d="M86 46 Q100 42 114 46 Q110 60 100 62 Q90 60 86 46Z" fill="#9a9490" opacity=".5"/>
-      <!-- cejas pobladas -->
-      <path d="M60 80 Q70 62 92 70 Q86 74 90 80 Q78 76 72 84 Q68 78 60 80Z" fill="url(#${id}b)"/>
-      <path d="M140 80 Q130 62 108 70 Q114 74 110 80 Q122 76 128 84 Q132 78 140 80Z" fill="url(#${id}b)"/>
-      <!-- ojos con brillo -->
-      <ellipse cx="80" cy="94" rx="10" ry="11" fill="#1d1a19"/><ellipse cx="120" cy="94" rx="10" ry="11" fill="#1d1a19"/>
-      <circle cx="84" cy="89" r="4" fill="#fff"/><circle cx="124" cy="89" r="4" fill="#fff"/>
-      <circle cx="77" cy="98" r="1.6" fill="#fff" opacity=".8"/><circle cx="117" cy="98" r="1.6" fill="#fff" opacity=".8"/>
-      <!-- barba y bigote del schnauzer -->
-      <path d="M62 112 Q60 96 76 98 Q90 100 100 108 Q110 100 124 98 Q140 96 138 112 Q146 130 134 150 Q120 168 100 170 Q80 168 66 150 Q54 130 62 112Z" fill="url(#${id}b)"/>
-      <path d="M70 140 l-4 10 M80 150 l-2 10 M120 150 l2 10 M130 140 l4 10 M92 158 l-1 8 M108 158 l1 8" stroke="#d9cdbc" stroke-width="3" stroke-linecap="round"/>
-      <!-- nariz y boca feliz con lengua -->
-      <ellipse cx="100" cy="110" rx="13" ry="9" fill="#1d1a19"/><ellipse cx="96" cy="107" rx="4.5" ry="2.4" fill="#fff" opacity=".5"/>
-      <path d="M86 126 Q100 140 114 126 Q110 146 100 148 Q90 146 86 126Z" fill="#7a2d2d"/>
-      <path d="M92 136 Q100 132 108 136 Q106 148 100 148 Q94 148 92 136Z" fill="#f2808a"/>
-      <!-- paliacate verde con hoja -->
-      <path d="M58 150 Q100 172 142 150 L140 168 Q100 188 60 168Z" fill="url(#${id}s)"/>
-      <path d="M78 172 L100 214 L122 172 Q100 184 78 172Z" fill="url(#${id}s)"/>
-      <path d="M136 152 L156 140 L150 160Z" fill="#1a7c43"/>
-      <circle cx="100" cy="190" r="11" fill="#fff"/>
-      <path d="M100 198 C100 192 99 188 95 184" stroke="#3d8c4a" stroke-width="2" fill="none" stroke-linecap="round"/>
-      <path d="M98 190 C91 191 89 185 90 181 C96 181 99 185 98 190Z" fill="#6cc04a"/>
-      <path d="M101 192 C102 186 107 183 111 184 C111 190 106 193 101 192Z" fill="#4fae3f"/>
-    </svg>
+    <img src="imagenes/jack-sonriente.webp" width="${tam}" height="${Math.round(tam * 512 / 480)}" alt="${NOMBRE_MASCOTA}, el perrito mascota de EcoQuest">
     ${mensaje ? `<p class="globo">${mensaje}</p>` : ""}
   </div>`;
 }
@@ -429,13 +388,10 @@ const ETQ_PROPUESTA = `<span class="etiqueta propuesta">Propuesta didáctica Eco
 const ETQ_OFICIAL = `<span class="etiqueta oficial">Oficial · SEP</span>`;
 
 function pantallaInicio() {
+  if (perfil() === "docente") return pantallaInicioDocente();
+  if (perfil() === "familia") return pantallaFamilia();
   const total = contarProgreso();
-  const saludo = { alumno: "¡Hola, explorador o exploradora!", docente: "Bienvenida, bienvenido, docente", familia: "¡Bienvenida, familia!" }[perfil()];
-  const texto = {
-    alumno: "Juntos por un planeta más limpio, justo y saludable. ¡Vamos a cuidarlo desde Sonora!",
-    docente: "Aquí encontrará actividades de 1.º grado vinculadas con el Programa Sintético de la Fase 3.",
-    familia: "Acompañen a sus hijas e hijos con actividades sencillas para hacer en casa."
-  }[perfil()];
+  const texto = "Juntos por un planeta más limpio, justo y saludable. ¡Vamos a cuidarlo desde Sonora!";
 
   const pct = total.total ? Math.round(total.hechas / total.total * 100) : 0;
   const ganadas = insigniasGanadas().map(i => i.id);
@@ -445,15 +401,15 @@ function pantallaInicio() {
   const sigTipo = sig.startsWith("#aprende") ? "Lección" : sig.startsWith("#juega") ? "Juego" : sig.startsWith("#experimenta") ? "Experimento" : sig.startsWith("#actua") ? "Reto" : "Progreso";
   const dato = azar(DATOS_CURIOSOS);
   app.innerHTML = `
-    ${perfil() === "alumno" ? (() => { const ex = exploradorActivo(); return `
+    ${(() => { const ex = exploradorActivo(); return `
     <div class="barra-explorador">
       ${avatarExplorador(ex)}
       <span>Explorando como <b>${esc(apodoDe(ex))}</b></span>
       <a class="boton chico secundario" href="#exploradores">${almacen.exploradores.length > 1 ? "Cambiar de explorador" : "¿Eres otro explorador?"}</a>
-    </div>`; })() : ""}
+    </div>`; })()}
     <section class="banner con-imagen banner-perrito">
       <div class="banner-texto">
-        <h1>${saludo.replace("¡Hola, explorador o exploradora!", "¡Bienvenido(a) a EcoQuest!")}</h1>
+        <h1>¡Bienvenido(a) a EcoQuest!</h1>
         <p class="banner-lema">Explora. Aprende. Experimenta. Actúa.</p>
         <p class="banner-intro">${texto} ${botonVoz(texto)}</p>
         <a class="boton" href="${sig}">${total.hechas ? "Continúa tu próxima misión" : "Comienza tu primera misión"} <span aria-hidden="true">→</span></a>
@@ -490,9 +446,6 @@ function pantallaInicio() {
         </div>
       </article>
     </section>
-
-    ${perfil() === "docente" ? `<section class="panel"><h2>Para docentes</h2><p>Consulte la vinculación curricular oficial de cada unidad (contenidos y PDA textuales del Programa Sintético de la Fase 3).</p><div class="acciones"><a class="boton" href="#grupo">👩‍🏫 Ver avance del grupo →</a><a class="boton secundario" href="#docente">Ver vinculación curricular →</a></div></section>` : ""}
-    ${perfil() === "familia" ? `<section class="panel"><h2>Para familias</h2><p>Ideas breves para aprender en casa y cómo se guarda el progreso.</p><a class="boton" href="#familia">Ver guía para familias →</a></section>` : ""}
 
     <section class="panel">
       <h2>Elige el grado</h2>
@@ -534,44 +487,6 @@ const DATOS_CURIOSOS = [
   "El venado bura se llama así por sus orejas grandes, parecidas a las de un burro.",
   "Los árboles dan sombra y hacen que la colonia se sienta más fresca en verano."
 ];
-
-const hayPiezas = () => typeof svgSaguaro === "function";
-
-/** Paisaje de día del banner: cerros, lago, árboles y saguaros de Sonora. */
-function paisaje() {
-  const hay = hayPiezas();
-  return `<svg class="paisaje" viewBox="0 0 1600 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <defs>
-      <linearGradient id="bnCielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ed8f2"/><stop offset="1" stop-color="#e8f6fb"/></linearGradient>
-      <linearGradient id="bnLago" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6ec3e6"/><stop offset="1" stop-color="#3f9fcf"/></linearGradient>
-      <linearGradient id="bnVeladura" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff" stop-opacity="0"/><stop offset=".3" stop-color="#ffffff" stop-opacity=".55"/><stop offset=".7" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
-    </defs>
-    <rect width="1600" height="520" fill="url(#bnCielo)"/>
-    ${hay ? svgNube(560, 70, .7, "nube-a") + svgNube(1120, 60, .55, "nube-b") : ""}
-    <path d="M0 300 L120 210 L250 280 L400 170 L560 270 L700 200 L860 280 L1010 190 L1180 270 L1340 180 L1600 260 V380 H0Z" fill="#b9a7c9"/>
-    <path d="M400 170 L440 205 L420 200 L400 215 L380 200 L362 205Z M1340 180 L1378 212 L1358 208 L1340 222 L1322 208 L1304 212Z" fill="#efe9f4"/>
-    <path d="M0 330 L180 260 L360 320 L560 250 L760 320 L980 260 L1200 320 L1400 270 L1600 310 V400 H0Z" fill="#c9b08e"/>
-    <path d="M0 380 Q300 340 620 372 T1200 360 T1600 370 V520 H0Z" fill="#9cc56e"/>
-    <path d="M430 395 Q800 365 1180 395 Q800 430 430 395Z" fill="url(#bnLago)"/>
-    <path class="ola" d="M620 392 q30 -8 60 0 t60 0 M900 400 q30 -8 60 0" stroke="#d9f2fb" stroke-width="5" fill="none" stroke-linecap="round"/>
-    <path d="M0 430 Q400 405 800 432 T1600 425 V520 H0Z" fill="#7fb35a"/>
-    ${hay ? svgMezquite(120, 430, 1.1) + svgPaloVerde(330, 420, .8) + svgSaguaro(1300, 470, 1) + svgSaguaro(1470, 490, .7) + svgSaguaro(1180, 420, .5) + svgArbusto(1060, 470, 1, "#6aa24a") + svgArbusto(560, 470, .9, "#6aa24a") + svgMezquite(1560, 430, .9) : ""}
-    <rect width="1600" height="520" fill="url(#bnVeladura)"/>
-  </svg>`;
-}
-
-/** Franja de paisaje al pie de la página de inicio. */
-function franjaPaisaje() {
-  const hay = hayPiezas();
-  return `<svg class="franja-svg" viewBox="0 0 1600 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <defs><linearGradient id="frCielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cdeaf7"/><stop offset="1" stop-color="#f6ecd8"/></linearGradient></defs>
-    <rect width="1600" height="220" fill="url(#frCielo)"/>
-    <path d="M0 120 L160 70 L320 110 L520 60 L720 115 L940 70 L1160 115 L1380 75 L1600 110 V220 H0Z" fill="#d7b9a2" opacity=".8"/>
-    <path d="M0 160 Q400 130 800 158 T1600 150 V220 H0Z" fill="#e3c99a"/>
-    ${hay ? svgSaguaro(60, 200, .8) + svgSaguaro(1520, 205, .75) + svgSaguaro(1380, 175, .45) + svgArbusto(240, 200, .9, "#8aa85a") + svgArbusto(1200, 205, .7, "#8aa85a") + svgPaloVerde(1080, 190, .5) : ""}
-    <path d="M0 200 Q400 188 800 202 T1600 198 V220 H0Z" fill="#c9a874"/>
-  </svg>`;
-}
 
 /** Sugiere la siguiente actividad pendiente. */
 function siguientePaso() {
@@ -645,7 +560,7 @@ function bloqueCurricular(u) {
     return `<div class="nota-perfil familia"><h3>👪 En casa ${ETQ_PROPUESTA}</h3><p>${esc(u.familia)}</p></div>
       <details class="para-adultos"><summary>Ver vinculación con el programa oficial</summary>${oficial}</details>`;
   }
-  return `<details class="para-adultos"><summary>Para maestras, maestros y familias</summary>${oficial}</details>`;
+  return `<details class="para-adultos"><summary>Para maestras, maestros y tutores</summary>${oficial}</details>`;
 }
 
 function pantallaAprende(idUnidad) {
@@ -700,10 +615,7 @@ function pantallaAprende(idUnidad) {
           <div class="actividad"><h3>✏️ ${esc(a.actividad.titulo)}</h3><p class="texto-grande">${esc(a.actividad.instrucciones)} ${botonVoz(a.actividad.instrucciones)}</p></div>
         </section>
 
-        <div class="franja-tema">
-          ${paisaje()}
-          <p class="nota-franja">${esc(sonora)}</p>
-        </div>
+        <div class="franja-cartel"><div class="cartel-tema"><p>${esc(sonora)}</p></div></div>
 
         ${bloqueCurricular(u)}
 
@@ -784,7 +696,7 @@ function pantallaListaJuegos() {
           <div class="cuerpo-juego">
             <small class="tipo-juego">${TIPOS_JUEGO[j.tipo]}${hecho(`juego:${j.id}`) ? ` · <span class="hecho-chip">✓ Jugado</span>` : ""}</small>
             <h3>${esc(j.titulo)}</h3>
-            <p>${esc(j.instrucciones.split(". ")[0].replace(/\.$/, ""))}.</p>
+            <p>${esc(j.instrucciones.split(". ")[0].replace(/([^.?!])$/, "$1."))}</p>
             ${p ? `<small class="mejor">Mejor resultado: ${p.aciertos} de ${p.total}</small>` : ""}
             <a class="boton chico" href="#juega/${j.id}">Jugar ahora <span aria-hidden="true">→</span></a>
           </div>
@@ -822,11 +734,13 @@ function miniaturaJuego(j) {
     sombras: `<g opacity=".95" style="filter:brightness(0)">${dibujo("cardenal", 60, 40, 130)}</g>` + `<circle cx="230" cy="60" r="28" fill="#ffd45e"/>`,
     ordenar: [0, 1, 2].map(k => `<g transform="translate(${70 + k * 80} 100)"><rect x="-32" y="-40" width="64" height="80" rx="10" fill="#fff" stroke="#c7b6ea" stroke-width="3"/><text y="-12" text-anchor="middle" font-family="Fredoka" font-weight="700" font-size="20" fill="#6b45b5">${k + 1}</text></g>`).join("") + dibujo("maceta", 58, 98, 26) + dibujo("maceta", 136, 88, 36) + dibujo("arbolBanqueta", 210, 70, 44),
     buraDice: dibujo("bocina", 40, 30, 120) + dibujo("cardenal", 180, 60, 90),
-    detective: `<svg x="0" y="0" width="300" height="190" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">${typeof ESCENAS_SVG === "object" ? ESCENAS_SVG.parque.replace(/^\s*<svg[^>]*>|<\/svg>\s*$/g, "") : ""}</svg>` + `<g transform="translate(200 110)"><circle r="34" fill="#ffffff55" stroke="#6b4a2f" stroke-width="8"/><rect x="22" y="22" width="12" height="40" rx="5" fill="#6b4a2f" transform="rotate(-45 28 28)"/></g>`,
     gotas: dibujo("llaveAbierta", 30, 20, 110) + `<g fill="#3f9fcf">${[[180, 50], [220, 90], [170, 120], [250, 40]].map(([x, y]) => `<path d="M${x} ${y} q12 18 0 26 q-12 -8 0 -26Z"/>`).join("")}</g>`,
     planta: dibujo("maceta", 100, 26, 100) + `<circle cx="240" cy="50" r="24" fill="#ffd45e"/><g fill="#3f9fcf"><path d="M60 60 q10 16 0 22 q-10 -6 0 -22Z"/><path d="M50 100 q10 16 0 22 q-10 -6 0 -22Z"/></g>`,
     colonia: dibujo("arbolBanqueta", 30, 30, 90) + dibujo("banca", 120, 110, 90) + dibujo("boteReciclaje", 220, 80, 50)
   };
+  const portada = { j4: "portada-residuos", j16: "detective-parque" }[j.id];   // portadas con imagen propia
+  if (portada) return `<img src="imagenes/${portada}.webp" alt="" loading="lazy">`;
+  if (j.id === "j6") arte.clasificar = dibujo("bocina", 40, 25, 110) + dibujo("cardenal", 180, 55, 95);   // «¿Fuerte o suave?» no es de basura
   return `<svg viewBox="0 0 300 190" preserveAspectRatio="xMidYMid slice">
     <defs><linearGradient id="mj${j.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs>
     <rect width="300" height="190" fill="url(#mj${j.id})"/>
@@ -845,7 +759,7 @@ function pantallaJuego(id) {
       <header class="ficha-encabezado">
         <span class="ilustracion" aria-hidden="true">${u.icono}</span>
         <div><p class="pequeno">JUEGA · ${TIPOS_JUEGO[j.tipo].toUpperCase()}</p><h1>${esc(j.titulo)}</h1>${ETQ_PROPUESTA}</div>
-        <div class="bura-juego" id="buraJuego">${mascota("¡Vamos a jugar!", 70)}</div>
+        <div class="bura-juego" id="buraJuego">${mascota("¡Vamos a jugar!", 96)}</div>
       </header>
       <p class="texto-grande">${esc(j.instrucciones)} ${botonVoz(j.instrucciones)}</p>
       <div id="zonaJuego" class="zona-juego"></div>
@@ -862,8 +776,9 @@ function pantallaJuego(id) {
 
 /** Pantalla final de cualquier juego: guarda el mejor resultado y marca el juego como hecho. */
 function finDeJuego(j, zona, aciertos, total, detalle = "") {
+  if (!zona.isConnected) return;   // ya se salió del juego
   const previo = estado.puntajes[j.id];
-  if (!previo || aciertos > previo.aciertos) estado.puntajes[j.id] = { aciertos, total };
+  if (perfil() === "alumno" && (!previo || aciertos > previo.aciertos)) estado.puntajes[j.id] = { aciertos, total };
   guardarEstado();
   marcarHecho(`juego:${j.id}`);
   const excelente = aciertos === total;
@@ -1233,12 +1148,11 @@ function juegoBuraDice(j, zona) {
 }
 
 /** 🔍 Detective ambiental: encontrar los problemas escondidos en escenas ilustradas.
-    Los fondos están en escenas.js; los objetos y sus textos, en datos/primero.json.
-    Cada objeto puede tener un "efecto" animado: chorro, humo, ondas, brillo, moscas,
-    vuela, mece o flota. */
+    Las escenas son imágenes (imagenes/detective-*.webp). Los objetos ya están dibujados en ellas;
+    datos/primero.json dice qué zona ocupa cada uno, en % de la imagen: x, y (centro), w, h (tamaño). */
 function juegoDetective(j, zona) {
   const totalProblemas = j.escenas.reduce((n, e) => n + e.elementos.filter(x => x.problema).length, 0);
-  const fondos = typeof ESCENAS_SVG === "object" ? ESCENAS_SVG : {};
+  const fondo = e => `<img src="imagenes/detective-${e.fondo}.webp" alt="" draggable="false">`;
   let s = 0, encontrados = 0, errores = 0, pistas = 0;
 
   // Elige una escena para empezar (menú con miniaturas)
@@ -1247,7 +1161,7 @@ function juegoDetective(j, zona) {
       <p class="texto-grande">Elige dónde investigar. ¡Hay ${totalProblemas} problemas escondidos en total!</p>
       <div class="menu-escenas">${j.escenas.map((e, k) => `
         <button class="mini-escena" data-k="${k}">
-          <span class="mini-fondo">${fondos[e.fondo] || ""}</span>
+          <span class="mini-fondo">${fondo(e)}</span>
           <b>${e.icono || "🔍"} ${esc(e.titulo)}</b><small>${e.elementos.filter(x => x.problema).length} problemas</small>
         </button>`).join("")}</div>
       <div class="acciones"><button class="boton grande" id="todas">🔍 Investigar las ${j.escenas.length} escenas</button></div>`;
@@ -1272,20 +1186,12 @@ function juegoDetective(j, zona) {
         <div class="progreso-escena" aria-label="Problemas encontrados">${"<span>🔍</span>".repeat(probs)}</div>
         <button class="boton secundario" id="pista">💡 Pista</button>
       </div>
-      <div class="escena" id="escena">
-        <div class="escena-fondo">${fondos[es.fondo] || ""}</div>
-        ${es.elementos.map((e, k) => {
-          // Si hay ilustración (ilustraciones.js) se dibuja; si no, se usa el emoji.
-          const il = e.ilus && typeof ILUS === "object" ? ILUS[e.ilus] : null;
-          const ancho = il ? (e.ancho || il.ancho) * 1.4 : 0;   // 1.4 = escala general de los objetos
-          return `
-          <button class="elemento ${il ? "ilus" : ""} ${e.efecto ? "con-" + esc(e.efecto) : ""}" data-k="${k}"
-            style="left:${e.x}%;top:${e.y}%;--prof:${(0.72 + e.y / 170).toFixed(2)};${il ? `width:${ancho}%` : ""}" aria-label="${esc(e.nombre)}">
-            <span class="ico">${il ? `<svg viewBox="${il.vb}" aria-hidden="true">${il.svg}</svg>` : e.icono}</span>${!il && e.efecto ? `<i class="efecto efecto-${esc(e.efecto)}"></i>` : ""}
-          </button>`;
-        }).join("")}
+      <p class="pequeno solo-celular">👉 Desliza la imagen hacia los lados para verla completa.</p>
+      <div class="escena-desliza"><div class="escena" id="escena">
+        <div class="escena-fondo">${fondo(es)}</div>
+        ${es.elementos.map((e, k) => `<button class="elemento zona" data-k="${k}" style="left:${e.x}%;top:${e.y}%;width:${e.w}%;height:${e.h}%" aria-label="${esc(e.nombre)}"></button>`).join("")}
         <div class="lupa" id="lupa" aria-hidden="true"></div>
-      </div>
+      </div></div>
       <p class="retro" aria-live="polite">🔍 Mueve tu lupa y toca lo que daña al ambiente.</p>
       <button class="boton" id="siguiente" hidden>Siguiente →</button>`;
 
@@ -1312,8 +1218,9 @@ function juegoDetective(j, zona) {
       if (!pendientes.length) return;
       pistas++;
       const b = azar(pendientes);
+      b.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
       b.classList.add("pista"); setTimeout(() => b.classList.remove("pista"), 2600);
-      retro.className = "retro"; retro.textContent = "💡 Mira lo que se está moviendo…";
+      retro.className = "retro"; retro.textContent = "💡 Mira el círculo que brilla…";
     });
 
     zona.querySelectorAll(".elemento").forEach(b => b.addEventListener("click", () => {
@@ -1352,14 +1259,14 @@ function juegoDetective(j, zona) {
 function juegoGotas(j, zona) {
   const segundos = j.segundos || 30;
   zona.innerHTML = `
-    <div class="marcador"><span>💧 Gotas: <b id="atrapadas">0</b></span><span>🚰 Fugas cerradas: <b id="fugas">0</b></span><span>⏱️ <b id="tiempo">${segundos}</b> s</span></div>
+    <div class="marcador"><span>💧 Gotas: <b id="atrapadas">0</b></span><span><img class="ico-grifo" src="imagenes/icono-grifo.webp" alt=""> Fugas cerradas: <b id="fugas">0</b></span><span>⏱️ <b id="tiempo">${segundos}</b> s</span></div>
     <div class="area-gotas" id="area"><div class="cubeta" id="cubeta">🪣</div></div>
     <div class="controles-gotas">
       <button class="boton secundario" id="izq" aria-label="Mover a la izquierda">◀</button>
       <button class="boton" id="empezar">▶️ Empezar</button>
       <button class="boton secundario" id="der" aria-label="Mover a la derecha">▶</button>
     </div>
-    <p class="retro" aria-live="polite">Mueve la cubeta con el dedo, el ratón o las flechas. Si aparece una llave 🚰, ¡tócala para cerrarla!</p>`;
+    <p class="retro" aria-live="polite">Mueve la cubeta con el dedo, el ratón o las flechas. Si aparece una llave <img class="ico-grifo" src="imagenes/icono-grifo.webp" alt="">, ¡tócala para cerrarla!</p>`;
   const area = zona.querySelector("#area"), cubeta = zona.querySelector("#cubeta"), retro = zona.querySelector(".retro");
   let x = 50, gotas = [], atrapadas = 0, total = 0, fugasCerradas = 0, fugasTotal = 0, jugando = false, ultimo = 0, sigGota = 0, sigFuga = 4000, fin = 0;
   const ponerX = v => { x = Math.max(6, Math.min(94, v)); cubeta.style.left = x + "%"; };
@@ -1379,12 +1286,12 @@ function juegoGotas(j, zona) {
   function crearFuga() {
     fugasTotal++;
     const b = document.createElement("button");
-    b.className = "fuga"; b.textContent = "🚰💦"; b.setAttribute("aria-label", "Fuga de agua: tócala para cerrarla");
+    b.className = "fuga"; b.innerHTML = `<img class="ico-grifo" src="imagenes/icono-grifo.webp" alt="">`; b.setAttribute("aria-label", "Fuga de agua: tócala para cerrarla");
     b.style.left = (10 + Math.random() * 75) + "%"; b.style.top = (10 + Math.random() * 35) + "%";
     b.addEventListener("pointerdown", ev => {
       ev.stopPropagation();
       if (b.dataset.cerrada) return;
-      b.dataset.cerrada = "1"; fugasCerradas++; b.textContent = "🚰✅";
+      b.dataset.cerrada = "1"; fugasCerradas++; b.insertAdjacentHTML("beforeend", "<b>✅</b>");
       zona.querySelector("#fugas").textContent = fugasCerradas;
       reaccion(true, "¡Cerraste la fuga!");
       setTimeout(() => b.remove(), 500);
@@ -1420,7 +1327,8 @@ function juegoGotas(j, zona) {
     if (t >= fin) {
       jugando = false;
       gotas.forEach(g => g.el.remove());
-      area.querySelectorAll(".fuga").forEach(f => f.remove());
+      // Las fugas que aún estaban abiertas al terminar el tiempo no cuentan en contra.
+      area.querySelectorAll(".fuga").forEach(f => { if (!f.dataset.cerrada) fugasTotal--; f.remove(); });
       document.removeEventListener("keydown", teclas);
       return finDeJuego(j, zona, atrapadas + fugasCerradas, Math.max(1, total + fugasTotal),
         `<p>Atrapaste ${atrapadas} de ${total} gotas y cerraste ${fugasCerradas} de ${fugasTotal} fugas.</p><p>${esc(j.mensajeFinal || "")}</p>`);
@@ -1490,6 +1398,7 @@ function juegoPlanta(j, zona) {
     retro.className = "retro " + (ok ? "bien" : "mal"); retro.textContent = (ok ? "🌱 " : "💡 ") + msg;
     agua = Math.max(0, agua - 35);   // el calor seca la tierra cada día
     lugar = null; dia++;
+    if (dia > dias) zona.querySelectorAll("button").forEach(b => { b.disabled = true; });   // evita terminar dos veces
     if (dia > dias) return setTimeout(() => finDeJuego(j, zona, buenos, dias, `<p class="pista">${etapas[etapa]}</p><p>${esc(m.final || "")}</p>`), 1400);
     zona.querySelector("#dia").textContent = dia;
     pintar();
@@ -1561,9 +1470,6 @@ function pantallaListaExperimentos() {
   pantallaExperimento(e.id);
 }
 
-/** Ícono de línea genérico para los materiales (sin emojis). */
-const ICONO_MATERIAL = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5z"/><path d="M4 8.5 12 13l8-4.5M12 13v7"/></svg>`;
-
 function pantallaExperimento(id) {
   const e = datos.experimentos.find(x => x.id === id);
   if (!e) return pantallaNoEncontrada();
@@ -1583,12 +1489,12 @@ function pantallaExperimento(id) {
         <p class="tema-intro">${esc(e.proposito)}</p>
         ${ETQ_PROPUESTA}
         <div class="supervision ${e.supervision ? "si" : "no"}">
-          <b>${e.supervision ? "⚠️ Requiere supervisión de un adulto" : "✓ Puedes hacerlo con la guía de tu maestra, maestro o familia"}</b>
+          <b>${e.supervision ? "⚠️ Requiere supervisión de un adulto" : "✓ Puedes hacerlo con la guía de tu maestra, maestro o tutor"}</b>
           <p>${esc(e.aviso)}</p>
         </div>
 
         <h3>Materiales</h3>
-        <div class="materiales-tiles">${e.materiales.map(m => `<div class="material">${ICONO_MATERIAL}<span>${esc(m)}</span></div>`).join("")}</div>
+        <div class="materiales-tiles">${e.materiales.map(m => `<div class="material">${iconoMaterial(m)}<span>${esc(m)}</span></div>`).join("")}</div>
 
         <h3>Pasos ${botonVoz(e.procedimiento.join(". "))}</h3>
         <ol class="pasos-numerados">${e.procedimiento.map((p, k) => `<li><label><input type="checkbox" class="paso" data-k="${k}" ${reg.pasos?.[k] ? "checked" : ""}><span class="num">${k + 1}</span><span>${esc(p)}</span></label></li>`).join("")}</ol>
@@ -1652,22 +1558,8 @@ function dibujarGrafica(e) {
 
 const CARITAS = ["😀", "🙂", "😐", "🤔"];
 
-/** Cartel lateral de Actúa: planeta sonriente en manos. */
-const CARTEL_PLANETA = `<aside class="cartel-planeta">
-  <p class="cartel-titulo">Tus acciones también cuentan</p>
-  <svg viewBox="0 0 200 190" aria-hidden="true">
-    <path d="M100 44 C100 30 98 22 92 14" stroke="#3d8c4a" stroke-width="4" fill="none" stroke-linecap="round"/>
-    <path d="M96 30 C80 32 74 20 76 10 C90 10 98 18 96 30Z" fill="#7cc46a"/><path d="M101 34 C102 22 112 16 122 18 C122 30 112 36 101 34Z" fill="#4fae5f"/>
-    <circle cx="100" cy="100" r="56" fill="#5bb3e6"/>
-    <path d="M62 78 Q80 66 96 76 Q100 92 84 98 Q70 104 66 118 Q50 104 62 78Z M110 60 Q132 62 146 82 Q138 96 122 92 Q112 80 110 60Z M114 116 Q130 108 148 118 Q140 140 120 150 Q110 134 114 116Z" fill="#7cc46a"/>
-    <circle cx="84" cy="102" r="5" fill="#1d2b33"/><circle cx="116" cy="102" r="5" fill="#1d2b33"/>
-    <path d="M86 118 Q100 128 114 118" stroke="#1d2b33" stroke-width="4" fill="none" stroke-linecap="round"/>
-    <ellipse cx="74" cy="114" rx="7" ry="4" fill="#f08a7a" opacity=".55"/><ellipse cx="126" cy="114" rx="7" ry="4" fill="#f08a7a" opacity=".55"/>
-    <path d="M30 150 Q40 120 62 130 L82 150 Q90 160 80 168 L44 178 Q28 176 30 150Z" fill="#f2c9a5"/>
-    <path d="M170 150 Q160 120 138 130 L118 150 Q110 160 120 168 L156 178 Q172 176 170 150Z" fill="#f2c9a5"/>
-  </svg>
-  <p class="cartel-pie">Juntos por un planeta más limpio, justo y saludable.</p>
-</aside>`;
+/** Cartel lateral de Actúa. */
+const CARTEL_PLANETA = `<aside class="cartel-planeta"><img src="imagenes/acciones-planeta.webp" width="620" height="868" alt="Tus acciones también cuentan. Juntos por un planeta más limpio, justo y saludable."></aside>`;
 
 function pantallaListaRetos() {
   const fila = (r, k) => {
@@ -1760,52 +1652,54 @@ function pantallaReto(id) {
 }
 
 /* ----- Código de progreso (sin cuentas ni datos personales) -----
-   El código guarda SOLO qué actividades están completas, como una lista de sí/no:
-   lecciones, juegos, experimentos y retos, en el orden de datos/primero.json.
-   Formato: EQ1-XXX-XXX-XXX-X  (EQ = EcoQuest, 1 = versión, la última letra es de control).
-   IMPORTANTE: para que los códigos viejos sigan sirviendo, el contenido nuevo
-   (temas, juegos, etc.) siempre se agrega AL FINAL de cada lista en primero.json. */
+   El código guarda SOLO qué actividades están completas, como una lista de sí/no,
+   en el orden de "ordenCodigo" (datos/primero.json).
+   Formato: EQ2-XXX-XXX-XXX-X  (EQ = EcoQuest, 2 = versión, la última letra es de control).
+   Los códigos EQ1 (primera versión) también se aceptan.
+   IMPORTANTE: al agregar contenido, sus claves se añaden AL FINAL de "ordenCodigo"
+   y nunca se cambia lo anterior; así los códigos viejos siguen sirviendo. */
 
 const ALFABETO_32 = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";   // sin I, L, O, U para evitar confusiones
 
 /** Lista fija de todas las actividades, en orden. */
-function actividadesCodigo() {
-  return [
-    ...datos.unidades.map(u => `aprende:${u.id}`),
-    ...datos.juegos.map(j => `juego:${j.id}`),
-    ...datos.experimentos.map(e => `experimento:${e.id}`),
-    ...datos.retos.map(r => `reto:${r.id}`)
-  ];
-}
+const actividadesCodigo = () => datos.ordenCodigo;
 
-/** Letra de control: detecta si alguien se equivocó al escribir el código. */
-function letraControl(cuerpo) {
+/** Letra de control: detecta cualquier error de UNA letra (los multiplicadores impares lo garantizan). */
+function letraControl(cuerpo, version = 2) {
   let s = 7;
-  for (let i = 0; i < cuerpo.length; i++) s = (s * 31 + ALFABETO_32.indexOf(cuerpo[i]) * (i + 3)) % 32;
+  for (let i = 0; i < cuerpo.length; i++) {
+    const v = ALFABETO_32.indexOf(cuerpo[i]);
+    s = version === 1 ? (s * 31 + v * (i + 3)) % 32 : (s + v * (2 * i + 1)) % 32;
+  }
   return ALFABETO_32[s];
 }
 
 /** Crea el código a partir del progreso actual. */
-function codigoProgreso() {
-  const bits = actividadesCodigo().map(c => estado.hechos[c] ? 1 : 0);
+function codigoProgreso(hechos = estado.hechos) {
+  const bits = actividadesCodigo().map(c => hechos[c] ? 1 : 0);
   while (bits.length % 5) bits.push(0);
   let cuerpo = "";
   for (let i = 0; i < bits.length; i += 5) cuerpo += ALFABETO_32[bits.slice(i, i + 5).reduce((n, b) => n * 2 + b, 0)];
   const grupos = cuerpo.match(/.{1,3}/g).join("-");   // grupos de 3, fáciles de dictar
-  return `EQ1-${grupos}-${letraControl(cuerpo)}`;
+  return `EQ2-${grupos}-${letraControl(cuerpo)}`;
 }
+
+const DIRECCION_PUBLICA = "https://javierrabago2007.github.io/ecoquest/";
 
 /** Dirección web que abre EcoQuest y carga este progreso (se usa en el QR). */
 function enlaceProgreso() {
-  return location.origin + location.pathname + "#cargar/" + codigoProgreso();   // sin ?…, siempre la dirección principal
+  // En la computadora de prueba (localhost) el QR usa la dirección pública; si no, otro celular no podría abrirlo.
+  const base = /^(localhost|127\.)/.test(location.hostname) ? DIRECCION_PUBLICA : location.origin + location.pathname;
+  return base + "#cargar/" + codigoProgreso();   // sin ?…, siempre la dirección principal
 }
 
 /** Lee un código y devuelve las actividades que contiene: { ok, hechos: {"aprende:u1": true, ...} } */
 function leerCodigo(texto) {
   const limpio = String(texto).toUpperCase().replace(/[^0-9A-Z]/g, "").replace(/O/g, "0").replace(/[IL]/g, "1");
-  if (!limpio.startsWith("EQ1") || limpio.length < 5) return { ok: false, mensaje: "Ese código no es de EcoQuest. Revisa que empiece con EQ1." };
+  const version = Number((limpio.match(/^EQ([12])/) || [])[1]);
+  if (!version || limpio.length < 5) return { ok: false, mensaje: "Ese código no es de EcoQuest. Revisa que empiece con EQ2." };
   const cuerpo = limpio.slice(3, -1), control = limpio.slice(-1);
-  if ([...cuerpo].some(c => !ALFABETO_32.includes(c)) || letraControl(cuerpo) !== control) {
+  if ([...cuerpo].some(c => !ALFABETO_32.includes(c)) || letraControl(cuerpo, version) !== control) {
     return { ok: false, mensaje: "El código tiene un error. Revisa letra por letra y vuelve a intentarlo." };
   }
   const bits = [...cuerpo].flatMap(c => { const v = ALFABETO_32.indexOf(c); return [16, 8, 4, 2, 1].map(p => (v & p) ? 1 : 0); });
@@ -1994,7 +1888,7 @@ const fechaCorta = iso => iso ? new Date(iso).toLocaleDateString("es-MX", { day:
 function pendientesDe(h, u) {
   const nombres = ["Aprende", "Juega", "Experimenta", "Actúa"];
   const enlaces = [`#aprende/${u.id}`, `#juega/${juegoDe(u.id)?.id}`, `#experimenta/${experimentoDe(u.id)?.id}`, `#actua/${retoDe(u.id)?.id}`];
-  return actividadesDe(u).map((c, k) => ({ nombre: nombres[k], enlace: enlaces[k], hecha: completoEn(h, c) }));
+  return actividadesDe(u).map((c, k) => ({ clave: c, nombre: nombres[k], enlace: enlaces[k], hecha: completoEn(h, c) }));
 }
 
 function pantallaGrupo() {
@@ -2025,11 +1919,17 @@ function pantallaGrupo() {
   temas.forEach(t => { t.reforzar = validas.length > 1 && empatados <= 2 && t.prom === minProm; });
 
   app.innerHTML = `
-    ${encabezadoSeccion("👩‍🏫", "Avance del grupo", "Reúna los códigos de progreso de sus alumnos y vea su avance tema por tema.")}
+    ${encabezadoSeccion("👩‍🏫", "Avance del grupo", "Registre a mano o con códigos lo que hace su grupo y vea su avance tema por tema.")}
 
     <section class="panel agregar-grupo">
       <h2>Agregar alumnos</h2>
       <div class="formas-agregar">
+        <form class="forma" id="formLista">
+          <h3>📝 Sin dispositivos (por número de lista)</h3>
+          <p>Cree la lista y marque en ella lo que cada quien hizo en papel o en clase. No necesita QR ni internet en casa.</p>
+          <label>¿Cuántos alumnos son? <input id="cuantosLista" type="number" min="1" max="60" value="30"></label>
+          <button class="boton" type="submit">Crear lista</button>
+        </form>
         <div class="forma">
           <h3>📷 Escanear su QR</h3>
           <p>Cada alumno abre <b>Mi progreso</b> y usted escanea el QR con la cámara de este dispositivo.</p>
@@ -2038,7 +1938,7 @@ function pantallaGrupo() {
         <form class="forma" id="formGrupo">
           <h3>⌨️ Escribir los códigos</h3>
           <label for="codigosGrupo" class="pequeno">Uno por renglón. Puede anteponer número de lista o apodo y dos puntos.</label>
-          <textarea id="codigosGrupo" rows="3" spellcheck="false" placeholder="1: EQ1-J10-008-0G0-B&#10;2: EQ1-804-000-040-X"></textarea>
+          <textarea id="codigosGrupo" rows="3" spellcheck="false" placeholder="1: EQ2-XXX-XXX-XXX-X&#10;2: EQ2-XXX-XXX-XXX-X"></textarea>
           <button class="boton secundario" type="submit">Agregar</button>
         </form>
       </div>
@@ -2081,7 +1981,7 @@ function pantallaGrupo() {
         <button class="boton chico secundario" id="imprimirGrupo">🖨️ Imprimir</button>
         <button class="boton chico secundario" id="vaciarGrupo">Vaciar lista</button>
       </div>
-      <p class="pequeno">Toque el nombre de un alumno para ver qué le falta.</p>
+      <p class="pequeno">Toque un nombre o número para ver qué le falta y marcar lo que hizo.</p>
       <div class="tabla-envoltura">
         <table class="tabla tabla-grupo">
           <thead><tr><th>Alumno</th><th>Avance</th>${datos.unidades.map(u => `<th class="col-tema" title="${esc(u.titulo)}"><span aria-hidden="true">${u.icono}</span><span class="solo-lector">${esc(u.titulo)}</span></th>`).join("")}<th>Insignias</th><th>Actualizado</th><th></th></tr></thead>
@@ -2107,7 +2007,7 @@ function pantallaGrupo() {
                   <div class="detalle-temas">${pend.map(p => `
                     <div class="detalle-tema ${p.lista.every(x => x.hecha) ? "completo" : ""}">
                       <b>${p.u.icono} ${esc(p.u.titulo)}</b>
-                      <ul>${p.lista.map(x => `<li class="${x.hecha ? "hecha" : ""}">${x.hecha ? "✅" : "⬜"} ${x.hecha ? x.nombre : `<a href="${x.enlace}">${x.nombre}</a>`}</li>`).join("")}</ul>
+                      <ul>${p.lista.map(x => `<li class="${x.hecha ? "hecha" : ""}"><label><input type="checkbox" class="marca-grupo" data-c="${x.clave}" ${x.hecha ? "checked" : ""}> ${x.nombre}</label></li>`).join("")}</ul>
                     </div>`).join("")}</div>
                 </div></td></tr>`;
             }).join("")}
@@ -2130,7 +2030,26 @@ function pantallaGrupo() {
         </div>`).join("")}</div>
       <a class="boton secundario" href="#docente">Ver contenidos y PDA de cada tema →</a>
     </section>` : `
-    <section class="panel en-construccion">${mascota("Aún no hay alumnos. Escanee su QR o escriba su código de «Mi progreso».", 110)}</section>`}`;
+    <section class="panel en-construccion">${mascota("Aún no hay alumnos. Cree su lista por número o agregue códigos.", 110)}</section>`}`;
+
+  /* --- Lista por número, sin dispositivos --- */
+  document.getElementById("formLista").addEventListener("submit", ev => {
+    ev.preventDefault();
+    const n = Math.max(1, Math.min(60, Math.floor(Number(document.getElementById("cuantosLista").value)) || 1));
+    let nuevos = 0;
+    for (let i = 1; i <= n; i++) if (!almacen.grupo?.some(f => f.etiqueta === String(i))) { guardarEnGrupo(String(i), codigoProgreso({})); nuevos++; }
+    pantallaGrupo();
+    avisar(`📝 ${nuevos} número(s) de lista agregados. Los que ya existían no cambiaron.`);
+  });
+  /* --- Marcar o desmarcar actividades a mano --- */
+  app.querySelectorAll(".marca-grupo").forEach(c => c.addEventListener("change", () => {
+    const f = almacen.grupo.find(g => g.etiqueta === abiertoGrupo);
+    const hechos = leerCodigo(f.codigo).hechos;
+    const claves = c.dataset.c.startsWith("juegos:") ? juegosDe(c.dataset.c.slice(7)).map(j => `juego:${j.id}`) : [c.dataset.c];
+    if (c.checked) hechos[claves[0]] = true; else claves.forEach(k => delete hechos[k]);
+    guardarEnGrupo(f.etiqueta, codigoProgreso(hechos));
+    const y = window.scrollY; pantallaGrupo(); window.scrollTo(0, y);
+  }));
 
   /* --- Agregar escribiendo --- */
   document.getElementById("formGrupo").addEventListener("submit", ev => {
@@ -2138,7 +2057,7 @@ function pantallaGrupo() {
     const lineas = document.getElementById("codigosGrupo").value.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
     let nuevos = 0, actualizados = 0, errores = 0;
     lineas.forEach(l => {
-      const m = l.match(/^(.*?)[:\t]\s*(EQ1.*)$/i);
+      const m = l.match(/^(.*?)[:\t]\s*(EQ[12].*)$/i);
       const etiqueta = m && m[1].trim() ? m[1].trim().slice(0, 40) : etiquetaLibre();
       const codigo = (m ? m[2] : l).trim();
       if (!leerCodigo(codigo).ok) errores++;
@@ -2237,7 +2156,7 @@ async function abrirEscaner() {
       ctx.drawImage(video, 0, 0);
       const img = ctx.getImageData(0, 0, lienzo.width, lienzo.height);
       const qr = jsQR(img.data, img.width, img.height, { inversionAttempts: "dontInvert" });
-      const m = qr && qr.data.match(/EQ1[-0-9A-Z]+/i);
+      const m = qr && qr.data.match(/EQ[12][-0-9A-Z]+/i);
       if (m) {
         const leido = leerCodigo(m[0]);
         if (leido.ok) {
@@ -2292,9 +2211,10 @@ function pantallaProgreso() {
         </div>`;
       }).join("")}
     </div>
-    <section class="panel codigo-progreso" id="guardarProgreso">
-      <h2>💾 Guardar mi progreso</h2>
-      <p>Con este código o este QR puedes continuar en otra computadora, tableta o celular. No guarda nombres ni datos personales: solo qué actividades completaste.</p>
+    <section class="panel"><h2>✅ Tu progreso ya está guardado</h2><p>Se guarda solo, en este dispositivo. No tienes que hacer nada más.</p></section>
+    <details class="panel codigo-progreso" id="guardarProgreso">
+      <summary>📲 ¿Vas a usar otro dispositivo? Mostrar mi código y mi QR</summary>
+      <p>Esto es opcional. Pide ayuda a un adulto. Con este código o este QR puedes continuar en otra computadora, tableta o celular. No guarda nombres ni datos personales: solo qué actividades completaste.</p>
       <div class="caja-codigo">
         <div class="qr" id="qrProgreso" aria-label="Código QR de tu progreso"></div>
         <div>
@@ -2307,21 +2227,21 @@ function pantallaProgreso() {
           <p class="pequeno">Escanea el QR con la cámara de otro celular para abrir EcoQuest con tu progreso.</p>
         </div>
       </div>
-    </section>
+    </details>
 
-    <section class="panel codigo-progreso">
-      <h2>📥 Cargar un progreso</h2>
+    <details class="panel codigo-progreso">
+      <summary>📥 Ya tengo un código</summary>
       <p>¿Ya tienes un código? Escríbelo aquí. Se sumará a lo que ya tengas en este dispositivo; no se borra nada.</p>
       <form class="cargar-codigo" id="formCargar">
-        <input id="entradaCodigo" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="EQ1-XXX-XXX-XXX-X" aria-label="Código de progreso">
+        <input id="entradaCodigo" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="EQ2-XXX-XXX-XXX-X" aria-label="Código de progreso">
         <button class="boton" type="submit">Cargar</button>
       </form>
       <p class="retro" id="retroCargar" aria-live="polite"></p>
-    </section>
+    </details>
 
     <section class="panel">
       <h2>¿Dónde se guarda mi progreso?</h2>
-      <p>Se guarda solo en este navegador y en este dispositivo. No se envía a internet y no pide nombres. Si cambias de dispositivo, usa tu <a href="#guardarProgreso">código de progreso</a>. Si se borran los datos de navegación sin haber guardado el código, el progreso empieza de cero.</p>
+      <p>Se guarda solo en este navegador y en este dispositivo. No se envía a internet y no pide nombres. Si cambias de dispositivo, usa tu código de progreso (arriba). Si se borran los datos de navegación sin haber guardado el código, el progreso empieza de cero.</p>
       <button class="boton secundario" id="borrar">🗑️ Borrar mi progreso</button>
     </section>`;
 
@@ -2355,7 +2275,52 @@ function pantallaProgreso() {
   });
 }
 
-/* ----- Vistas para docentes y familias ----- */
+/* ----- Vistas para docentes y para madres, padres o tutores -----
+   Cada perfil tiene su propio inicio y su propio menú lateral:
+     Alumna(o): aventura, juegos, insignias.
+     Docente: grupo, plan de estudios, hojas para imprimir.
+     Madre, padre o tutor: actividad de hoy, avance de su hija o hijo, trabajo sin internet. */
+
+const tarjetaAdulto = (enlace, icono, titulo, texto, boton) => `<a class="tarjeta-adulto" href="${enlace}">
+  <span class="icono-adulto" aria-hidden="true">${icono}</span><h2>${titulo}</h2><p>${texto}</p><span class="tarjeta-boton">${boton} <span aria-hidden="true">→</span></span></a>`;
+
+const ICONO_ADULTO = {
+  casa: `<svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5.5 9.5V20h5v-5.5h3V20h5V9.5"/></svg>`,
+  avance: `<svg viewBox="0 0 24 24"><path d="M5 20V14M10 20V9M15 20v-7M20 20V5"/></svg>`,
+  hoja: `<svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7M9 16h7"/></svg>`,
+  libro: `<svg viewBox="0 0 24 24"><path d="M3 5.5c3-1.3 6-1.3 9 .5v13c-3-1.8-6-1.8-9-.5zM21 5.5c-3-1.3-6-1.3-9 .5v13c3-1.8 6-1.8 9-.5z"/></svg>`,
+  grupo: `<svg viewBox="0 0 24 24"><circle cx="8.5" cy="8" r="3.2"/><circle cx="16.5" cy="9.5" r="2.6"/><path d="M2.5 20a6 6 0 0 1 12 0M13.5 20a4.5 4.5 0 0 1 8 -2.8"/></svg>`,
+  insignia: `<svg viewBox="0 0 24 24"><path d="m12 3 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8-4.3-4.1 5.9-.9z"/></svg>`,
+  escudo: `<svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 5 3 8 7 10 4-2 7-5 7-10V6zM9 12l2 2 4-4"/></svg>`
+};
+
+/* --- Docente --- */
+
+function pantallaInicioDocente() {
+  const filas = (almacen.grupo || []).map(f => leerCodigo(f.codigo)).filter(l => l.ok).map(l => avanceDe(l.hechos));
+  const prom = filas.length ? Math.round(filas.reduce((s, a) => s + a.pct, 0) / filas.length) : 0;
+  app.innerHTML = `
+    <section class="portada-adulto docente">
+      <div><p class="pequeno">PERFIL DOCENTE · 1.º GRADO · FASE 3</p><h1>Maestra, maestro: este es su espacio</h1>
+      <p>Planee con los contenidos oficiales, trabaje con o sin dispositivos y dé seguimiento a su grupo.</p></div>
+      ${mascota("", 150)}
+    </section>
+    <section class="rejilla-adulto">
+      ${tarjetaAdulto("#grupo", ICONO_ADULTO.grupo, "Avance del grupo", filas.length ? `${filas.length} alumnas y alumnos · ${prom}% de avance promedio.` : "Registre a su grupo por número de lista, sin QR ni dispositivos si no los hay.", "Ver mi grupo")}
+      ${tarjetaAdulto("#docente", ICONO_ADULTO.libro, "Vinculación curricular", "Contenidos y PDA textuales del Programa Sintético y sugerencias para el aula.", "Consultar")}
+      ${tarjetaAdulto("#hojas", ICONO_ADULTO.hoja, "Hojas para imprimir", "Una hoja por tema para trabajar en papel, en la escuela o en casa.", "Ver las hojas")}
+    </section>
+    <section class="panel">
+      <h2>¿Con qué cuenta su escuela? ${ETQ_PROPUESTA}</h2>
+      <div class="rejilla-adulto">
+        <div class="caso"><h3>Solo un dispositivo o proyector</h3><p>Proyecte la lección y el juego; el grupo responde en voz alta o con tarjetas. El experimento y el reto se hacen sin pantalla.</p></div>
+        <div class="caso"><h3>Pocas tabletas o computadoras</h3><p>Trabajen por equipos en turnos. Cada niña o niño puede tener su <a href="#exploradores">explorador</a> en el mismo equipo.</p></div>
+        <div class="caso"><h3>Sin internet o sin dispositivos</h3><p>Imprima o copie en el pizarrón las <a href="#hojas">hojas de trabajo</a> y después marque el avance en <a href="#grupo">su grupo</a>.</p></div>
+      </div>
+    </section>
+    <section class="panel"><h2>Explorar los temas</h2><p>Aquí puede revisar y probar todo. En este perfil nada se guarda en el progreso de los alumnos.</p>
+      <div class="acciones">${datos.unidades.map(u => `<a class="boton secundario chico" href="#aprende/${u.id}">${u.icono} ${esc(u.titulo)}</a>`).join("")}</div></section>`;
+}
 
 function pantallaDocente() {
   app.innerHTML = `
@@ -2363,7 +2328,7 @@ function pantallaDocente() {
     <section class="panel">
       <p>${ETQ_OFICIAL} Los contenidos y Procesos de Desarrollo de Aprendizaje (PDA) se transcriben textualmente de: <i>${esc(datos.fuenteOficial)}</i></p>
       <p>${ETQ_PROPUESTA} Las explicaciones, juegos, experimentos, retos y la relación con los libros de texto son propuesta de EcoQuest.</p>
-      <a class="boton" href="#grupo">👩‍🏫 Ver avance del grupo con los códigos de progreso →</a>
+      <a class="boton" href="#grupo">👩‍🏫 Ver avance del grupo →</a>
     </section>
     <div class="tabla-envoltura">
       <table class="tabla">
@@ -2383,24 +2348,136 @@ function pantallaDocente() {
     </section>`;
 }
 
+/* --- Madre, padre o tutor --- */
+
+/** Las tres actividades en casa de cada tema (no necesitan pantalla). Se marcan aparte del progreso de la niña o el niño. */
+const PASOS_CASA = ["platicar", "experimentar", "actuar"];
+const marcasCasa = id => (almacen.casa || {})[id] || {};
+const hechasCasa = id => PASOS_CASA.filter(p => marcasCasa(id)[p]).length;
+
+/** Tarjeta con las tres actividades de un tema para hacer en familia. */
+function actividadCasa(u) {
+  const e = experimentoDe(u.id), r = retoDe(u.id), m = marcasCasa(u.id);
+  const paso = (id, titulo, texto, extra) => `<li class="${m[id] ? "hecha" : ""}"><label><input type="checkbox" class="marca-casa" data-u="${u.id}" data-p="${id}" ${m[id] ? "checked" : ""}><span><b>${titulo}</b>${texto}</span></label>${extra}</li>`;
+  return `<ol class="pasos-casa">
+    ${paso("platicar", "1. Platiquen", esc(u.familia), `<p class="pequeno">Pregunta para empezar: «${esc(u.aprende.preguntas[0].pregunta)}»</p>`)}
+    ${e ? paso("experimentar", `2. Experimenten: ${esc(e.nombre)}`, `${e.supervision ? "⚠️ Necesita a un adulto presente. " : ""}${esc(e.aviso)}`, `<p class="pequeno">Necesitan: ${esc(e.materiales.join(", "))}. <a href="#experimenta/${e.id}">Ver los pasos</a></p>`) : ""}
+    ${r ? paso("actuar", `3. Actúen: ${esc(r.titulo)}`, esc(r.instrucciones.join(" ")), `<p class="pequeno"><a href="#actua/${r.id}">Ver el reto</a></p>`) : ""}
+  </ol>`;
+}
+function activarCasa(repintar) {
+  app.querySelectorAll(".marca-casa").forEach(c => c.addEventListener("change", () => {
+    almacen.casa = almacen.casa || {};
+    almacen.casa[c.dataset.u] = { ...marcasCasa(c.dataset.u), [c.dataset.p]: c.checked };
+    guardarEstado();
+    const terminado = hechasCasa(c.dataset.u) === PASOS_CASA.length;
+    if (terminado) avisar("🏡 ¡Terminaron este tema en familia!");
+    repintar();
+  }));
+}
+
 function pantallaFamilia() {
+  const u = datos.unidades.find(x => hechasCasa(x.id) < PASOS_CASA.length) || datos.unidades[0];
   app.innerHTML = `
-    ${encabezadoSeccion("👪", "Guía para familias", "Ideas breves para aprender juntos en casa.")}
-    <div class="lista-unidades">
-      ${datos.unidades.map(u => `<div class="tarjeta-actividad color-${u.color}"><span class="tarjeta-icono" aria-hidden="true">${u.icono}</span>
-        <span class="tarjeta-cuerpo"><b>${esc(u.titulo)}</b><small>${esc(u.familia)}</small></span></div>`).join("")}
-    </div>
+    <section class="portada-adulto familia">
+      <div><p class="pequeno">PERFIL MADRE, PADRE O TUTOR</p><h1>Aprendan juntos en casa</h1>
+      <p>Actividades cortas con cosas que ya tienen. La mayoría no necesita pantalla ni internet.</p></div>
+      ${mascota("", 150)}
+    </section>
+    <section class="rejilla-adulto">
+      ${tarjetaAdulto("#casa", ICONO_ADULTO.casa, "Plan en casa", `${datos.unidades.filter(x => hechasCasa(x.id) === PASOS_CASA.length).length} de ${datos.unidades.length} temas terminados en familia.`, "Ver el plan")}
+      ${tarjetaAdulto("#hijos", ICONO_ADULTO.avance, "Avance de mi hija o hijo", "Qué ya hizo, qué le falta y cómo ayudarle.", "Ver avance")}
+      ${tarjetaAdulto("#hojas", ICONO_ADULTO.hoja, "Sin internet", "Hojas para imprimir o copiar en el cuaderno.", "Ver las hojas")}
+    </section>
     <section class="panel">
+      <h2>Para hoy: ${u.icono} ${esc(u.titulo)} ${ETQ_PROPUESTA}</h2>
+      <p>${esc(u.resumen)} Marquen cada actividad cuando la terminen; no tienen que hacerlas todas el mismo día.</p>
+      ${actividadCasa(u)}
+    </section>
+    <section class="panel" id="acompanar">
+      <h2>Cómo acompañar a su hija o hijo ${ETQ_PROPUESTA}</h2>
+      <ul>
+        <li><b>Escuche antes de corregir.</b> Pregunte «¿por qué crees que pasa?» y deje que lo explique.</li>
+        <li><b>Todavía está aprendiendo a leer.</b> Lean juntos o use el botón de voz 🔊.</li>
+        <li><b>Poco tiempo basta.</b> Una actividad corta, sin prisa, vale más que muchas seguidas.</li>
+        <li><b>Dé el ejemplo.</b> Cerrar la llave o separar la basura juntos enseña más que decirlo.</li>
+      </ul>
       <h2>Seguridad primero</h2>
       <ul>
         <li>Los experimentos marcados con ⚠️ necesitan a un adulto presente.</li>
         <li>Ningún experimento usa fuego, electricidad, sustancias tóxicas ni agua hirviendo.</li>
         <li>En Sonora, al observar la naturaleza, no metan las manos en huecos ni bajo piedras (alacranes).</li>
+        <li>Con mucho calor, salgan temprano o al atardecer y lleven agua.</li>
       </ul>
       <h2>Privacidad</h2>
-      <p>EcoQuest no pide nombres, correos ni contraseñas. El progreso se guarda solo en este dispositivo.</p>
+      <p>EcoQuest no pide nombres, correos ni contraseñas. Todo se guarda solo en este dispositivo.</p>
     </section>`;
+  activarCasa(pantallaFamilia);
 }
+
+function pantallaCasa(id) {
+  const abierta = unidad(id) ? id : null;
+  app.innerHTML = `
+    ${encabezadoSeccion("🏡", "Plan en casa", "Tres actividades por tema para hacer en familia, en el orden que prefieran.")}
+    ${datos.unidades.map(u => `<details class="panel tema-casa" data-u="${u.id}" ${abierta === u.id ? "open" : ""}><summary><span class="ico-tema" aria-hidden="true">${u.icono}</span><b>${esc(u.titulo)}</b><span class="estado ${hechasCasa(u.id) === PASOS_CASA.length ? "completo" : ""}">${hechasCasa(u.id)} de ${PASOS_CASA.length}</span></summary>${actividadCasa(u)}</details>`).join("")}`;
+  activarCasa(() => {
+    const u = app.querySelector("details[open]")?.dataset.u;
+    const abiertos = [...app.querySelectorAll("details[open]")].map(d => d.dataset.u);
+    const y = window.scrollY;
+    pantallaCasa(u);
+    app.querySelectorAll(".tema-casa").forEach(d => { d.open = abiertos.includes(d.dataset.u); });
+    window.scrollTo(0, y);
+  });
+}
+
+function pantallaHijos() {
+  guardarEstado();
+  app.innerHTML = `
+    ${encabezadoSeccion("📊", "Avance de mi hija o hijo", "Lo que se ha hecho en este dispositivo, por explorador.")}
+    ${almacen.exploradores.map(ex => {
+      const h = ex.progreso.hechos, a = avanceDe(h);
+      const pend = datos.unidades.map(u => ({ u, lista: pendientesDe(h, u) }));
+      const sig = pend.map(p => ({ u: p.u, act: p.lista.find(x => !x.hecha) })).find(p => p.act);
+      return `<section class="panel hijo">
+        <div class="hijo-cabeza">${avatarExplorador(ex)}<div><h2>${esc(apodoDe(ex))}</h2><p>${a.hechas} de ${a.total} actividades · ${a.insignias} insignia(s)</p></div></div>
+        ${barraProgreso({ total: a.total, hechas: a.hechas })}
+        ${sig ? `<p class="sugerencia">💡 <b>Cómo ayudarle ahora:</b> en «${esc(sig.u.titulo)}» le falta ${sig.act.nombre}. ${esc(sig.u.familia)}</p>` : `<p class="sugerencia">🎉 ¡Completó todas las actividades! Pídale que le explique su tema favorito.</p>`}
+        <details><summary>Ver tema por tema</summary><div class="detalle-temas">${pend.map(p => `<div class="detalle-tema ${p.lista.every(x => x.hecha) ? "completo" : ""}"><b>${p.u.icono} ${esc(p.u.titulo)}</b><ul>${p.lista.map(x => `<li class="${x.hecha ? "hecha" : ""}">${x.hecha ? "✅" : "⬜"} ${x.nombre}</li>`).join("")}</ul></div>`).join("")}</div></details>
+      </section>`;
+    }).join("")}
+    <section class="panel"><h2>¿Trabajó en otro dispositivo o en papel?</h2>
+      <p>Aquí solo aparece lo hecho en este dispositivo. Si tiene un código de progreso, puede <a href="#progreso">cargarlo aquí</a>. Lo hecho en papel lo registra su maestra o maestro en el grupo.</p></section>`;
+}
+
+/* --- Hojas para imprimir (trabajo sin internet ni dispositivos) --- */
+
+function pantallaHojas(id) {
+  const u = unidad(id);
+  if (!u) {
+    app.innerHTML = `
+      ${encabezadoSeccion("🖨️", "Hojas para trabajar sin internet", "Una hoja por tema. Se puede imprimir, fotocopiar o copiar en el cuaderno.")}
+      <div class="lista-unidades">${datos.unidades.map(x => tarjetaHoja(x)).join("")}</div>`;
+    return;
+  }
+  const e = experimentoDe(u.id), r = retoDe(u.id);
+  app.innerHTML = `
+    <div class="acciones no-imprimir"><a class="boton secundario" href="#hojas">← Todas las hojas</a><button class="boton" id="imprimirHoja">🖨️ Imprimir</button></div>
+    <article class="hoja">
+      <header><div><h1>${esc(u.titulo)}</h1><p>EcoQuest · ${esc(datos.nombreGrado)} · Propuesta didáctica EcoQuest</p></div><p>Número de lista: ______<br>Fecha: ____________</p></header>
+      <h2><span class="cuadro"></span> Aprende</h2><p>${esc(u.aprende.explicacion.join(" "))}</p>
+      <h2><span class="cuadro"></span> Juega: encierra la respuesta</h2>
+      <ol>${u.aprende.preguntas.slice(0, 3).map(p => `<li>${esc(p.pregunta)}<br>${p.opciones.map(o => `○ ${esc(o)}`).join(" &nbsp; ")}</li>`).join("")}</ol>
+      ${e ? `<h2><span class="cuadro"></span> Experimenta: ${esc(e.nombre)}</h2>
+      <p><b>${e.supervision ? "⚠️ Requiere supervisión de un adulto. " : ""}</b>${esc(e.aviso)}</p>
+      <p><b>Materiales:</b> ${esc(e.materiales.join(", "))}.</p><ol>${e.procedimiento.map(p => `<li>${esc(p)}</li>`).join("")}</ol>
+      <p>${esc(e.registro.pregunta)}</p><div class="renglones"></div>` : ""}
+      ${r ? `<h2><span class="cuadro"></span> Actúa: ${esc(r.titulo)}</h2><ol>${r.instrucciones.map(p => `<li>${esc(p)}</li>`).join("")}</ol>
+      ${r.dias ? `<p>${Array.from({ length: r.dias }, (_, k) => `<span class="cuadro"></span> Día ${k + 1}`).join(" &nbsp; ")}</p>` : ""}` : ""}
+      ${perfil() === "docente" ? `<p class="no-imprimir pequeno"><b>Respuestas (no se imprimen):</b> ${u.aprende.preguntas.slice(0, 3).map((p, k) => `${k + 1}. ${esc(p.opciones[p.correcta])}`).join(" · ")}</p>` : ""}
+    </article>`;
+  document.getElementById("imprimirHoja").addEventListener("click", () => window.print());
+}
+const tarjetaHoja = u => `<a class="tarjeta-actividad color-${u.color}" href="#hojas/${u.id}"><span class="tarjeta-icono" aria-hidden="true">${u.icono}</span><span class="tarjeta-cuerpo"><b>${esc(u.titulo)}</b><small>Lectura, preguntas, experimento y reto</small></span><span class="estado">Ver hoja</span></a>`;
 
 function pantallaAcerca() {
   app.innerHTML = `
@@ -2436,11 +2513,22 @@ function pantallaNoEncontrada() {
 
 /* ---------- 7. Navegación y arranque ---------- */
 
+/** En los perfiles de adulto se puede ver todo, pero no marcar actividades del alumno. */
+function vistaDeAdulto() {
+  if (perfil() === "alumno") return;
+  app.querySelectorAll("#terminarLeccion, #terminarExp, #terminarReto").forEach(b => { b.disabled = true; b.textContent = "👀 Vista de adulto"; });
+  app.querySelectorAll(".paso, .dato, #notaRegistro, .dia input, .carita, #notaReto").forEach(x => { x.disabled = true; });
+}
+
+/** Convierte %20 y similares sin fallar si el enlace está mal escrito. */
+const decodificar = t => { try { return decodeURIComponent(t || ""); } catch (e) { return t || ""; } };
+
 function enrutar() {
   if (hayVoz) speechSynthesis.cancel();
   if (salidaActual && ctxAudio) { salidaActual.gain.setTargetAtTime(0, ctxAudio.currentTime, 0.03); salidaActual = null; } // apaga sonidos al cambiar de pantalla
   cerrarCamara();   // apaga la cámara del escáner de QR si estaba encendida
-  const [ruta, id] = (location.hash.slice(1) || "inicio").split("/");
+  const [ruta, ...resto] = (location.hash.slice(1) || "inicio").split("/");
+  const id = resto.join("/") || undefined;
   const pantallas = {
     inicio: pantallaInicio,
     aprende: () => id ? pantallaAprende(id) : pantallaListaAprende(),
@@ -2451,14 +2539,18 @@ function enrutar() {
     insignias: pantallaProgreso,
     docente: pantallaDocente,
     familia: pantallaFamilia,
+    casa: () => pantallaCasa(id),
+    hijos: pantallaHijos,
+    hojas: () => pantallaHojas(id),
     acerca: pantallaAcerca,
-    buscar: () => pantallaBuscar(decodeURIComponent(id || "")),
-    cargar: () => pantallaCargar(decodeURIComponent(id || "")),
+    buscar: () => pantallaBuscar(decodificar(id)),
+    cargar: () => pantallaCargar(decodificar(id)),
     exploradores: pantallaExploradores,
     grupo: pantallaGrupo,
     grado: () => pantallaGrado(id)
   };
-  (pantallas[ruta] || pantallaNoEncontrada)();
+  (Object.hasOwn(pantallas, ruta) ? pantallas[ruta] : pantallaNoEncontrada)();
+  vistaDeAdulto();
   document.body.dataset.ruta = ruta;
 
   // Resalta la sección actual en el menú superior y en el lateral; cierra el menú en celular
@@ -2502,10 +2594,17 @@ function avatarSVG(p) {
 }
 const TEXTO_PERFIL = {
   alumno: { saludo: "¡Hola, explorador(a)!", nombre: "Explorador(a)" },
-  docente: { saludo: "¡Hola, maestra o maestro!", nombre: "Docente" },
-  familia: { saludo: "¡Hola, familia!", nombre: "Familia" }
+  docente: { saludo: "Maestra o maestro", nombre: "Docente" },
+  familia: { saludo: "Madre, padre o tutor", nombre: "Madre, padre o tutor" }
+};
+/** Menú lateral de cada perfil: [enlace, ícono, texto]. */
+const MENU_PERFIL = {
+  alumno: [["inicio", "casa", "Inicio"], ["actua", "insignia", "Mis misiones"], ["progreso", "avance", "Mi progreso"], ["insignias", "insignia", "Mis insignias"]],
+  docente: [["inicio", "casa", "Inicio"], ["grupo", "grupo", "Avance del grupo"], ["docente", "libro", "Vinculación curricular"], ["hojas", "hoja", "Hojas para imprimir"]],
+  familia: [["inicio", "casa", "Inicio"], ["casa", "escudo", "Plan en casa"], ["hijos", "avance", "Avance de mi hija o hijo"], ["hojas", "hoja", "Sin internet"]]
 };
 function pintarPerfil() {
+  document.querySelector(".menu-lateral").innerHTML = MENU_PERFIL[estado.perfil].map(([r, i, t]) => `<a href="#${r}" data-ruta="${r}">${ICONO_ADULTO[i].replace("<svg", '<svg aria-hidden="true"')}${t}</a>`).join("") + `<a class="enlace-acerca" href="#acerca" data-ruta="acerca">Acerca de EcoQuest y fuentes</a>`;
   const p = estado.perfil;
   document.body.dataset.perfil = p;
   // Alumno: se muestra el explorador activo (personaje + apodo). Docente y Familia: avatar genérico.
@@ -2515,10 +2614,11 @@ function pintarPerfil() {
   document.getElementById("avatarLateral").innerHTML = esAlumno ? avatarExplorador(ex) : avatarSVG(p);
   document.getElementById("saludoCabeza").textContent = esAlumno ? `¡Hola, ${apodoDe(ex)}!` : TEXTO_PERFIL[p].saludo;
   document.getElementById("nombrePerfil").textContent = esAlumno ? apodoDe(ex) : TEXTO_PERFIL[p].nombre;
+  document.querySelector(".tarjeta-perfil a[href='#progreso']").hidden = !esAlumno;
   const enlace = document.getElementById("enlaceExplorador");
   if (enlace) enlace.hidden = !esAlumno;
   const pastilla = document.querySelector(".pastilla-perfil");
-  if (pastilla) pastilla.setAttribute("href", esAlumno ? "#exploradores" : "#progreso");
+  if (pastilla) pastilla.setAttribute("href", esAlumno ? "#exploradores" : "#inicio");
   document.querySelectorAll(".cambiar-perfil button").forEach(b => {
     b.classList.toggle("activo", b.dataset.perfil === p);
     b.setAttribute("aria-pressed", String(b.dataset.perfil === p));
@@ -2528,8 +2628,8 @@ document.querySelectorAll(".cambiar-perfil button").forEach(b => b.addEventListe
   estado.perfil = b.dataset.perfil;
   guardarEstado();
   pintarPerfil();
-  avisar({ alumno: "Vista para alumnos", docente: "Vista para docentes: verás la vinculación curricular", familia: "Vista para familias: verás ideas para casa" }[estado.perfil]);
-  enrutar();
+  avisar({ alumno: "Vista para alumnos", docente: "Vista para docentes: verás la vinculación curricular", familia: "Vista para madres, padres o tutores" }[estado.perfil]);
+  if (location.hash === "#inicio" || !location.hash) enrutar(); else location.hash = "inicio";
 }));
 
 /* ---------- Buscador del encabezado ---------- */
