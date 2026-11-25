@@ -1,0 +1,362 @@
+{
+  "_nota": "Contenido de 3.º grado (versión breve: 4 temas). Los textos de 'curriculo' (contenido y pda) están copiados textualmente del Programa Sintético de la Fase 4 (SEP), columna de tercer grado. Todo lo demás es Propuesta didáctica EcoQuest. Al agregar actividades, añade sus claves AL FINAL de 'ordenCodigo'.",
+  "ordenCodigo": ["aprende:3u1", "aprende:3u2", "aprende:3u3", "aprende:3u4", "juego:3j7", "juego:3j8", "juego:3j9", "juego:3j10", "juego:3j11", "juego:3j12", "juego:3j13", "experimento:3e1", "experimento:3e2", "experimento:3e3", "experimento:3e4", "reto:3r1", "reto:3r2", "reto:3r3", "reto:3r4"],
+  "grado": 3,
+  "nombreGrado": "3.º grado",
+  "fase": 4,
+  "fuenteOficial": "SEP (2024). Programa de Estudio para la Educación Primaria: Programa Sintético de la Fase 4. Dirección General de Desarrollo Curricular.",
+  "librosDeTexto": [],
+
+  "unidades": [
+    {
+      "id": "3u1",
+      "insignia": "Rastreador de animales",
+      "titulo": "Animales en movimiento",
+      "icono": "🐾",
+      "color": "naranja",
+      "resumen": "Descubre cómo se mueven los animales, quiénes tienen huesos y por qué su entorno importa.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Interacciones entre plantas, animales y el entorno natural: nutrición y locomoción.",
+          "pda": [
+            "Indaga y describe la locomoción de animales, a partir de reconocer las formas en las que se mueven y desplazan en la búsqueda de alimento, agua o refugio y su relación con las características del lugar donde viven.",
+            "Clasifica animales en vertebrados e invertebrados, a partir de sus características, y reconoce que los seres humanos pertenecen al grupo de los vertebrados, con base en similitudes y diferencias en la locomoción de otros animales."
+          ],
+          "pagina": 44
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "🐾",
+        "explicacion": [
+          "Los animales se mueven para buscar alimento, agua o refugio. Caminan, saltan, vuelan, nadan o reptan.",
+          "Su cuerpo se relaciona con el lugar donde viven: las alas sirven para volar y las aletas para nadar.",
+          "Los vertebrados tienen columna vertebral, como los peces, las aves y las personas. Los invertebrados no la tienen, como los insectos, las arañas y los caracoles.",
+          "Nuestros huesos y músculos trabajan juntos para que podamos movernos.",
+          "En el desierto de Sonora, muchos animales se mueven de noche, cuando hace menos calor."
+        ],
+        "ejemplos": [
+          "La serpiente repta y mueve su cuerpo en forma de ondas.",
+          "La liebre salta con sus patas traseras fuertes para alejarse del peligro.",
+          "El alacrán camina con ocho patas y se refugia del calor bajo las piedras. ¡No levantes piedras!",
+          "El murciélago vuela de noche y busca insectos, frutos o néctar, según su especie."
+        ],
+        "conceptos": [
+          { "termino": "Locomoción", "definicion": "Forma en que un ser vivo se mueve de un lugar a otro." },
+          { "termino": "Vertebrado", "definicion": "Animal que tiene columna vertebral." },
+          { "termino": "Invertebrado", "definicion": "Animal que no tiene columna vertebral." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Para qué se desplazan muchos animales?", "opciones": ["Solo para jugar", "Para buscar alimento, agua o refugio", "Para cambiar de color"], "correcta": 1, "explicacion": "Moverse les ayuda a conseguir lo que necesitan." },
+          { "pregunta": "¿Cuál de estos animales es invertebrado?", "opciones": ["Pez", "Cardenal", "Abeja"], "correcta": 2, "explicacion": "La abeja es un insecto y no tiene columna vertebral." },
+          { "pregunta": "¿Por qué muchos animales del desierto salen de noche?", "opciones": ["Porque hace menos calor", "Porque no tienen ojos", "Porque no comen"], "correcta": 0, "explicacion": "Así evitan el calor del día y pierden menos agua." }
+        ],
+        "actividad": {
+          "titulo": "Adivina cómo me muevo",
+          "instrucciones": "En un espacio seguro, imita el movimiento de tres animales para que alguien los adivine. Después escribe si cada uno es vertebrado o invertebrado y dónde vive."
+        }
+      },
+      "docente": "Organice tarjetas de animales de la región por forma de desplazarse y luego por vertebrados e invertebrados. Pida que justifiquen cada clasificación y que comparen con el movimiento humano.",
+      "familia": "Observen desde lejos un ave, un insecto o una mascota. Platiquen cómo se mueve y qué busca. No toquen animales silvestres."
+    },
+    {
+      "id": "3u2",
+      "insignia": "Investigador del entorno",
+      "titulo": "Aire, agua, suelo y Sol",
+      "icono": "🌤️",
+      "color": "azul",
+      "resumen": "Investiga cómo el aire, el agua, el suelo y el Sol hacen posible la vida y cómo están en tu comunidad.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Relaciones entre los factores físicos y biológicos que conforman los ecosistemas y favorecen la preservación de la vida.",
+          "pda": [
+            "Describe la importancia del aire, el agua, el suelo y el Sol para todos los seres vivos, a partir de representar las relaciones que establecen para su alimentación y protección.",
+            "Reconoce y describe las condiciones en las que se encuentra el aire, el suelo y el agua en el lugar en donde vive; y argumenta acerca del impacto de dichas condiciones en la vida de plantas, animales y personas."
+          ],
+          "pagina": 45
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "🌤️",
+        "explicacion": [
+          "El aire, el agua, el suelo y el Sol son necesarios para la vida.",
+          "Las plantas usan la luz del Sol, agua y aire para producir su alimento. Muchas toman agua y minerales del suelo.",
+          "Los animales y las personas necesitamos a las plantas para comer, tener refugio y respirar.",
+          "Si el aire, el agua o el suelo se contaminan, los seres vivos pueden enfermar o perder su hogar.",
+          "En Sonora el polvo, la falta de lluvia y el calor fuerte cambian las condiciones del aire, el suelo y el agua."
+        ],
+        "ejemplos": [
+          "Las raíces sujetan el suelo para que el viento no se lo lleve.",
+          "Un mezquite da sombra y refugio a aves e insectos.",
+          "Cuando hay mucho polvo en el aire, a algunas personas les cuesta respirar.",
+          "Las lombrices hacen túneles que ayudan a que entre aire y agua al suelo."
+        ],
+        "conceptos": [
+          { "termino": "Factor físico", "definicion": "Parte sin vida del entorno que influye en los seres vivos, como agua, aire, suelo y Sol." },
+          { "termino": "Contaminación", "definicion": "Presencia de algo que daña el aire, el agua o el suelo." },
+          { "termino": "Argumentar", "definicion": "Explicar una idea dando razones." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Qué usan las plantas para producir su alimento?", "opciones": ["Luz, agua y aire", "Solo piedras", "Solo sombra"], "correcta": 0, "explicacion": "Con la luz del Sol, agua y dióxido de carbono del aire producen su alimento." },
+          { "pregunta": "¿Cómo ayudan las raíces al suelo?", "opciones": ["Lo queman", "Lo sujetan", "Lo vuelven plástico"], "correcta": 1, "explicacion": "Las raíces evitan que el viento y el agua se lo lleven fácilmente." },
+          { "pregunta": "¿Qué puede pasar si el agua está contaminada?", "opciones": ["Puede enfermar a los seres vivos", "Se vuelve más nutritiva", "No cambia nada"], "correcta": 0, "explicacion": "El agua contaminada puede dañar a plantas, animales y personas." }
+        ],
+        "actividad": {
+          "titulo": "Mapa de relaciones",
+          "instrucciones": "Escribe aire, agua, suelo y Sol en las esquinas de una hoja. En el centro dibuja un mezquite, un ave y una persona. Únelos con flechas y explica cada relación."
+        }
+      },
+      "docente": "Hagan un recorrido por la escuela para registrar las condiciones del aire, agua y suelo. Cada equipo escribe una afirmación, la evidencia que observó y la razón que las une.",
+      "familia": "Pregunten: ¿cómo está el aire, el agua y el suelo en nuestra colonia?, ¿qué han notado que cambió con los años?"
+    },
+    {
+      "id": "3u3",
+      "insignia": "Promotor de la salud",
+      "titulo": "Cuidar el ambiente es cuidar la salud",
+      "icono": "💚",
+      "color": "verde",
+      "resumen": "Relaciona causas y efectos de lo que hacemos en la naturaleza y en la salud de las personas.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Impacto de las actividades humanas en la naturaleza y en la salud.",
+          "pda": [
+            "Indaga y describe el impacto de las actividades humanas del entorno natural del lugar donde vive, y establece relaciones causa-efecto en la naturaleza y en la salud de las personas.",
+            "Indaga saberes y prácticas de diversos pueblos y culturas, para cuidar la naturaleza y establecer una relación armónica.",
+            "Propone y practica acciones que favorecen el cuidado de la naturaleza, la salud de las personas y el bienestar animal."
+          ],
+          "pagina": 45
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "💚",
+        "explicacion": [
+          "Cada acción tiene consecuencias. La causa es lo que sucede primero y el efecto es lo que resulta.",
+          "Si quemamos basura, el humo contamina el aire y puede irritar los ojos y la garganta.",
+          "Si se junta agua en llantas o cubetas, pueden criarse mosquitos que transmiten enfermedades como el dengue.",
+          "También hay acciones que protegen: separar residuos, tapar los recipientes con agua y cuidar los árboles.",
+          "Las personas mayores y los pueblos de nuestra región conocen formas de aprovechar el agua, las plantas y la sombra. Podemos preguntarles y aprender con respeto."
+        ],
+        "ejemplos": [
+          "Causa: dejo llantas con agua. Efecto: nacen mosquitos.",
+          "Causa: planto un árbol de la región. Efecto: con el tiempo habrá más sombra.",
+          "Causa: recojo las heces de mi perro. Efecto: el parque está más limpio.",
+          "Causa: guardo agua limpia para mi mascota. Efecto: soporta mejor el calor."
+        ],
+        "conceptos": [
+          { "termino": "Causa", "definicion": "Lo que hace que algo suceda." },
+          { "termino": "Efecto", "definicion": "Lo que resulta de una causa." },
+          { "termino": "Bienestar animal", "definicion": "Que un animal tenga agua, alimento, refugio, salud y buen trato." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Cuál puede ser un efecto de quemar basura?", "opciones": ["Aire limpio", "Humo que daña la salud", "Más agua"], "correcta": 1, "explicacion": "El humo contiene sustancias dañinas." },
+          { "pregunta": "¿Qué ayuda a evitar la cría de mosquitos?", "opciones": ["Vaciar o tapar recipientes con agua", "Juntar llantas con agua", "Dejar cubetas destapadas"], "correcta": 0, "explicacion": "Los mosquitos ponen sus huevos donde hay agua estancada." },
+          { "pregunta": "¿Cuál acción cuida el bienestar animal?", "opciones": ["Dejar al perro al sol sin agua", "Darle sombra, agua y buen trato", "Encerrarlo siempre"], "correcta": 1, "explicacion": "Los animales necesitan agua, sombra y cuidados." }
+        ],
+        "actividad": {
+          "titulo": "Cadena de causa y efecto",
+          "instrucciones": "Elige un problema de tu comunidad. Dibuja tres cuadros unidos con flechas: causa, efecto en la naturaleza y efecto en la salud. Al final agrega un cuarto cuadro con una solución."
+        }
+      },
+      "docente": "Trabaje con situaciones reales de la comunidad y pida que distingan causa, efecto y solución. Invite a una persona mayor o conocedora a compartir cómo se cuidaba el agua o se protegían del calor.",
+      "familia": "Revisen juntos el patio o la entrada: un adulto vacía o tapa recipientes con agua estancada. Pregunten a una persona mayor cómo se protegían antes del calor."
+    },
+    {
+      "id": "3u4",
+      "insignia": "Protector del ecosistema",
+      "titulo": "El ecosistema donde vivo",
+      "icono": "🌵",
+      "color": "morado",
+      "resumen": "Conoce tu ecosistema local, cómo se relacionan sus partes y cómo ayudar a preservarlo.",
+      "curriculo": [
+        {
+          "campo": "Ética, Naturaleza y Sociedades",
+          "contenido": "Representaciones cartográficas de la localidad y/o comunidad; su ubicación dentro de la entidad y del país, con relación al conocimiento, función y cuidados de los ecosistemas como sustento de la vida.",
+          "pda": [
+            "Indaga sobre los ecosistemas locales y sus características, y los concibe como espacios vivos y complejos de la naturaleza.",
+            "Elabora representaciones cartográficas de la localidad o pueblo donde vive, considerando los puntos cardinales dentro de la entidad."
+          ],
+          "pagina": 56
+        },
+        {
+          "campo": "Ética, Naturaleza y Sociedades",
+          "contenido": "Cuidado de los ecosistemas para su regeneración, preservación responsable y sustentable.",
+          "pda": [
+            "Reflexiona situaciones de riesgo o amenazas a la preservación de los ecosistemas, y sus posibles causas locales."
+          ],
+          "pagina": 58
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "🌵",
+        "explicacion": [
+          "Un ecosistema está formado por los seres vivos de un lugar, por el agua, el aire, el suelo y el Sol, y por las relaciones entre todos.",
+          "En el desierto sonorense viven saguaros, mezquites, coyotes, correcaminos y muchos seres más.",
+          "Si una parte cambia, las demás también pueden cambiar. Sin árboles, algunas aves pierden su refugio.",
+          "Los incendios, la basura, la tala y el desperdicio de agua amenazan a los ecosistemas.",
+          "Un mapa con los puntos cardinales nos ayuda a ubicar áreas verdes, arroyos y lugares que necesitan cuidado."
+        ],
+        "ejemplos": [
+          "El pájaro carpintero hace huecos en el saguaro, y después otras aves pueden usarlos como refugio.",
+          "El mezquite da vainas que alimentan a varios animales.",
+          "Un arroyo puede estar seco casi todo el año y llenarse con la lluvia: no hay que tirar basura en él.",
+          "En un mapa, el norte suele estar arriba."
+        ],
+        "conceptos": [
+          { "termino": "Ecosistema", "definicion": "Seres vivos y elementos como agua, aire, suelo y Sol que se relacionan en un lugar." },
+          { "termino": "Preservar", "definicion": "Cuidar algo para que siga existiendo." },
+          { "termino": "Puntos cardinales", "definicion": "Norte, sur, este y oeste. Sirven para orientarnos." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Qué forma un ecosistema?", "opciones": ["Solo los animales", "Solo las plantas", "Los seres vivos, su entorno y sus relaciones"], "correcta": 2, "explicacion": "Todas las partes se relacionan." },
+          { "pregunta": "¿Cuál es una amenaza para el ecosistema?", "opciones": ["Observar aves", "Tirar basura en el arroyo", "Regar lo necesario"], "correcta": 1, "explicacion": "La basura daña el suelo, el agua y a los animales." },
+          { "pregunta": "¿Qué suele estar arriba en un mapa?", "opciones": ["El norte", "El sur", "El oeste"], "correcta": 0, "explicacion": "Por costumbre, muchos mapas ponen el norte arriba." }
+        ],
+        "actividad": {
+          "titulo": "Mapa de mi ecosistema",
+          "instrucciones": "Dibuja un mapa de tu colonia o localidad. Pide ayuda para ubicar el norte. Marca áreas verdes, lugares con agua y sitios que necesitan cuidado. Agrega símbolos y explica qué significan. No escribas tu dirección."
+        }
+      },
+      "docente": "Compare dos mapas de la localidad o pida construir uno colectivo con puntos cardinales y simbología. Marquen riesgos y acuerden una acción posible para el grupo.",
+      "familia": "En un paseo con un adulto, ubiquen por dónde sale el Sol (aproximadamente el este) y qué áreas verdes hay cerca. Platiquen cómo podrían cuidarlas."
+    }
+  ],
+
+  "juegos": [
+    { "id": "3j7", "unidad": "3u1", "tipo": "criterios", "titulo": "Zoólogos expertos", "instrucciones": "Lee la condición y elige todos los animales que la cumplen. Tienes dos intentos por nivel.",
+      "cartas": [
+        { "icono": "🐟", "nombre": "Pez", "es": ["vertebrado", "nada"] }, { "icono": "🦅", "nombre": "Águila", "es": ["vertebrado", "vuela", "plumas"] }, { "icono": "🐧", "nombre": "Pingüino", "es": ["vertebrado", "nada", "plumas"] },
+        { "icono": "🦇", "nombre": "Murciélago", "es": ["vertebrado", "vuela", "pelo"] }, { "icono": "🐍", "nombre": "Serpiente", "es": ["vertebrado", "sinpatas"] }, { "icono": "🐇", "nombre": "Liebre", "es": ["vertebrado", "salta", "pelo"] },
+        { "icono": "🐋", "nombre": "Ballena", "es": ["vertebrado", "nada"] }, { "icono": "🦉", "nombre": "Búho", "es": ["vertebrado", "vuela", "plumas"] }, { "icono": "🐝", "nombre": "Abeja", "es": ["invertebrado", "vuela", "seispatas"] },
+        { "icono": "🦋", "nombre": "Mariposa", "es": ["invertebrado", "vuela", "seispatas"] }, { "icono": "🦗", "nombre": "Grillo", "es": ["invertebrado", "salta", "seispatas"] }, { "icono": "🐜", "nombre": "Hormiga", "es": ["invertebrado", "seispatas", "camina"] },
+        { "icono": "🕷️", "nombre": "Araña", "es": ["invertebrado", "ochopatas", "camina"] }, { "icono": "🦂", "nombre": "Alacrán", "es": ["invertebrado", "ochopatas", "camina"] }, { "icono": "🐌", "nombre": "Caracol", "es": ["invertebrado", "sinpatas"] },
+        { "icono": "🪱", "nombre": "Lombriz", "es": ["invertebrado", "sinpatas"] }, { "icono": "🐙", "nombre": "Pulpo", "es": ["invertebrado", "nada"] }, { "icono": "🐸", "nombre": "Rana", "es": ["vertebrado", "salta", "nada"] }
+      ],
+      "niveles": [
+        { "consigna": "Invertebrados", "si": ["invertebrado"], "explicacion": "Los invertebrados no tienen columna vertebral, aunque algunos tengan concha o cubierta dura." },
+        { "consigna": "Vertebrados SIN patas: nadan o reptan", "si": ["vertebrado"], "no": ["vuela", "salta", "plumas", "pelo"], "explicacion": "El pez y la ballena nadan, y la serpiente repta. Los tres tienen columna vertebral." },
+        { "consigna": "Vuelan, pero NO son insectos", "si": ["vuela"], "no": ["seispatas"], "explicacion": "El águila y el búho son aves; el murciélago es un mamífero que vuela." },
+        { "consigna": "Invertebrados que NO tienen seis patas", "si": ["invertebrado"], "no": ["seispatas"], "explicacion": "Los insectos tienen seis patas; arañas y alacranes tienen ocho. Caracoles, lombrices y pulpos tampoco son insectos." },
+        { "consigna": "Saltan y además son vertebrados", "si": ["salta", "vertebrado"], "explicacion": "La liebre y la rana saltan con ayuda de sus huesos y músculos. El grillo salta, pero es invertebrado." }
+      ] },
+    { "id": "3j8", "unidad": "3u2", "tipo": "sopa", "titulo": "Palabras escondidas", "instrucciones": "Lee la definición, descubre la palabra y búscala en la sopa de letras.", "tamano": 10,
+      "palabras": [
+        { "palabra": "Raíces", "definicion": "Partes de la planta que suelen sujetarla al suelo y tomar agua." },
+        { "palabra": "Erosión", "definicion": "Desgaste del suelo cuando el agua o el viento se lo llevan." },
+        { "palabra": "Oxígeno", "definicion": "Gas del aire que los animales y las personas necesitamos al respirar." },
+        { "palabra": "Minerales", "definicion": "Sustancias del suelo que muchas plantas toman disueltas en agua." },
+        { "palabra": "Humo", "definicion": "Sale al quemar basura y contamina el aire." },
+        { "palabra": "Refugio", "definicion": "Lugar donde un animal se protege." },
+        { "palabra": "Sequía", "definicion": "Tiempo largo sin lluvia suficiente." }
+      ] },
+    { "id": "3j9", "unidad": "3u2", "tipo": "cadena", "titulo": "Todo está conectado", "instrucciones": "Arma la cadena: cada elemento ayuda o da energía al siguiente. Cuidado, hay intrusos.",
+      "rondas": [
+        { "titulo": "De la luz al coyote", "texto": "Ordena desde donde llega la energía hasta el último que se alimenta.", "cadena": [ { "icono": "☀️", "nombre": "Sol" }, { "icono": "🌿", "nombre": "Pasto" }, { "icono": "🐇", "nombre": "Liebre" }, { "icono": "🐺", "nombre": "Coyote" } ], "intrusos": [ { "icono": "🪨", "nombre": "Piedra" }, { "icono": "🧴", "nombre": "Botella" } ], "explicacion": "El pasto usa la luz para producir su alimento, la liebre come pasto y el coyote puede comer liebres.",
+          "prediccion": { "pregunta": "Si el suelo se contamina y se seca el pasto, ¿qué es lo más probable?", "opciones": ["Habrá menos alimento para las liebres y después para los coyotes", "Solo cambiará el pasto y nadie más", "Las liebres comerán luz"], "correcta": 0, "explicacion": "Un cambio en las plantas afecta a quienes comen plantas y luego a quienes comen a esos animales." } },
+        { "titulo": "Del suelo a la mesa", "texto": "Ordena cómo llega un chile hasta nuestra mesa.", "cadena": [ { "icono": "🟫", "nombre": "Suelo con agua" }, { "icono": "🌱", "nombre": "Planta de chile" }, { "icono": "🌼", "nombre": "Flor" }, { "icono": "🐝", "nombre": "Visita de polinizador" }, { "icono": "🌶️", "nombre": "Chile" } ], "intrusos": [ { "icono": "🏭", "nombre": "Humo" }, { "icono": "🛞", "nombre": "Llanta" } ], "explicacion": "El suelo y el agua mantienen a la planta, la planta da flores, los polinizadores las visitan y se forma el fruto.",
+          "prediccion": { "pregunta": "Si usamos mucho veneno y desaparecen las abejas, ¿qué puede pasar?", "opciones": ["Habrá más chiles", "Algunas plantas darán menos frutos", "El suelo se volverá hielo"], "correcta": 1, "explicacion": "Muchas plantas dependen de polinizadores para dar más o mejores frutos." } },
+        { "titulo": "La hoja que regresa", "texto": "Ordena cómo una hoja caída ayuda a otra planta.", "cadena": [ { "icono": "🌳", "nombre": "Mezquite" }, { "icono": "🍂", "nombre": "Hoja caída" }, { "icono": "🍄", "nombre": "Hongos del suelo" }, { "icono": "🟤", "nombre": "Suelo con nutrientes" }, { "icono": "🌱", "nombre": "Planta nueva" } ], "intrusos": [ { "icono": "🔥", "nombre": "Quema" }, { "icono": "🛍️", "nombre": "Bolsa" } ], "explicacion": "Los hongos y otros organismos descomponen las hojas, y el suelo recupera nutrientes.",
+          "prediccion": { "pregunta": "Si cada año quemamos todas las hojas, ¿qué pierde el suelo?", "opciones": ["Nada, queda igual", "Parte de los nutrientes y de su protección", "Sus piedras"], "correcta": 1, "explicacion": "Las hojas protegen el suelo y al descomponerse le devuelven nutrientes. Además, el humo contamina." } }
+      ] },
+    { "id": "3j10", "unidad": "3u3", "tipo": "caso", "titulo": "Casos de salud ambiental", "instrucciones": "Lee el caso, elige las evidencias útiles y saca conclusiones. Cada conclusión tiene un solo intento.",
+      "casos": [
+        { "titulo": "Los mosquitos de la cuadra", "relato": "Después de las lluvias, en la cuadra de Luz hay muchos mosquitos y varios vecinos tienen piquetes. Descubre de dónde salen.",
+          "pistas": [ { "texto": "Hay llantas con agua en un terreno.", "util": true, "porque": "El agua estancada sirve para que los mosquitos pongan huevos." }, { "texto": "En una cubeta sin tapa se ven larvas.", "util": true, "porque": "Las larvas son mosquitos que están creciendo." }, { "texto": "Los mosquitos aumentaron una semana después de llover.", "util": true, "porque": "Coincide con el agua que se juntó." }, { "texto": "La casa de Luz es azul.", "util": false, "porque": "El color no explica el aumento de mosquitos." }, { "texto": "En la tienda venden jugos.", "util": false, "porque": "No tiene relación con el problema." }, { "texto": "Un vecino tiene un perro.", "util": false, "porque": "Por sí solo no explica de dónde salen." } ],
+          "preguntas": [ { "pregunta": "¿Cuál es la causa más probable?", "opciones": ["Los recipientes que juntaron agua", "El color de las casas", "Los jugos"], "correcta": 0, "explicacion": "Las evidencias señalan el agua estancada." }, { "pregunta": "¿Cuál solución ataca la causa?", "opciones": ["Cerrar las cortinas", "Vaciar, tapar o quitar los recipientes con agua", "Pintar las llantas"], "correcta": 1, "explicacion": "Sin agua estancada ahí, ya no pueden criarse." }, { "pregunta": "¿Cómo sabríamos si funcionó?", "opciones": ["Contando si hay menos larvas y mosquitos las semanas siguientes", "Preguntando el color favorito de los vecinos", "Esperando otra lluvia sin revisar"], "correcta": 0, "explicacion": "Comparar antes y después permite comprobar." } ] },
+        { "titulo": "El patio que se inundó", "relato": "Con una lluvia corta, el patio de la escuela se inundó. El año pasado llovió lo mismo y no pasó.",
+          "pistas": [ { "texto": "La rejilla del desagüe está tapada con envolturas.", "util": true, "porque": "Impide que salga el agua." }, { "texto": "Este año se quitó el jardín y se puso cemento.", "util": true, "porque": "El cemento no deja entrar agua al suelo como el jardín." }, { "texto": "Llovió la misma cantidad que el año pasado.", "util": true, "porque": "Permite descartar que se deba a una lluvia mayor." }, { "texto": "La campana suena a las 8.", "util": false, "porque": "No influye en el agua." }, { "texto": "Hay una cancha de futbol en la colonia.", "util": false, "porque": "No explica lo que pasó en el patio." }, { "texto": "Los salones tienen ventanas nuevas.", "util": false, "porque": "No cambian la salida del agua." } ],
+          "preguntas": [ { "pregunta": "¿Por qué es útil saber que llovió lo mismo?", "opciones": ["Porque así podemos buscar qué cambió en la escuela", "Porque la lluvia es divertida", "Porque demuestra que nunca llueve"], "correcta": 0, "explicacion": "Si la lluvia fue igual, la diferencia está en otra cosa." }, { "pregunta": "¿Cuál explicación usa mejor las evidencias?", "opciones": ["La campana causó la inundación", "El agua no pudo salir ni entrar al suelo", "Las ventanas dejaron pasar el agua"], "correcta": 1, "explicacion": "Se juntaron dos causas: desagüe tapado y menos suelo con plantas." }, { "pregunta": "¿Qué plan es más completo?", "opciones": ["Solo secar el patio cada vez", "Limpiar el desagüe, poner botes y recuperar un área con plantas", "Cambiar la hora de la campana"], "correcta": 1, "explicacion": "Atiende las dos causas y previene que se repita." } ] }
+      ] },
+    { "id": "3j11", "unidad": "3u3", "tipo": "gestion", "titulo": "Consejo de la comunidad", "instrucciones": "Toma 8 decisiones para cuidar el agua, el aire, la salud y la vida silvestre. El fondo es limitado: piensa antes de gastar.", "meta": 60, "dinero": 60,
+      "indicadores": [ { "id": "agua", "nombre": "Agua", "icono": "💧", "inicio": 45 }, { "id": "aire", "nombre": "Aire", "icono": "🌬️", "inicio": 45 }, { "id": "salud", "nombre": "Salud", "icono": "❤️", "inicio": 45 }, { "id": "vida", "nombre": "Vida silvestre", "icono": "🦎", "inicio": 45 } ],
+      "mensajeFinal": "En una comunidad, las decisiones se relacionan: prevenir suele costar menos que reparar.",
+      "eventos": [
+        { "icono": "🚰", "titulo": "Fuga en la calle", "texto": "Un tubo roto tira agua desde ayer.", "opciones": [ { "texto": "Repararlo completo hoy", "costo": 20, "efectos": { "agua": 18, "salud": 4 }, "consecuencia": "Se dejó de perder agua y se secó el charco." }, { "texto": "Ponerle un parche", "costo": 8, "efectos": { "agua": 6 }, "consecuencia": "Ayudó, pero sigue goteando." }, { "texto": "Esperar al próximo mes", "efectos": { "agua": -14, "salud": -6 }, "consecuencia": "Se perdió mucha agua y se formó un charco con mosquitos." } ] },
+        { "icono": "🔥", "titulo": "Humo en el terreno", "texto": "Algunas personas queman basura.", "opciones": [ { "texto": "Organizar separación y recolección con los vecinos", "costo": 12, "efectos": { "aire": 14, "salud": 8 }, "consecuencia": "Ya no necesitan quemarla." }, { "texto": "Cobrar una multa sin dar otra opción", "gana": 8, "efectos": { "aire": 4, "salud": -2 }, "consecuencia": "Bajó un poco, pero la basura se acumula en otros lados." }, { "texto": "Dejar que se queme de noche", "efectos": { "aire": -14, "salud": -8 }, "consecuencia": "De noche el humo también enferma." } ] },
+        { "icono": "🌳", "titulo": "Sombra para la plaza", "texto": "La plaza es muy calurosa.", "opciones": [ { "texto": "Plantar árboles de la región y cuidarlos", "costo": 15, "efectos": { "vida": 14, "aire": 8, "salud": 4, "agua": -2 }, "consecuencia": "Necesitan poca agua y darán sombra y refugio." }, { "texto": "Poner pasto que pide mucha agua", "costo": 10, "efectos": { "agua": -14, "vida": 3 }, "consecuencia": "Se ve verde, pero gasta demasiada agua." }, { "texto": "Cubrirla de cemento", "costo": 5, "efectos": { "vida": -10, "salud": -5 }, "consecuencia": "Ahora es más caliente y hay menos vida." } ] },
+        { "icono": "🛞", "titulo": "Llantas con agua", "texto": "Hay llantas abandonadas con agua de lluvia.", "opciones": [ { "texto": "Reunir a los adultos para vaciarlas y llevarlas a acopio", "costo": 5, "efectos": { "salud": 14, "vida": 4 }, "consecuencia": "Se eliminó un criadero de mosquitos." }, { "texto": "Fumigar toda la colonia", "costo": 15, "efectos": { "salud": 6, "vida": -12, "aire": -4 }, "consecuencia": "Bajaron los mosquitos por unos días, pero también murieron abejas." }, { "texto": "Dejarlas como adorno", "efectos": { "salud": -14 }, "consecuencia": "Aumentaron los mosquitos." } ] },
+        { "icono": "🏭", "titulo": "Un taller ofrece dinero", "texto": "Un taller quiere instalarse, pero tira aceite al suelo.", "opciones": [ { "texto": "Aceptarlo solo si trata y entrega sus residuos", "gana": 15, "efectos": { "agua": 2, "aire": -2 }, "consecuencia": "Hay empleo y reglas que protegen el suelo." }, { "texto": "Aceptarlo sin reglas", "gana": 35, "efectos": { "agua": -16, "vida": -12, "salud": -6 }, "consecuencia": "El aceite llegó al suelo y puede llegar al agua." }, { "texto": "Rechazarlo", "efectos": { "agua": 4, "vida": 4 }, "consecuencia": "Se evitó el riesgo, aunque no entró dinero al fondo." } ] },
+        { "icono": "🚗", "titulo": "Tráfico en la escuela", "texto": "A la entrada hay muchos carros encendidos.", "opciones": [ { "texto": "Marcar rutas seguras para caminar en grupo con adultos", "costo": 8, "efectos": { "aire": 12, "salud": 8 }, "consecuencia": "Menos humo y más actividad física." }, { "texto": "Hacer un estacionamiento más grande", "costo": 18, "efectos": { "aire": -8, "vida": -6 }, "consecuencia": "Llegaron aún más carros." }, { "texto": "Pedir que apaguen el motor al esperar", "efectos": { "aire": 6, "salud": 2 }, "consecuencia": "Una medida sencilla y gratis que ayuda un poco." } ] },
+        { "icono": "🦉", "titulo": "Nidos en el terreno", "texto": "Encontraron tecolotes en un terreno que se quiere limpiar.", "opciones": [ { "texto": "Proteger esa zona y limpiar solo la basura", "costo": 6, "efectos": { "vida": 16, "salud": 4 }, "consecuencia": "Los tecolotes siguen ahí y comen ratones." }, { "texto": "Aplanar todo con máquinas", "costo": 4, "efectos": { "vida": -18 }, "consecuencia": "Perdieron su refugio." }, { "texto": "Llevárselos a otra casa", "efectos": { "vida": -10 }, "consecuencia": "Los animales silvestres necesitan su propio lugar." } ] },
+        { "icono": "📣", "titulo": "Campaña del agua", "texto": "Llega la temporada más seca.", "opciones": [ { "texto": "Revisar fugas en casas y enseñar a reutilizar agua", "costo": 10, "efectos": { "agua": 16, "salud": 2 }, "consecuencia": "Muchas familias bajaron su consumo." }, { "texto": "Comprar pipas cada semana", "costo": 25, "efectos": { "agua": 8 }, "consecuencia": "Alivió un poco, pero cuesta mucho y no evita el desperdicio." }, { "texto": "No hacer nada", "efectos": { "agua": -12, "vida": -4 }, "consecuencia": "Faltó agua en varias casas." } ] }
+      ] },
+    { "id": "3j12", "unidad": "3u4", "tipo": "ruta", "titulo": "Jack y los puntos cardinales", "instrucciones": "Escribe un programa con norte, sur, este y oeste para que Jack recoja todo y llegue a la meta.",
+      "niveles": [
+        { "titulo": "Limpieza del parque", "texto": "Recoge la basura y llega a la meta sin pisar las plantas.", "obstaculo": "🌿", "objeto": "🥤", "margen": 2, "mapa": ["J..#.", ".#..*", "...#.", "#....", "..#.M"], "explicacion": "En este mapa el norte está arriba, el sur abajo, el este a la derecha y el oeste a la izquierda." },
+        { "titulo": "Semillas para el vivero", "texto": "Junta las dos bolsas de semillas y evita los cactus.", "obstaculo": "🌵", "objeto": "🌰", "margen": 2, "mapa": ["..#..M", ".#...#", "..*#..", "#....#", ".#.#..", "J...*."], "explicacion": "Planear la ruta antes de moverse ahorra pasos y evita pisar plantas." },
+        { "titulo": "Censo del desierto", "texto": "Registra los tres nidos y termina en el campamento. Esta vez no te sobran instrucciones.", "obstaculo": "🪨", "objeto": "🪺", "margen": 0, "mapa": ["M.#...*", "..#.#..", "#......", "..##.#.", ".*...#.", ".#.#...", "J..#*.."], "explicacion": "La ruta más corta depende del orden en que visitas los lugares." }
+      ] },
+    { "id": "3j13", "unidad": "3u4", "tipo": "escape", "titulo": "El código del desierto", "instrucciones": "Resuelve los acertijos, guarda los números y abre la estación de los guardaparques.",
+      "mensajeFinal": "Llegaste al final de la estación de los guardaparques del desierto.",
+      "candados": [
+        { "titulo": "El gigante", "texto": "Soy un cactus muy alto, guardo agua en mi tallo y el pájaro carpintero hace huecos en mí. ¿Cómo me llamo? El número secreto es la cantidad de letras de mi nombre.", "etiqueta": "Nombre del cactus", "respuesta": ["Saguaro", "Sahuaro"], "digito": 7, "ayuda": "Empieza con SA y termina con RO.", "explicacion": "El saguaro tiene 7 letras y es parte importante del desierto sonorense." },
+        { "titulo": "Los huecos", "texto": "Tres pájaros carpinteros hicieron 2 huecos cada uno. Los tecolotes ocupan 4. ¿Cuántos huecos quedan libres?", "etiqueta": "Número", "respuesta": ["2", "dos"], "digito": 2, "ayuda": "Primero calcula cuántos huecos hay en total.", "explicacion": "3 × 2 = 6 huecos; 6 − 4 = 2 libres." },
+        { "titulo": "Regresa al campamento", "texto": "Sales del campamento y caminas 3 pasos al norte, 5 al este y 3 al sur. Para regresar en línea recta, ¿hacia qué punto cardinal caminas?", "etiqueta": "Punto cardinal", "respuesta": ["Oeste", "al oeste", "O"], "digito": 5, "ayuda": "Los pasos al norte y al sur se cancelan. ¿Cuál es el contrario del este?", "explicacion": "Quedaste 5 pasos al este; para volver caminas 5 pasos al oeste." },
+        { "titulo": "El bebedero", "texto": "Un bebedero para animales tiene 36 litros. Por una fuga pierde 4 litros cada hora. ¿En cuántas horas se vacía?", "etiqueta": "Número de horas", "respuesta": ["9", "nueve", "9 horas"], "digito": 9, "ayuda": "Cuenta de 4 en 4 hasta llegar a 36.", "explicacion": "36 ÷ 4 = 9 horas. ¡Por eso importa reparar una fuga pronto!" }
+      ],
+      "final": { "titulo": "La puerta", "texto": "Escribe los cuatro números que juntaste, de menor a mayor y sin espacios.", "etiqueta": "Código de cuatro números", "respuesta": "2579", "ayuda": "Son el 7, el 2, el 5 y el 9. ¿Cuál es el menor?", "explicacion": "El código es 2-5-7-9." } }
+  ],
+
+  "experimentos": [
+    {
+      "id": "3e1", "unidad": "3u1", "nombre": "Un brazo que se mueve",
+      "proposito": "Construir un modelo para entender cómo los huesos y músculos trabajan juntos.",
+      "supervision": true,
+      "aviso": "Un adulto hace los orificios y ayuda con las tijeras. Usen tijeras de punta redonda.",
+      "materiales": ["Dos tiras de cartón reutilizado", "Estambre o hilo grueso", "Tijeras de punta redonda", "Cinta adhesiva", "Lápiz y colores"],
+      "procedimiento": ["Dibujen en las tiras los huesos del brazo y del antebrazo.", "El adulto hace un orificio en un extremo de cada tira.", "Unan las tiras por los orificios con estambre, sin apretar: será el codo.", "Peguen un estambre del lado de adentro, del brazo al antebrazo, y otro del lado de afuera: serán los músculos.", "Jalen con cuidado uno y luego el otro. Observen cómo se dobla y se estira."],
+      "registro": { "tipo": "texto", "pregunta": "¿Qué pasó al jalar cada estambre?" },
+      "explicacion": "Los músculos jalan a los huesos para moverlos. Cuando uno jala, el otro se relaja. El cartón representa huesos y el estambre, músculos; un modelo es más sencillo que el cuerpo real.",
+      "reflexion": ["¿En qué se parece el modelo a tu brazo?", "¿En qué es diferente?"],
+      "relacion": "Cada animal tiene un cuerpo para moverse en su entorno. Si su hogar cambia, le puede costar más encontrar agua, alimento o refugio."
+    },
+    {
+      "id": "3e2", "unidad": "3u2", "nombre": "Detectives del polvo",
+      "proposito": "Comparar cuánto polvo hay en el aire de tres lugares.",
+      "supervision": true,
+      "aviso": "Un adulto elige lugares seguros y sin tráfico. Si hay tormenta de polvo, no salgan.",
+      "materiales": ["Tres tarjetas de cartulina blanca", "Cinta adhesiva transparente", "Una lupa (si tienes)", "Lápiz y colores"],
+      "procedimiento": ["Numeren las tarjetas del 1 al 3.", "En cada una, hagan un hueco de 2 centímetros con ayuda de un adulto y cúbranlo con cinta.", "Coloquen una dentro del salón, otra junto a una ventana y otra afuera, bajo techo.", "Después de 2 días, recójanlas.", "Con la lupa, cuenten los puntos de polvo que vean en la cinta."],
+      "registro": { "tipo": "grafica", "pregunta": "¿Cuántos puntos de polvo contaron en cada lugar?", "etiquetas": ["Salón", "Ventana", "Afuera"], "unidad": "puntos", "textoMayor": "Con más polvo" },
+      "explicacion": "El aire lleva partículas muy pequeñas. Algunas quedan atrapadas en la cinta. El resultado puede cambiar con el viento, las calles sin pavimento o la cantidad de plantas.",
+      "reflexion": ["¿Dónde hubo más polvo?", "¿Qué razón puedes dar?"],
+      "relacion": "Las plantas ayudan a sujetar el suelo y a detener el polvo. Respirar mucho polvo puede dañar la salud."
+    },
+    {
+      "id": "3e3", "unidad": "3u3", "nombre": "El suelo protegido",
+      "proposito": "Comparar qué pasa cuando llueve sobre un suelo desnudo y sobre uno cubierto con hojas.",
+      "supervision": true,
+      "aviso": "Trabajen en el patio o sobre un plástico. Un adulto ayuda a inclinar las charolas. Lávense las manos al terminar.",
+      "materiales": ["Dos charolas o platos hondos", "Tierra de maceta", "Hojas caídas secas", "Un vaso", "Agua de la llave"],
+      "procedimiento": ["Pongan la misma cantidad de tierra en las dos charolas y aplánenla.", "Cubran una con hojas secas.", "Inclinen un poco las dos charolas, igual una que otra.", "Viertan despacio medio vaso de agua en la parte alta de cada una.", "Observen en cuál se movió más tierra. Usen el agua para una planta."],
+      "registro": { "tipo": "texto", "pregunta": "¿En qué charola se movió más tierra y cómo lo notaste?" },
+      "explicacion": "Las hojas frenan el golpe y la velocidad del agua, por eso normalmente se mueve menos tierra. Cuando el agua o el viento se llevan el suelo, se llama erosión.",
+      "reflexion": ["¿Cuál fue la causa y cuál el efecto?", "¿Qué pasaría en un cerro sin plantas?"],
+      "relacion": "Quitar las plantas o quemar el terreno deja al suelo sin protección. Cuidar la vegetación ayuda a conservarlo."
+    },
+    {
+      "id": "3e4", "unidad": "3u4", "nombre": "Censo de un pedacito de ecosistema",
+      "proposito": "Contar los seres vivos que hay en un cuadro pequeño de terreno.",
+      "supervision": true,
+      "aviso": "Un adulto revisa antes el lugar. Solo observen: no levanten piedras, no metan las manos en huecos ni toquen animales. Háganlo temprano o en la sombra.",
+      "materiales": ["Estambre de 4 metros", "Una lupa (si tienes)", "Un cuaderno", "Lápiz y colores"],
+      "procedimiento": ["Con el adulto, elijan un lugar seguro del patio o parque.", "Formen en el suelo un cuadro de 1 metro por lado con el estambre.", "Observen durante 5 minutos sin tocar.", "Cuenten plantas, insectos y otros animales o señales, como plumas y huellas.", "Dibujen lo que vieron y recojan el estambre."],
+      "registro": { "tipo": "grafica", "pregunta": "¿Cuántos contaron de cada grupo?", "etiquetas": ["Plantas", "Insectos", "Otros"], "unidad": "seres o señales", "textoMayor": "El grupo más numeroso" },
+      "explicacion": "Los científicos usan cuadros para conocer un lugar sin revisarlo todo. Aunque parezca vacío, un pedacito de suelo puede tener mucha vida.",
+      "reflexion": ["¿Qué relaciones observaste entre los seres vivos?", "¿Cambiaría tu conteo en otra estación?"],
+      "relacion": "Conocer qué vive en un lugar ayuda a protegerlo y a notar si cambia."
+    }
+  ],
+
+  "retos": [
+    { "id": "3r1", "unidad": "3u1", "titulo": "Observador silencioso", "explicacion": "Observar sin molestar es una forma de respetar a los animales.", "instrucciones": ["Durante 3 días observa un animal desde lejos, con permiso de un adulto.", "Dibuja cómo se mueve y qué parece buscar.", "Marca cada día y comparte lo que descubriste."], "dias": 3, "evidencia": "¿Qué movimiento te llamó más la atención?" },
+    { "id": "3r2", "unidad": "3u2", "titulo": "Reporte de mi entorno", "explicacion": "Para mejorar un lugar, primero hay que conocer cómo está.", "instrucciones": ["Observa con un adulto el aire, el agua y el suelo de tu escuela o casa.", "Escribe algo bueno y algo por mejorar de cada uno.", "Propón una mejora y explícala a tu grupo o familia con una razón."], "dias": 0, "evidencia": "¿Qué necesita más cuidado y por qué?" },
+    { "id": "3r3", "unidad": "3u3", "titulo": "Patio sano", "explicacion": "Evitar agua estancada y basura protege la salud de todos.", "instrucciones": ["Con un adulto, revisa el patio o la entrada durante 3 días.", "El adulto vacía o tapa los recipientes con agua; tú ayudas a anotar.", "Pon agua limpia a tu mascota o ayuda a mantener limpio el lugar. Marca cada día."], "dias": 3, "evidencia": "¿Qué causa encontraste y qué efecto evitaste?" },
+    { "id": "3r4", "unidad": "3u4", "titulo": "Mensajeros del ecosistema", "explicacion": "Dar a conocer un ecosistema ayuda a que más personas lo cuiden.", "instrucciones": ["Elige una amenaza del ecosistema donde vives.", "Haz un cartel con un dibujo, la causa y una acción para ayudar.", "Compártelo en tu salón o casa."], "dias": 0, "evidencia": "¿A quién convenciste y con qué razón?" }
+  ]
+}

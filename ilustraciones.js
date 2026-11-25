@@ -344,14 +344,22 @@ const ICONOS_MATERIAL = {
   sol: trazo("#d28b10", `<circle cx="24" cy="24" r="10" fill="#ffd84d"/><path d="M24 4v5M24 39v5M4 24h5M39 24h5M10 10l3 3M35 35l3 3M38 10l-3 3M10 38l3-3" stroke-width="3"/><path d="M18 22q1-4 5-4" stroke="#fff6cf"/>`),
   cuaderno: trazo("#24518c", `<rect x="11" y="6" width="28" height="36" rx="3" fill="#5d9fe0"/><rect x="18" y="13" width="15" height="9" rx="2" fill="#fff"/><path d="M8 13h6M8 20h6M8 27h6M8 34h6" stroke="#7c8b99" stroke-width="3"/>`),
   guantes: trazo("#b17a16", `<path d="M14 43V31L8 24q-2-4 2-4l5 4V11q0-3 2.500-3T20 11V8q0-3 2.500-3T25 8v3q0-3 2.500-3T30 11v5q0-3 2.500-3t2.500 3v15l-3 5v7z" fill="#ffe08a"/><path d="M14 37h18M20 11v10M25 11v10M30 16v6" stroke="#d6a32f"/>`),
+  hielo: trazo("#2d7fb0", `<path d="M9 17l15-8 15 8v16l-15 8-15-8z" fill="#d8f3fd"/><path d="M9 17l15 8 15-8M24 25v16"/><path d="M14 23v8M20 13l5-2" stroke="#fff" stroke-width="3"/>`),
+  plato: trazo("#6a7f92", `<ellipse cx="24" cy="28" rx="20" ry="11" fill="#e8eff5"/><ellipse cx="24" cy="26" rx="13" ry="6" fill="#fff"/>`),
+  cubeta: trazo("#17658f", `<path d="M10 17h28l-4 25H14z" fill="#6cc9ea"/><path d="M10 17q0-13 14-13t14 13" /><path d="M16 23l2 13" stroke="#fff" stroke-width="3"/>`),
+  planta: trazo("#2c7c44", `<path d="M24 43V22"/><path d="M24 28Q8 28 8 12q16 0 16 16z" fill="#8fd27a"/><path d="M24 24q0-15 16-15 0 15-16 15z" fill="#5cb85a"/>`),
+  tijeras: trazo("#2a5b86", `<path d="M16 6l14 26M32 6L18 32" stroke="#8494a3" stroke-width="4"/><circle cx="14" cy="37" r="6" fill="#ffd9d6" stroke="#d0453e" stroke-width="3"/><circle cx="34" cy="37" r="6" fill="#ffd9d6" stroke="#d0453e" stroke-width="3"/>`),
+  rocas: trazo("#5b646d", `<path d="M6 36l4-12 10-4 8 8-2 10q-10 5-20-2z" fill="#b9c1c9"/><path d="M24 24l6-10 10 3 4 12-5 9-13 1z" fill="#d6dce1"/><path d="M12 26l5-2M32 19l5 1" stroke="#fff" stroke-width="3"/>`),
+  cinta: trazo("#b17a16", `<circle cx="22" cy="23" r="16" fill="#ffe9a8"/><circle cx="22" cy="23" r="8" fill="#fff8ef"/><path d="M22 39h20v-6H34" fill="#fff3cf"/>`),
   caja: trazo("#8a5a30", `<path d="M6 17l18-8 18 8v20l-18 7-18-7z" fill="#e6bd87"/><path d="M6 17l18 8 18-8M24 25v19" /><path d="M15 13l18 8v6" stroke="#b98a52"/>`)
 };
 const REGLAS_MATERIAL = [
+  [/hielo/, "hielo"], [/cubeta/, "cubeta"], [/plato|charola/, "plato"], [/tijera/, "tijeras"], [/cinta/, "cinta"], [/cart[oó]n/, "caja"], [/planta|hojas? ca[ií]das?|hojas de plantas/, "planta"],
   [/botella/, "botella"], [/alfiler/, "alfiler"], [/tachuela/, "tachuela"], [/vasos?.*(yogur|pl[aá]stico)/, "vasosYogur"], [/dos vasos/, "dosVasos"], [/vaso|frasco/, "vaso"],
-  [/agua de la llave/, "llave"], [/agua/, "agua"], [/reloj/, "reloj"], [/algod[oó]n|servilleta/, "algodon"], [/frijol/, "frijoles"], [/crayola/, "crayolas"], [/lupa/, "lupa"],
+  [/agua con/, "vaso"], [/agua de la llave/, "llave"], [/agua/, "agua"], [/reloj/, "reloj"], [/algod[oó]n|servilleta/, "algodon"], [/frijol/, "frijoles"], [/crayola/, "crayolas"], [/lupa/, "lupa"],
   [/maceta|tierra/, "maceta"], [/c[aá]scara/, "cascara"], [/guantes/, "guantes"], [/(tres )?bolsas o cajas|caja/, "caja"], [/bolsa de pl[aá]stico/, "bolsa"], [/bolsa/, "bolsas"],
   [/cuaderno|tabla/, "cuaderno"], [/cartulina|hoja grande/, "cartulina"], [/hoja/, "hojas"], [/papel/, "papel"], [/palito o l[aá]piz|l[aá]piz/, "lapiz"], [/palito/, "palitos"], [/term[oó]metro/, "termometro"],
-  [/hilo|estambre/, "hilo"], [/plastilina|piedra/, "plastilina"], [/regla/, "regla"], [/\bsol\b/, "sol"]
+  [/hilo|estambre/, "hilo"], [/piedras|arena|grava/, "rocas"], [/plastilina|piedra/, "plastilina"], [/plum[oó]n|marcador/, "crayolas"], [/regla/, "regla"], [/\bsol\b/, "sol"], [/pl[aá]stico transparente/, "bolsa"], [/tela/, "hilo"]
 ];
 function iconoMaterial(texto) {
   const t = String(texto).toLowerCase();

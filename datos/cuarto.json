@@ -1,0 +1,634 @@
+{
+  "_nota": "Contenido de 4.º grado (versión breve: 4 temas). Los textos de 'curriculo' (contenido y pda) están copiados textualmente del Programa Sintético de la Fase 4 (SEP, 2024), columna de cuarto grado. Todo lo demás es Propuesta didáctica EcoQuest. Al agregar actividades, añade sus claves AL FINAL de 'ordenCodigo'.",
+  "ordenCodigo": ["aprende:4u1", "aprende:4u2", "aprende:4u3", "aprende:4u4", "juego:4j1", "juego:4j2", "juego:4j3", "juego:4j8", "juego:4j5", "juego:4j6", "juego:4j9", "experimento:4e1", "experimento:4e2", "experimento:4e3", "experimento:4e4", "reto:4r1", "reto:4r2", "reto:4r3", "reto:4r4"],
+  "grado": 4,
+  "nombreGrado": "4.º grado",
+  "fase": 4,
+  "fuenteOficial": "SEP (2024). Programa de Estudio para la Educación Primaria: Programa Sintético de la Fase 4. Dirección General de Desarrollo Curricular.",
+  "librosDeTexto": [],
+
+  "unidades": [
+    {
+      "id": "4u1",
+      "insignia": "Experto en redes de vida",
+      "titulo": "¿Quién se come a quién?",
+      "icono": "🕸️",
+      "color": "naranja",
+      "resumen": "Analiza cadenas alimentarias y predice qué sucede cuando cambia uno de sus eslabones.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Interacciones entre plantas, animales y el entorno natural: nutrición y locomoción.",
+          "pda": [
+            "Identifica y clasifica animales, con base en su tipo de alimentación: herbívoros, carnívoros y omnívoros, y su relación con el lugar donde viven.",
+            "Analiza y describe la estructura de cadenas alimentarias: productores (plantas), consumidores (animales), y descomponedores (hongos y bacterias), así como su relación con el lugar donde habitan."
+          ],
+          "pagina": "44"
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "🕸️",
+        "explicacion": [
+          "Todos los seres vivos necesitan energía. Una cadena alimentaria muestra cómo pasa de uno a otro.",
+          "Las plantas son productores: elaboran su alimento con luz, agua, sales minerales y dióxido de carbono.",
+          "Los animales son consumidores. Los herbívoros comen plantas; los carnívoros, otros animales; los omnívoros, de los dos.",
+          "Los hongos y las bacterias son descomponedores: transforman restos de seres vivos y devuelven nutrientes al suelo.",
+          "En el desierto sonorense, si disminuyen las plantas por la sequía, también cambian los herbívoros y los carnívoros que dependen de ellos."
+        ],
+        "ejemplos": [
+          "Mezquite → oruga → lagartija → serpiente → gavilán.",
+          "El coyote es omnívoro: puede comer liebres, insectos y frutos.",
+          "El zopilote come animales muertos y ayuda a limpiar el lugar, pero es un consumidor, no un descomponedor.",
+          "Un hongo descompone un tronco caído."
+        ],
+        "conceptos": [
+          { "termino": "Productor", "definicion": "Ser vivo que elabora su propio alimento, como las plantas." },
+          { "termino": "Consumidor", "definicion": "Ser vivo que se alimenta de otros." },
+          { "termino": "Descomponedor", "definicion": "Hongo o bacteria que transforma restos y devuelve nutrientes al suelo." }
+        ],
+        "preguntas": [
+          { "pregunta": "En la cadena nopal → conejo → halcón, ¿quién es el productor?", "opciones": ["El conejo", "El nopal", "El halcón"], "correcta": 1, "explicacion": "El nopal es una planta y elabora su alimento." },
+          { "pregunta": "Si desaparecen los conejos, ¿qué es probable que pase primero?", "opciones": ["El halcón tendrá menos alimento", "El nopal se comerá al halcón", "Habrá más conejos"], "correcta": 0, "explicacion": "El halcón dependía en parte de los conejos. También podría haber más nopales sin comer." },
+          { "pregunta": "¿Por qué el zopilote no es un descomponedor?", "opciones": ["Porque vuela", "Porque come restos; los hongos y bacterias los descomponen", "Porque es una planta"], "correcta": 1, "explicacion": "El zopilote es un animal consumidor que se alimenta de restos." }
+        ],
+        "actividad": {
+          "titulo": "Red alimentaria local",
+          "instrucciones": "Escribe seis seres vivos de tu región, incluye un productor y un descomponedor. Une con flechas desde quien es comido hacia quien se lo come. Tacha uno y escribe dos consecuencias."
+        }
+      },
+      "docente": "Pida transformar una cadena en una red y discutir la dirección de las flechas (hacia quien recibe la energía). Plantee perturbaciones: sequía, introducción de una especie, uso de veneno.",
+      "familia": "Durante la comida, elijan un alimento y rastreen su cadena: ¿de qué planta o animal viene?, ¿qué necesitó para vivir?"
+    },
+    {
+      "id": "4u2",
+      "insignia": "Explorador de ecosistemas",
+      "titulo": "Ecosistemas de México",
+      "icono": "🗺️",
+      "color": "verde",
+      "resumen": "Compara ecosistemas y explica cómo se relacionan sus factores físicos y biológicos.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Relaciones entre los factores físicos y biológicos que conforman los ecosistemas y favorecen la preservación de la vida.",
+          "pda": [
+            "Identifica, representa y explica las interacciones entre los factores biológicos (plantas, animales, incluido el ser humano, hongos y organismos microscópicos como bacterias), y los factores físicos (agua, aire, suelo y Sol) en la conformación de los ecosistemas.",
+            "Compara y describe la dinámica de distintos ecosistemas de México, a partir de la diversidad de seres vivos que habitan en ellos y las características de los factores físicos que los conforman.",
+            "Reconoce y explica la importancia de los ecosistemas en la vida cotidiana de las personas y pueblos, así como en sus manifestaciones culturales."
+          ],
+          "pagina": "45"
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "🗺️",
+        "explicacion": [
+          "Un ecosistema se forma con factores biológicos (los seres vivos) y factores físicos (agua, aire, suelo y Sol) que interactúan.",
+          "En México hay desiertos, bosques, selvas, pastizales, manglares, arrecifes y otros ecosistemas.",
+          "La cantidad de lluvia y la temperatura influyen en las plantas que crecen, y las plantas influyen en los animales que viven ahí.",
+          "En Sonora hay desierto, sierra con bosques, manglares y mar. Por eso tiene una gran variedad de seres vivos.",
+          "Los ecosistemas nos dan agua, alimento, sombra e inspiración para canciones, danzas, artesanías e historias."
+        ],
+        "ejemplos": [
+          "Los manglares protegen la costa y sirven de refugio a peces jóvenes.",
+          "En la selva, la lluvia abundante permite muchas capas de vegetación.",
+          "En el desierto, muchas plantas tienen espinas o tallos que guardan agua.",
+          "El bosque ayuda a que el agua de lluvia se infiltre en el suelo."
+        ],
+        "conceptos": [
+          { "termino": "Factor biológico", "definicion": "Cada ser vivo de un ecosistema." },
+          { "termino": "Factor físico", "definicion": "Elemento sin vida, como agua, aire, suelo o luz solar." },
+          { "termino": "Biodiversidad", "definicion": "Variedad de seres vivos que hay en un lugar." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Cuál opción contiene solo factores físicos?", "opciones": ["Agua, suelo y Sol", "Agua, hongos y Sol", "Plantas, aire y animales"], "correcta": 0, "explicacion": "Agua, suelo y Sol no son seres vivos." },
+          { "pregunta": "¿Por qué el manglar es importante para la costa?", "opciones": ["Impide que existan peces", "La protege del oleaje y da refugio", "Evapora todo el mar"], "correcta": 1, "explicacion": "Sus raíces frenan el oleaje y dan refugio." },
+          { "pregunta": "Un lugar tiene poca lluvia y plantas con tallos gruesos. ¿Qué explica mejor esa relación?", "opciones": ["Las plantas guardan agua para los periodos secos", "Las plantas no necesitan agua", "La lluvia no influye en las plantas"], "correcta": 0, "explicacion": "Es una característica útil para vivir con poca agua." }
+        ],
+        "actividad": {
+          "titulo": "Cuadro comparativo",
+          "instrucciones": "Compara dos ecosistemas de México en un cuadro: lluvia, temperatura, suelo, plantas, animales y relación con las personas. Escribe una conclusión que use la palabra «porque»."
+        }
+      },
+      "docente": "Distribuya un ecosistema por equipo y organice una exposición con mapa. Pida explicar al menos dos interacciones entre factores físicos y biológicos, no solo enumerar especies.",
+      "familia": "Pregunten a familiares qué canciones, leyendas, comidas o artesanías conocen que hablen del mar, la sierra o el desierto."
+    },
+    {
+      "id": "4u3",
+      "insignia": "Consumidor responsable",
+      "titulo": "Contaminación y consumo responsable",
+      "icono": "♻️",
+      "color": "azul",
+      "resumen": "Investiga de dónde viene la contaminación y decide cómo prevenirla con un consumo responsable.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Impacto de las actividades humanas en la naturaleza y en la salud.",
+          "pda": [
+            "Indaga y describe los problemas de contaminación de agua, aire y suelo, y generación de residuos sólidos en su comunidad; establece relaciones causa-efecto en los ecosistemas, así como en la salud de las personas y en el bienestar de pueblos y culturas.",
+            "Propone y practica acciones de consumo responsable para prevenir o mitigar la contaminación de agua, aire y suelo, así como la generación de residuos sólidos."
+          ],
+          "pagina": "45"
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "♻️",
+        "explicacion": [
+          "La contaminación puede afectar el agua, el aire y el suelo al mismo tiempo. Lo que ocurre en uno llega a los otros.",
+          "Los residuos sólidos son los materiales que desechamos. Muchos duran años y pueden dañar a los seres vivos.",
+          "Prevenir es evitar que el problema ocurra; mitigar es reducir sus daños cuando ya existe.",
+          "Consumo responsable es preguntarnos: ¿lo necesito?, ¿puedo repararlo?, ¿de dónde viene?, ¿a dónde irá cuando ya no lo use?",
+          "Reciclar ayuda, pero antes conviene reducir y reutilizar, porque reciclar también usa agua y energía."
+        ],
+        "ejemplos": [
+          "Si alguien vierte aceite en el suelo, la lluvia puede llevarlo a un arroyo.",
+          "Reparar una mochila evita comprar otra y hacer un residuo.",
+          "Elegir un producto a granel puede reducir empaques.",
+          "Compartir un viaje o caminar puede reducir el humo."
+        ],
+        "conceptos": [
+          { "termino": "Prevenir", "definicion": "Actuar antes para evitar un problema." },
+          { "termino": "Mitigar", "definicion": "Disminuir los daños de un problema." },
+          { "termino": "Residuo sólido", "definicion": "Material que se desecha después de usarlo." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Cuál acción previene un residuo?", "opciones": ["Recoger una bolsa del arroyo", "Llevar una bolsa reutilizable y no pedir otra", "Quemar la bolsa"], "correcta": 1, "explicacion": "Así el residuo no se produce." },
+          { "pregunta": "¿Cuál es una forma de mitigar?", "opciones": ["Limpiar un derrame con personal capacitado", "No mirar el derrame", "Echar más aceite"], "correcta": 0, "explicacion": "Se reducen los daños de algo que ya sucedió." },
+          { "pregunta": "¿Qué conviene hacer primero con un producto que no necesitas?", "opciones": ["No comprarlo", "Comprarlo y reciclarlo", "Comprar dos"], "correcta": 0, "explicacion": "Reducir evita usar materiales, agua y energía." }
+        ],
+        "actividad": {
+          "titulo": "La historia de un objeto",
+          "instrucciones": "Elige un objeto. Dibuja su recorrido: material, fabricación, transporte, uso y desecho. Señala en rojo dónde contamina y en verde dos formas de reducir el daño."
+        }
+      },
+      "docente": "Trabaje con una pregunta investigable, por ejemplo: ¿qué residuo producimos más en el recreo? Registren, grafiquen, propongan una medida y vuelvan a medir para evaluar.",
+      "familia": "Antes de una compra, hagan juntos tres preguntas: ¿lo necesitamos?, ¿tenemos algo que sirva?, ¿qué haremos con el empaque?"
+    },
+    {
+      "id": "4u4",
+      "insignia": "Defensor del ambiente sano",
+      "titulo": "Derecho a un ambiente sano",
+      "icono": "⚖️",
+      "color": "morado",
+      "resumen": "Dialoga sobre el derecho a un ambiente sano y propone acciones para cuidar los ecosistemas.",
+      "curriculo": [
+        {
+          "campo": "Ética, Naturaleza y Sociedades",
+          "contenido": "Valoración de los ecosistemas: características del territorio como espacio de vida y las interacciones de la comunidad con los ecosistemas, para su preservación responsable y sustentable.",
+          "pda": [
+            "Dialoga sobre el derecho humano a un ambiente sano, adecuado para su desarrollo y bienestar y cómo es posible ejercerlo."
+          ],
+          "pagina": "56-57"
+        },
+        {
+          "campo": "Ética, Naturaleza y Sociedades",
+          "contenido": "Cuidado de los ecosistemas para su regeneración, preservación responsable y sustentable.",
+          "pda": [
+            "Propone y lleva a la práctica acciones para contribuir en la regeneración y preservación de los ecosistemas, de manera personal y comunitaria en la convivencia cotidiana."
+          ],
+          "pagina": "58"
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "⚖️",
+        "explicacion": [
+          "Todas las personas tenemos derecho a un ambiente sano para nuestro desarrollo y bienestar.",
+          "Ejercer un derecho también implica informarnos, participar y respetar los derechos de los demás.",
+          "Una propuesta responsable explica el problema, muestra evidencias, dice quién puede ayudar y cómo sabremos si funcionó.",
+          "Regenerar es ayudar a que un lugar dañado recupere sus condiciones: por ejemplo, proteger el suelo y volver a plantar especies de la región.",
+          "En Sonora, cuidar el agua, la sombra y los arroyos es parte de cuidar el bienestar de todas las personas."
+        ],
+        "ejemplos": [
+          "El grupo reúne datos sobre una fuga y, con su docente, escribe a la dirección.",
+          "Una colonia protege árboles jóvenes y registra cuántos sobreviven.",
+          "Una familia elige no tirar escombro en el arroyo y orienta a otras.",
+          "Al dialogar, escuchamos a quien piensa distinto y damos razones."
+        ],
+        "conceptos": [
+          { "termino": "Derecho", "definicion": "Lo que toda persona debe poder tener o hacer para vivir con dignidad." },
+          { "termino": "Regenerar", "definicion": "Ayudar a que un lugar dañado se recupere." },
+          { "termino": "Evidencia", "definicion": "Dato u observación que apoya una idea." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Qué propuesta está mejor sustentada?", "opciones": ["«Arreglen todo ya»", "«Contamos 12 árboles secos; proponemos regarlos por turnos y volver a contar en un mes»", "«Los árboles me gustan»"], "correcta": 1, "explicacion": "Incluye evidencia, acción y forma de evaluar." },
+          { "pregunta": "¿Qué ayuda más a regenerar un terreno?", "opciones": ["Proteger su suelo y plantar especies de la región", "Cubrirlo de cemento", "Llenarlo de escombro"], "correcta": 0, "explicacion": "El suelo y las plantas permiten que vuelva la vida." },
+          { "pregunta": "¿Qué significa ejercer un derecho con responsabilidad?", "opciones": ["Pensar solo en mí", "Participar y respetar a los demás", "Que otros hagan todo"], "correcta": 1, "explicacion": "Los derechos se ejercen conviviendo y participando." }
+        ],
+        "actividad": {
+          "titulo": "Asamblea del ambiente",
+          "instrucciones": "Elijan un problema del lugar. En turnos, cada persona da una razón y una evidencia. Escriban un acuerdo con responsable, fecha y forma de comprobarlo."
+        }
+      },
+      "docente": "Organice una asamblea con turnos de palabra. Pida que cada propuesta incluya problema, evidencia, acción, responsable e indicador. Consulte las leyes vigentes si desea profundizar.",
+      "familia": "Platiquen qué es un ambiente sano para ustedes. Hagan un acuerdo familiar y revisen en una semana si se cumplió."
+    }
+  ],
+
+  "juegos": [
+    { "id": "4j1", "unidad": "4u1", "tipo": "criterios", "titulo": "¿Qué papel cumple?", "instrucciones": "Analiza la condición y elige todos los seres vivos que la cumplen. Tienes dos intentos por nivel.",
+      "cartas": [
+        { "icono": "🌵", "nombre": "Nopal", "es": ["productor", "desierto"] }, { "icono": "🌳", "nombre": "Mezquite", "es": ["productor", "desierto"] }, { "icono": "🌿", "nombre": "Mangle", "es": ["productor", "costa"] }, { "icono": "🌱", "nombre": "Pasto", "es": ["productor"] },
+        { "icono": "🐇", "nombre": "Liebre", "es": ["consumidor", "herbivoro", "desierto", "vertebrado"] }, { "icono": "🐛", "nombre": "Oruga", "es": ["consumidor", "herbivoro"] }, { "icono": "🦌", "nombre": "Venado", "es": ["consumidor", "herbivoro", "vertebrado"] }, { "icono": "🦗", "nombre": "Chapulín", "es": ["consumidor", "herbivoro"] },
+        { "icono": "🐺", "nombre": "Coyote", "es": ["consumidor", "omnivoro", "desierto", "vertebrado"] }, { "icono": "🐻", "nombre": "Oso negro", "es": ["consumidor", "omnivoro", "vertebrado"] }, { "icono": "🧒", "nombre": "Ser humano", "es": ["consumidor", "omnivoro", "vertebrado"] },
+        { "icono": "🦅", "nombre": "Gavilán", "es": ["consumidor", "carnivoro", "vertebrado"] }, { "icono": "🐆", "nombre": "Jaguar", "es": ["consumidor", "carnivoro", "vertebrado"] }, { "icono": "🕷️", "nombre": "Araña", "es": ["consumidor", "carnivoro"] }, { "icono": "🦂", "nombre": "Alacrán", "es": ["consumidor", "carnivoro", "desierto"] },
+        { "icono": "🍄", "nombre": "Hongo", "es": ["descomponedor"] }, { "icono": "🦠", "nombre": "Bacterias del suelo", "es": ["descomponedor"] }
+      ],
+      "niveles": [
+        { "consigna": "Seres que elaboran su propio alimento", "si": ["productor"], "explicacion": "Las plantas son productores." },
+        { "consigna": "Consumidores que NO comen plantas de forma habitual", "si": ["carnivoro"], "explicacion": "Los carnívoros se alimentan principalmente de otros animales." },
+        { "consigna": "Vertebrados que son omnívoros", "si": ["vertebrado", "omnivoro"], "explicacion": "Comen alimentos de origen vegetal y animal." },
+        { "consigna": "Herbívoros invertebrados", "si": ["herbivoro"], "no": ["vertebrado"], "explicacion": "La oruga y el chapulín comen plantas y no tienen columna vertebral." },
+        { "consigna": "NO son productores ni consumidores", "no": ["productor", "consumidor"], "explicacion": "Los hongos y las bacterias del suelo de esta lista son descomponedores." },
+        { "consigna": "Consumidores que NO son vertebrados", "si": ["consumidor"], "no": ["vertebrado"], "explicacion": "La oruga, el chapulín, la araña y el alacrán se alimentan de otros seres vivos y no tienen columna vertebral." }
+      ] },
+    { "id": "4j2", "unidad": "4u1", "tipo": "cadena", "titulo": "El eslabón perdido", "instrucciones": "Arma la cadena alimentaria completa entre los intrusos y predice qué pasa si cambia.",
+      "rondas": [
+        { "titulo": "Cadena del mezquite", "texto": "Va del productor al consumidor final. La flecha apunta a quien se alimenta.", "cadena": [ { "icono": "🌳", "nombre": "Mezquite" }, { "icono": "🐛", "nombre": "Oruga" }, { "icono": "🦎", "nombre": "Lagartija" }, { "icono": "🐍", "nombre": "Serpiente" }, { "icono": "🦅", "nombre": "Gavilán" } ], "intrusos": [ { "icono": "🪨", "nombre": "Roca" }, { "icono": "💧", "nombre": "Agua" }, { "icono": "🦀", "nombre": "Cangrejo" } ], "explicacion": "El mezquite produce su alimento; la oruga lo come y la energía pasa por la lagartija y la serpiente hasta el gavilán.",
+          "prediccion": { "pregunta": "Si se usa un veneno que acaba con las orugas, ¿qué cadena de efectos es más probable?", "opciones": ["Menos alimento para lagartijas y después para serpientes", "Más lagartijas de inmediato", "Las serpientes comerán mezquite"], "correcta": 0, "explicacion": "El efecto sube por la cadena. Además, el veneno puede pasar de un animal a otro." } },
+        { "titulo": "Cadena del mar", "texto": "Ordena una cadena del golfo de California.", "cadena": [ { "icono": "☀️", "nombre": "Sol" }, { "icono": "🟢", "nombre": "Algas microscópicas" }, { "icono": "🦐", "nombre": "Crustáceo pequeño" }, { "icono": "🐟", "nombre": "Sardina" }, { "icono": "🦭", "nombre": "Lobo marino" } ], "intrusos": [ { "icono": "🌵", "nombre": "Nopal" }, { "icono": "🛢️", "nombre": "Aceite" }, { "icono": "🍄", "nombre": "Hongo del bosque" } ], "explicacion": "Las algas aprovechan la luz, los crustáceos pequeños las comen, la sardina come crustáceos y el lobo marino come peces.",
+          "prediccion": { "pregunta": "Si se pescan demasiadas sardinas, ¿qué puede suceder?", "opciones": ["Los lobos marinos tendrán menos alimento y podría haber más crustáceos", "Desaparece el Sol", "Solo cambian las sardinas"], "correcta": 0, "explicacion": "Afecta a quienes comen sardinas y a quienes eran su alimento." } },
+        { "titulo": "El ciclo de los nutrientes", "texto": "Ordena cómo vuelven los nutrientes a una planta.", "cadena": [ { "icono": "🌿", "nombre": "Planta" }, { "icono": "🦌", "nombre": "Venado" }, { "icono": "🐆", "nombre": "Puma" }, { "icono": "🦴", "nombre": "Restos" }, { "icono": "🍄", "nombre": "Hongos y bacterias" }, { "icono": "🟤", "nombre": "Nutrientes en el suelo" } ], "intrusos": [ { "icono": "🔥", "nombre": "Incendio" }, { "icono": "🥤", "nombre": "Vaso desechable" } ], "explicacion": "Cuando los seres vivos mueren, los descomponedores transforman sus restos y las plantas pueden usar de nuevo los nutrientes.",
+          "prediccion": { "pregunta": "¿Qué pasaría si no existieran los descomponedores?", "opciones": ["Se acumularían restos y faltarían nutrientes en el suelo", "Las plantas crecerían mejor", "Los animales dejarían de moverse"], "correcta": 0, "explicacion": "Sin descomposición, los nutrientes quedarían atrapados en los restos." } }
+      ] },
+    { "id": "4j3", "unidad": "4u2", "tipo": "sopa", "titulo": "Vocabulario del ecosistema", "instrucciones": "Deduce cada palabra por su definición y encuéntrala en la sopa de letras.", "tamano": 11,
+      "palabras": [
+        { "palabra": "Manglar", "definicion": "Bosque de la costa con raíces dentro del agua." },
+        { "palabra": "Arrecife", "definicion": "Ecosistema marino donde viven corales y muchos peces." },
+        { "palabra": "Bacterias", "definicion": "Organismos microscópicos; algunos descomponen restos." },
+        { "palabra": "Pastizal", "definicion": "Ecosistema donde predominan las hierbas y los pastos." },
+        { "palabra": "Biológico", "definicion": "Tipo de factor formado por seres vivos." },
+        { "palabra": "Hábitat", "definicion": "Lugar con las condiciones que un ser vivo necesita." },
+        { "palabra": "Clima", "definicion": "Condiciones habituales de temperatura y lluvia de una región." },
+        { "palabra": "Suelo", "definicion": "Factor físico donde se sujetan muchas raíces." }
+      ] },
+    {
+ "id": "4j8",
+ "unidad": "4u2",
+ "tipo": "misterio",
+ "titulo": "Ecosistema misterioso",
+ "instrucciones": "Analiza los datos y descubre de qué ecosistema de México se trata. Mientras menos datos pidas, más puntos ganas.",
+ "pregunta": "¿A qué ecosistema llegó la expedición?",
+ "lugares": [
+  {
+   "id": "des",
+   "icono": "🌵",
+   "nombre": "Desierto"
+  },
+  {
+   "id": "sel",
+   "icono": "🌴",
+   "nombre": "Selva húmeda"
+  },
+  {
+   "id": "bos",
+   "icono": "🌲",
+   "nombre": "Bosque de pino"
+  },
+  {
+   "id": "man",
+   "icono": "🌿",
+   "nombre": "Manglar"
+  },
+  {
+   "id": "arr",
+   "icono": "🪸",
+   "nombre": "Arrecife de coral"
+  },
+  {
+   "id": "pas",
+   "icono": "🌾",
+   "nombre": "Pastizal"
+  }
+ ],
+ "rondas": [
+  {
+   "lugar": "des",
+   "datos": [
+    "Entre el día y la noche la temperatura puede cambiar mucho, y el aire es muy seco.",
+    "Llueve muy poco durante el año.",
+    "Muchas plantas guardan agua o tienen hojas reducidas a espinas.",
+    "Expediente: saguaro, correcaminos y tortuga de tierra."
+   ],
+   "explicacion": "La poca lluvia explica que las plantas guarden agua y pierdan poca."
+  },
+  {
+   "lugar": "sel",
+   "datos": [
+    "Aquí compiten por la luz: hay plantas a distintas alturas.",
+    "Llueve mucho y hace calor casi todo el año.",
+    "Los árboles son muy altos y sobre sus ramas crecen otras plantas.",
+    "Expediente: ceiba, jaguar, mono y tucán."
+   ],
+   "explicacion": "La lluvia y el calor permiten una vegetación abundante, por eso las plantas compiten por la luz."
+  },
+  {
+   "lugar": "bos",
+   "datos": [
+    "El suelo está cubierto de hojas delgadas como agujas.",
+    "Está en zonas altas y en invierno puede hacer mucho frío.",
+    "Los árboles ayudan a que la lluvia se infiltre y alimente manantiales.",
+    "Expediente: pino, encino, ardilla y venado."
+   ],
+   "explicacion": "Los pinos tienen hojas en forma de aguja y viven bien en zonas templadas y altas."
+  },
+  {
+   "lugar": "man",
+   "datos": [
+    "El nivel del agua sube y baja, y su sal también cambia.",
+    "El suelo es lodoso y tiene poco aire.",
+    "Muchas crías de peces se refugian entre raíces que salen del agua.",
+    "Expediente: mangle, garza y cangrejo."
+   ],
+   "explicacion": "Vive entre el agua dulce y la salada; sus raíces refugian crías y frenan el oleaje."
+  },
+  {
+   "lugar": "arr",
+   "datos": [
+    "La luz debe llegar hasta el fondo: necesita agua clara y poco profunda.",
+    "Muchos de sus habitantes viven fijos a una estructura dura.",
+    "Lo construyen animales muy pequeños con partes duras.",
+    "Expediente: coral, pez loro y esponja."
+   ],
+   "explicacion": "Los corales de arrecife viven con algas que necesitan luz, por eso el agua debe ser clara."
+  },
+  {
+   "lugar": "pas",
+   "datos": [
+    "Casi no hay árboles y el viento recorre grandes extensiones.",
+    "Las raíces forman una red que sujeta el suelo.",
+    "Dominan las hierbas y hay herbívoros que viven en grupo o en madrigueras.",
+    "Expediente: zacate, berrendo y perrito de la pradera."
+   ],
+   "explicacion": "Dominan los pastos; sus raíces protegen al suelo de la erosión."
+  }
+ ]
+},
+    { "id": "4j5", "unidad": "4u3", "tipo": "caso", "titulo": "Expedientes de contaminación", "instrucciones": "Distingue evidencia de datos que distraen y construye la mejor conclusión.",
+      "casos": [
+        { "titulo": "El arroyo gris", "relato": "Cada lunes, el agua de un arroyo se ve gris y huele a jabón. El resto de la semana se ve más clara.",
+          "pistas": [ { "texto": "Un lavado de autos trabaja sobre todo los domingos y lunes.", "util": true, "porque": "Coincide con los días del problema." }, { "texto": "Arriba del lavado, el agua se ve clara; abajo, se ve gris.", "util": true, "porque": "Ubica dónde empieza el cambio." }, { "texto": "Del lavado sale un tubo hacia el arroyo.", "util": true, "porque": "Muestra un posible camino del agua con jabón." }, { "texto": "El lunes empieza con L.", "util": false, "porque": "El nombre del día no explica nada." }, { "texto": "En el arroyo hay piedras grandes.", "util": false, "porque": "Están ahí toda la semana y el cambio solo ocurre los lunes." }, { "texto": "Un vecino pinta su casa de gris.", "util": false, "porque": "Que el color coincida no demuestra que esté relacionado." }, { "texto": "El miércoles hubo viento.", "util": false, "porque": "No ocurre el día del problema ni explica el jabón." } ],
+          "preguntas": [ { "pregunta": "¿Cuál conclusión es más cuidadosa?", "opciones": ["Las evidencias apuntan al lavado; hay que pedir que una autoridad lo revise", "Seguro fue el vecino que pinta", "No se puede saber nada nunca"], "correcta": 0, "explicacion": "Usa las evidencias sin afirmar más de lo que muestran." }, { "pregunta": "¿Qué dato extra daría más seguridad?", "opciones": ["El color de los autos", "Comparar el agua del tubo con la del arroyo, con ayuda de especialistas", "La edad del dueño"], "correcta": 1, "explicacion": "Permite comprobar si esa agua llega al arroyo." }, { "pregunta": "¿Qué medida PREVIENE el problema?", "opciones": ["Instalar un sistema para tratar y reutilizar el agua", "Echar perfume al arroyo", "Limpiar cada martes sin cambiar nada"], "correcta": 0, "explicacion": "Actúa antes de que el agua con jabón llegue al arroyo." } ] },
+        { "titulo": "La montaña de vasos", "relato": "En una escuela de 200 alumnos, los residuos del recreo se duplicaron en un mes. La cantidad de alumnos es la misma.",
+          "pistas": [ { "texto": "Se descompuso el bebedero donde rellenaban botellas.", "util": true, "porque": "Pudo cambiar la forma en que consiguen agua." }, { "texto": "La cooperativa vende agua en vasos desechables desde hace un mes.", "util": true, "porque": "Coincide con el inicio del aumento." }, { "texto": "De cada 10 residuos nuevos, 8 son vasos.", "util": true, "porque": "Dice qué tipo de residuo aumentó." }, { "texto": "La escuela tiene un mural nuevo.", "util": false, "porque": "No genera los vasos." }, { "texto": "Los alumnos juegan futbol.", "util": false, "porque": "Ya jugaban antes del aumento." }, { "texto": "Este mes tuvo 30 días.", "util": false, "porque": "No explica que se duplicaran." } ],
+          "preguntas": [ { "pregunta": "¿Por qué importa saber que los alumnos siguen siendo 200?", "opciones": ["Descarta que aumentaran los residuos porque hay más alumnos", "Demuestra que nadie toma agua", "No importa"], "correcta": 0, "explicacion": "Si el número no cambió, la causa es otra." }, { "pregunta": "¿Cuál es la mejor explicación?", "opciones": ["Sin bebedero, muchos compran agua en vasos desechables", "El mural hace basura", "El futbol fabrica vasos"], "correcta": 0, "explicacion": "Une las tres evidencias." }, { "pregunta": "Si producen 160 vasos al día y la mitad de quienes los usan trae botella, ¿cuántos vasos quedarían?", "opciones": ["60", "80", "120"], "correcta": 1, "explicacion": "La mitad de 160 es 80." } ] }
+      ] },
+    { "id": "4j6", "unidad": "4u3", "tipo": "gestion", "titulo": "Un año en el ayuntamiento", "instrucciones": "Toma 8 decisiones para cuidar agua, aire, suelo y salud. No alcanza para lo mejor de todo: elige prioridades.", "meta": 62, "dinero": 75,
+      "indicadores": [ { "id": "agua", "nombre": "Agua", "icono": "💧", "inicio": 45 }, { "id": "aire", "nombre": "Aire", "icono": "🌬️", "inicio": 45 }, { "id": "suelo", "nombre": "Suelo", "icono": "🟤", "inicio": 45 }, { "id": "salud", "nombre": "Salud", "icono": "❤️", "inicio": 45 } ],
+      "mensajeFinal": "Gobernar es elegir: algunas medidas baratas previenen más que otras caras.",
+      "eventos": [
+        { "icono": "🚮", "titulo": "Relleno casi lleno", "texto": "Ya casi no cabe la basura del municipio.", "opciones": [ { "texto": "Programa para reducir y separar desde casa", "costo": 12, "efectos": { "suelo": 14, "salud": 4 }, "consecuencia": "Llega menos basura y dura más el relleno." }, { "texto": "Abrir otro relleno de inmediato", "costo": 20, "efectos": { "suelo": -4, "salud": 4 }, "consecuencia": "Hay espacio, pero se ocupa más terreno y no baja la basura." }, { "texto": "Usar un terreno sin protección", "efectos": { "suelo": -16, "agua": -10 }, "consecuencia": "Los líquidos de la basura llegaron al suelo." } ] },
+        { "icono": "💦", "titulo": "Agua tratada", "texto": "Se riegan los parques con agua potable.", "opciones": [ { "texto": "Regar con agua tratada", "costo": 16, "efectos": { "agua": 18, "suelo": 3 }, "consecuencia": "Se guarda el agua potable para las personas." }, { "texto": "Regar solo al anochecer", "costo": 2, "efectos": { "agua": 8 }, "consecuencia": "Cuesta poco y se evapora menos agua." }, { "texto": "Seguir igual", "efectos": { "agua": -12 }, "consecuencia": "Bajó la reserva de agua." } ] },
+        { "icono": "🚌", "titulo": "Más humo en el centro", "texto": "Aumentaron los carros y el humo.", "opciones": [ { "texto": "Mejorar el transporte público", "costo": 20, "efectos": { "aire": 18, "salud": 6 }, "consecuencia": "Muchas personas dejaron el carro." }, { "texto": "Calles seguras y con sombra para caminar", "costo": 10, "efectos": { "aire": 10, "salud": 8 }, "consecuencia": "Más personas caminan trayectos cortos." }, { "texto": "Ampliar avenidas", "costo": 14, "efectos": { "aire": -8, "suelo": -6 }, "consecuencia": "Con más espacio llegaron más carros." } ] },
+        { "icono": "🧪", "titulo": "Pilas y aceites", "texto": "No hay dónde dejar residuos peligrosos.", "opciones": [ { "texto": "Centro de acopio con personal capacitado", "costo": 9, "efectos": { "suelo": 14, "agua": 6 }, "consecuencia": "Se evitó contaminar suelo y agua." }, { "texto": "Solo poner carteles", "costo": 2, "efectos": { "suelo": 2 }, "consecuencia": "La gente se enteró, pero no tiene dónde llevarlos." }, { "texto": "Enterrarlos", "efectos": { "suelo": -16, "agua": -10 }, "consecuencia": "Las sustancias se filtraron." } ] },
+        { "icono": "🏗️", "titulo": "Oferta de una empresa", "texto": "Quiere construir sobre un área verde y paga por hacerlo.", "opciones": [ { "texto": "Ofrecerle otro terreno ya dañado", "gana": 14, "efectos": { "suelo": 4 }, "consecuencia": "Se conservó el área verde y hubo ingresos." }, { "texto": "Vender el área verde", "gana": 30, "efectos": { "aire": -12, "suelo": -12, "salud": -6 }, "consecuencia": "Se perdieron árboles y hace más calor." }, { "texto": "Rechazarla", "efectos": { "aire": 4, "salud": 4 }, "consecuencia": "Se conservó el área, pero sin ingresos." } ] },
+        { "icono": "🌡️", "titulo": "Ola de calor", "texto": "Se esperan varios días muy calurosos.", "opciones": [ { "texto": "Puntos con sombra y agua, y aviso a la población", "costo": 8, "efectos": { "salud": 16, "agua": -3 }, "consecuencia": "Muchas personas se protegieron a tiempo." }, { "texto": "Plantar hoy árboles pequeños", "costo": 8, "efectos": { "aire": 6, "suelo": 4, "salud": -4 }, "consecuencia": "Es útil a futuro, pero no da sombra esta semana." }, { "texto": "Esperar a que pase", "efectos": { "salud": -18 }, "consecuencia": "Hubo personas enfermas por el calor." } ] },
+        { "icono": "🔥", "titulo": "Quema de terrenos", "texto": "Se queman hierbas para limpiar terrenos.", "opciones": [ { "texto": "Prestar herramientas y hacer composta", "costo": 7, "efectos": { "aire": 14, "suelo": 8 }, "consecuencia": "Las hierbas se volvieron abono." }, { "texto": "Quemar solo los domingos", "efectos": { "aire": -10, "salud": -6 }, "consecuencia": "Un día a la semana sigue siendo dañino." }, { "texto": "Multar sin ofrecer alternativa", "gana": 5, "efectos": { "aire": 4, "salud": -2 }, "consecuencia": "Algunos dejaron de quemar; otros tiraron la hierba en la calle." } ] },
+        { "icono": "🔧", "titulo": "Fugas ocultas", "texto": "Una de cada cuatro tuberías pierde agua.", "opciones": [ { "texto": "Reparar primero las peores", "costo": 14, "efectos": { "agua": 16, "salud": 4 }, "consecuencia": "Se recuperó mucha agua con un gasto moderado." }, { "texto": "Cambiar todas este mes", "costo": 45, "efectos": { "agua": 22, "salud": 6 }, "consecuencia": "Excelente resultado, pero casi vació el fondo." }, { "texto": "Perforar otro pozo", "costo": 18, "efectos": { "agua": 4, "suelo": -6 }, "consecuencia": "Hay más agua por ahora, pero las fugas siguen." } ] }
+      ] },
+    {
+ "id": "4j9",
+ "unidad": "4u4",
+ "tipo": "debate",
+ "titulo": "La asamblea del ambiente sano",
+ "instrucciones": "Escucha cada duda y responde con la razón y la evidencia que mejor la atienden. Cuidado con los argumentos que suenan bien, pero no demuestran nada.",
+ "asambleas": [
+  {
+   "titulo": "Recuperar el terreno abandonado",
+   "propuesta": "El grupo de 4.º propone convertir un terreno con basura en un área verde con árboles de la región.",
+   "personas": [
+    {
+     "id": "dinero",
+     "icono": "👩‍💼",
+     "nombre": "Tesorera",
+     "duda": "¿Y de dónde saldrá el dinero? No podemos gastar mucho."
+    },
+    {
+     "id": "agua",
+     "icono": "👴",
+     "nombre": "Vecino mayor",
+     "duda": "Aquí falta agua. ¿No la van a desperdiciar en plantas?"
+    },
+    {
+     "id": "seguir",
+     "icono": "👩‍🏫",
+     "nombre": "Directora",
+     "duda": "Siempre empiezan con ganas y luego nadie lo cuida. ¿Cómo sé que esta vez sí?"
+    },
+    {
+     "id": "sirve",
+     "icono": "🧑‍🔧",
+     "nombre": "Comerciante",
+     "duda": "¿Y eso de verdad cambia algo? Yo no le veo el beneficio."
+    }
+   ],
+   "argumentos": [
+    {
+     "texto": "El vivero dona 20 árboles y 12 familias ya se anotaron para prestar herramientas.",
+     "para": "dinero",
+     "fuerza": 2,
+     "porque": "Da datos concretos de cómo bajar el gasto."
+    },
+    {
+     "texto": "Seguramente no será tan caro.",
+     "para": "dinero",
+     "fuerza": 1
+    },
+    {
+     "texto": "Son mezquites y palos verdes: ya establecidos necesitan poca agua, y usaremos agua recuperada.",
+     "para": "agua",
+     "fuerza": 2,
+     "porque": "Responde qué plantas y de dónde sale el agua."
+    },
+    {
+     "texto": "Regaremos poquito.",
+     "para": "agua",
+     "fuerza": 1
+    },
+    {
+     "texto": "Hay un calendario con responsables por semana y cada mes contaremos cuántos árboles siguen vivos.",
+     "para": "seguir",
+     "fuerza": 2,
+     "porque": "Incluye responsables y una forma de comprobar."
+    },
+    {
+     "texto": "Prometemos cuidarlo mucho.",
+     "para": "seguir",
+     "fuerza": 1
+    },
+    {
+     "texto": "A la misma hora medimos 44 °C en el cemento y 37 °C bajo el árbol de la esquina.",
+     "para": "sirve",
+     "fuerza": 2,
+     "porque": "Usa una medición para mostrar el beneficio de la sombra."
+    },
+    {
+     "texto": "Los parques son bonitos.",
+     "para": "sirve",
+     "fuerza": 1
+    },
+    {
+     "texto": "Quien no apoye esta propuesta odia la naturaleza.",
+     "para": "",
+     "fuerza": 0,
+     "falla": "Eso ataca a la persona y no responde su duda."
+    },
+    {
+     "texto": "Si lo dice un video muy popular, debe ser cierto.",
+     "para": "",
+     "fuerza": 0,
+     "falla": "Que algo sea popular no lo demuestra."
+    }
+   ]
+  },
+  {
+   "titulo": "Arroyo sin escombro",
+   "propuesta": "La comunidad propone dejar de tirar escombro en el arroyo y abrir un punto para recibirlo.",
+   "personas": [
+    {
+     "id": "seco",
+     "icono": "👷",
+     "nombre": "Albañil",
+     "duda": "Pero el arroyo está seco casi todo el año. ¿A quién daña?"
+    },
+    {
+     "id": "lejos",
+     "icono": "👩‍🦱",
+     "nombre": "Vecina",
+     "duda": "No tengo camioneta. ¿Cómo voy a llevar mi escombro hasta allá?"
+    },
+    {
+     "id": "derecho",
+     "icono": "🧔",
+     "nombre": "Dueño de un lote",
+     "duda": "¿Y por qué tendría que importarme? Cada quien hace lo que quiere."
+    },
+    {
+     "id": "prueba",
+     "icono": "👩‍🔬",
+     "nombre": "Ingeniera",
+     "duda": "¿Cómo sabremos si el plan funcionó y no solo se movió el problema?"
+    }
+   ],
+   "argumentos": [
+    {
+     "texto": "Con la última lluvia, el escombro desvió el agua y se inundaron 6 casas río abajo.",
+     "para": "seco",
+     "fuerza": 2,
+     "porque": "Muestra un daño que ocurre aunque el arroyo pase seco muchos meses."
+    },
+    {
+     "texto": "El arroyo a veces lleva agua.",
+     "para": "seco",
+     "fuerza": 1
+    },
+    {
+     "texto": "Un camión pasará el primer sábado de cada mes por las calles que se anoten.",
+     "para": "lejos",
+     "fuerza": 2,
+     "porque": "Da una solución para quien no puede transportarlo."
+    },
+    {
+     "texto": "Alguien te puede ayudar.",
+     "para": "lejos",
+     "fuerza": 1
+    },
+    {
+     "texto": "Todas las personas tenemos derecho a un ambiente sano: lo que tiras afecta la casa y la salud de otras.",
+     "para": "derecho",
+     "fuerza": 2,
+     "porque": "Relaciona la decisión individual con el derecho de los demás."
+    },
+    {
+     "texto": "Está mal tirar escombro.",
+     "para": "derecho",
+     "fuerza": 1
+    },
+    {
+     "texto": "Tomaremos fotos y contaremos los montones en el arroyo y en los lotes cercanos, antes y después de 3 meses.",
+     "para": "prueba",
+     "fuerza": 2,
+     "porque": "Compara antes y después, y revisa si el problema solo cambió de lugar."
+    },
+    {
+     "texto": "Se va a ver mejor.",
+     "para": "prueba",
+     "fuerza": 1
+    },
+    {
+     "texto": "Siempre se ha hecho así, por algo será.",
+     "para": "",
+     "fuerza": 0,
+     "falla": "Que sea costumbre no demuestra que esté bien."
+    },
+    {
+     "texto": "O aprueban esto hoy o el planeta se acaba mañana.",
+     "para": "",
+     "fuerza": 0,
+     "falla": "Exagera y presenta solo dos opciones."
+    }
+   ]
+  }
+ ]
+}
+  ],
+
+  "experimentos": [
+    {
+      "id": "4e1", "unidad": "4u1", "nombre": "El equilibrio de los frijoles",
+      "proposito": "Simular cómo cambia el alimento cuando aumenta el número de herbívoros.",
+      "supervision": true,
+      "aviso": "Un adulto cuida que no se lleven semillas a la boca, nariz u oídos.",
+      "materiales": ["40 frijoles", "Una hoja blanca", "Un reloj", "Un cuaderno"],
+      "procedimiento": ["Los frijoles son plantas. Pongan 20 sobre la hoja.", "Ronda 1: 2 personas son herbívoros; en cada ronda cada una toma 3 frijoles.", "Al terminar, agreguen 6 frijoles: las plantas crecieron. Anoten cuántos quedan.", "Ronda 2: repitan con 3 herbívoros y vuelvan a agregar 6.", "Ronda 3: repitan con 5 herbívoros, agreguen 6 y anoten."],
+      "registro": { "tipo": "grafica", "pregunta": "¿Cuántos frijoles quedaron al final de cada ronda?", "etiquetas": ["Ronda 1", "Ronda 2", "Ronda 3"], "unidad": "frijoles", "textoMayor": "Con más alimento" },
+      "explicacion": "Con 2 herbívoros se toman 6 y crecen 6: se mantiene en 20. Con más herbívoros se toma más de lo que crece y el alimento baja. Es un modelo sencillo; en la naturaleza intervienen más factores.",
+      "reflexion": ["¿Qué pasaría en la ronda 4?", "¿Qué cambiaría si llegara un carnívoro?"],
+      "relacion": "Los carnívoros ayudan a que no haya demasiados herbívoros. Quitar un eslabón cambia a los demás."
+    },
+    {
+      "id": "4e2", "unidad": "4u2", "nombre": "El agua que viaja en una bolsa",
+      "proposito": "Observar cómo el Sol mueve el agua, un factor físico de los ecosistemas.",
+      "supervision": true,
+      "aviso": "Un adulto pega la bolsa en la ventana. No miren directamente al Sol.",
+      "materiales": ["Una bolsa de plástico transparente con cierre", "Agua de la llave", "Cinta adhesiva", "Plumón", "Un reloj"],
+      "procedimiento": ["Dibujen en la bolsa un Sol, una nube y el mar abajo.", "Pongan un poco de agua en la bolsa y ciérrenla bien.", "Péguenla en una ventana con luz.", "Obsérvenla cada hora, 4 veces.", "Dibujen dónde aparecen gotas y reutilicen el agua en una planta."],
+      "registro": { "tipo": "texto", "pregunta": "¿Dónde aparecieron gotas y qué crees que las formó?" },
+      "explicacion": "El calor hace que el agua se evapore. Al tocar el plástico más fresco, se condensa en gotas que bajan. Es un modelo de una parte del ciclo del agua.",
+      "reflexion": ["¿Qué representa cada parte de la bolsa?", "¿Qué le falta al modelo?"],
+      "relacion": "La lluvia y la evaporación influyen en las plantas y los animales de cada ecosistema. En el desierto se evapora mucha agua."
+    },
+    {
+      "id": "4e3", "unidad": "4u3", "nombre": "¿Limpia o solo clara?",
+      "proposito": "Construir un filtro y reconocer sus límites.",
+      "supervision": true,
+      "aviso": "Un adulto corta la botella y cubre la orilla con cinta. NUNCA beban el agua filtrada: puede verse clara y seguir contaminada. Lávense las manos.",
+      "materiales": ["Media botella de plástico (la corta el adulto)", "Algodón", "Arena limpia", "Piedras pequeñas limpias", "Un vaso transparente", "Agua con un poco de tierra"],
+      "procedimiento": ["Coloquen la media botella boca abajo sobre el vaso, como embudo.", "Pongan en orden: algodón, arena y piedras pequeñas.", "Viertan despacio el agua con tierra.", "Comparen el agua antes y después con una escala del 1 (muy turbia) al 5 (muy clara).", "Anoten el resultado y usen el agua para una planta."],
+      "registro": { "tipo": "grafica", "pregunta": "¿Qué tan clara se ve el agua (1 a 5)?", "etiquetas": ["Antes", "Después"], "unidad": "puntos", "textoMayor": "Más clara" },
+      "explicacion": "Las capas detienen partículas de tierra. Pero un filtro casero no elimina todos los microbios ni las sustancias disueltas. Clara no significa potable.",
+      "reflexion": ["¿Qué retuvo cada capa?", "¿Por qué es mejor prevenir que limpiar el agua?"],
+      "relacion": "Quitar la contaminación cuesta trabajo, energía y dinero. Por eso conviene evitar que llegue al agua."
+    },
+    {
+      "id": "4e4", "unidad": "4u4", "nombre": "Mapa del calor de mi escuela",
+      "proposito": "Comparar la temperatura en tres lugares y usar los datos para proponer una mejora.",
+      "supervision": true,
+      "aviso": "Un adulto maneja el termómetro y elige una hora que no sea de calor extremo. Lleven gorra y agua; permanezcan poco tiempo al sol.",
+      "materiales": ["Un termómetro ambiental", "Un reloj", "Un cuaderno", "Lápiz y colores"],
+      "procedimiento": ["Elijan tres lugares: cemento al sol, tierra o pasto, y sombra de un árbol.", "El adulto coloca el termómetro a la misma altura en cada lugar.", "Esperen 3 minutos desde la sombra y lean la temperatura.", "Registren los tres datos.", "Dibujen un mapa con colores y propongan dónde falta sombra."],
+      "registro": { "tipo": "grafica", "pregunta": "¿Qué temperatura hubo en cada lugar?", "etiquetas": ["Cemento", "Tierra o pasto", "Sombra de árbol"], "unidad": "°C", "textoMayor": "Lugar más caliente" },
+      "explicacion": "El cemento suele absorber y guardar más calor. Los árboles dan sombra y su transpiración puede refrescar. Sus datos dependen de la hora y del lugar.",
+      "reflexion": ["¿Qué cuidados hicieron justa la comparación?", "¿A quién le presentarían sus datos?"],
+      "relacion": "Con evidencias podemos pedir y construir espacios más sanos, sobre todo en un lugar tan caluroso como Sonora."
+    }
+  ],
+
+  "retos": [
+    { "id": "4r1", "unidad": "4u1", "titulo": "Investigador de una cadena", "explicacion": "Comprender las relaciones ayuda a cuidar a todo el ecosistema.", "instrucciones": ["Elige un animal de tu región e investiga con un adulto qué come y quién se lo come.", "Dibuja una cadena de al menos cuatro eslabones con un descomponedor.", "Explica a alguien qué pasaría si faltara un eslabón."], "dias": 0, "evidencia": "¿Qué consecuencia no esperabas?" },
+    { "id": "4r2", "unidad": "4u2", "titulo": "Voces del territorio", "explicacion": "Las personas guardan conocimientos sobre los ecosistemas.", "instrucciones": ["Pregunta a una persona mayor cómo era el paisaje de su infancia.", "Anota dos cambios y algo que siga igual, sin escribir datos personales.", "Represéntalo en un dibujo, canción o historia corta."], "dias": 0, "evidencia": "¿Qué cambió y cuál podría ser la causa?" },
+    { "id": "4r3", "unidad": "4u3", "titulo": "Cinco días con menos residuos", "explicacion": "Lo que se mide se puede mejorar.", "instrucciones": ["Cada día cuenta cuántos empaques usaste en el recreo.", "Desde el segundo día prueba una forma de reducirlos.", "Marca los 5 días y compara el primero con el último."], "dias": 5, "evidencia": "¿Cuánto cambió y qué acción funcionó mejor?" },
+    { "id": "4r4", "unidad": "4u4", "titulo": "Propuesta con evidencias", "explicacion": "Una propuesta clara tiene más posibilidades de lograr un cambio.", "instrucciones": ["Con tu grupo o familia elijan un problema ambiental cercano.", "Escriban: problema, evidencia, acción, responsable y cómo comprobarán el resultado.", "Con apoyo de un adulto preséntenla a quien pueda ayudar."], "dias": 0, "evidencia": "¿Qué respondieron y qué harás ahora?" }
+  ]
+}

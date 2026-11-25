@@ -1,0 +1,386 @@
+{
+  "_nota": "Contenido de 6.º grado (versión breve: 4 temas). Los textos de 'curriculo' (contenido y pda) están copiados textualmente del Programa Sintético de la Fase 5 (SEP, 2024), columna de sexto grado. Todo lo demás es Propuesta didáctica EcoQuest; los casos y cifras de los juegos son situaciones simuladas. Al agregar actividades, añade sus claves AL FINAL de 'ordenCodigo'.",
+  "ordenCodigo": ["aprende:6u1", "aprende:6u2", "aprende:6u3", "aprende:6u4", "juego:6j1", "juego:6j2", "juego:6j3", "juego:6j4", "juego:6j5", "juego:6j6", "juego:6j7", "experimento:6e1", "experimento:6e2", "experimento:6e3", "experimento:6e4", "reto:6r1", "reto:6r2", "reto:6r3", "reto:6r4"],
+  "grado": 6,
+  "nombreGrado": "6.º grado",
+  "fase": 5,
+  "fuenteOficial": "SEP (2024). Programa de Estudio para la Educación Primaria: Programa Sintético de la Fase 5. Dirección General de Desarrollo Curricular.",
+  "librosDeTexto": [],
+
+  "unidades": [
+    {
+      "id": "6u1",
+      "insignia": "Investigador de salud ambiental",
+      "titulo": "Medio ambiente y salud ambiental",
+      "icono": "🫁",
+      "color": "verde",
+      "resumen": "Analiza cómo se relacionan los componentes naturales y sociales con la salud de la comunidad.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Factores que conforman la biodiversidad y el medio ambiente, la riqueza natural de México y su relevancia como parte del patrimonio biocultural de la humanidad, y la importancia de su conservación.",
+          "pda": [
+            "Comprende que el medio ambiente es el conjunto de componentes naturales (factores biológicos: seres vivos, y factores físicos: agua, aire, suelo, Sol, clima, entre otros) en interacción con los componentes sociales (aspectos culturales, económicos, científicos, tecnológicos y políticos).",
+            "Analiza situaciones que se relacionan con problemas medio ambientales de la comunidad y el impacto que tienen en la salud ambiental."
+          ],
+          "pagina": "43"
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "🫁",
+        "explicacion": [
+          "El medio ambiente no es solo la naturaleza: también incluye lo que hacemos, decidimos, inventamos y valoramos como sociedad.",
+          "Un mismo problema tiene varias dimensiones. El polvo depende del suelo y el viento, pero también de las calles, la economía y las decisiones públicas.",
+          "La salud ambiental estudia cómo el agua, el aire, el suelo, el ruido o el calor influyen en la salud de las personas y de los demás seres vivos.",
+          "No todas las personas están igual de expuestas: influyen la edad, el trabajo, la vivienda y los servicios con que cuentan.",
+          "En Sonora, el calor extremo, el polvo y la escasez de agua son temas de salud ambiental que requieren acciones personales y colectivas."
+        ],
+        "ejemplos": [
+          "Quien trabaja al aire libre está más expuesto al calor que quien trabaja en un lugar fresco.",
+          "Pavimentar sin árboles reduce el polvo, pero puede aumentar el calor.",
+          "El ruido constante afecta el descanso y la concentración.",
+          "Una tecnología para tratar agua necesita dinero, mantenimiento y acuerdos para funcionar."
+        ],
+        "conceptos": [
+          { "termino": "Componente social", "definicion": "Aspecto cultural, económico, científico, tecnológico o político que interactúa con la naturaleza." },
+          { "termino": "Salud ambiental", "definicion": "Relación entre las condiciones del ambiente y la salud." },
+          { "termino": "Vulnerabilidad", "definicion": "Condición que hace que alguien sufra más daño ante un mismo peligro." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Cuál es un componente social del medio ambiente?", "opciones": ["La lluvia", "Una ley sobre residuos", "Las bacterias"], "correcta": 1, "explicacion": "Las leyes son un aspecto político." },
+          { "pregunta": "Dos colonias tienen la misma temperatura, pero en una no hay sombra ni agua. ¿Qué explica que haya más enfermos ahí?", "opciones": ["Su vulnerabilidad es mayor", "El termómetro miente", "La temperatura no influye"], "correcta": 0, "explicacion": "El mismo peligro daña más donde faltan condiciones para protegerse." },
+          { "pregunta": "¿Qué plan considera más dimensiones de un problema de polvo?", "opciones": ["Solo usar cubrebocas", "Plantar especies locales, mejorar calles, avisar en días de viento y evaluar", "Esperar que llueva"], "correcta": 1, "explicacion": "Une aspectos naturales, sociales y de salud." }
+        ],
+        "actividad": {
+          "titulo": "Mapa de dimensiones",
+          "instrucciones": "Elige un problema local. Escríbelo al centro y relaciónalo con factores físicos, biológicos, culturales, económicos, tecnológicos y políticos. Señala quiénes son más vulnerables y por qué."
+        }
+      },
+      "docente": "Organice un análisis por equipos donde cada uno represente una dimensión del mismo problema. Cierre con una propuesta que requiera al menos tres dimensiones.",
+      "familia": "Platiquen: ¿qué condición del lugar donde viven afecta más su salud?, ¿qué pueden cambiar ustedes y qué requiere apoyo de otros?"
+    },
+    {
+      "id": "6u2",
+      "insignia": "Analista del clima",
+      "titulo": "Efecto invernadero y cambio climático",
+      "icono": "🌡️",
+      "color": "naranja",
+      "resumen": "Comprende el efecto invernadero, su alteración y cómo reconocer información confiable.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Pérdida de biodiversidad, problemas medio ambientales en la comunidad, México y el mundo, acciones orientadas a fortalecer estilos de vida sustentables.",
+          "pda": [
+            "Comprende que el efecto invernadero es un proceso natural que favorece la vida en el planeta; establece relaciones entre su alteración, la contaminación del aire y el cambio climático, así como las consecuencias en el medio ambiente y la salud.",
+            "Analiza y explica algunos problemas medio ambientales de la comunidad, México y el mundo, sus causas y consecuencias en la salud ambiental."
+          ],
+          "pagina": "44"
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "🌡️",
+        "explicacion": [
+          "El efecto invernadero es natural: algunos gases de la atmósfera retienen parte del calor que emite la superficie. Sin él, la Tierra sería demasiado fría para la vida como la conocemos.",
+          "Al quemar carbón, petróleo y gas, y al perder bosques, aumenta la cantidad de gases como el dióxido de carbono. Se retiene más calor y cambia el clima.",
+          "Tiempo atmosférico es lo que ocurre hoy; clima es el patrón de muchos años. Un día frío no contradice el calentamiento global.",
+          "Consecuencias posibles: olas de calor más intensas, cambios en lluvias, aumento del nivel del mar y riesgos para la salud y los ecosistemas.",
+          "Mitigar es reducir los gases; adaptarse es prepararse para los cambios. En Sonora necesitamos ambas, por el calor y la escasez de agua."
+        ],
+        "ejemplos": [
+          "Mitigación: usar menos electricidad generada con combustibles fósiles.",
+          "Adaptación: crear espacios con sombra y agua para una ola de calor.",
+          "El agujero en la capa de ozono es un problema distinto del calentamiento global.",
+          "Para estudiar el clima se analizan registros de décadas, no de una semana."
+        ],
+        "conceptos": [
+          { "termino": "Efecto invernadero", "definicion": "Proceso natural en que ciertos gases retienen parte del calor en la atmósfera." },
+          { "termino": "Mitigación", "definicion": "Acciones para reducir las causas, como las emisiones de gases." },
+          { "termino": "Adaptación", "definicion": "Ajustes para disminuir los daños de los cambios." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Cuál afirmación es correcta?", "opciones": ["El efecto invernadero siempre es malo", "El efecto invernadero es natural; el problema es su intensificación", "El efecto invernadero lo causa el ozono roto"], "correcta": 1, "explicacion": "Permite la vida; el exceso de gases lo intensifica." },
+          { "pregunta": "«Hoy hizo frío, entonces no hay cambio climático». ¿Cuál es el error?", "opciones": ["Confunde tiempo de un día con clima de muchos años", "Usa mal el termómetro", "No hay error"], "correcta": 0, "explicacion": "El clima se estudia en periodos largos." },
+          { "pregunta": "Sembrar árboles de sombra en una parada de camión para soportar el calor es, sobre todo…", "opciones": ["Adaptación", "Contaminación", "Evaporación"], "correcta": 0, "explicacion": "Ayuda a enfrentar el calor; los árboles también capturan algo de carbono." }
+        ],
+        "actividad": {
+          "titulo": "Diagrama con dos historias",
+          "instrucciones": "Dibuja dos diagramas: efecto invernadero natural e intensificado. Usa flechas de distinto grosor para el calor. Agrega una causa, dos consecuencias, una mitigación y una adaptación."
+        }
+      },
+      "docente": "Anticipe confusiones frecuentes: ozono, tiempo y clima, y considerar malo al efecto invernadero natural. Pida justificar con esquemas y citar fuentes.",
+      "familia": "Revisen juntos cómo se protegen del calor. Elijan una medida para adaptarse y otra para gastar menos energía."
+    },
+    {
+      "id": "6u3",
+      "insignia": "Estratega de la energía",
+      "titulo": "La energía que usamos",
+      "icono": "⚡",
+      "color": "amarillo",
+      "resumen": "Calcula el consumo de energía, analiza su costo ambiental y toma decisiones.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Costos y beneficios del consumo de agua, energía eléctrica y combustibles en la satisfacción de necesidades personales.",
+          "pda": [
+            "Describe en qué actividades de la casa y la escuela, se utilizan recursos energéticos: energía eléctrica y diversos combustibles (madera, petróleo, carbón, gas), y analiza cómo impactan en el medio ambiente.",
+            "Indaga y calcula el consumo de energía eléctrica, de gas o carbón que se utiliza en cada actividad; reconoce y practica acciones concretas para disminuir su consumo en casa y escuela.",
+            "Analiza el costo ambiental que implica el uso de combustibles y energía eléctrica para tomar decisiones de consumo responsable en casa, escuela y comunidad, y disminuir el impacto en el medio ambiente."
+          ],
+          "pagina": "44-45"
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "⚡",
+        "explicacion": [
+          "Usamos energía para cocinar, refrescar, iluminar, transportarnos y comunicarnos. Puede venir de combustibles, del Sol, del viento, del agua y de otras fuentes.",
+          "La energía eléctrica se calcula así: potencia × tiempo. Un aparato de 100 watts encendido 5 horas usa 500 watts-hora (Wh). Mil Wh son un kilowatt-hora (kWh).",
+          "Quemar combustibles emite gases y partículas. Las fuentes renovables emiten mucho menos al generar, pero también necesitan materiales, espacio y planeación.",
+          "Eficiencia es obtener el mismo servicio con menos energía: aislar, dar mantenimiento, usar aparatos eficientes y apagar lo que no se usa.",
+          "En Sonora hay mucha radiación solar, pero la demanda sube con el calor y continúa de noche. Por eso importa cuándo se genera y cuándo se usa."
+        ],
+        "ejemplos": [
+          "Un foco de 9 W encendido 6 horas usa 54 Wh.",
+          "Cerrar puertas y dar sombra a las ventanas ayuda a que el aire acondicionado trabaje menos.",
+          "La leña en un lugar cerrado produce humo dañino.",
+          "Los paneles solares no generan de noche; se requiere otra fuente o almacenamiento."
+        ],
+        "conceptos": [
+          { "termino": "Potencia", "definicion": "Rapidez con que se usa la energía. Se mide en watts (W)." },
+          { "termino": "Kilowatt-hora", "definicion": "Energía que usa un aparato de 1,000 W durante una hora." },
+          { "termino": "Eficiencia energética", "definicion": "Lograr el mismo servicio con menos energía." }
+        ],
+        "preguntas": [
+          { "pregunta": "Un ventilador de 60 W funciona 8 horas. ¿Cuánta energía usa?", "opciones": ["68 Wh", "480 Wh", "4,800 Wh"], "correcta": 1, "explicacion": "60 × 8 = 480 Wh." },
+          { "pregunta": "Una clínica necesita electricidad las 24 horas. ¿Por qué no bastan paneles solares sin almacenamiento?", "opciones": ["Porque de noche no generan", "Porque nunca generan", "Porque solo sirven en invierno"], "correcta": 0, "explicacion": "La generación cambia durante el día." },
+          { "pregunta": "¿Cuál es un ejemplo de eficiencia?", "opciones": ["Quedarse sin luz", "Iluminar igual con un foco que usa menos watts", "Dejar todo encendido"], "correcta": 1, "explicacion": "Se obtiene el mismo servicio con menos energía." }
+        ],
+        "actividad": {
+          "titulo": "Inventario energético",
+          "instrucciones": "Con un adulto, anota cinco aparatos, su potencia (en la etiqueta, sin desconectar ni tocar enchufes) y las horas de uso. Calcula los Wh de cada uno y propone reducir 10 % del total sin afectar lo indispensable."
+        }
+      },
+      "docente": "Integre multiplicación, conversión de unidades y porcentajes con un inventario real o uno de ejemplo. Discutan necesidades, justicia y costos, no solo ahorro.",
+      "familia": "Busquen en el recibo de luz los kWh de dos periodos y compárenlos. Los adultos manejan los aparatos y enchufes."
+    },
+    {
+      "id": "6u4",
+      "insignia": "Ciudadano por el agua y la vida",
+      "titulo": "Agua y ambiente sano: nuestros derechos",
+      "icono": "⚖️",
+      "color": "azul",
+      "resumen": "Argumenta cómo ejercer el derecho al agua potable, a la salud y a un ambiente sano.",
+      "curriculo": [
+        {
+          "campo": "Ética, Naturaleza y Sociedades",
+          "contenido": "Derechos humanos: a un ambiente sano y acceso al agua potable.",
+          "pda": [
+            "Comprende que la Constitución Política de los Estados Unidos Mexicanos, las leyes nacionales y los tratados internacionales suscritos por México, garantizan los derechos a la salud, a un medio ambiente sano, y el acceso a agua potable.",
+            "Dialoga y argumenta acerca de cómo ejerce sus derechos humanos a la salud, al agua potable y a un ambiente sano y adecuado para su desarrollo y bienestar, y se compromete a respetar la biodiversidad, actuar con reciprocidad, cuidándola y contribuyendo en su regeneración y preservación."
+          ],
+          "pagina": "62"
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "⚖️",
+        "explicacion": [
+          "La Constitución mexicana, en su artículo 4.º, reconoce los derechos a la salud, a un medio ambiente sano y al agua.",
+          "Que un derecho exista en la ley no basta: hay que conocerlo, pedir información, participar y vigilar que se cumpla.",
+          "Igualdad es dar lo mismo a todos; equidad es considerar lo que cada persona o comunidad necesita.",
+          "El agua se comparte entre hogares, campo, industria y ecosistemas. Los acuerdos deben ser transparentes y proteger a quienes tienen menos acceso.",
+          "En Sonora conviven ciudades, pueblos originarios, zonas agrícolas y ecosistemas secos: escuchar a todas las personas es parte de una decisión justa."
+        ],
+        "ejemplos": [
+          "Una comunidad pide por escrito resultados de la calidad del agua.",
+          "Un acuerdo garantiza primero el agua para beber y la higiene.",
+          "Un grupo propone proteger el arroyo y da seguimiento a la respuesta.",
+          "Antes de una obra, se consulta a quienes viven en ese territorio."
+        ],
+        "conceptos": [
+          { "termino": "Garantizar", "definicion": "Asegurar que un derecho pueda ejercerse." },
+          { "termino": "Equidad", "definicion": "Dar a cada quien lo que necesita para tener condiciones justas." },
+          { "termino": "Transparencia", "definicion": "Dar información clara sobre decisiones y recursos." }
+        ],
+        "preguntas": [
+          { "pregunta": "Hay 60 litros para dos familias: una de 2 personas y otra de 4. ¿Cuál reparto da lo mismo por persona?", "opciones": ["30 y 30", "20 y 40", "40 y 20"], "correcta": 1, "explicacion": "60 ÷ 6 = 10 litros por persona: 20 y 40." },
+          { "pregunta": "¿Qué acción fortalece un derecho?", "opciones": ["Pedir información y dar seguimiento", "Difundir rumores", "Callar a quien opina distinto"], "correcta": 0, "explicacion": "La participación informada ayuda a que se cumpla." },
+          { "pregunta": "¿Qué diferencia hay entre igualdad y equidad?", "opciones": ["Ninguna", "La equidad considera necesidades distintas", "La igualdad solo existe en la escuela"], "correcta": 1, "explicacion": "Dar lo mismo no siempre produce condiciones justas." }
+        ],
+        "actividad": {
+          "titulo": "Carta de derechos y compromisos",
+          "instrucciones": "Redacta con tu equipo tres derechos ambientales y, junto a cada uno, quién debe garantizarlo, cómo pueden ejercerlo y qué compromiso asumen. Consulten una fuente oficial con un adulto."
+        }
+      },
+      "docente": "Lean con el grupo el texto vigente del artículo 4.º constitucional en una fuente oficial. Organice un foro con roles y criterios para evaluar argumentos.",
+      "familia": "Platiquen qué harían si faltara el agua un día: ¿qué usos serían prioritarios?, ¿quién necesita más apoyo?"
+    }
+  ],
+
+  "juegos": [
+    { "id": "6j1", "unidad": "6u1", "tipo": "criterios", "titulo": "Todo es medio ambiente", "instrucciones": "Analiza la condición y elige todos los componentes que la cumplen. Tienes dos intentos por nivel.",
+      "cartas": [
+        { "icono": "💧", "nombre": "Agua subterránea", "es": ["natural", "fisico"] }, { "icono": "☀️", "nombre": "Radiación solar", "es": ["natural", "fisico"] }, { "icono": "🌬️", "nombre": "Viento", "es": ["natural", "fisico"] }, { "icono": "🟤", "nombre": "Suelo arenoso", "es": ["natural", "fisico"] },
+        { "icono": "🌳", "nombre": "Mezquite", "es": ["natural", "biologico"] }, { "icono": "🦠", "nombre": "Bacterias del suelo", "es": ["natural", "biologico"] }, { "icono": "🦟", "nombre": "Mosquito", "es": ["natural", "biologico"] }, { "icono": "🦉", "nombre": "Tecolote", "es": ["natural", "biologico"] },
+        { "icono": "📜", "nombre": "Ley de aguas", "es": ["social", "politico"] }, { "icono": "🗳️", "nombre": "Consulta pública", "es": ["social", "politico"] }, { "icono": "💵", "nombre": "Precio del gas", "es": ["social", "economico"] }, { "icono": "🏪", "nombre": "Comercio local", "es": ["social", "economico"] },
+        { "icono": "🪘", "nombre": "Fiesta tradicional", "es": ["social", "cultural"] }, { "icono": "🍲", "nombre": "Receta regional", "es": ["social", "cultural"] }, { "icono": "🔆", "nombre": "Panel solar", "es": ["social", "tecnologico"] }, { "icono": "🚿", "nombre": "Regadera ahorradora", "es": ["social", "tecnologico"] }
+      ],
+      "niveles": [
+        { "consigna": "Componentes naturales que NO son seres vivos", "si": ["natural"], "no": ["biologico"], "explicacion": "Son factores físicos." },
+        { "consigna": "Componentes sociales que NO son tecnológicos ni económicos", "si": ["social"], "no": ["tecnologico", "economico"], "explicacion": "Quedan los culturales y los políticos." },
+        { "consigna": "Factores biológicos", "si": ["biologico"], "explicacion": "Son seres vivos, desde bacterias hasta animales y plantas." },
+        { "consigna": "Componentes políticos o económicos (ni naturales, ni culturales, ni tecnológicos)", "si": ["social"], "no": ["cultural", "tecnologico"], "explicacion": "Leyes, consultas, precios y comercio influyen en el ambiente." },
+        { "consigna": "NO son naturales, políticos, económicos ni culturales", "no": ["natural", "politico", "economico", "cultural"], "explicacion": "Solo quedan los tecnológicos." }
+      ] },
+    { "id": "6j2", "unidad": "6u1", "tipo": "caso", "titulo": "Epidemiólogos del ambiente", "instrucciones": "Compara grupos, descarta coincidencias y concluye solo lo que permiten las evidencias. Los casos son simulados.",
+      "casos": [
+        { "titulo": "Tos en una sola escuela", "relato": "En la escuela Norte, 24 de 120 alumnos tuvieron tos por varias semanas. En la escuela Sur, 9 de 180. Están en la misma ciudad.",
+          "pistas": [ { "texto": "Norte está junto a un camino de tierra muy transitado; Sur, junto a un parque.", "util": true, "porque": "Es una diferencia relacionada con el aire." }, { "texto": "Los medidores registraron el triple de partículas en Norte.", "util": true, "porque": "Es una medición directa." }, { "texto": "Los días con viento hubo más alumnos con tos en Norte.", "util": true, "porque": "Relaciona mayor exposición con más casos." }, { "texto": "Ambas escuelas tuvieron la misma campaña de vacunación.", "util": true, "porque": "Ayuda a descartar esa diferencia." }, { "texto": "Norte tiene uniforme gris.", "util": false, "porque": "No se relaciona con la respiración." }, { "texto": "En ambas se come a las 10:30.", "util": false, "porque": "Es igual en las dos y no explica la diferencia." }, { "texto": "La directora de Sur nació en otra ciudad.", "util": false, "porque": "Es irrelevante." }, { "texto": "Norte ganó un torneo.", "util": false, "porque": "Es una coincidencia." } ],
+          "preguntas": [ { "pregunta": "¿Cuál comparación es correcta?", "opciones": ["20 % en Norte y 5 % en Sur", "24 % en Norte y 9 % en Sur", "Es igual en ambas"], "correcta": 0, "explicacion": "24 ÷ 120 = 20 % y 9 ÷ 180 = 5 %." }, { "pregunta": "¿Por qué no basta comparar 24 contra 9?", "opciones": ["Porque las escuelas tienen distinto número de alumnos", "Porque los números son pequeños", "Porque 9 es impar"], "correcta": 0, "explicacion": "Hay que comparar proporciones." }, { "pregunta": "¿Qué conclusión es más cuidadosa?", "opciones": ["El polvo es la única causa, sin duda", "Las evidencias apuntan al polvo; hay que intervenir y volver a medir", "No hay que hacer nada hasta estar 100 % seguros"], "correcta": 1, "explicacion": "Permite actuar sin afirmar de más y comprobar el resultado." } ] },
+        { "titulo": "El sueño perdido", "relato": "En una calle, muchas personas duermen mal desde que se instaló un equipo ruidoso. Otras dicen que es por el calor.",
+          "pistas": [ { "texto": "En la calle de atrás, con la misma temperatura y sin ruido, duermen mejor.", "util": true, "porque": "Permite separar el efecto del calor y el del ruido." }, { "texto": "El equipo funciona de 11 p. m. a 4 a. m.", "util": true, "porque": "Coincide con las horas de sueño." }, { "texto": "Durante cuatro noches que se apagó, mejoró el descanso.", "util": true, "porque": "El cambio ocurrió al retirar la posible causa." }, { "texto": "Se registró cuántas horas durmió cada persona, con el mismo formato.", "util": true, "porque": "Permite comparar datos." }, { "texto": "El equipo es de color verde.", "util": false, "porque": "El color no influye en el sueño." }, { "texto": "En la calle hay 14 casas.", "util": false, "porque": "No explica el cambio." }, { "texto": "A un vecino le cae mal el dueño.", "util": false, "porque": "Puede ser un sesgo, no evidencia." }, { "texto": "Ese mes hubo luna llena.", "util": false, "porque": "También la hubo en la otra calle." } ],
+          "preguntas": [ { "pregunta": "¿Para qué sirve la calle de atrás?", "opciones": ["Como grupo de comparación", "Para estacionarse", "No sirve"], "correcta": 0, "explicacion": "Tiene el mismo calor pero no el ruido." }, { "pregunta": "¿Qué evidencia es más fuerte sobre la causa?", "opciones": ["El equipo es nuevo", "Mejoraron al apagarlo y empeoraron al encenderlo", "Hay luna llena"], "correcta": 1, "explicacion": "El efecto cambia junto con la posible causa." }, { "pregunta": "¿Cuál solución es más justa y comprobable?", "opciones": ["Prohibir todo sonido siempre", "Aislar el equipo, acordar horario y medir de nuevo el ruido y el sueño", "Que se muden los vecinos"], "correcta": 1, "explicacion": "Atiende la causa y permite comprobar." } ] }
+      ] },
+    { "id": "6j3", "unidad": "6u2", "tipo": "noticias", "titulo": "Verificadores del clima", "instrucciones": "En cada publicación hay una parte que engaña. Tócala y después descubre qué truco usa. Un intento por paso. Son publicaciones inventadas para practicar.",
+      "items": [
+        { "titulo": "¡Adiós al calentamiento!", "fragmentos": [ { "texto": "Ayer se registraron 2 °C en la sierra." }, { "texto": "Por lo tanto, el planeta no se está calentando.", "malo": true }, { "texto": "Se recomienda abrigar a niñas, niños y personas mayores." } ], "pregunta": "¿Qué truco o error usa?", "opciones": ["Confunde el tiempo de un día con el clima", "Ataca a una persona", "Usa una unidad equivocada"], "correcta": 0, "explicacion": "Un día no describe el patrón de décadas." },
+        { "titulo": "El gas que nadie quiere", "fragmentos": [ { "texto": "Algunos gases retienen parte del calor." }, { "texto": "La quema de combustibles aumenta esos gases." }, { "texto": "Lo mejor sería eliminar por completo el efecto invernadero.", "malo": true } ], "pregunta": "¿Cuál es el error?", "opciones": ["Olvida que el efecto invernadero natural permite la vida", "Dice que los gases no existen", "Compara dos ciudades"], "correcta": 0, "explicacion": "El problema es su intensificación, no el proceso natural." },
+        { "titulo": "Gráfica impactante", "fragmentos": [ { "texto": "Comparamos las emisiones de dos años." }, { "texto": "El eje de la gráfica empieza en 98 y termina en 100, así que la barra se ve 10 veces más alta.", "malo": true }, { "texto": "El dato pasó de 98.2 a 99.8." } ], "pregunta": "¿Qué truco usa?", "opciones": ["Recorta la escala para exagerar la diferencia", "Esconde el título", "Cita una fuente oficial"], "correcta": 0, "explicacion": "Con un eje recortado, un cambio pequeño parece enorme." },
+        { "titulo": "El experto opina", "fragmentos": [ { "texto": "Un famoso futbolista dice que el cambio climático es falso, así que no hay más que discutir.", "malo": true }, { "texto": "El estudio se puede consultar en línea." }, { "texto": "Otros equipos repitieron las mediciones." } ], "pregunta": "¿Qué truco usa?", "opciones": ["Apela a la fama en lugar de la evidencia", "Confunde metros con litros", "Elige pocos datos"], "correcta": 0, "explicacion": "La fama no hace a alguien especialista ni sustituye los datos." },
+        { "titulo": "Solo dos caminos", "fragmentos": [ { "texto": "El transporte produce una parte de las emisiones." }, { "texto": "O dejamos de usar cualquier vehículo mañana o no hay nada que hacer.", "malo": true }, { "texto": "Caminar distancias cortas puede ayudar." } ], "pregunta": "¿Qué error usa?", "opciones": ["Falso dilema: presenta solo dos opciones", "Confunde clima y tiempo", "Inventa un instrumento"], "correcta": 0, "explicacion": "Hay muchas medidas posibles entre los dos extremos." },
+        { "titulo": "Elegimos los mejores años", "fragmentos": [ { "texto": "Tenemos registros de 60 años." }, { "texto": "Usaremos solo tres años que bajaron para demostrar que siempre enfría.", "malo": true }, { "texto": "Los datos completos están disponibles." } ], "pregunta": "¿Qué truco usa?", "opciones": ["Escoge solo los datos que le convienen", "Usa todos los datos", "Pide opiniones"], "correcta": 0, "explicacion": "Seleccionar datos a conveniencia cambia la conclusión." }
+      ] },
+    { "id": "6j4", "unidad": "6u2", "tipo": "datos", "titulo": "Décadas en gráficas", "instrucciones": "Interpreta la escala, calcula y decide qué permiten concluir los datos. Un solo intento por pregunta.",
+      "graficas": [
+        { "titulo": "Días con más de 40 °C por década (datos simulados)", "unidad": "días", "maximo": 300, "paso": 50, "etiquetas": ["Déc. 1", "Déc. 2", "Déc. 3", "Déc. 4"], "valores": [100, 125, 175, 250], "nombre1": "Días",
+          "preguntas": [
+            { "pregunta": "¿Cuál fue el aumento porcentual de la década 1 a la 4?", "opciones": ["60 %", "150 %", "250 %"], "correcta": 1, "explicacion": "Aumentó 150 sobre 100: 150 %." },
+            { "pregunta": "¿Entre qué décadas fue mayor el aumento?", "opciones": ["1 y 2", "2 y 3", "3 y 4"], "correcta": 2, "explicacion": "Aumentos: 25, 50 y 75." },
+            { "pregunta": "¿Qué se puede afirmar solo con estos datos?", "opciones": ["Aumentaron los días muy calurosos en este registro", "La causa exacta del aumento", "Lo que ocurrió en todo el planeta"], "correcta": 0, "explicacion": "La gráfica describe un registro local; no muestra causas ni otros lugares." } ] },
+        { "titulo": "Emisiones de dos ciudades (datos simulados)", "unidad": "miles de toneladas", "maximo": 120, "paso": 20, "etiquetas": ["Transporte", "Electricidad", "Basura"], "valores": [80, 60, 20], "valores2": [50, 90, 10], "nombre1": "Ciudad A (400 mil hab.)", "nombre2": "Ciudad B (200 mil hab.)",
+          "preguntas": [
+            { "pregunta": "¿Cuál ciudad emite más en total?", "opciones": ["A", "B", "Emiten casi lo mismo: 160 y 150"], "correcta": 2, "explicacion": "A: 80 + 60 + 20 = 160. B: 50 + 90 + 10 = 150." },
+            { "pregunta": "¿Y cuál emite más por habitante?", "opciones": ["A", "B", "Es igual"], "correcta": 1, "explicacion": "A: 160 ÷ 400 = 0.40; B: 150 ÷ 200 = 0.75 toneladas por habitante." },
+            { "pregunta": "Si B reduce un tercio de lo de electricidad, ¿cuánto baja su total?", "opciones": ["De 150 a 120", "De 150 a 100", "De 150 a 60"], "correcta": 0, "explicacion": "Un tercio de 90 es 30; 150 − 30 = 120." } ] },
+        { "titulo": "Temperatura de una calle antes y después de plantar árboles (datos simulados)", "unidad": "°C", "maximo": 50, "paso": 10, "etiquetas": ["Con árboles", "Sin árboles"], "valores": [44, 43], "valores2": [38, 42], "nombre1": "Antes", "nombre2": "Cinco años después",
+          "preguntas": [
+            { "pregunta": "Considerando la calle de comparación, ¿cuánto del descenso podría atribuirse a los árboles?", "opciones": ["6 °C", "5 °C", "1 °C"], "correcta": 1, "explicacion": "Una bajó 6 °C y la otra 1 °C sin árboles: la diferencia es 5 °C." },
+            { "pregunta": "¿Por qué se midió una calle sin árboles?", "opciones": ["Para descartar cambios que ocurrieron en ambas", "Porque sobraba tiempo", "Para tener más barras"], "correcta": 0, "explicacion": "Sirve como comparación." },
+            { "pregunta": "¿Qué haría más confiable el resultado?", "opciones": ["Medir más calles, a la misma hora y varios días", "Medir solo la mejor calle", "Cambiar el termómetro a mitad"], "correcta": 0, "explicacion": "Repetir con un método igual da más seguridad." } ] }
+      ] },
+    { "id": "6j5", "unidad": "6u3", "tipo": "red", "titulo": "Opera la red eléctrica", "instrucciones": "Distribuye la energía en cada horario: cubre la demanda sin pasarte de costo ni de emisiones. Toca + y − en cada fuente. Las cifras son simuladas.",
+      "niveles": [
+        { "titulo": "Un día de primavera", "texto": "Tres fuentes y demanda moderada.", "costo": 65, "emision": 36, "periodos": [ { "nombre": "Mañana", "demanda": 6 }, { "nombre": "Mediodía", "demanda": 8 }, { "nombre": "Noche", "demanda": 7 } ],
+          "fuentes": [ { "nombre": "Solar", "icono": "☀️", "costo": 2, "emision": 0, "disponible": [3, 7, 0] }, { "nombre": "Viento", "icono": "🌬️", "costo": 3, "emision": 0, "disponible": [2, 1, 3] }, { "nombre": "Gas", "icono": "🔥", "costo": 5, "emision": 6, "disponible": [8, 8, 8] } ], "explicacion": "Las renovables no bastan en todos los horarios; el gas cubre lo que falta. Si se usa de más, suben el costo y las emisiones." },
+        { "titulo": "Ola de calor", "texto": "La demanda sube en la tarde y sigue alta en la noche. Puedes invertir en ahorro (eficiencia).", "costo": 120, "emision": 60, "periodos": [ { "nombre": "Mañana", "demanda": 7 }, { "nombre": "Tarde", "demanda": 13 }, { "nombre": "Noche", "demanda": 11 } ],
+          "fuentes": [ { "nombre": "Solar", "icono": "☀️", "costo": 3, "emision": 0, "disponible": [4, 8, 0] }, { "nombre": "Viento", "icono": "🌬️", "costo": 4, "emision": 0, "disponible": [2, 1, 4] }, { "nombre": "Gas", "icono": "🔥", "costo": 4, "emision": 6, "disponible": [9, 9, 9] }, { "nombre": "Carbón", "icono": "🪨", "costo": 2, "emision": 12, "disponible": [9, 9, 9] }, { "nombre": "Ahorro", "icono": "💡", "costo": 7, "emision": 0, "disponible": [1, 2, 3] } ], "explicacion": "El carbón es barato, pero emite demasiado. Ahorrar cuesta al inicio y reduce la demanda en horas difíciles." },
+        { "titulo": "Meta ambiciosa", "texto": "Con baterías puedes usar de noche energía guardada, pero son costosas.", "costo": 168, "emision": 36, "periodos": [ { "nombre": "Mañana", "demanda": 8 }, { "nombre": "Mediodía", "demanda": 11 }, { "nombre": "Tarde", "demanda": 12 }, { "nombre": "Noche", "demanda": 10 } ],
+          "fuentes": [ { "nombre": "Solar", "icono": "☀️", "costo": 3, "emision": 0, "disponible": [3, 9, 6, 0] }, { "nombre": "Viento", "icono": "🌬️", "costo": 4, "emision": 0, "disponible": [2, 1, 2, 4] }, { "nombre": "Baterías", "icono": "🔋", "costo": 8, "emision": 0, "disponible": [0, 0, 3, 4] }, { "nombre": "Gas", "icono": "🔥", "costo": 4, "emision": 6, "disponible": [9, 9, 9, 9] }, { "nombre": "Ahorro", "icono": "💡", "costo": 6, "emision": 0, "disponible": [2, 1, 2, 2] } ], "explicacion": "Para emitir poco hay que combinar varias soluciones y usar el gas solo donde más hace falta." }
+      ] },
+    { "id": "6j6", "unidad": "6u3", "tipo": "presupuesto", "titulo": "Calcula tus watts-hora", "instrucciones": "Multiplica potencia por horas para saber la energía de cada opción. Elige una por necesidad sin pasarte del límite y con el bienestar mínimo.", "medida": "Wh", "nombrePuntos": "bienestar", "ocultaValor": true,
+      "niveles": [
+        { "titulo": "Una tarde de estudio", "texto": "Cifras simuladas.", "limite": 800, "minimo": 14,
+          "categorias": [
+            { "nombre": "Iluminación", "icono": "💡", "opciones": [ { "texto": "Foco de 60 W por 4 h", "valor": 240, "puntos": 4 }, { "texto": "Foco LED de 9 W por 4 h", "valor": 36, "puntos": 4 }, { "texto": "A oscuras", "valor": 0, "puntos": 0 } ] },
+            { "nombre": "Refrescar", "icono": "🌀", "opciones": [ { "texto": "Aire de 1,200 W por 3 h", "valor": 3600, "puntos": 7 }, { "texto": "Ventilador de 60 W por 4 h", "valor": 240, "puntos": 6 }, { "texto": "Nada, con 41 °C", "valor": 0, "puntos": 0 } ] },
+            { "nombre": "Tarea", "icono": "💻", "opciones": [ { "texto": "Computadora de 150 W por 5 h", "valor": 750, "puntos": 5 }, { "texto": "Laptop de 60 W por 3 h", "valor": 180, "puntos": 5 }, { "texto": "Sin hacer la tarea", "valor": 0, "puntos": 0 } ] } ],
+          "explicacion": "LED: 9 × 4 = 36; ventilador: 60 × 4 = 240; laptop: 60 × 3 = 180. Total: 456 Wh y 15 de bienestar." },
+        { "titulo": "Un día muy caluroso en casa", "texto": "Cifras simuladas. Proteger la salud es indispensable.", "limite": 9500, "minimo": 26,
+          "categorias": [
+            { "nombre": "Refrescar la casa", "icono": "❄️", "opciones": [ { "texto": "Aire viejo de 2,400 W por 8 h", "valor": 19200, "puntos": 10 }, { "texto": "Aire eficiente de 900 W por 7 h, con casa aislada", "valor": 6300, "puntos": 10 }, { "texto": "Ventilador de 70 W por 8 h, con 45 °C", "valor": 560, "puntos": 3 } ] },
+            { "nombre": "Conservar alimentos", "icono": "🧊", "opciones": [ { "texto": "Refrigerador viejo: 180 W por 12 h", "valor": 2160, "puntos": 6 }, { "texto": "Refrigerador eficiente: 90 W por 10 h", "valor": 900, "puntos": 6 }, { "texto": "Desconectarlo", "valor": 0, "puntos": 0 } ] },
+            { "nombre": "Cocinar", "icono": "🍳", "opciones": [ { "texto": "Parrilla de 1,500 W por 2 h", "valor": 3000, "puntos": 5 }, { "texto": "Microondas de 1,200 W por media hora", "valor": 600, "puntos": 4 }, { "texto": "Horno de 2,000 W por 1.5 h", "valor": 3000, "puntos": 5 } ] },
+            { "nombre": "Lavar ropa", "icono": "👕", "opciones": [ { "texto": "Dos cargas a medias: 500 W por 3 h", "valor": 1500, "puntos": 5 }, { "texto": "Una carga llena: 500 W por 1.5 h", "valor": 750, "puntos": 5 }, { "texto": "Carga llena y secadora: 500 W por 1.5 h más 3,000 W por 1 h", "valor": 3750, "puntos": 6 } ] },
+            { "nombre": "Aparatos en espera", "icono": "🔌", "opciones": [ { "texto": "Seis aparatos de 5 W por 24 h", "valor": 720, "puntos": 1 }, { "texto": "Solo el módem, 8 W por 24 h", "valor": 192, "puntos": 1 }, { "texto": "Todo apagado", "valor": 0, "puntos": 1 } ] } ],
+          "explicacion": "Aire eficiente 6,300 + refrigerador eficiente 900 + microondas 600 + una carga 750 + espera 192 = 8,742 Wh y 26 de bienestar." },
+        { "titulo": "La escuela sustentable", "texto": "Cifras simuladas para un día.", "limite": 24000, "minimo": 25,
+          "categorias": [
+            { "nombre": "Iluminar 10 salones", "icono": "🏫", "opciones": [ { "texto": "40 lámparas de 40 W por 5 h", "valor": 8000, "puntos": 6 }, { "texto": "40 lámparas LED de 18 W por 5 h", "valor": 3600, "puntos": 6 }, { "texto": "40 LED de 18 W por 3 h, con luz natural", "valor": 2160, "puntos": 6 } ] },
+            { "nombre": "Refrescar", "icono": "🌀", "opciones": [ { "texto": "10 aires de 1,500 W por 4 h", "valor": 60000, "puntos": 9 }, { "texto": "10 aires de 900 W por 1.5 h y sombra exterior", "valor": 13500, "puntos": 8 }, { "texto": "20 ventiladores de 60 W por 5 h", "valor": 6000, "puntos": 4 } ] },
+            { "nombre": "Cómputo", "icono": "🖥️", "opciones": [ { "texto": "20 equipos de 150 W por 5 h", "valor": 15000, "puntos": 6 }, { "texto": "20 equipos de 60 W por 3 h, por turnos", "valor": 3600, "puntos": 6 }, { "texto": "Cerrar el aula", "valor": 0, "puntos": 0 } ] },
+            { "nombre": "Bomba de agua", "icono": "💧", "opciones": [ { "texto": "750 W por 6 h, con fugas", "valor": 4500, "puntos": 5 }, { "texto": "750 W por 4 h, sin fugas", "valor": 3000, "puntos": 5 }, { "texto": "Sin bombear", "valor": 0, "puntos": 0 } ] } ],
+          "explicacion": "LED con luz natural 2,160 + aires eficientes 13,500 + cómputo 3,600 + bomba sin fugas 3,000 = 22,260 Wh y 25 de bienestar." }
+      ] },
+    { "id": "6j7", "unidad": "6u4", "tipo": "debate", "titulo": "Foro por el derecho al agua", "instrucciones": "Escucha cada postura y responde con el argumento más sólido. Son situaciones simuladas.",
+      "asambleas": [
+        { "titulo": "Reparto en temporada seca", "propuesta": "Se propone garantizar primero el agua para beber e higiene de cada persona y después repartir el resto.",
+          "personas": [ { "id": "igual", "icono": "👨‍💼", "nombre": "Comerciante", "duda": "Lo justo es dar lo mismo a cada casa y ya. ¿Por qué complicarse?" }, { "id": "campo", "icono": "👩‍🌾", "nombre": "Agricultora", "duda": "¿Y mis cultivos? De ellos come mi familia." }, { "id": "rio", "icono": "👨‍🔬", "nombre": "Ecólogo", "duda": "¿Alguien pensó en dejar agua para el arroyo?" }, { "id": "cumplir", "icono": "👵", "nombre": "Vecina", "duda": "Ya hubo acuerdos y nadie los cumplió. ¿Qué será distinto?" } ],
+          "argumentos": [
+            { "texto": "Con 100 litros por casa, donde viven 2 tocan 50 por persona; donde viven 8, apenas 12.5. Por eso conviene asignar por persona.", "para": "igual", "fuerza": 2, "porque": "Calcula y muestra la diferencia entre igualdad y equidad." }, { "texto": "Es que unas casas son más grandes.", "para": "igual", "fuerza": 1 },
+            { "texto": "El plan incluye riego por goteo con apoyo: en la parcela de prueba usó 35 % menos agua con la misma cosecha.", "para": "campo", "fuerza": 2, "porque": "Atiende su sustento con un resultado medido." }, { "texto": "Sembrar menos podría servir.", "para": "campo", "fuerza": 1 },
+            { "texto": "Se reserva un caudal mínimo y cada semana se medirá el nivel y las especies en tres puntos.", "para": "rio", "fuerza": 2, "porque": "Incluye al ecosistema y una forma de comprobarlo." }, { "texto": "El arroyo también es importante.", "para": "rio", "fuerza": 1 },
+            { "texto": "Se publicarán lecturas semanales, un comité elegido por la comunidad las revisará y habrá fechas para corregir.", "para": "cumplir", "fuerza": 2, "porque": "Da transparencia, responsables y plazos." }, { "texto": "Esta vez sí se cumplirá.", "para": "cumplir", "fuerza": 1 },
+            { "texto": "Como no han probado que falle, seguro funcionará.", "para": "", "fuerza": 0, "falla": "La falta de pruebas en contra no demuestra que funcione." }, { "texto": "Quienes dudan son egoístas.", "para": "", "fuerza": 0, "falla": "Ataca a las personas, no responde sus razones." }
+          ] },
+        { "titulo": "Una obra en el territorio", "propuesta": "Una empresa quiere construir cerca de un manantial. El grupo propone consultar, estudiar el impacto y decidir con transparencia.",
+          "personas": [ { "id": "trabajo", "icono": "👷", "nombre": "Trabajador", "duda": "Aquí hacen falta empleos. ¿Quieren frenarlo todo?" }, { "id": "consulta", "icono": "👩‍⚖️", "nombre": "Autoridad", "duda": "Ya pusimos un aviso en la oficina. ¿No basta como consulta?" }, { "id": "ciencia", "icono": "👩‍🏫", "nombre": "Maestra", "duda": "¿Cómo sabremos si el manantial cambia por la obra y no por la sequía?" }, { "id": "futuro", "icono": "👦", "nombre": "Estudiante", "duda": "Somos niños. ¿Nuestra opinión sirve de algo?" } ],
+          "argumentos": [
+            { "texto": "No se pide cancelarla: se comparan tres ubicaciones, y dos conservan los 80 empleos sin tocar el manantial.", "para": "trabajo", "fuerza": 2, "porque": "Atiende su necesidad con una alternativa concreta." }, { "texto": "Habrá otros empleos después.", "para": "trabajo", "fuerza": 1 },
+            { "texto": "Solo 6 de 400 personas vieron el aviso; proponemos reuniones en cada barrio, en las lenguas que se hablan y con tiempo para responder.", "para": "consulta", "fuerza": 2, "porque": "Muestra por qué no bastó y propone una participación real." }, { "texto": "Un aviso es muy poquito.", "para": "consulta", "fuerza": 1 },
+            { "texto": "Mediremos desde antes de la obra y también en un manantial parecido que no tendrá obra.", "para": "ciencia", "fuerza": 2, "porque": "Usa línea de base y comparación." }, { "texto": "Lo revisaremos al final.", "para": "ciencia", "fuerza": 1 },
+            { "texto": "Sí: niñas y niños tienen derecho a opinar en lo que les afecta; nuestro registro de 8 semanas ya se anexó al expediente.", "para": "futuro", "fuerza": 2, "porque": "Reconoce un derecho y muestra un aporte real del caso." }, { "texto": "Claro, todos opinan.", "para": "futuro", "fuerza": 1 },
+            { "texto": "Siempre se ha construido así y nunca pasó nada.", "para": "", "fuerza": 0, "falla": "La costumbre no demuestra que no haya daños." }, { "texto": "Si se construye una sola cosa, mañana desaparece todo el estado.", "para": "", "fuerza": 0, "falla": "Exagera las consecuencias sin demostrarlas." }
+          ] }
+      ] }
+  ],
+
+  "experimentos": [
+    {
+      "id": "6e1", "unidad": "6u1", "nombre": "Mapa del paisaje sonoro",
+      "proposito": "Comparar los sonidos de tres lugares y analizar cómo pueden influir en el bienestar.",
+      "supervision": true,
+      "aviso": "Un adulto acompaña y elige lugares seguros, lejos del tránsito. Si un sonido molesta o lastima, aléjense.",
+      "materiales": ["Un reloj", "Un cuaderno", "Lápiz y colores"],
+      "procedimiento": ["Elijan tres lugares, por ejemplo: salón, patio y área verde.", "En cada uno guarden silencio 5 minutos.", "Anoten cada sonido distinto: natural, de personas o de máquinas.", "Cuenten cuántos sonidos de máquinas hubo en cada lugar.", "Dibujen un mapa y marquen dónde sería mejor estudiar o descansar."],
+      "registro": { "tipo": "grafica", "pregunta": "¿Cuántos sonidos de máquinas contaron?", "etiquetas": ["Lugar 1", "Lugar 2", "Lugar 3"], "unidad": "sonidos", "textoMayor": "Con más sonidos de máquinas" },
+      "explicacion": "El sonido forma parte del ambiente. Contar no mide su volumen, pero permite comparar las fuentes. El ruido frecuente puede afectar la concentración y el descanso.",
+      "reflexion": ["¿Qué variables mantuvieron iguales?", "¿Quiénes son más vulnerables al ruido?"],
+      "relacion": "Reducir el ruido también cuida a la fauna y la salud ambiental de la comunidad."
+    },
+    {
+      "id": "6e2", "unidad": "6u2", "nombre": "Modelo de calor atrapado",
+      "proposito": "Comparar la temperatura del aire en un recipiente abierto y en uno cubierto.",
+      "supervision": true,
+      "aviso": "Un adulto maneja los termómetros y recipientes, que pueden calentarse. Esperen en la sombra y no miren al Sol. Usen termómetros sin mercurio.",
+      "materiales": ["Dos frascos transparentes iguales de plástico", "Dos termómetros (o uno por turnos)", "Plástico transparente para cubrir", "Un reloj"],
+      "procedimiento": ["Pongan los frascos juntos en un lugar con sol; cubran uno con plástico.", "El adulto coloca los termómetros a la misma altura, a la sombra de un papel para que no les dé el sol directo.", "Lean la temperatura al inicio.", "Esperen 15 minutos en la sombra.", "Lean de nuevo y calculen cuánto subió cada uno."],
+      "registro": { "tipo": "grafica", "pregunta": "¿Cuántos grados subió cada recipiente?", "etiquetas": ["Abierto", "Cubierto"], "unidad": "°C", "textoMayor": "Se calentó más" },
+      "explicacion": "El recipiente cubierto suele calentarse más porque el aire caliente no escapa. Es solo una comparación: en la atmósfera, los gases retienen calor al absorber parte de la radiación que emite la superficie, no porque haya una tapa.",
+      "reflexion": ["¿Qué parte del modelo se parece a la Tierra?", "¿En qué es distinto?"],
+      "relacion": "Con más gases de efecto invernadero, la Tierra retiene más calor y cambia el clima."
+    },
+    {
+      "id": "6e3", "unidad": "6u3", "nombre": "El reto del aislante",
+      "proposito": "Descubrir qué material conserva mejor el frío y relacionarlo con el ahorro de energía.",
+      "supervision": true,
+      "aviso": "Un adulto cuida el área para evitar resbalones. Realícenlo en la sombra.",
+      "materiales": ["Tres vasos iguales", "Tres hielos del mismo tamaño", "Papel periódico", "Un pedazo de tela", "Cinta adhesiva", "Un reloj"],
+      "procedimiento": ["Envuelvan un vaso con papel y otro con tela, con el mismo número de vueltas. Dejen uno sin envolver.", "Pongan un hielo en cada vaso al mismo tiempo.", "Predigan el orden en que se derretirán.", "Revisen cada 5 minutos sin tocarlos.", "Anoten los minutos de cada uno y usen el agua en una planta."],
+      "registro": { "tipo": "grafica", "pregunta": "¿Cuántos minutos tardó en derretirse cada hielo?", "etiquetas": ["Sin envolver", "Papel", "Tela"], "unidad": "min", "textoMayor": "Conservó más el frío" },
+      "explicacion": "El calor pasa del ambiente al hielo. Los materiales que atrapan aire dificultan ese paso: son aislantes.",
+      "reflexion": ["¿Por qué usaron hielos iguales?", "¿Qué parte de una casa convendría aislar?"],
+      "relacion": "Una casa aislada y con sombra necesita menos energía para mantenerse fresca."
+    },
+    {
+      "id": "6e4", "unidad": "6u4", "nombre": "Igualdad o equidad",
+      "proposito": "Simular dos formas de repartir el agua y comparar sus resultados.",
+      "supervision": true,
+      "aviso": "Un adulto cuida que nadie se lleve semillas a la boca, nariz u oídos.",
+      "materiales": ["60 frijoles", "Tres platos", "Un cuaderno", "Lápiz y colores"],
+      "procedimiento": ["Cada frijol es un litro. Los platos son familias de 2, 4 y 6 personas.", "Reparto 1: den 20 a cada familia y calculen cuántos litros tocan por persona.", "Reparto 2: den la misma cantidad por persona (60 ÷ 12 = 5).", "Anoten cuántos recibe cada familia.", "Ahora una persona está enferma y necesita 3 litros más: acuerden cómo repartir y expliquen su razón."],
+      "registro": { "tipo": "grafica", "pregunta": "En el reparto 1, ¿cuántos litros tocaron por persona?", "etiquetas": ["Familia de 2", "Familia de 4", "Familia de 6"], "unidad": "litros", "textoMayor": "Más por persona" },
+      "explicacion": "Dar 20 a cada familia es igualdad por casa, pero da 10, 5 y cerca de 3.3 litros por persona. La equidad considera cuántas personas son y qué necesitan.",
+      "reflexion": ["¿Qué reparto les parece más justo y por qué?", "¿Quién debería participar en la decisión?"],
+      "relacion": "El derecho al agua requiere criterios claros, información y acuerdos que no dejen fuera a nadie."
+    }
+  ],
+
+  "retos": [
+    { "id": "6r1", "unidad": "6u1", "titulo": "Diagnóstico de mi comunidad", "explicacion": "Un buen diagnóstico ayuda a elegir soluciones que sí funcionen.", "instrucciones": ["Con un adulto, elige un problema de salud ambiental.", "Reúne tres evidencias y pregunta a dos personas cómo les afecta, sin anotar sus nombres.", "Presenta una propuesta con una dimensión natural y dos sociales."], "dias": 0, "evidencia": "¿Quiénes son más vulnerables y cómo los consideraste?" },
+    { "id": "6r2", "unidad": "6u2", "titulo": "Verificador por cinco días", "explicacion": "Compartir información confiable también cuida el ambiente.", "instrucciones": ["Con un adulto, elige cada día una afirmación sobre ambiente de un anuncio, noticia o conversación.", "Pregunta: ¿quién lo dice?, ¿qué evidencia da?, ¿lo confirma otra fuente?", "Marca el día y clasifícala: confirmada, dudosa o engañosa."], "dias": 5, "evidencia": "¿Cuál fue más difícil de verificar y por qué?" },
+    { "id": "6r3", "unidad": "6u3", "titulo": "Plan 10 % menos energía", "explicacion": "Calcular permite ahorrar sin descuidar lo necesario.", "instrucciones": ["Con tu familia estimen los Wh de cinco usos de un día.", "Diseñen un plan para reducir 10 % sin arriesgar la salud, sobre todo con calor.", "Aplíquenlo 5 días, márquenlos y vuelvan a calcular."], "dias": 5, "evidencia": "¿Lograron la meta? Muestra tu operación." },
+    { "id": "6r4", "unidad": "6u4", "titulo": "Iniciativa ciudadana escolar", "explicacion": "Los derechos se fortalecen cuando se ejercen con información y respeto.", "instrucciones": ["Formen un equipo y elijan un tema de agua o ambiente sano en la escuela.", "Redacten: derecho relacionado, evidencia, propuesta, responsables, plazo y forma de evaluar.", "Con apoyo de su docente, preséntenla y anoten la respuesta."], "dias": 0, "evidencia": "¿Qué argumento funcionó mejor y qué mejorarías?" }
+  ]
+}

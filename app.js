@@ -281,7 +281,7 @@ const apodoDe = ex => `${(PERSONAJES.find(p => p.id === ex.personaje) || PERSONA
 const exploradorActivo = () => almacen.exploradores.find(x => x.id === almacen.activo) || almacen.exploradores[0];
 
 function crearExplorador(personaje, color, progreso = progresoVacio()) {
-  const ex = { id: "x" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), personaje, color, progreso };
+  const ex = { id: "x" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), personaje, color, grado: gradoActual(), progreso };
   almacen.exploradores.push(ex);
   return ex;
 }
@@ -339,15 +339,48 @@ function hecho(clave) {
 /* ---------- 3. Contenidos ---------- */
 
 let grados = [];   // datos/grados.json
-let datos = null;  // datos/primero.json
+let datos = null;  // contenido del grado que se está viendo
+const datosGrado = {};   // { 1: contenido de 1.º, 2: contenido de 2.º, ... } solo los grados listos
 
 async function cargarDatos() {
   // "no-cache": el navegador siempre revisa si el contenido cambió (así se ven al instante las ediciones de datos/).
   const lista = await fetch("datos/grados.json", { cache: "no-cache" }).then(r => r.json());
   grados = lista.grados;
-  const listo = grados.find(g => g.estado === "listo");
-  datos = await fetch("datos/" + listo.archivo, { cache: "no-cache" }).then(r => r.json());
+  await Promise.all(grados.filter(g => g.estado === "listo").map(async g => {
+    datosGrado[g.grado] = await fetch("datos/" + g.archivo, { cache: "no-cache" }).then(r => r.json());
+  }));
+  sincronizarGrado();
 }
+
+/** Grado en uso: el del explorador (alumno) o el elegido por el adulto. */
+const gradoActual = () => (estado.perfil === "alumno" ? exploradorActivo()?.grado : almacen.grado) || 1;
+function sincronizarGrado() { datos = datosGrado[gradoActual()] || datosGrado[1]; }
+function ponerGrado(g) {
+  if (!datosGrado[g]) return;
+  if (estado.perfil === "alumno") exploradorActivo().grado = g; else almacen.grado = g;
+  sincronizarGrado(); guardarEstado(); pintarPerfil();
+}
+/** Ejecuta fn con el contenido de otro grado (p. ej. para ver el avance de un explorador de 2.º). */
+function conGrado(g, fn) {
+  const antes = datos;
+  datos = datosGrado[g] || datosGrado[1];
+  try { return fn(); } finally { datos = antes; }
+}
+/** Los identificadores de 2.º a 6.º empiezan con el número del grado (2u1, 2j1…); los de 1.º no. */
+const gradoDeId = id => { const m = /^([2-6])?[ujer]\d+$/.exec(id || ""); return m ? Number(m[1] || 1) : null; };
+const GRADO_EN_LETRAS = ["", "primer", "segundo", "tercer", "cuarto", "quinto", "sexto"];
+const gradoTexto = () => `${GRADO_EN_LETRAS[datos.grado]} grado`;
+/** Botones para elegir el grado. */
+const selectorGrado = () => `<section class="panel"><h2>Elige el grado</h2><div class="grados">${grados.map(g => g.estado === "listo"
+  ? `<button class="grado ${g.grado === datos.grado ? "activo" : ""}" data-grado="${g.grado}" aria-pressed="${g.grado === datos.grado}">${esc(g.nombre)}</button>`
+  : `<a class="grado" href="#grado/${g.grado}">${esc(g.nombre)}<small>en construcción</small></a>`).join("")}</div></section>`;
+document.addEventListener("click", ev => {
+  const b = ev.target.closest("[data-grado]");
+  if (!b) return;
+  ponerGrado(Number(b.dataset.grado));
+  avisar(`Ahora estás en ${datos.nombreGrado}`);
+  if (location.hash === "#inicio" || !location.hash) enrutar(); else location.hash = "inicio";
+});
 
 const unidad = id => datos.unidades.find(u => u.id === id);
 const juegoDe = idUnidad => datos.juegos.find(j => j.unidad === idUnidad);      // primer juego del tema
@@ -447,14 +480,7 @@ function pantallaInicio() {
       </article>
     </section>
 
-    <section class="panel">
-      <h2>Elige el grado</h2>
-      <div class="grados">
-        ${grados.map(g => g.estado === "listo"
-          ? `<span class="grado activo">${esc(g.nombre)}</span>`
-          : `<a class="grado" href="#grado/${g.grado}">${esc(g.nombre)}<small>en construcción</small></a>`).join("")}
-      </div>
-    </section>
+    ${selectorGrado()}
 
     <section class="franja-pie con-imagen">
       <p class="cita">“Un planeta mejor también se construye desde tu escuela.”</p>
@@ -540,18 +566,18 @@ function bloqueCurricular(u) {
   const oficial = `
     <div class="curriculo">
       <h3>Vinculación curricular ${ETQ_OFICIAL}</h3>
-      <p class="pequeno">Grado: ${esc(datos.nombreGrado)} · Fase ${datos.fase}. Redacción textual del Programa Sintético de la Fase 3 (SEP, 2024).</p>
+      <p class="pequeno">Grado: ${esc(datos.nombreGrado)} · Fase ${datos.fase}. Redacción textual del Programa Sintético de la Fase ${datos.fase} (SEP, 2024).</p>
       ${u.curriculo.map(c => `
         <div class="curriculo-item">
           <p><b>Campo formativo:</b> ${esc(c.campo)}</p>
           <p><b>Contenido:</b> ${esc(c.contenido)}</p>
-          <p><b>PDA (primer grado):</b></p>
+          <p><b>PDA (${gradoTexto()}):</b></p>
           <ul>${c.pda.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
-          <p class="pequeno">Fuente: Programa Sintético de la Fase 3, p. ${c.pagina}.</p>
+          <p class="pequeno">Fuente: Programa Sintético de la Fase ${datos.fase}, p. ${c.pagina}.</p>
         </div>`).join("")}
-      <h4>Para consultar en los libros de texto de 1.º ${ETQ_PROPUESTA}</h4>
+      ${u.libros.length ? `<h4>Para consultar en los libros de texto de ${esc(datos.nombreGrado)} ${ETQ_PROPUESTA}</h4>
       <p class="pequeno">Relación sugerida por EcoQuest a partir de los índices de los libros.</p>
-      <ul>${u.libros.map(l => `<li><i>${esc(l.libro)}</i>: «${esc(l.tema)}», p. ${l.pagina}</li>`).join("")}</ul>
+      <ul>${u.libros.map(l => `<li><i>${esc(l.libro)}</i>: «${esc(l.tema)}», p. ${l.pagina}</li>`).join("")}</ul>` : ""}
     </div>`;
   if (perfil() === "docente") {
     return oficial + `<div class="nota-perfil docente"><h3>Sugerencia didáctica ${ETQ_PROPUESTA}</h3><p>${esc(u.docente)}</p></div>`;
@@ -673,9 +699,10 @@ function activarPreguntas(contenedor) {
 const TIPOS_JUEGO = {
   opcion: "Opción múltiple", vf: "Verdadero o falso", completar: "Completa la palabra", memorama: "Memorama", clasificar: "Clasifica",
   loteria: "Lotería", sombras: "Sombras misteriosas", ordenar: "Ordena la historia", buraDice: `${NOMBRE_MASCOTA} dice`,
-  detective: "Detective ambiental", gotas: "Atrapa las gotas", planta: "Cuida tu planta", colonia: "Colonia verde"
+  detective: "Detective ambiental", gotas: "Atrapa las gotas", planta: "Cuida tu planta", colonia: "Colonia verde",
+  ...TIPOS_RETADORES   // juegos de 3.º a 6.º (juegos-retadores.js)
 };
-const ICONO_JUEGO = { loteria: "🎴", sombras: "🌑", ordenar: "🔢", buraDice: "🎵", detective: "🔍", gotas: "💧", planta: "🌱", colonia: "🏘️" };
+const ICONO_JUEGO = { loteria: "🎴", sombras: "🌑", ordenar: "🔢", buraDice: "🎵", detective: "🔍", gotas: "💧", planta: "🌱", colonia: "🏘️", ...ICONO_RETADOR };
 
 function pantallaListaJuegos() {
   // Ordena los juegos por tema, en el orden de las unidades.
@@ -738,6 +765,8 @@ function miniaturaJuego(j) {
     planta: dibujo("maceta", 100, 26, 100) + `<circle cx="240" cy="50" r="24" fill="#ffd45e"/><g fill="#3f9fcf"><path d="M60 60 q10 16 0 22 q-10 -6 0 -22Z"/><path d="M50 100 q10 16 0 22 q-10 -6 0 -22Z"/></g>`,
     colonia: dibujo("arbolBanqueta", 30, 30, 90) + dibujo("banca", 120, 110, 90) + dibujo("boteReciclaje", 220, 80, 50)
   };
+  const ret = PORTADAS_RETADORES[j.tipo];
+  if (ret) return `<svg viewBox="0 0 300 190" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="mj${j.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${ret[0]}"/><stop offset="1" stop-color="${ret[1]}"/></linearGradient></defs><rect width="300" height="190" fill="url(#mj${j.id})"/>${ret[2]}</svg>`;
   const portada = { j4: "portada-residuos", j16: "detective-parque" }[j.id];   // portadas con imagen propia
   if (portada) return `<img src="imagenes/${portada}.webp" alt="" loading="lazy">`;
   if (j.id === "j6") arte.clasificar = dibujo("bocina", 40, 25, 110) + dibujo("cardenal", 180, 55, 95);   // «¿Fuerte o suave?» no es de basura
@@ -769,7 +798,7 @@ function pantallaJuego(id) {
   const motores = {
     opcion: juegoPreguntas, vf: juegoPreguntas, sombras: juegoPreguntas, completar: juegoCompletar, memorama: juegoMemorama,
     clasificar: juegoClasificar, loteria: juegoLoteria, ordenar: juegoOrdenar, buraDice: juegoBuraDice,
-    detective: juegoDetective, gotas: juegoGotas, planta: juegoPlanta, colonia: juegoColonia
+    detective: juegoDetective, gotas: juegoGotas, planta: juegoPlanta, colonia: juegoColonia, ...MOTORES_RETADORES
   };
   (motores[j.tipo] || pantallaNoEncontrada)(j, zona);
 }
@@ -780,13 +809,15 @@ function finDeJuego(j, zona, aciertos, total, detalle = "") {
   const previo = estado.puntajes[j.id];
   if (perfil() === "alumno" && (!previo || aciertos > previo.aciertos)) estado.puntajes[j.id] = { aciertos, total };
   guardarEstado();
-  marcarHecho(`juego:${j.id}`);
+  // Los juegos retadores (3.º a 6.º) se dan por completados con 60 % o más.
+  const aprobado = !MOTORES_RETADORES[j.tipo] || aciertos >= total * 0.6;
+  if (aprobado) marcarHecho(`juego:${j.id}`);
   const excelente = aciertos === total;
-  sonidoVictoria();
-  if (aciertos >= total / 2) confeti();
+  if (aprobado) sonidoVictoria();
+  if (aprobado && aciertos >= total / 2) confeti();
   zona.innerHTML = `
     <div class="fin-juego">
-      ${mascota(excelente ? "¡Excelente! Lo hiciste perfecto." : "¡Buen trabajo! Puedes jugar otra vez para mejorar.", 110)}
+      ${mascota(excelente ? "¡Excelente! Lo hiciste perfecto." : !aprobado ? "¡Casi! Necesitas 60 % o más para completarlo. Revisa las explicaciones e inténtalo otra vez." : "¡Buen trabajo! Puedes jugar otra vez para mejorar.", 110)}
       <p class="puntaje">${aciertos} de ${total} ${excelente ? "⭐⭐⭐" : aciertos >= total / 2 ? "⭐⭐" : "⭐"}</p>
       ${detalle}
       <div class="acciones">
@@ -1680,8 +1711,10 @@ function codigoProgreso(hechos = estado.hechos) {
   while (bits.length % 5) bits.push(0);
   let cuerpo = "";
   for (let i = 0; i < bits.length; i += 5) cuerpo += ALFABETO_32[bits.slice(i, i + 5).reduce((n, b) => n * 2 + b, 0)];
+  // 1.º: EQ2-…   ·   2.º a 6.º: EQ3- y el primer número es el grado.
+  if (datos.grado > 1) cuerpo = datos.grado + cuerpo;
   const grupos = cuerpo.match(/.{1,3}/g).join("-");   // grupos de 3, fáciles de dictar
-  return `EQ2-${grupos}-${letraControl(cuerpo)}`;
+  return `EQ${datos.grado > 1 ? 3 : 2}-${grupos}-${letraControl(cuerpo)}`;
 }
 
 const DIRECCION_PUBLICA = "https://javierrabago2007.github.io/ecoquest/";
@@ -1696,16 +1729,18 @@ function enlaceProgreso() {
 /** Lee un código y devuelve las actividades que contiene: { ok, hechos: {"aprende:u1": true, ...} } */
 function leerCodigo(texto) {
   const limpio = String(texto).toUpperCase().replace(/[^0-9A-Z]/g, "").replace(/O/g, "0").replace(/[IL]/g, "1");
-  const version = Number((limpio.match(/^EQ([12])/) || [])[1]);
-  if (!version || limpio.length < 5) return { ok: false, mensaje: "Ese código no es de EcoQuest. Revisa que empiece con EQ2." };
+  const version = Number((limpio.match(/^EQ([123])/) || [])[1]);
+  if (!version || limpio.length < 5) return { ok: false, mensaje: "Ese código no es de EcoQuest. Revisa que empiece con EQ2 o EQ3." };
   const cuerpo = limpio.slice(3, -1), control = limpio.slice(-1);
   if ([...cuerpo].some(c => !ALFABETO_32.includes(c)) || letraControl(cuerpo, version) !== control) {
     return { ok: false, mensaje: "El código tiene un error. Revisa letra por letra y vuelve a intentarlo." };
   }
-  const bits = [...cuerpo].flatMap(c => { const v = ALFABETO_32.indexOf(c); return [16, 8, 4, 2, 1].map(p => (v & p) ? 1 : 0); });
+  const grado = version === 3 ? Number(cuerpo[0]) : 1;
+  if (!datosGrado[grado]) return { ok: false, mensaje: "Ese código es de un grado que todavía no está disponible." };
+  const bits = [...cuerpo.slice(version === 3 ? 1 : 0)].flatMap(c => { const v = ALFABETO_32.indexOf(c); return [16, 8, 4, 2, 1].map(p => (v & p) ? 1 : 0); });
   const hechos = {};
-  actividadesCodigo().forEach((c, i) => { if (bits[i]) hechos[c] = true; });
-  return { ok: true, hechos };
+  datosGrado[grado].ordenCodigo.forEach((c, i) => { if (bits[i]) hechos[c] = true; });
+  return { ok: true, hechos, grado };
 }
 
 /** ¿Está completa esta actividad dentro de un conjunto de hechos? (igual que hecho(), pero para cualquier explorador o código) */
@@ -1771,6 +1806,7 @@ function pantallaCargar(codigo) {
     </section>`;
   document.getElementById("confirmarCarga").addEventListener("click", () => {
     const res = aplicarCodigo(codigo);
+    ponerGrado(leerCodigo(codigo).grado);
     avisar(res.mensaje);
     location.hash = "progreso";
   });
@@ -1792,12 +1828,12 @@ function pantallaExploradores() {
     ${encabezadoSeccion("🧭", "¿Quién está explorando?", "Elige tu personaje. Cada explorador guarda su propio progreso en este dispositivo.")}
     <div class="rejilla-exploradores">
       ${almacen.exploradores.map(ex => {
-        const a = avanceDe(ex.id === almacen.activo ? estado.hechos : ex.progreso.hechos);
+        const g = ex.grado || 1, a = conGrado(g, () => avanceDe(ex.id === almacen.activo ? estado.hechos : ex.progreso.hechos));
         return `<div class="tarjeta-explorador ${ex.id === almacen.activo ? "activo" : ""}">
           <button class="elegir-explorador" data-id="${ex.id}" aria-label="Explorar como ${esc(apodoDe(ex))}">
             ${avatarExplorador(ex)}
             <b>${esc(apodoDe(ex))}</b>
-            <small>${a.hechas} de ${a.total} actividades · ${a.insignias} insignia(s)</small>
+            <small>${g}.º grado · ${a.hechas} de ${a.total} actividades · ${a.insignias} insignia(s)</small>
             ${ex.id === almacen.activo ? `<span class="hecho-chip">Explorando ahora</span>` : ""}
           </button>
           ${almacen.exploradores.length > 1 ? `<button class="quitar-explorador" data-id="${ex.id}" aria-label="Quitar a ${esc(apodoDe(ex))}">✕</button>` : ""}
@@ -1864,20 +1900,24 @@ let ordenGrupo = "lista";      // lista | mayor | menor
 let abiertoGrupo = null;       // etiqueta del alumno con el detalle abierto
 const UMBRAL_APOYO = 25;       // % de avance por debajo del cual se sugiere apoyo
 
+/** Lista del grupo del grado en uso (los registros antiguos son de 1.º). */
+const grupoActual = () => (almacen.grupo || []).filter(f => (f.grado || 1) === datos.grado);
+
 /** Agrega o actualiza un alumno en la lista del grupo. Devuelve "nuevo" o "actualizado". */
 function guardarEnGrupo(etiqueta, codigo) {
   almacen.grupo = almacen.grupo || [];
   const fecha = new Date().toISOString();
-  const existente = almacen.grupo.find(f => f.etiqueta === etiqueta);
+  const grado = leerCodigo(codigo).grado || datos.grado;   // cada código se guarda en la lista de su grado
+  const existente = almacen.grupo.find(f => f.etiqueta === etiqueta && (f.grado || 1) === grado);
   if (existente) { existente.codigo = codigo; existente.fecha = fecha; guardarEstado(); return "actualizado"; }
-  almacen.grupo.push({ etiqueta, codigo, fecha });
+  almacen.grupo.push({ etiqueta, codigo, fecha, grado });
   guardarEstado();
   return "nuevo";
 }
 /** Siguiente etiqueta libre «Alumno N». */
 function etiquetaLibre() {
-  let n = (almacen.grupo || []).length + 1;
-  while ((almacen.grupo || []).some(f => f.etiqueta === `Alumno ${n}`)) n++;
+  let n = grupoActual().length + 1;
+  while (grupoActual().some(f => f.etiqueta === `Alumno ${n}`)) n++;
   return `Alumno ${n}`;
 }
 /** Ordena «2» antes que «10» y «Alumno 3» antes que «Alumno 12». */
@@ -1892,7 +1932,7 @@ function pendientesDe(h, u) {
 }
 
 function pantallaGrupo() {
-  const filas = (almacen.grupo || []).map(f => {
+  const filas = grupoActual().map(f => {
     const leido = leerCodigo(f.codigo);
     return { ...f, leido, a: leido.ok ? avanceDe(leido.hechos) : null };
   });
@@ -1919,7 +1959,7 @@ function pantallaGrupo() {
   temas.forEach(t => { t.reforzar = validas.length > 1 && empatados <= 2 && t.prom === minProm; });
 
   app.innerHTML = `
-    ${encabezadoSeccion("👩‍🏫", "Avance del grupo", "Registre a mano o con códigos lo que hace su grupo y vea su avance tema por tema.")}
+    ${encabezadoSeccion("👩‍🏫", `Avance del grupo de ${datos.nombreGrado}`, "Registre a mano o con códigos lo que hace su grupo y vea su avance tema por tema.")}
 
     <section class="panel agregar-grupo">
       <h2>Agregar alumnos</h2>
@@ -1987,7 +2027,7 @@ function pantallaGrupo() {
           <thead><tr><th>Alumno</th><th>Avance</th>${datos.unidades.map(u => `<th class="col-tema" title="${esc(u.titulo)}"><span aria-hidden="true">${u.icono}</span><span class="solo-lector">${esc(u.titulo)}</span></th>`).join("")}<th>Insignias</th><th>Actualizado</th><th></th></tr></thead>
           <tbody>
             ${filas.map(f => {
-              const i = almacen.grupo.findIndex(g => g.etiqueta === f.etiqueta);
+              const i = almacen.grupo.findIndex(g => g.etiqueta === f.etiqueta && (g.grado || 1) === datos.grado);
               if (!f.a) return `<tr class="fila-error"><td>${esc(f.etiqueta)}</td><td colspan="${datos.unidades.length + 3}">⚠️ Código con error: ${esc(f.codigo)}</td><td><button class="quitar-fila" data-i="${i}" aria-label="Quitar">✕</button></td></tr>`;
               const abierto = abiertoGrupo === f.etiqueta;
               const fila = `<tr class="${f.a.pct < UMBRAL_APOYO ? "fila-apoyo" : ""}">
@@ -2020,7 +2060,7 @@ function pantallaGrupo() {
 
     <section class="panel">
       <h2>Avance por tema</h2>
-      <p>Porcentaje de alumnos que completaron cada tema, con su campo formativo del Programa Sintético de la Fase 3. ${temas.some(t => t.reforzar) ? "El tema con menor avance aparece marcado para reforzar." : ""}</p>
+      <p>Porcentaje de alumnos que completaron cada tema, con su campo formativo del Programa Sintético de la Fase ${datos.fase}. ${temas.some(t => t.reforzar) ? "El tema con menor avance aparece marcado para reforzar." : ""}</p>
       <div class="temas-grupo">${temas.map(t => `
         <div class="tema-grupo ${t.reforzar ? "reforzar" : ""}">
           <div class="tema-grupo-cabeza"><span class="ico-tema" aria-hidden="true">${t.u.icono}</span><b><a href="#aprende/${t.u.id}">${esc(t.u.titulo)}</a></b>${t.reforzar ? `<span class="chip-apoyo">Reforzar</span>` : ""}</div>
@@ -2037,13 +2077,13 @@ function pantallaGrupo() {
     ev.preventDefault();
     const n = Math.max(1, Math.min(60, Math.floor(Number(document.getElementById("cuantosLista").value)) || 1));
     let nuevos = 0;
-    for (let i = 1; i <= n; i++) if (!almacen.grupo?.some(f => f.etiqueta === String(i))) { guardarEnGrupo(String(i), codigoProgreso({})); nuevos++; }
+    for (let i = 1; i <= n; i++) if (!grupoActual().some(f => f.etiqueta === String(i))) { guardarEnGrupo(String(i), codigoProgreso({})); nuevos++; }
     pantallaGrupo();
     avisar(`📝 ${nuevos} número(s) de lista agregados. Los que ya existían no cambiaron.`);
   });
   /* --- Marcar o desmarcar actividades a mano --- */
   app.querySelectorAll(".marca-grupo").forEach(c => c.addEventListener("change", () => {
-    const f = almacen.grupo.find(g => g.etiqueta === abiertoGrupo);
+    const f = grupoActual().find(g => g.etiqueta === abiertoGrupo);
     const hechos = leerCodigo(f.codigo).hechos;
     const claves = c.dataset.c.startsWith("juegos:") ? juegosDe(c.dataset.c.slice(7)).map(j => `juego:${j.id}`) : [c.dataset.c];
     if (c.checked) hechos[claves[0]] = true; else claves.forEach(k => delete hechos[k]);
@@ -2057,7 +2097,7 @@ function pantallaGrupo() {
     const lineas = document.getElementById("codigosGrupo").value.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
     let nuevos = 0, actualizados = 0, errores = 0;
     lineas.forEach(l => {
-      const m = l.match(/^(.*?)[:\t]\s*(EQ[12].*)$/i);
+      const m = l.match(/^(.*?)[:\t]\s*(EQ[123].*)$/i);
       const etiqueta = m && m[1].trim() ? m[1].trim().slice(0, 40) : etiquetaLibre();
       const codigo = (m ? m[2] : l).trim();
       if (!leerCodigo(codigo).ok) errores++;
@@ -2080,8 +2120,8 @@ function pantallaGrupo() {
     almacen.grupo.splice(Number(b.dataset.i), 1); guardarEstado(); pantallaGrupo();
   }));
   document.getElementById("vaciarGrupo")?.addEventListener("click", () => {
-    if (!confirm("¿Vaciar toda la lista del grupo en este dispositivo?")) return;
-    almacen.grupo = []; guardarEstado(); pantallaGrupo();
+    if (!confirm(`¿Vaciar la lista de ${datos.nombreGrado} en este dispositivo?`)) return;
+    almacen.grupo = almacen.grupo.filter(f => (f.grado || 1) !== datos.grado); guardarEstado(); pantallaGrupo();
   });
   document.getElementById("imprimirGrupo")?.addEventListener("click", () => window.print());
   document.getElementById("descargarGrupo")?.addEventListener("click", () => descargarCSVGrupo(filas));
@@ -2156,7 +2196,7 @@ async function abrirEscaner() {
       ctx.drawImage(video, 0, 0);
       const img = ctx.getImageData(0, 0, lienzo.width, lienzo.height);
       const qr = jsQR(img.data, img.width, img.height, { inversionAttempts: "dontInvert" });
-      const m = qr && qr.data.match(/EQ[12][-0-9A-Z]+/i);
+      const m = qr && qr.data.match(/EQ[123][-0-9A-Z]+/i);
       if (m) {
         const leido = leerCodigo(m[0]);
         if (leido.ok) {
@@ -2297,11 +2337,11 @@ const ICONO_ADULTO = {
 /* --- Docente --- */
 
 function pantallaInicioDocente() {
-  const filas = (almacen.grupo || []).map(f => leerCodigo(f.codigo)).filter(l => l.ok).map(l => avanceDe(l.hechos));
+  const filas = grupoActual().map(f => leerCodigo(f.codigo)).filter(l => l.ok).map(l => avanceDe(l.hechos));
   const prom = filas.length ? Math.round(filas.reduce((s, a) => s + a.pct, 0) / filas.length) : 0;
   app.innerHTML = `
     <section class="portada-adulto docente">
-      <div><p class="pequeno">PERFIL DOCENTE · 1.º GRADO · FASE 3</p><h1>Maestra, maestro: este es su espacio</h1>
+      <div><p class="pequeno">PERFIL DOCENTE · ${esc(datos.nombreGrado.toUpperCase())} · FASE ${datos.fase}</p><h1>Maestra, maestro: este es su espacio</h1>
       <p>Planee con los contenidos oficiales, trabaje con o sin dispositivos y dé seguimiento a su grupo.</p></div>
       ${mascota("", 150)}
     </section>
@@ -2310,6 +2350,7 @@ function pantallaInicioDocente() {
       ${tarjetaAdulto("#docente", ICONO_ADULTO.libro, "Vinculación curricular", "Contenidos y PDA textuales del Programa Sintético y sugerencias para el aula.", "Consultar")}
       ${tarjetaAdulto("#hojas", ICONO_ADULTO.hoja, "Hojas para imprimir", "Una hoja por tema para trabajar en papel, en la escuela o en casa.", "Ver las hojas")}
     </section>
+    ${selectorGrado()}
     <section class="panel">
       <h2>¿Con qué cuenta su escuela? ${ETQ_PROPUESTA}</h2>
       <div class="rejilla-adulto">
@@ -2324,7 +2365,7 @@ function pantallaInicioDocente() {
 
 function pantallaDocente() {
   app.innerHTML = `
-    ${encabezadoSeccion("👩‍🏫", "Vinculación curricular", "Contenidos y PDA de primer grado usados en EcoQuest.")}
+    ${encabezadoSeccion("👩‍🏫", "Vinculación curricular", "Contenidos y PDA de " + gradoTexto() + " usados en EcoQuest.")}
     <section class="panel">
       <p>${ETQ_OFICIAL} Los contenidos y Procesos de Desarrollo de Aprendizaje (PDA) se transcriben textualmente de: <i>${esc(datos.fuenteOficial)}</i></p>
       <p>${ETQ_PROPUESTA} Las explicaciones, juegos, experimentos, retos y la relación con los libros de texto son propuesta de EcoQuest.</p>
@@ -2332,7 +2373,7 @@ function pantallaDocente() {
     </section>
     <div class="tabla-envoltura">
       <table class="tabla">
-        <thead><tr><th>Tema EcoQuest</th><th>Campo formativo</th><th>Contenido</th><th>PDA (primer grado)</th><th>Pág.</th></tr></thead>
+        <thead><tr><th>Tema EcoQuest</th><th>Campo formativo</th><th>Contenido</th><th>PDA (${gradoTexto()})</th><th>Pág.</th></tr></thead>
         <tbody>
           ${datos.unidades.flatMap(u => u.curriculo.map((c, k) => `<tr>
             ${k === 0 ? `<td rowspan="${u.curriculo.length}"><a href="#aprende/${u.id}">${u.icono} ${esc(u.titulo)}</a></td>` : ""}
@@ -2394,6 +2435,7 @@ function pantallaFamilia() {
       <p>${esc(u.resumen)} Marquen cada actividad cuando la terminen; no tienen que hacerlas todas el mismo día.</p>
       ${actividadCasa(u)}
     </section>
+    ${selectorGrado()}
     <section class="panel" id="acompanar">
       <h2>Cómo acompañar a su hija o hijo ${ETQ_PROPUESTA}</h2>
       <ul>
@@ -2434,17 +2476,17 @@ function pantallaHijos() {
   guardarEstado();
   app.innerHTML = `
     ${encabezadoSeccion("📊", "Avance de mi hija o hijo", "Lo que se ha hecho en este dispositivo, por explorador.")}
-    ${almacen.exploradores.map(ex => {
+    ${almacen.exploradores.map(ex => conGrado(ex.grado || 1, () => {
       const h = ex.progreso.hechos, a = avanceDe(h);
       const pend = datos.unidades.map(u => ({ u, lista: pendientesDe(h, u) }));
       const sig = pend.map(p => ({ u: p.u, act: p.lista.find(x => !x.hecha) })).find(p => p.act);
       return `<section class="panel hijo">
-        <div class="hijo-cabeza">${avatarExplorador(ex)}<div><h2>${esc(apodoDe(ex))}</h2><p>${a.hechas} de ${a.total} actividades · ${a.insignias} insignia(s)</p></div></div>
+        <div class="hijo-cabeza">${avatarExplorador(ex)}<div><h2>${esc(apodoDe(ex))}</h2><p>${datos.nombreGrado} · ${a.hechas} de ${a.total} actividades · ${a.insignias} insignia(s)</p></div></div>
         ${barraProgreso({ total: a.total, hechas: a.hechas })}
         ${sig ? `<p class="sugerencia">💡 <b>Cómo ayudarle ahora:</b> en «${esc(sig.u.titulo)}» le falta ${sig.act.nombre}. ${esc(sig.u.familia)}</p>` : `<p class="sugerencia">🎉 ¡Completó todas las actividades! Pídale que le explique su tema favorito.</p>`}
         <details><summary>Ver tema por tema</summary><div class="detalle-temas">${pend.map(p => `<div class="detalle-tema ${p.lista.every(x => x.hecha) ? "completo" : ""}"><b>${p.u.icono} ${esc(p.u.titulo)}</b><ul>${p.lista.map(x => `<li class="${x.hecha ? "hecha" : ""}">${x.hecha ? "✅" : "⬜"} ${x.nombre}</li>`).join("")}</ul></div>`).join("")}</div></details>
       </section>`;
-    }).join("")}
+    })).join("")}
     <section class="panel"><h2>¿Trabajó en otro dispositivo o en papel?</h2>
       <p>Aquí solo aparece lo hecho en este dispositivo. Si tiene un código de progreso, puede <a href="#progreso">cargarlo aquí</a>. Lo hecho en papel lo registra su maestra o maestro en el grupo.</p></section>`;
 }
@@ -2484,12 +2526,12 @@ function pantallaAcerca() {
     ${encabezadoSeccion("ℹ️", "Acerca de EcoQuest", "Plataforma de educación ambiental para primaria, hecha en Hermosillo, Sonora.")}
     <section class="panel">
       <h2>Fuentes oficiales consultadas</h2>
-      <ul><li>${esc(datos.fuenteOficial)}</li>${datos.librosDeTexto.map(l => `<li>${esc(l)}</li>`).join("")}</ul>
+      <ul><li>${esc(datos.fuenteOficial)}</li>${[...new Set(Object.values(datosGrado).flatMap(d => [d.fuenteOficial, ...d.librosDeTexto]))].filter(l => l !== datos.fuenteOficial).map(l => `<li>${esc(l)}</li>`).join("")}</ul>
       <h2>¿Qué es oficial y qué no?</h2>
       <p>${ETQ_OFICIAL} Solo los contenidos y PDA que aparecen en los cuadros de «Vinculación curricular», copiados textualmente del Programa Sintético.</p>
       <p>${ETQ_PROPUESTA} Todo lo demás: explicaciones, juegos, experimentos, retos, insignias y la relación sugerida con los libros de texto.</p>
       <h2>Grados</h2>
-      <p>1.º grado está completo. Los demás grados están en construcción.</p>
+      <p>Disponibles: ${grados.filter(g => g.estado === "listo").map(g => esc(g.nombre)).join(", ")}.${grados.some(g => g.estado !== "listo") ? " Los demás grados están en construcción." : ""} De 2.º a 6.º es una versión breve, de 4 temas por grado.</p>
     </section>`;
 }
 
@@ -2549,6 +2591,11 @@ function enrutar() {
     grupo: pantallaGrupo,
     grado: () => pantallaGrado(id)
   };
+  // Si el enlace es de otro grado (p. ej. #aprende/2u1), cambia a ese grado.
+  const gId = ["aprende", "juega", "experimenta", "actua", "casa", "hojas"].includes(ruta) ? gradoDeId(id) : null;
+  sincronizarGrado();
+  if (gId && gId !== datos.grado) ponerGrado(gId);
+  pintarPerfil();
   (Object.hasOwn(pantallas, ruta) ? pantallas[ruta] : pantallaNoEncontrada)();
   vistaDeAdulto();
   document.body.dataset.ruta = ruta;
@@ -2610,6 +2657,9 @@ function pintarPerfil() {
   // Alumno: se muestra el explorador activo (personaje + apodo). Docente y Familia: avatar genérico.
   const ex = exploradorActivo();
   const esAlumno = p === "alumno" && ex;
+  const nombreG = datos?.nombreGrado || "1.º grado";
+  document.getElementById("gradoCabeza").textContent = nombreG;
+  document.querySelector(".tarjeta-perfil small").textContent = nombreG;
   document.getElementById("avatarCabeza").innerHTML = esAlumno ? avatarExplorador(ex) : avatarSVG(p);
   document.getElementById("avatarLateral").innerHTML = esAlumno ? avatarExplorador(ex) : avatarSVG(p);
   document.getElementById("saludoCabeza").textContent = esAlumno ? `¡Hola, ${apodoDe(ex)}!` : TEXTO_PERFIL[p].saludo;

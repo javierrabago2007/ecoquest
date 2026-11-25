@@ -1,0 +1,338 @@
+{
+  "_nota": "Contenido de 2.º grado (versión breve: 4 temas). Los textos de 'curriculo' (contenido y pda) están copiados textualmente del Programa Sintético de la Fase 3 (SEP, 2024), columna de segundo grado. Todo lo demás es Propuesta didáctica EcoQuest. Al agregar actividades, añade sus claves AL FINAL de 'ordenCodigo'.",
+  "ordenCodigo": ["aprende:2u1", "aprende:2u2", "aprende:2u3", "aprende:2u4", "juego:2j1", "juego:2j2", "juego:2j3", "juego:2j4", "juego:2j5", "juego:2j6", "experimento:2e1", "experimento:2e2", "experimento:2e3", "experimento:2e4", "reto:2r1", "reto:2r2", "reto:2r3", "reto:2r4"],
+  "grado": 2,
+  "nombreGrado": "2.º grado",
+  "fase": 3,
+  "fuenteOficial": "SEP (2024). Programa de Estudio para la Educación Primaria: Programa Sintético de la Fase 3. Dirección General de Desarrollo Curricular.",
+  "librosDeTexto": [],
+
+  "unidades": [
+    {
+      "id": "2u1",
+      "insignia": "Viajero de paisajes",
+      "titulo": "México y sus paisajes",
+      "icono": "🏜️",
+      "color": "verde",
+      "resumen": "Compara desiertos, selvas, manglares y arrecifes, y descubre quién vive en cada lugar.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Características del entorno natural y sociocultural.",
+          "pda": [
+            "Compara y describe las características naturales de diferentes lugares de México como desiertos, selvas, arrecifes de coral, manglares, entre otros; a partir de identificar cómo son, si hace frío o calor, la frecuencia con que llueve, cómo son las plantas y los animales que viven en los lugares, o de qué se alimentan.",
+            "Observa, con apoyo de lupas y lentes de aumento, plantas y animales para comparar y representar sus características: forma y número de patas, lugar donde habitan, cómo se desplazan, qué comen o qué necesitan para vivir, textura y forma de las hojas, tallos, si son árboles, arbustos o yerbas; describe algunas interacciones de plantas y animales con otros componentes naturales (agua, suelo, aire, Sol)."
+          ],
+          "pagina": 41
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "🏜️",
+        "explicacion": [
+          "México tiene muchos paisajes distintos: desiertos, selvas, manglares y arrecifes de coral.",
+          "En el desierto llueve muy poco. En la selva llueve mucho y las plantas están siempre verdes.",
+          "El manglar crece junto al mar, con las raíces dentro del agua. El arrecife está bajo el mar y ahí viven peces de muchos colores.",
+          "En Sonora tenemos desierto, sierra y también mar: el golfo de California.",
+          "Cada planta y cada animal tiene lo que necesita para vivir en su lugar."
+        ],
+        "ejemplos": [
+          "El saguaro guarda agua en su tallo para los días secos.",
+          "El mono araña usa su cola para moverse entre los árboles de la selva.",
+          "Las raíces del manglar sirven de refugio a los peces pequeños.",
+          "La liebre del desierto suelta calor por sus orejas grandes."
+        ],
+        "conceptos": [
+          { "termino": "Paisaje", "definicion": "Todo lo que se observa en un lugar: su suelo, agua, plantas, animales y construcciones." },
+          { "termino": "Manglar", "definicion": "Bosque que crece en la costa, donde se junta el agua dulce con la del mar." },
+          { "termino": "Arrecife de coral", "definicion": "Lugar bajo el mar formado por corales, que son animales muy pequeños." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿En qué lugar llueve muy poco?", "opciones": ["En la selva", "En el desierto", "En el manglar"], "correcta": 1, "explicacion": "En el desierto llueve poco; por eso sus plantas guardan agua." },
+          { "pregunta": "¿Dónde crecen los manglares?", "opciones": ["En la costa", "En la cima de una montaña", "En la arena seca"], "correcta": 0, "explicacion": "Los manglares crecen junto al mar." },
+          { "pregunta": "¿Para qué le sirve al saguaro su tallo grueso?", "opciones": ["Para correr", "Para guardar agua", "Para volar"], "correcta": 1, "explicacion": "Su tallo guarda agua para los días sin lluvia." }
+        ],
+        "actividad": {
+          "titulo": "Dos paisajes, un cuaderno",
+          "instrucciones": "Divide una hoja en dos. De un lado dibuja el lugar donde vives y del otro un paisaje distinto de México. Escribe abajo cómo es el clima, una planta y un animal de cada uno."
+        }
+      },
+      "docente": "Haga con el grupo una tabla de cuatro columnas (desierto, selva, manglar y arrecife) y complétenla con clima, lluvia, plantas y animales. Cierre preguntando: ¿cuál se parece más al lugar donde vivimos?",
+      "familia": "Platiquen sobre un lugar que hayan visitado o de donde viene la familia: ¿llovía más o menos que aquí?, ¿qué plantas y animales había?"
+    },
+    {
+      "id": "2u2",
+      "insignia": "Científico del agua",
+      "titulo": "El agua se transforma",
+      "icono": "🧊",
+      "color": "azul",
+      "resumen": "Descubre cómo el calor y el frío cambian el agua: de hielo a líquida y a vapor.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Objetos del entorno: características, propiedades, estados físicos y usos en la vida cotidiana.",
+          "pda": [
+            "Identifica los estados físicos del agua a partir de experimentar con la variación de la temperatura y establecer relaciones causa-efecto; reconoce las características de sólidos y líquidos, (si tienen o no una forma definida) y extrapola dichas características a otros materiales.",
+            "Experimenta y compara la temperatura de diversos objetos con el uso de sus sentidos y del termómetro para proponer una escala en la que ubique los objetos de los más fríos a los más calientes; reconoce que este instrumento permite realizar mediciones de temperatura más precisas."
+          ],
+          "pagina": 42
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "🧊",
+        "explicacion": [
+          "El agua puede ser sólida, líquida o gas. El hielo es sólido, el agua que bebemos es líquida y el vapor es gas.",
+          "Cuando hace calor, el hielo se derrite y se vuelve agua líquida.",
+          "Con el calor del Sol, el agua también se evapora: se va al aire en forma de vapor, que no podemos ver.",
+          "Un sólido conserva su forma. Un líquido toma la forma del recipiente.",
+          "En Sonora hace mucho calor, por eso los charcos se secan rápido y el agua de las plantas también se pierde."
+        ],
+        "ejemplos": [
+          "La paleta de hielo se derrite si tardas en comerla.",
+          "La ropa mojada se seca al aire porque el agua se evapora.",
+          "El agua toma la forma del vaso o de la jarra.",
+          "Afuera de un vaso frío se forman gotitas de agua."
+        ],
+        "conceptos": [
+          { "termino": "Sólido", "definicion": "Material que tiene forma propia, como el hielo o una piedra." },
+          { "termino": "Líquido", "definicion": "Material que toma la forma del recipiente, como el agua o la leche." },
+          { "termino": "Evaporación", "definicion": "Cuando el agua líquida se vuelve vapor y se va al aire." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Qué le pasa al hielo cuando lo dejas al sol?", "opciones": ["Se hace más grande", "Se derrite", "No le pasa nada"], "correcta": 1, "explicacion": "El calor derrite el hielo y lo vuelve agua líquida." },
+          { "pregunta": "¿Cuál de estos es un líquido?", "opciones": ["Una piedra", "El hielo", "La leche"], "correcta": 2, "explicacion": "La leche toma la forma del vaso: es líquida." },
+          { "pregunta": "¿Por qué se seca un charco?", "opciones": ["El agua se evapora o entra al suelo", "El agua se vuelve hielo", "Alguien se lo lleva"], "correcta": 0, "explicacion": "Una parte se va al aire como vapor y otra puede entrar al suelo." }
+        ],
+        "actividad": {
+          "titulo": "Busca sólidos y líquidos",
+          "instrucciones": "Busca en tu casa tres sólidos y tres líquidos que sean seguros de tocar. Dibújalos en dos columnas y explica cómo supiste qué era cada uno."
+        }
+      },
+      "docente": "Antes del experimento pida que cada equipo escriba o dibuje su predicción y al final compárenla con lo observado. Relacione la evaporación con la mejor hora para regar en un lugar caluroso.",
+      "familia": "Cuando tiendan ropa o rieguen una planta, pregunten: ¿a dónde se va el agua? Platiquen por qué conviene regar temprano o al anochecer."
+    },
+    {
+      "id": "2u3",
+      "insignia": "Huella responsable",
+      "titulo": "Mis acciones dejan huella",
+      "icono": "👣",
+      "color": "naranja",
+      "resumen": "Observa cómo lo que hacemos afecta a las plantas, los animales, el agua, el suelo y el aire.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Impacto de las actividades humanas en el entorno natural, así como acciones y prácticas socioculturales para su cuidado.",
+          "pda": [
+            "Describe y representa el efecto que tienen las actividades humanas en plantas, animales, agua, suelo y aire; reflexiona en torno a la manera en cómo se aprovechan y toma decisiones que tengan un menor impacto en el entorno natural y la salud.",
+            "Identifica, describe y participa en acciones y prácticas socioculturales para disminuir el impacto en plantas, animales, agua, suelo y aire y cuidar el entorno natural."
+          ],
+          "pagina": 42
+        },
+        {
+          "campo": "Ética, Naturaleza y Sociedades",
+          "contenido": "Impacto de las actividades humanas en la naturaleza y sustentabilidad: actividades humanas que afectan a la naturaleza, y la necesidad de establecer compromisos que contribuyan a la preservación, prevención y disminución del impacto socioambiental.",
+          "pda": [
+            "Relaciona las actividades humanas con la naturaleza, al identificar aquellas que pueden tener un efecto negativo, planteando la posibilidad de realizar cambios en las actividades y acciones individuales, familiares y comunitarias, para promover el cuidado responsable, la regeneración y la preservación de los seres vivos, el agua, el aire y el suelo en su entorno inmediato y lejano."
+          ],
+          "pagina": 55
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "👣",
+        "explicacion": [
+          "Todo lo que hacemos cambia un poco el lugar donde vivimos. A ese cambio le decimos impacto.",
+          "Algunas acciones dañan: tirar basura en el suelo, quemar hojas o dejar la llave abierta.",
+          "Otras acciones ayudan: reparar, reutilizar, caminar distancias cortas o plantar árboles de la región.",
+          "En Sonora hay poca agua y mucho calor, por eso cuidar el agua y la sombra de los árboles es muy importante.",
+          "Antes de actuar, pregúntate: ¿a quién ayuda y a quién daña lo que voy a hacer?"
+        ],
+        "ejemplos": [
+          "Si tiro una bolsa, el viento puede llevarla hasta el campo y un animal puede comerla.",
+          "Si lavo mi vaso con poca agua, queda más agua para otras personas y plantas.",
+          "Si uso mi lonchera, hago menos basura que con bolsas nuevas.",
+          "Si no quemamos basura, el aire está más limpio."
+        ],
+        "conceptos": [
+          { "termino": "Impacto", "definicion": "Cambio que causa una acción; puede ayudar o dañar." },
+          { "termino": "Reutilizar", "definicion": "Volver a usar un objeto en lugar de tirarlo." },
+          { "termino": "Compromiso", "definicion": "Algo que decidimos hacer y que procuramos cumplir." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Cuál acción ayuda al suelo?", "opciones": ["Tirar pilas en la tierra", "Poner la basura en su lugar", "Quemar llantas"], "correcta": 1, "explicacion": "La basura en su lugar no ensucia el suelo." },
+          { "pregunta": "¿Qué puede pasar si una bolsa llega al campo?", "opciones": ["Un animal puede comerla y enfermarse", "Se vuelve flor", "Nada"], "correcta": 0, "explicacion": "Algunos animales la confunden con comida." },
+          { "pregunta": "Para ir a la tienda de la esquina, ¿qué contamina menos?", "opciones": ["Ir en carro", "Ir caminando con un adulto"], "correcta": 1, "explicacion": "Caminar no echa humo." }
+        ],
+        "actividad": {
+          "titulo": "Mi semáforo de acciones",
+          "instrucciones": "Dibuja un semáforo. En verde escribe una acción que ayuda al ambiente, en amarillo una que puedes mejorar y en rojo una que vas a dejar de hacer."
+        }
+      },
+      "docente": "Pida que sigan el recorrido de un objeto, por ejemplo una botella: ¿de dónde viene?, ¿cómo se usa?, ¿a dónde va? En equipos propongan un cambio posible y registren si lo cumplieron en la semana.",
+      "familia": "Elijan una costumbre de la casa que puedan mejorar esta semana, como usar menos bolsas o apagar luces, y decidan juntos cómo recordarla."
+    },
+    {
+      "id": "2u4",
+      "insignia": "Guardián de la vida",
+      "titulo": "Somos parte de la naturaleza",
+      "icono": "🦋",
+      "color": "morado",
+      "resumen": "Reconoce a los seres vivos con los que compartes tu lugar y cuida de ellos con respeto.",
+      "curriculo": [
+        {
+          "campo": "Ética, Naturaleza y Sociedades",
+          "contenido": "Respeto, cuidado y empatía hacia la naturaleza, como parte de un todo interdependiente.",
+          "pda": [
+            "Se reconoce a sí mismo o a sí misma como parte del lugar donde vive y en relación con otros seres vivos (animales, plantas, hongos y microorganismos) y componentes de la naturaleza (cuerpos de agua, suelos, aire, desiertos, bosques, arrecifes e islas, entre otros); y dialoga acerca de los sentimientos que le provoca esa relación.",
+            "Dialoga acerca de las responsabilidades hacia la naturaleza y muestra respeto, cuidado y empatía hacia sus componentes, proponiendo acciones a favor de la naturaleza, en general, y de los seres vivos, en particular en la medida de sus posibilidades."
+          ],
+          "pagina": 54
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "🦋",
+        "explicacion": [
+          "Las personas somos parte de la naturaleza. Necesitamos aire, agua, suelo, plantas y animales para vivir.",
+          "Los seres vivos se ayudan unos a otros: la abeja lleva polen a las flores y la flor le da alimento.",
+          "Los hongos y algunos microorganismos deshacen las hojas secas y devuelven alimento al suelo.",
+          "En el desierto de Sonora, los murciélagos y las abejas ayudan a que el saguaro dé frutos.",
+          "Cuidar es respetar: observar sin molestar, no arrancar y no sacar a los animales de su casa."
+        ],
+        "ejemplos": [
+          "Dejo a la mariposa en su flor y solo la observo.",
+          "Pongo agua limpia y alimento a mi mascota todos los días, con ayuda de mi familia.",
+          "Camino por el sendero para no pisar plantas.",
+          "Le digo a un adulto si veo un animal herido; no lo toco."
+        ],
+        "conceptos": [
+          { "termino": "Ser vivo", "definicion": "Todo lo que nace, crece y puede tener descendencia, como plantas, animales y hongos." },
+          { "termino": "Polinizar", "definicion": "Llevar polen de una flor a otra para que se formen frutos y semillas." },
+          { "termino": "Empatía", "definicion": "Pensar en cómo se sienten los demás y en lo que necesitan." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Quiénes ayudan al saguaro a dar frutos?", "opciones": ["Murciélagos y abejas", "Los carros", "Las piedras"], "correcta": 0, "explicacion": "Llevan el polen entre las flores del saguaro." },
+          { "pregunta": "¿Qué hacen los hongos con las hojas secas?", "opciones": ["Las pintan", "Ayudan a deshacerlas", "Las convierten en piedra"], "correcta": 1, "explicacion": "Así el suelo vuelve a tener alimento para las plantas." },
+          { "pregunta": "Encuentras un animal silvestre herido. ¿Qué haces?", "opciones": ["Lo toco", "Me lo llevo", "Aviso a un adulto"], "correcta": 2, "explicacion": "Un adulto puede pedir ayuda. Tocarlo puede ser peligroso." }
+        ],
+        "actividad": {
+          "titulo": "Mi red de la vida",
+          "instrucciones": "Escribe tu apodo de explorador en el centro de una hoja. Alrededor dibuja cinco seres vivos o elementos de la naturaleza que necesitas y únelos con líneas. Platica qué pasaría si faltara uno."
+        }
+      },
+      "docente": "Forme un círculo con una madeja de estambre: cada quien representa un ser vivo o elemento y lanza el estambre a otro que necesita. Al soltar uno, observen cómo se afloja la red.",
+      "familia": "Pregunten a su hija o hijo qué animal o planta del lugar le gusta más y qué siente por él. Propongan juntos una forma segura de cuidarlo."
+    }
+  ],
+
+  "juegos": [
+    { "id": "2j1", "unidad": "2u1", "tipo": "memorama", "titulo": "Memorama de paisajes", "instrucciones": "Voltea dos tarjetas y encuentra los pares de seres vivos y paisajes de México.",
+      "pares": [ { "icono": "🌵", "nombre": "Saguaro" }, { "icono": "🐒", "nombre": "Mono de la selva" }, { "icono": "🦀", "nombre": "Cangrejo del manglar" }, { "icono": "🐠", "nombre": "Pez del arrecife" }, { "icono": "🐆", "nombre": "Jaguar" }, { "icono": "🦅", "nombre": "Águila" }, { "icono": "🐢", "nombre": "Tortuga" }, { "icono": "🪸", "nombre": "Coral" } ] },
+    { "id": "2j2", "unidad": "2u1", "tipo": "sombras", "titulo": "¿Quién vive ahí?", "instrucciones": "Mira la silueta y descubre qué ser vivo es.", "pregunta": "¿De quién es esta silueta?",
+      "items": [
+        { "icono": "🐠", "opciones": ["Pez del arrecife", "Coyote", "Cardenal"], "correcta": 0, "explicacion": "Los peces de colores viven entre los corales." },
+        { "icono": "🦀", "opciones": ["Liebre", "Cangrejo", "Serpiente"], "correcta": 1, "explicacion": "Muchos cangrejos viven entre las raíces del manglar." },
+        { "icono": "🌵", "opciones": ["Palmera", "Pino", "Cactus"], "correcta": 2, "explicacion": "Los cactus viven con muy poca agua." },
+        { "icono": "🐒", "opciones": ["Mono", "Venado", "Tortuga"], "correcta": 0, "explicacion": "Los monos se mueven entre los árboles de la selva." },
+        { "icono": "🦅", "opciones": ["Pato", "Águila", "Murciélago"], "correcta": 1, "explicacion": "El águila tiene alas grandes y buena vista para buscar alimento." }
+      ] },
+    { "id": "2j3", "unidad": "2u2", "tipo": "ordenar", "titulo": "¿Qué pasa con el agua?", "instrucciones": "Toca las tarjetas en el orden en que pasan las cosas.",
+      "secuencias": [
+        { "titulo": "Un hielo al sol", "pasos": [ { "icono": "🧊", "texto": "Saco un hielo" }, { "icono": "☀️", "texto": "El Sol lo calienta" }, { "icono": "💧", "texto": "Se derrite" }, { "icono": "💨", "texto": "El agua se evapora poco a poco" } ], "explicacion": "El calor cambia el agua de sólida a líquida y luego a vapor." },
+        { "titulo": "El agua en la naturaleza", "pasos": [ { "icono": "🌊", "texto": "El Sol calienta el agua del mar" }, { "icono": "💨", "texto": "El agua sube como vapor" }, { "icono": "☁️", "texto": "Se forman las nubes" }, { "icono": "🌧️", "texto": "Cae la lluvia" } ], "explicacion": "El agua viaja del mar al cielo y regresa con la lluvia." },
+        { "titulo": "Ropa al sol", "pasos": [ { "icono": "🧼", "texto": "Lavamos la ropa" }, { "icono": "👕", "texto": "La tendemos mojada" }, { "icono": "💨", "texto": "El agua se evapora" }, { "icono": "😊", "texto": "La ropa queda seca" } ], "explicacion": "El aire y el calor ayudan a que el agua se evapore." }
+      ] },
+    { "id": "2j4", "unidad": "2u2", "tipo": "clasificar", "titulo": "Sólido o líquido", "instrucciones": "Toca una tarjeta y luego elige si es sólido o líquido.", "pista": "¿Tiene forma propia o toma la forma del recipiente?",
+      "botes": [ { "id": "sol", "nombre": "Sólido", "icono": "🧱" }, { "id": "liq", "nombre": "Líquido", "icono": "💧" } ],
+      "items": [
+        { "nombre": "Hielo", "icono": "🧊", "bote": "sol", "explicacion": "El hielo es agua sólida: tiene forma propia." },
+        { "nombre": "Leche", "icono": "🥛", "bote": "liq", "explicacion": "Toma la forma del vaso." },
+        { "nombre": "Piedra", "icono": "🪨", "bote": "sol", "explicacion": "Conserva su forma." },
+        { "nombre": "Jugo", "icono": "🧃", "bote": "liq", "explicacion": "El jugo de adentro toma la forma del envase." },
+        { "nombre": "Lluvia", "icono": "🌧️", "bote": "liq", "explicacion": "La lluvia es agua líquida." },
+        { "nombre": "Lápiz", "icono": "✏️", "bote": "sol", "explicacion": "El lápiz conserva su forma." },
+        { "nombre": "Miel", "icono": "🍯", "bote": "liq", "explicacion": "Es espesa, pero toma la forma del frasco." },
+        { "nombre": "Llave", "icono": "🔑", "bote": "sol", "explicacion": "Es de metal y conserva su forma." }
+      ] },
+    { "id": "2j5", "unidad": "2u3", "tipo": "clasificar", "titulo": "¿Ayuda o daña?", "instrucciones": "Toca una acción y luego elige si ayuda o daña al ambiente.", "pista": "Piensa qué le pasa al agua, al suelo, al aire o a los seres vivos.",
+      "botes": [ { "id": "ayu", "nombre": "Ayuda", "icono": "💚" }, { "id": "dan", "nombre": "Daña", "icono": "⚠️" } ],
+      "items": [
+        { "nombre": "Caminar", "icono": "🚶", "bote": "ayu", "explicacion": "Caminar no echa humo." },
+        { "nombre": "Quemar basura", "icono": "🔥", "bote": "dan", "explicacion": "El humo contamina el aire y es peligroso." },
+        { "nombre": "Plantar un árbol", "icono": "🌳", "bote": "ayu", "explicacion": "Da sombra y refugio." },
+        { "nombre": "Dejar la llave abierta", "icono": "🚰", "bote": "dan", "explicacion": "Se desperdicia agua." },
+        { "nombre": "Reutilizar una caja", "icono": "📦", "bote": "ayu", "explicacion": "Así hacemos menos basura." },
+        { "nombre": "Tirar pilas al suelo", "icono": "🔋", "bote": "dan", "explicacion": "Tienen sustancias que contaminan. Se llevan a un centro de acopio." },
+        { "nombre": "Usar lonchera", "icono": "🍱", "bote": "ayu", "explicacion": "Se usa muchas veces." },
+        { "nombre": "Basura en la playa", "icono": "🏖️", "bote": "dan", "explicacion": "Puede llegar al mar y dañar a los animales." }
+      ] },
+    { "id": "2j6", "unidad": "2u4", "tipo": "vf", "titulo": "Verdad de la naturaleza", "instrucciones": "Lee o escucha cada frase y elige si es verdadera o falsa.",
+      "items": [
+        { "frase": "Las personas somos parte de la naturaleza.", "respuesta": true, "explicacion": "Necesitamos aire, agua, suelo y otros seres vivos." },
+        { "frase": "Las abejas dañan a todas las flores.", "respuesta": false, "explicacion": "Las abejas ayudan a polinizar las flores." },
+        { "frase": "Los hongos son seres vivos.", "respuesta": true, "explicacion": "Los hongos nacen, crecen y tienen descendencia." },
+        { "frase": "Un animal silvestre debe vivir en mi cuarto.", "respuesta": false, "explicacion": "Necesita su propio hogar en la naturaleza." },
+        { "frase": "Algunos murciélagos ayudan a las flores del saguaro.", "respuesta": true, "explicacion": "Llevan polen cuando buscan alimento." },
+        { "frase": "Si veo un animal herido, debo cargarlo.", "respuesta": false, "explicacion": "Es mejor avisar a un adulto." }
+      ] }
+  ],
+
+  "experimentos": [
+    {
+      "id": "2e1", "unidad": "2u1", "nombre": "Exploradores de hojas",
+      "proposito": "Comparar plantas con una lupa para descubrir cómo son sus hojas y tallos.",
+      "supervision": true,
+      "aviso": "Un adulto acompaña la salida y elige plantas seguras, sin espinas. No metan las manos en huecos ni bajo piedras.",
+      "materiales": ["Tres hojas caídas de plantas distintas", "Una lupa (si tienes)", "Una hoja blanca", "Lápiz y colores", "Una regla"],
+      "procedimiento": ["Con un adulto, recojan del suelo tres hojas de plantas distintas. No las arranquen.", "Observen con la lupa el borde, las líneas y la textura.", "Midan el largo de cada hoja con la regla.", "Dibujen cada hoja y escriban una palabra que la describa.", "Comenten si la planta es árbol, arbusto o yerba."],
+      "registro": { "tipo": "grafica", "pregunta": "Escribe cuánto mide de largo cada hoja.", "etiquetas": ["Hoja 1", "Hoja 2", "Hoja 3"], "unidad": "cm", "textoMayor": "La más larga" },
+      "explicacion": "Las hojas son distintas porque las plantas viven en condiciones distintas. En lugares secos muchas plantas tienen hojas pequeñas o espinas, y así pierden menos agua.",
+      "reflexion": ["¿En qué se parecen y en qué son diferentes?", "¿Qué hoja ayudaría a una planta a vivir con poca agua?"],
+      "relacion": "Conocer las plantas de la región nos ayuda a cuidarlas y a elegir las que necesitan menos agua."
+    },
+    {
+      "id": "2e2", "unidad": "2u2", "nombre": "La carrera del hielo",
+      "proposito": "Comparar cuánto tarda en derretirse un hielo al sol y a la sombra.",
+      "supervision": true,
+      "aviso": "Un adulto cuida el tiempo de exposición al sol. Esperen en la sombra.",
+      "materiales": ["Dos hielos del mismo tamaño", "Dos platos iguales", "Un reloj"],
+      "procedimiento": ["Digan cuál hielo creen que se derretirá primero.", "Pongan un hielo en cada plato.", "Dejen un plato al sol y otro en la sombra.", "Miren los hielos cada 2 minutos, desde la sombra.", "Anoten cuántos minutos tardó cada uno. Usen el agua para una planta."],
+      "registro": { "tipo": "grafica", "pregunta": "¿Cuántos minutos tardó en derretirse cada hielo?", "etiquetas": ["Al sol", "A la sombra"], "unidad": "min", "textoMayor": "Tardó más" },
+      "explicacion": "El hielo cambia de sólido a líquido cuando recibe calor. Al sol suele recibir más calor, por eso normalmente se derrite antes.",
+      "reflexion": ["¿Pasó lo que pensabas?", "¿Qué forma tenía el agua al principio y al final?"],
+      "relacion": "El calor también evapora el agua del suelo. Por eso, en lugares calurosos, conviene regar temprano o al anochecer."
+    },
+    {
+      "id": "2e3", "unidad": "2u3", "nombre": "¿Cuánta agua se va?",
+      "proposito": "Comparar el agua que usamos al enjuagarnos las manos con la llave abierta y con un vaso.",
+      "supervision": true,
+      "aviso": "Un adulto ayuda a cargar la cubeta y seca el piso para evitar resbalones.",
+      "materiales": ["Una cubeta", "Un vaso", "Agua de la llave", "Una hoja para anotar"],
+      "procedimiento": ["Pongan la cubeta debajo de la llave.", "Enjuáguense las manos durante 10 segundos con la llave abierta y junten el agua.", "Con el vaso, midan cuántos vasos de agua se juntaron.", "Ahora enjuáguense con un solo vaso de agua, con ayuda.", "Comparen y usen el agua juntada para limpiar el piso o el baño."],
+      "registro": { "tipo": "grafica", "pregunta": "¿Cuántos vasos de agua usaron?", "etiquetas": ["Llave abierta", "Con un vaso"], "unidad": "vasos", "textoMayor": "Usó más agua" },
+      "explicacion": "Cuando la llave queda abierta, el agua sigue saliendo aunque no la aprovechemos. Medir nos ayuda a decidir cómo usar menos, sin dejar de lavarnos bien.",
+      "reflexion": ["¿Qué te sorprendió?", "¿Qué puedes cambiar al lavarte las manos?"],
+      "relacion": "En Sonora el agua es escasa. Una decisión pequeña, repetida muchas veces, hace una gran diferencia."
+    },
+    {
+      "id": "2e4", "unidad": "2u4", "nombre": "El suelo tiene vida",
+      "proposito": "Observar qué cambia en hojas secas sobre tierra húmeda durante varios días.",
+      "supervision": true,
+      "aviso": "Un adulto abre el frasco si hace falta y todos se lavan las manos al terminar. No huelan ni toquen los hongos.",
+      "materiales": ["Un frasco transparente con tapa", "Tierra de maceta", "Hojas caídas secas", "Un poco de agua"],
+      "procedimiento": ["Pongan tierra en el frasco hasta la mitad.", "Coloquen encima las hojas secas.", "Agreguen unas gotas de agua y tapen el frasco.", "Déjenlo en la sombra y dibújenlo el primer día.", "Obsérvenlo cerrado durante 10 días y dibujen los cambios."],
+      "registro": { "tipo": "texto", "pregunta": "¿Qué cambió en las hojas y en la tierra?" },
+      "explicacion": "En el suelo hay hongos y microorganismos que poco a poco deshacen las hojas. Es un cambio lento: en 10 días quizá veas manchas, humedad o hojas más blandas.",
+      "reflexion": ["¿Qué cambió primero?", "¿Por qué el suelo necesita hojas secas?"],
+      "relacion": "Las hojas que se deshacen devuelven alimento al suelo. Por eso conviene hacer composta en lugar de quemarlas."
+    }
+  ],
+
+  "retos": [
+    { "id": "2r1", "unidad": "2u1", "titulo": "Mi ficha de un ser vivo", "explicacion": "Conocer a los seres vivos de tu región es el primer paso para cuidarlos.", "instrucciones": ["Elige una planta o un animal de tu región.", "Pregunta en casa o en la escuela dónde vive y qué necesita.", "Haz una ficha con su dibujo y tres datos, y compártela con tu grupo."], "dias": 0, "evidencia": "¿Qué dato te sorprendió más?" },
+    { "id": "2r2", "unidad": "2u2", "titulo": "Riego inteligente", "explicacion": "Regar cuando hace menos calor ayuda a que se evapore menos agua.", "instrucciones": ["Con un adulto, cuida una planta de la casa o de la escuela.", "Durante 3 días revisa la tierra temprano o al anochecer.", "Riega solo si está seca, con poca agua, y marca el día."], "dias": 3, "evidencia": "¿Cómo supiste si la planta necesitaba agua?" },
+    { "id": "2r3", "unidad": "2u3", "titulo": "Un cambio por una semana", "explicacion": "Un cambio pequeño puede volverse costumbre.", "instrucciones": ["Elige una acción que puedas mejorar, como apagar luces o usar lonchera.", "Díselo a tu familia o a tu grupo.", "Cúmplela durante 5 días y marca cada día."], "dias": 5, "evidencia": "¿Qué fue fácil y qué fue difícil?" },
+    { "id": "2r4", "unidad": "2u4", "titulo": "Pacto de respeto", "explicacion": "Los acuerdos ayudan a que todos cuidemos a los seres vivos.", "instrucciones": ["Con tu grupo o familia, platiquen qué seres vivos hay cerca.", "Escriban tres acuerdos para respetarlos.", "Hagan un cartel con dibujos y colóquenlo donde todos lo vean."], "dias": 0, "evidencia": "¿Qué sentiste al pensar en los otros seres vivos?" }
+  ]
+}

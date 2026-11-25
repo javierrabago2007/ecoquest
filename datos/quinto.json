@@ -1,0 +1,402 @@
+{
+  "_nota": "Contenido de 5.º grado (versión breve: 4 temas). Los textos de 'curriculo' (contenido y pda) están copiados textualmente del Programa Sintético de la Fase 5 (SEP, 2024), columna de quinto grado. Todo lo demás es Propuesta didáctica EcoQuest; las cifras de los juegos son situaciones simuladas. Al agregar actividades, añade sus claves AL FINAL de 'ordenCodigo'.",
+  "ordenCodigo": ["aprende:5u1", "aprende:5u2", "aprende:5u3", "aprende:5u4", "juego:5j1", "juego:5j2", "juego:5j3", "juego:5j4", "juego:5j5", "juego:5j6", "juego:5j7", "experimento:5e1", "experimento:5e2", "experimento:5e3", "experimento:5e4", "reto:5r1", "reto:5r2", "reto:5r3", "reto:5r4"],
+  "grado": 5,
+  "nombreGrado": "5.º grado",
+  "fase": 5,
+  "fuenteOficial": "SEP (2024). Programa de Estudio para la Educación Primaria: Programa Sintético de la Fase 5. Dirección General de Desarrollo Curricular.",
+  "librosDeTexto": [],
+
+  "unidades": [
+    {
+      "id": "5u1",
+      "insignia": "Guardián de la megadiversidad",
+      "titulo": "México megadiverso",
+      "icono": "🦜",
+      "color": "verde",
+      "resumen": "Explica por qué México es megadiverso y qué servicios ambientales nos da la biodiversidad.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Factores que conforman la biodiversidad y el medio ambiente, la riqueza natural de México y su relevancia como parte del patrimonio biocultural de la humanidad, y la importancia de su conservación.",
+          "pda": [
+            "Indaga los factores que favorecen la presencia en México de una variedad de ecosistemas y seres vivos, que lo hacen megadiverso; valora la importancia natural y sociocultural de su conservación.",
+            "Describe los servicios ambientales de la biodiversidad: producción de oxígeno, regulación de climas, abastecimiento de agua, moderación en el impacto de fenómenos naturales, control de plagas, obtención de materias primas, espacios vitales para plantas y animales, espacios para actividades recreativas y culturales, entre otros."
+          ],
+          "pagina": "43"
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "🦜",
+        "explicacion": [
+          "La biodiversidad es la cantidad y variedad de ecosistemas y de seres vivos. México es uno de los países megadiversos del mundo.",
+          "Influyen su ubicación, sus montañas, sus dos costas y sus distintos climas. En poca distancia pueden cambiar mucho las condiciones.",
+          "La ciencia ha descrito alrededor de dos millones de especies. La cifra cambia porque cada año se describen más y muchas aún no se conocen.",
+          "Los servicios ambientales son beneficios que obtenemos: agua, oxígeno, materias primas, polinización, control de plagas, protección y espacios de recreo.",
+          "En Sonora conviven desierto, sierra, humedales y golfo de California. Su riqueza también está en los saberes de sus pueblos."
+        ],
+        "ejemplos": [
+          "Los murciélagos que comen insectos ayudan a controlar plagas.",
+          "Los manglares moderan el impacto del oleaje y las tormentas.",
+          "Un bosque facilita que el agua se infiltre y llegue a manantiales.",
+          "Muchas comidas, artesanías y fiestas dependen de la biodiversidad local."
+        ],
+        "conceptos": [
+          { "termino": "Megadiverso", "definicion": "País con una cantidad muy alta de las especies del mundo." },
+          { "termino": "Servicio ambiental", "definicion": "Beneficio que las personas obtienen de los ecosistemas." },
+          { "termino": "Endémica", "definicion": "Especie que vive de forma natural solo en una región." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Qué combinación ayuda a explicar la megadiversidad de México?", "opciones": ["Un solo clima y terreno plano", "Ubicación, relieve, costas y climas variados", "Que tiene muchas ciudades"], "correcta": 1, "explicacion": "La variedad de condiciones permite muchos ecosistemas." },
+          { "pregunta": "Un humedal reduce la fuerza de una inundación. ¿Qué servicio es?", "opciones": ["Moderación de fenómenos naturales", "Materia prima", "Recreación"], "correcta": 0, "explicacion": "Amortigua el impacto del agua." },
+          { "pregunta": "¿Por qué perder una especie endémica es tan grave?", "opciones": ["Porque vive en todas partes", "Porque, si desaparece de su región, puede desaparecer del planeta", "Porque siempre es la más grande"], "correcta": 1, "explicacion": "No vive de forma natural en otro lugar." }
+        ],
+        "actividad": {
+          "titulo": "Una especie, muchos servicios",
+          "instrucciones": "Elige una especie de tu entidad. Investiga dónde vive y construye un esquema con dos servicios ambientales, un uso cultural y una amenaza. Anota de dónde obtuviste cada dato."
+        }
+      },
+      "docente": "Compare mapas de relieve, clima y ecosistemas de México para que formulen explicaciones. Pida fuentes confiables y distinguir datos de opiniones.",
+      "familia": "Hagan una lista de lo que usaron hoy y que proviene de la biodiversidad: alimentos, madera, medicinas, fibras. ¿Qué pasaría si faltara?"
+    },
+    {
+      "id": "5u2",
+      "insignia": "Analista de la biodiversidad",
+      "titulo": "Cuando se pierde biodiversidad",
+      "icono": "📉",
+      "color": "naranja",
+      "resumen": "Analiza causas y consecuencias de la pérdida de biodiversidad con datos y evidencias.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Pérdida de biodiversidad, problemas medio ambientales en la comunidad, México y el mundo, acciones orientadas a fortalecer estilos de vida sustentables.",
+          "pda": [
+            "Analiza y explica el impacto de las actividades humanas en la biodiversidad, en particular sobre la variedad y cantidad de seres vivos que habitan en la comunidad, y en la salud.",
+            "Analiza situaciones relacionadas con la pérdida de biodiversidad a nivel local y nacional, reconoce las causas y las consecuencias para la salud y la dinámica de los ecosistemas; identifica y explica prácticas locales y estrategias estatales o nacionales para el cuidado de la biodiversidad."
+          ],
+          "pagina": "44"
+        },
+        {
+          "campo": "Ética, Naturaleza y Sociedades",
+          "contenido": "Valoración de la biodiversidad en el territorio donde se ubica la localidad, entidad, México y el mundo, valores y acciones sustentables.",
+          "pda": [
+            "Indaga cómo y por qué está desapareciendo la biodiversidad, incluyendo los cambios del clima global y sus riesgos para la vida."
+          ],
+          "pagina": "59"
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "📉",
+        "explicacion": [
+          "La biodiversidad disminuye por causas que se combinan: pérdida de hábitat, contaminación, sobreexplotación, especies invasoras y cambio climático.",
+          "Fragmentar un hábitat es dividirlo en partes aisladas. Aunque quede terreno, a muchos animales les cuesta moverse y reproducirse.",
+          "Una especie invasora llega a un lugar donde no vivía, se multiplica y causa daños. El zacate buffel, por ejemplo, compite con plantas del desierto y favorece incendios.",
+          "Perder biodiversidad puede afectar la salud: cambia la calidad del agua, los alimentos y el control natural de plagas.",
+          "Para estudiar estos cambios se comparan datos en el tiempo. Que dos cosas ocurran juntas no siempre significa que una cause la otra."
+        ],
+        "ejemplos": [
+          "Una carretera sin pasos de fauna divide el territorio de los animales.",
+          "Atrapar más peces de los que nacen reduce su población.",
+          "En México hay áreas naturales protegidas y programas para especies en riesgo.",
+          "Algunas comunidades vigilan nidos de tortuga o restauran manglares."
+        ],
+        "conceptos": [
+          { "termino": "Fragmentación", "definicion": "División de un hábitat en partes pequeñas y aisladas." },
+          { "termino": "Especie invasora", "definicion": "Especie que se establece fuera de su lugar de origen y causa daños." },
+          { "termino": "Correlación", "definicion": "Cuando dos cosas cambian juntas; no siempre una causa la otra." }
+        ],
+        "preguntas": [
+          { "pregunta": "Se construye un camino que divide un matorral. ¿Qué proceso describe mejor el problema?", "opciones": ["Fragmentación", "Evaporación", "Polinización"], "correcta": 0, "explicacion": "El hábitat queda dividido." },
+          { "pregunta": "Bajaron las aves y subió la venta de helados. ¿Qué concluyes?", "opciones": ["Los helados acaban con las aves", "Ocurrieron juntas, pero falta evidencia de que una cause la otra", "Las aves compran helados"], "correcta": 1, "explicacion": "Correlación no es lo mismo que causa." },
+          { "pregunta": "¿Qué medida atiende una causa de pérdida?", "opciones": ["Conectar hábitats con corredores", "Contar menos especies", "Olvidar los datos"], "correcta": 0, "explicacion": "Reduce los efectos de la fragmentación." }
+        ],
+        "actividad": {
+          "titulo": "Árbol de problemas",
+          "instrucciones": "Elige un caso local. En el tronco escribe el problema; en las raíces, tres causas; en las ramas, tres consecuencias, una para la salud. Agrega una acción para una raíz y explica por qué la elegiste."
+        }
+      },
+      "docente": "Trabaje la diferencia entre correlación y causa con gráficas sencillas. Solicite dos fuentes por equipo e identificar una estrategia estatal o nacional de conservación.",
+      "familia": "Busquen juntos una noticia sobre una especie de la región. Pregunten: ¿qué dice?, ¿quién lo dice?, ¿qué evidencia muestra?"
+    },
+    {
+      "id": "5u3",
+      "insignia": "Estratega del agua",
+      "titulo": "El agua que vemos y la que no vemos",
+      "icono": "💧",
+      "color": "azul",
+      "resumen": "Calcula y compara el consumo de agua, incluida el agua virtual de los productos.",
+      "curriculo": [
+        {
+          "campo": "Saberes y Pensamiento Científico",
+          "contenido": "Costos y beneficios del consumo de agua, energía eléctrica y combustibles en la satisfacción de necesidades personales.",
+          "pda": [
+            "Indaga y analiza la cantidad de agua que se consume en diversas actividades en la casa, compara su consumo diario e identifica en qué actividades se utiliza una mayor o menor cantidad de agua.",
+            "Reconoce y calcula la cantidad de “agua virtual” que se utiliza en la producción de satisfactores (productos y servicios) y reflexiona acerca del consumo de aquellos productos que son necesarios y aquellos que no lo son, para tomar decisiones de consumo responsable y favorecer el cuidado del medio ambiente."
+          ],
+          "pagina": "44-45"
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "💧",
+        "explicacion": [
+          "Usamos agua de forma directa al beber, bañarnos, cocinar o limpiar. Medirla ayuda a decidir.",
+          "También usamos agua de forma indirecta: la que se necesitó para producir alimentos, ropa y otros objetos. Se llama agua virtual.",
+          "Por ejemplo, se ha estimado que producir una camiseta de algodón requiere en promedio más de dos mil litros. La cantidad cambia según el lugar y la forma de producción.",
+          "Reducir no significa dejar de cubrir necesidades: es evitar fugas, desperdicio y compras innecesarias.",
+          "En Sonora gran parte del territorio es seco. Compartir el agua entre hogares, agricultura, industria y ecosistemas requiere acuerdos justos."
+        ],
+        "ejemplos": [
+          "Bañarse 5 minutos con una salida de 8 litros por minuto usa 40 litros.",
+          "Una fuga de 2 litros por hora pierde 48 litros en un día.",
+          "Usar la ropa más tiempo reparte su agua virtual entre más usos.",
+          "Tirar comida también es tirar el agua con que se produjo."
+        ],
+        "conceptos": [
+          { "termino": "Agua virtual", "definicion": "Agua utilizada para producir un bien o servicio." },
+          { "termino": "Consumo directo", "definicion": "Agua que usamos en actividades como beber, cocinar o limpiar." },
+          { "termino": "Satisfactor", "definicion": "Producto o servicio que ayuda a cubrir una necesidad." }
+        ],
+        "preguntas": [
+          { "pregunta": "Una regadera gasta 9 litros por minuto. ¿Cuánta agua se ahorra al pasar de 12 a 7 minutos?", "opciones": ["36 litros", "45 litros", "63 litros"], "correcta": 1, "explicacion": "Son 5 minutos menos: 9 × 5 = 45 litros." },
+          { "pregunta": "¿Cuál es un ejemplo de agua virtual?", "opciones": ["La que bebo", "La que se usó para cultivar el algodón de mi playera", "La de un charco"], "correcta": 1, "explicacion": "Se usó antes, al producir." },
+          { "pregunta": "Una prenda necesitó 2,400 litros. Si se usa 80 veces, ¿cuánta agua corresponde a cada uso?", "opciones": ["20 litros", "30 litros", "300 litros"], "correcta": 1, "explicacion": "2,400 ÷ 80 = 30 litros por uso." }
+        ],
+        "actividad": {
+          "titulo": "Bitácora de agua",
+          "instrucciones": "Con un adulto, estima el agua directa de cuatro actividades de un día. Ordénalas de mayor a menor, calcula el total y propone un cambio. Después nombra dos productos que usaste y tienen agua virtual."
+        }
+      },
+      "docente": "Use problemas de razón, promedio y gráficas con datos del grupo. Aclare que los valores de agua virtual son estimaciones y compare por qué varían entre fuentes.",
+      "familia": "Revisen juntos el recibo del agua: ubiquen el consumo, compárenlo con el anterior y acuerden una meta posible."
+    },
+    {
+      "id": "5u4",
+      "insignia": "Consumidor consciente",
+      "titulo": "El viaje de lo que consumimos",
+      "icono": "🛒",
+      "color": "morado",
+      "resumen": "Sigue el camino de los productos y argumenta decisiones de consumo responsable.",
+      "curriculo": [
+        {
+          "campo": "Ética, Naturaleza y Sociedades",
+          "contenido": "La responsabilidad compartida, el respeto y el consumo sustentable: acciones colectivas a favor de la protección, regeneración y preservación de la biodiversidad y el bienestar socioambiental.",
+          "pda": [
+            "Comprende el largo camino que recorren los productos para llegar a sus hogares, los medios que se utilizan para imponer patrones de consumo y la importancia de consumir lo local, eligiendo lo que compramos de manera responsable y consciente."
+          ],
+          "pagina": "63"
+        },
+        {
+          "campo": "Ética, Naturaleza y Sociedades",
+          "contenido": "Ética y biodiversidad: factores sociales que propician la convivencia armónica con el medio ambiente basada en el respeto, responsabilidad, justicia social y equidad con la naturaleza.",
+          "pda": [
+            "Elige y pone en práctica, de manera crítica, acciones de bienestar común para la regeneración y preservación de su biodiversidad en la vida cotidiana, promoviendo que autoridades, personas y familias de su comunidad, colaboren responsablemente para el logro de tal fin."
+          ],
+          "pagina": "61"
+        }
+      ],
+      "libros": [],
+      "aprende": {
+        "ilustracion": "🛒",
+        "explicacion": [
+          "Antes de llegar a casa, un producto pasa por extracción o cultivo, transformación, transporte, venta, uso y desecho.",
+          "En cada etapa se usan agua, energía y trabajo, y se pueden producir residuos.",
+          "La publicidad busca influir en lo que compramos. Puede crear urgencia, asociar el producto con éxito o usar palabras «verdes» sin demostrarlo.",
+          "Comprar local puede reducir traslados y apoyar a la comunidad, pero también conviene revisar cómo se produjo.",
+          "La responsabilidad se comparte: personas, empresas y autoridades deben actuar según sus posibilidades."
+        ],
+        "ejemplos": [
+          "Un anuncio dice «100 % ecológico» y no explica por qué: hay que pedir evidencia.",
+          "Una cooperativa vende fruta de temporada producida cerca.",
+          "Reparar un balón evita comprar otro.",
+          "Una empresa puede rediseñar su empaque para usar menos material."
+        ],
+        "conceptos": [
+          { "termino": "Ciclo de vida", "definicion": "Etapas de un producto desde que se obtiene su material hasta su desecho o aprovechamiento." },
+          { "termino": "Publicidad engañosa", "definicion": "Mensaje que confunde o afirma cosas que no demuestra." },
+          { "termino": "Responsabilidad compartida", "definicion": "Deber que tienen distintas personas e instituciones según sus posibilidades." }
+        ],
+        "preguntas": [
+          { "pregunta": "¿Cuál afirmación de un anuncio es más verificable?", "opciones": ["«Ama al planeta»", "«Usa 30 % menos plástico que el modelo anterior» y muestra el informe", "«El más verde»"], "correcta": 1, "explicacion": "Incluye un dato y cómo comprobarlo." },
+          { "pregunta": "¿Por qué comprar local no siempre basta?", "opciones": ["Porque lo local nunca sirve", "Porque también importa cómo se produjo", "Porque siempre viaja más lejos"], "correcta": 1, "explicacion": "Hay que considerar todo el ciclo de vida." },
+          { "pregunta": "¿Qué opción reparte mejor la responsabilidad?", "opciones": ["Solo los niños deben reciclar", "La empresa reduce empaque, la autoridad lo recoge y la familia lo separa", "Nadie hace nada"], "correcta": 1, "explicacion": "Cada quien actúa donde puede influir." }
+        ],
+        "actividad": {
+          "titulo": "Detective de anuncios",
+          "instrucciones": "Elige un anuncio con permiso de un adulto. Señala a quién se dirige, qué emoción busca, qué afirma y qué evidencia da. Reescríbelo de forma honesta."
+        }
+      },
+      "docente": "Comparen dos productos que cubren la misma necesidad mediante su ciclo de vida. Promueva que reconozcan qué información falta y quién debería proporcionarla.",
+      "familia": "Antes de la siguiente compra no urgente, esperen un día. Platiquen si todavía la necesitan y qué alternativas hay."
+    }
+  ],
+
+  "juegos": [
+    { "id": "5j1", "unidad": "5u1", "tipo": "misterio", "titulo": "¿Qué servicio se perdió?", "instrucciones": "Lee los datos de la comunidad y descubre qué servicio ambiental perdió. Mientras menos datos pidas, más puntos ganas.", "pregunta": "¿Qué servicio ambiental dejó de recibir la comunidad?",
+      "lugares": [ { "id": "pol", "icono": "🐝", "nombre": "Polinización" }, { "id": "pla", "icono": "🦇", "nombre": "Control de plagas" }, { "id": "agu", "icono": "🏞️", "nombre": "Abastecimiento de agua" }, { "id": "pro", "icono": "🌊", "nombre": "Protección ante fenómenos" }, { "id": "cli", "icono": "🌳", "nombre": "Regulación del clima local" }, { "id": "cul", "icono": "🎨", "nombre": "Recreación y cultura" } ],
+      "rondas": [
+        { "lugar": "pol", "datos": ["Las plantas de calabaza crecen sanas y florecen, pero hay pocos frutos.", "El riego y el suelo están igual que otros años.", "Al mover el polen a mano, sí se forman frutos.", "Se aplicó un insecticida y ya no se ven abejas."], "explicacion": "Las flores necesitaban que se transportara su polen; al faltar abejas disminuyeron los frutos." },
+        { "lugar": "pla", "datos": ["Cada año se pierde más cosecha por hojas mordidas, aunque las plantas nacen bien.", "Aumentó mucho una polilla nocturna.", "La polilla vuela a las horas en que antes cazaban sus depredadores.", "Se destruyó la cueva donde vivían murciélagos que comen insectos."], "explicacion": "Los murciélagos insectívoros mantenían baja la población de polillas." },
+        { "lugar": "agu", "datos": ["Llueve lo mismo que antes, pero el manantial del pueblo dura menos meses.", "Después de cada lluvia, el agua baja rápido y se va turbia.", "El suelo de la ladera está duro y sin hojas.", "Se taló el bosque de la parte alta."], "explicacion": "El bosque ayudaba a que el agua se infiltrara y alimentara el manantial." },
+        { "lugar": "pro", "datos": ["Las tormentas tienen una fuerza parecida a las de antes, pero ahora causan más daños.", "La línea de playa ha retrocedido.", "Las olas llegan con más fuerza a las casas.", "Se rellenó el manglar para construir."], "explicacion": "Las raíces del manglar frenaban el oleaje y sujetaban el suelo." },
+        { "lugar": "cli", "datos": ["En la colonia, las tardes se sienten más calientes que en la colonia vecina.", "La diferencia es mayor en calles anchas de pavimento.", "Las casas gastan más electricidad en enfriar.", "Se quitaron los árboles de la avenida."], "explicacion": "La sombra y la transpiración de los árboles refrescaban el lugar." },
+        { "lugar": "cul", "datos": ["Los campos producen y hay agua, pero una fiesta tradicional dejó de celebrarse.", "Las familias visitan menos el lugar y los artesanos ya no encuentran su fibra.", "Se usaba una palma silvestre para tejer y se paseaba junto al humedal.", "El humedal se cerró y quedó lleno de basura."], "explicacion": "La biodiversidad también sostiene tradiciones, oficios y espacios de convivencia." }
+      ] },
+    { "id": "5j2", "unidad": "5u1", "tipo": "debate", "titulo": "Debate por el humedal", "instrucciones": "Defiende la propuesta respondiendo a cada persona con la mejor razón y evidencia.",
+      "asambleas": [
+        { "titulo": "Proteger el humedal", "propuesta": "Un grupo propone proteger el humedal y permitir solo visitas guiadas.",
+          "personas": [ { "id": "empleo", "icono": "👩‍🍳", "nombre": "Cocinera", "duda": "Si lo protegen, ¿de qué vamos a vivir quienes trabajamos ahí?" }, { "id": "mosco", "icono": "👴", "nombre": "Vecino", "duda": "Un humedal solo trae mosquitos. ¿No sería mejor rellenarlo?" }, { "id": "dato", "icono": "👩‍🔬", "nombre": "Bióloga", "duda": "¿Cómo sabremos si las visitas no lo están dañando?" }, { "id": "justo", "icono": "🧓", "nombre": "Autoridad tradicional", "duda": "Nosotros lo hemos cuidado por generaciones. ¿Van a decidir sin nosotros?" } ],
+          "argumentos": [
+            { "texto": "En un mes de prueba, 14 personas trabajaron como guías o vendieron comida local.", "para": "empleo", "fuerza": 2, "porque": "Presenta un resultado sobre el empleo, que es su preocupación." }, { "texto": "Ya saldrá algún trabajo.", "para": "empleo", "fuerza": 1 },
+            { "texto": "Aquí viven peces, libélulas y murciélagos que comen mosquitos o sus larvas; los recipientes con agua de las casas tienen muchas más larvas en nuestro conteo.", "para": "mosco", "fuerza": 2, "porque": "Usa una observación y aclara dónde estaba el mayor problema." }, { "texto": "Los mosquitos no son tan malos.", "para": "mosco", "fuerza": 1 },
+            { "texto": "Contaremos las mismas aves, en los mismos puntos, antes y durante las visitas, y pararemos si bajan.", "para": "dato", "fuerza": 2, "porque": "Compara de manera justa y define qué harán con el resultado." }, { "texto": "Se notará si algo está mal.", "para": "dato", "fuerza": 1 },
+            { "texto": "La comunidad tendrá voz y voto en el comité, y sus zonas de uso se marcarán en el plan.", "para": "justo", "fuerza": 2, "porque": "Reconoce sus conocimientos y su derecho a participar." }, { "texto": "Les avisaremos lo que se decida.", "para": "justo", "fuerza": 1 },
+            { "texto": "Un artista famoso dijo que le gusta, así que está bien.", "para": "", "fuerza": 0, "falla": "La fama de una persona no es evidencia sobre este problema." }, { "texto": "Si permitimos una casa, mañana no quedará un solo humedal en el mundo.", "para": "", "fuerza": 0, "falla": "Salta de un hecho a una consecuencia enorme sin demostrarla." }
+          ] },
+        { "titulo": "Plantas que no son de aquí", "propuesta": "Proponen retirar una planta invasora y sembrar especies de la región.",
+          "personas": [ { "id": "verde", "icono": "👷", "nombre": "Jardinero", "duda": "Pero es verde y crece rápido. ¿Qué tiene de malo?" }, { "id": "veneno", "icono": "👩‍🌾", "nombre": "Agricultora", "duda": "¿Van a echar veneno cerca de mis cultivos?" }, { "id": "vuelve", "icono": "👨‍🏫", "nombre": "Maestro", "duda": "¿Y si la quitan y vuelve a salir?" }, { "id": "todas", "icono": "👧", "nombre": "Estudiante", "duda": "¿Entonces toda planta de otro lugar es mala?" } ],
+          "argumentos": [
+            { "texto": "Donde está la invasora contamos 3 especies de plantas; donde no está, 11. Además se seca y arde con facilidad.", "para": "verde", "fuerza": 2, "porque": "Compara dos sitios y señala un riesgo." }, { "texto": "Es que no es de aquí.", "para": "verde", "fuerza": 1 },
+            { "texto": "Adultos capacitados la retirarán a mano, antes de que suelte semilla, y avisarán los días.", "para": "veneno", "fuerza": 2, "porque": "Explica el método, el momento y cómo se informará." }, { "texto": "Tendremos cuidado.", "para": "veneno", "fuerza": 1 },
+            { "texto": "Revisaremos cada dos meses durante un año y sembraremos plantas locales para ocupar el espacio.", "para": "vuelve", "fuerza": 2, "porque": "Incluye seguimiento y prevención." }, { "texto": "La quitaremos otra vez.", "para": "vuelve", "fuerza": 1 },
+            { "texto": "No: muchas plantas traídas de fuera no se dispersan ni dañan. Invasora es la que se establece, se multiplica y causa daños.", "para": "todas", "fuerza": 2, "porque": "Distingue con precisión dos conceptos." }, { "texto": "No todas, solo algunas.", "para": "todas", "fuerza": 1 },
+            { "texto": "Solo alguien ignorante preguntaría eso.", "para": "", "fuerza": 0, "falla": "Ofende a la persona y no responde." }, { "texto": "Nadie ha demostrado que sea buena, por lo tanto es mala.", "para": "", "fuerza": 0, "falla": "Que falte evidencia de algo no demuestra lo contrario." }
+          ] }
+      ] },
+    { "id": "5j3", "unidad": "5u2", "tipo": "datos", "titulo": "Laboratorio de datos", "instrucciones": "Lee las gráficas con cuidado. Las barras no tienen el número escrito: usa la escala. Cada pregunta tiene un solo intento.",
+      "graficas": [
+        { "titulo": "Especies de aves observadas (datos simulados)", "unidad": "especies", "maximo": 50, "paso": 10, "etiquetas": ["Parque A", "Parque B", "Lote C", "Arroyo D"], "valores": [30, 40, 10, 45], "nombre1": "Conteo",
+          "preguntas": [
+            { "pregunta": "¿Cuántas veces es mayor el número de especies del Parque B que el del Lote C?", "opciones": ["3 veces", "4 veces", "30 veces"], "correcta": 1, "explicacion": "40 ÷ 10 = 4." },
+            { "pregunta": "¿Cuál es el promedio de los cuatro lugares?", "opciones": ["31.25 especies", "41.25 especies", "125 especies"], "correcta": 0, "explicacion": "(30 + 40 + 10 + 45) ÷ 4 = 125 ÷ 4 = 31.25." },
+            { "pregunta": "¿Qué NO se puede concluir solo con esta gráfica?", "opciones": ["El Arroyo D tiene más especies observadas", "Por qué el Lote C tiene menos especies", "El Lote C tiene menos que el Parque A"], "correcta": 1, "explicacion": "La gráfica muestra cuántas, no explica la causa." } ] },
+        { "titulo": "Nidos contados antes y después de un corredor (datos simulados)", "unidad": "nidos", "maximo": 40, "paso": 5, "etiquetas": ["Zona 1", "Zona 2", "Zona 3"], "valores": [10, 20, 15], "valores2": [25, 20, 30], "nombre1": "Antes", "nombre2": "Después",
+          "preguntas": [
+            { "pregunta": "¿En qué zona creció más la cantidad de nidos, en porcentaje?", "opciones": ["Zona 1", "Zona 2", "Zona 3"], "correcta": 0, "explicacion": "Zona 1 pasó de 10 a 25 (150 % más); Zona 3, de 15 a 30 (100 % más)." },
+            { "pregunta": "Las zonas 1 y 3 están conectadas al corredor; la 2, no. ¿Para qué sirve observar la zona 2?", "opciones": ["Para comparar con un lugar que no recibió el cambio", "Para nada", "Para hacer más bonita la gráfica"], "correcta": 0, "explicacion": "Es una zona de comparación." },
+            { "pregunta": "¿Cuál conclusión es la más cuidadosa?", "opciones": ["Es seguro que el corredor causó todo", "Los datos son compatibles con que el corredor ayudó; conviene repetir el conteo", "El corredor no sirvió"], "correcta": 1, "explicacion": "Los datos apoyan la idea, pero un conteo puede variar." } ] },
+        { "titulo": "Captura de peces por año (datos simulados)", "unidad": "toneladas", "maximo": 100, "paso": 20, "etiquetas": ["Año 1", "Año 2", "Año 3", "Año 4", "Año 5"], "valores": [60, 80, 90, 50, 30], "nombre1": "Captura",
+          "preguntas": [
+            { "pregunta": "Entre el año 3 y el 5, ¿qué fracción de la captura se perdió?", "opciones": ["Un tercio", "La mitad", "Dos tercios"], "correcta": 2, "explicacion": "Bajó de 90 a 30: perdió 60 de 90, que son dos tercios." },
+            { "pregunta": "Los pescadores dicen que trabajan más horas que antes. ¿Qué hace más probable ese dato?", "opciones": ["Que haya menos peces", "Que haya más peces", "Que no haya relación con el mar"], "correcta": 0, "explicacion": "Si se trabaja más y se captura menos, es probable que haya disminuido la población." },
+            { "pregunta": "¿Qué medida permitiría comprobar si la población se recupera?", "opciones": ["Dejar de contar", "Cerrar una zona por temporadas y comparar sus conteos con otra zona parecida", "Cambiar el color de las lanchas"], "correcta": 1, "explicacion": "Hay una acción y una comparación." } ] }
+      ] },
+    { "id": "5j4", "unidad": "5u2", "tipo": "caso", "titulo": "Archivo de especies en riesgo", "instrucciones": "Elige solo las evidencias que sirven y distingue causa de coincidencia.",
+      "casos": [
+        { "titulo": "Los murciélagos que se fueron", "relato": "En dos años, los murciélagos de una cueva bajaron de unos 4,000 a 900. La comunidad quiere saber por qué.",
+          "pistas": [ { "texto": "Los conteos se hicieron en el mismo mes y con el mismo método.", "util": true, "porque": "Permite comparar los números." }, { "texto": "Desde hace dos años entran grupos con luces y música a la cueva.", "util": true, "porque": "Coincide con el inicio y puede molestarlos." }, { "texto": "En una cueva cercana, sin visitas, el número casi no cambió.", "util": true, "porque": "Sirve de comparación y descarta algunas causas de toda la región." }, { "texto": "En otoño se encontraron crías abandonadas cerca de la entrada tras las visitas.", "util": true, "porque": "Es una señal directa de perturbación." }, { "texto": "Los murciélagos aparecen en películas de miedo.", "util": false, "porque": "No informa sobre la cueva." }, { "texto": "En el pueblo abrió una papelería.", "util": false, "porque": "Ocurrió al mismo tiempo, pero no hay relación conocida." }, { "texto": "La cueva está al norte del pueblo.", "util": false, "porque": "Siempre ha estado ahí: no explica el cambio." }, { "texto": "Este año hubo dos eclipses.", "util": false, "porque": "Es una coincidencia sin relación mostrada." } ],
+          "preguntas": [ { "pregunta": "¿Qué porcentaje aproximado de la población se perdió?", "opciones": ["Cerca de 22 %", "Cerca de 50 %", "Cerca de 78 %"], "correcta": 2, "explicacion": "Se perdieron 3,100 de 4,000: 77.5 %." }, { "pregunta": "¿Cuál es la mejor hipótesis?", "opciones": ["Las visitas ruidosas los perturban", "La papelería los ahuyentó", "Los eclipses"], "correcta": 0, "explicacion": "Es la que está apoyada por la comparación y las señales." }, { "pregunta": "¿Cómo pondrían a prueba esa hipótesis?", "opciones": ["Cerrando la cueva a las visitas y repitiendo los conteos en ambas cuevas", "Preguntando quién teme a los murciélagos", "Contando una sola vez"], "correcta": 0, "explicacion": "Cambia solo la causa posible y compara." } ] },
+        { "titulo": "La laguna verde", "relato": "Una laguna se puso verde, huele mal y aparecieron peces muertos. Ocurre desde hace tres veranos.",
+          "pistas": [ { "texto": "Los fertilizantes de los campos llegan a la laguna con el riego.", "util": true, "porque": "Aportan nutrientes que pueden hacer crecer algas." }, { "texto": "En la noche, el oxígeno del agua baja mucho.", "util": true, "porque": "La falta de oxígeno puede matar a los peces." }, { "texto": "La laguna vecina, sin campos alrededor, está clara.", "util": true, "porque": "Permite comparar." }, { "texto": "Se vende más fertilizante desde hace tres años.", "util": true, "porque": "Coincide con el inicio y se relaciona con el mecanismo." }, { "texto": "El color verde es el favorito del equipo local.", "util": false, "porque": "No tiene relación." }, { "texto": "Hay patos en las dos lagunas.", "util": false, "porque": "Si están en ambas, no explican la diferencia." }, { "texto": "La laguna tiene forma redonda.", "util": false, "porque": "No cambió." }, { "texto": "El verano tiene días largos.", "util": false, "porque": "También los tiene la laguna vecina y la de años anteriores." } ],
+          "preguntas": [ { "pregunta": "¿Cuál es el orden más probable?", "opciones": ["Peces muertos → fertilizante → algas", "Fertilizante → algas → menos oxígeno → peces muertos", "Algas → patos → fertilizante"], "correcta": 1, "explicacion": "El exceso de nutrientes aumenta las algas; al respirar y descomponerse se gasta el oxígeno." }, { "pregunta": "¿Por qué los patos no explican el problema?", "opciones": ["Porque están en las dos lagunas y solo una está verde", "Porque son aves", "Porque vuelan"], "correcta": 0, "explicacion": "Un factor igual en ambas no explica la diferencia." }, { "pregunta": "¿Qué solución atiende la causa?", "opciones": ["Pintar el agua", "Usar el fertilizante necesario y dejar una franja de plantas en la orilla", "Meter más peces"], "correcta": 1, "explicacion": "Disminuye los nutrientes que llegan a la laguna." } ] }
+      ] },
+    { "id": "5j5", "unidad": "5u3", "tipo": "presupuesto", "titulo": "Presupuesto de agua", "instrucciones": "Elige una opción por actividad. Debes cubrir el bienestar mínimo sin pasarte de litros. Haz tus cuentas: el total no se muestra hasta comprobar.",
+      "medida": "litros", "nombrePuntos": "bienestar",
+      "niveles": [
+        { "titulo": "Un día en casa (4 personas)", "texto": "Cifras simuladas para toda la familia.", "limite": 420, "minimo": 20,
+          "categorias": [
+            { "nombre": "Baño", "icono": "🚿", "opciones": [ { "texto": "10 min por persona", "valor": 320, "puntos": 8 }, { "texto": "6 min por persona", "valor": 190, "puntos": 7 }, { "texto": "Solo una persona se baña", "valor": 60, "puntos": 2 } ] },
+            { "nombre": "Sanitario", "icono": "🚽", "opciones": [ { "texto": "Con fuga", "valor": 200, "puntos": 4 }, { "texto": "Reparado", "valor": 110, "puntos": 5 }, { "texto": "Reparado y con agua reutilizada del baño", "valor": 50, "puntos": 5 } ] },
+            { "nombre": "Cocina y trastes", "icono": "🍽️", "opciones": [ { "texto": "Llave abierta", "valor": 130, "puntos": 5 }, { "texto": "Con tinas", "valor": 70, "puntos": 5 }, { "texto": "Sin lavar", "valor": 10, "puntos": 0 } ] },
+            { "nombre": "Plantas", "icono": "🪴", "opciones": [ { "texto": "Manguera al mediodía", "valor": 120, "puntos": 2 }, { "texto": "Cubeta al anochecer", "valor": 40, "puntos": 3 }, { "texto": "No regar", "valor": 0, "puntos": 0 } ] } ],
+          "explicacion": "Por ejemplo: baño de 6 min (190), sanitario con agua reutilizada (50), tinas (70) y cubeta (40) = 350 litros y 20 de bienestar." },
+        { "titulo": "La escuela en temporada seca", "texto": "Cifras simuladas para un día de 200 personas.", "limite": 2600, "minimo": 27,
+          "categorias": [
+            { "nombre": "Beber", "icono": "🥤", "opciones": [ { "texto": "Agua simple para todos en bebedero", "valor": 400, "puntos": 10 }, { "texto": "Solo media ración", "valor": 200, "puntos": 3 }, { "texto": "Garrafones que se desbordan", "valor": 620, "puntos": 10 } ] },
+            { "nombre": "Sanitarios", "icono": "🚻", "opciones": [ { "texto": "Comunes, sin revisar", "valor": 2000, "puntos": 8 }, { "texto": "Reparados", "valor": 1500, "puntos": 8 }, { "texto": "Cerrar la mitad", "valor": 750, "puntos": 2 } ] },
+            { "nombre": "Lavado de manos", "icono": "🧼", "opciones": [ { "texto": "Llave siempre abierta", "valor": 900, "puntos": 6 }, { "texto": "Cerrar al enjabonar", "valor": 400, "puntos": 6 }, { "texto": "No lavarse", "valor": 0, "puntos": 0 } ] },
+            { "nombre": "Áreas verdes", "icono": "🌳", "opciones": [ { "texto": "Pasto regado a diario", "valor": 900, "puntos": 3 }, { "texto": "Plantas locales, riego por goteo", "valor": 250, "puntos": 3 }, { "texto": "Dejarlas secar", "valor": 0, "puntos": 0 } ] } ],
+          "explicacion": "Bebedero (400) + sanitarios reparados (1,500) + cerrar al enjabonar (400) + goteo (250) = 2,550 litros y 27 de bienestar." },
+        { "titulo": "Agua virtual de una fiesta", "texto": "Cifras simuladas para 20 personas. Aquí cuenta el agua usada para producir.", "limite": 9000, "minimo": 24,
+          "categorias": [
+            { "nombre": "Comida", "icono": "🌮", "opciones": [ { "texto": "Solo carne de res", "valor": 16000, "puntos": 8 }, { "texto": "Tacos de frijol, queso y verduras", "valor": 4200, "puntos": 8 }, { "texto": "Nada de comer", "valor": 0, "puntos": 0 } ] },
+            { "nombre": "Bebida", "icono": "🍹", "opciones": [ { "texto": "Refresco embotellado", "valor": 1700, "puntos": 5 }, { "texto": "Agua de fruta de temporada", "valor": 700, "puntos": 5 }, { "texto": "Agua simple", "valor": 20, "puntos": 4 } ] },
+            { "nombre": "Recuerdo", "icono": "🎁", "opciones": [ { "texto": "Camiseta de algodón para cada quien", "valor": 50000, "puntos": 6 }, { "texto": "Una plantita local", "valor": 300, "puntos": 5 }, { "texto": "Sin recuerdo", "valor": 0, "puntos": 2 } ] },
+            { "nombre": "Platos", "icono": "🍽️", "opciones": [ { "texto": "Desechables de cartón", "valor": 900, "puntos": 3 }, { "texto": "Reutilizables, lavados con tinas", "valor": 120, "puntos": 4 }, { "texto": "De plástico de un uso", "valor": 400, "puntos": 1 } ] },
+            { "nombre": "Sobras", "icono": "🥡", "opciones": [ { "texto": "Se tira la mitad y se compra más", "valor": 3500, "puntos": 2 }, { "texto": "Calcular porciones y repartir", "valor": 200, "puntos": 3 }, { "texto": "Cocinar de más «por si acaso»", "valor": 1800, "puntos": 3 } ] } ],
+          "explicacion": "Tacos de frijol (4,200), agua de fruta (700), plantita (300), reutilizables (120) y repartir porciones (200) = 5,520 litros y 25 de bienestar." }
+      ] },
+    { "id": "5j6", "unidad": "5u3", "tipo": "cadena", "titulo": "La vida secreta de los objetos", "instrucciones": "Ordena las etapas que recorre cada producto, descarta las intrusas y predice el efecto de un cambio.",
+      "rondas": [
+        { "titulo": "Una playera de algodón", "texto": "Ordena desde el cultivo hasta un segundo uso.", "cadena": [ { "icono": "🌱", "nombre": "Cultivo del algodón" }, { "icono": "🧵", "nombre": "Hilado y tejido" }, { "icono": "🎨", "nombre": "Teñido" }, { "icono": "🚚", "nombre": "Transporte" }, { "icono": "👕", "nombre": "Uso durante años" }, { "icono": "🧽", "nombre": "Trapo reutilizado" } ], "intrusos": [ { "icono": "🛢️", "nombre": "Extracción de petróleo para plástico" }, { "icono": "🥚", "nombre": "Incubación" }, { "icono": "🌋", "nombre": "Erupción" } ], "explicacion": "Cultivo y teñido suelen necesitar mucha agua. Usarla más tiempo reparte esa agua entre más usos.",
+          "prediccion": { "pregunta": "Si cada persona usa su ropa el doble de tiempo, ¿qué es más probable?", "opciones": ["Baja la cantidad de ropa nueva que se necesita producir", "Sube el cultivo de algodón", "El teñido gasta el doble"], "correcta": 0, "explicacion": "Se necesitan menos prendas nuevas, y con ello menos agua." } },
+        { "titulo": "Un vaso con agua en la ciudad", "texto": "Ordena el recorrido del agua hasta volver limpia a la naturaleza.", "cadena": [ { "icono": "🏞️", "nombre": "Presa o pozo" }, { "icono": "🧪", "nombre": "Potabilización" }, { "icono": "🚰", "nombre": "Red de tuberías" }, { "icono": "🏠", "nombre": "Uso en casa" }, { "icono": "🕳️", "nombre": "Drenaje" }, { "icono": "♻️", "nombre": "Planta de tratamiento" } ], "intrusos": [ { "icono": "🌵", "nombre": "Tallo del saguaro" }, { "icono": "🔥", "nombre": "Incineración" }, { "icono": "⛏️", "nombre": "Mina" } ], "explicacion": "El agua se limpia antes de usarla y debe tratarse después. Cada etapa requiere energía y mantenimiento.",
+          "prediccion": { "pregunta": "Si la red pierde 30 de cada 100 litros, ¿cuántos hay que potabilizar para que lleguen 70?", "opciones": ["70", "100", "130"], "correcta": 1, "explicacion": "De 100 se pierden 30 y llegan 70. Las fugas desperdician agua y la energía para limpiarla." } },
+        { "titulo": "Una tortilla de maíz", "texto": "Ordena del campo a la mesa, hasta aprovechar el residuo.", "cadena": [ { "icono": "🌧️", "nombre": "Lluvia o riego" }, { "icono": "🌽", "nombre": "Milpa" }, { "icono": "🫘", "nombre": "Nixtamal y masa" }, { "icono": "🫓", "nombre": "Tortilla" }, { "icono": "🍽️", "nombre": "Comida" }, { "icono": "🪱", "nombre": "Composta de las sobras" } ], "intrusos": [ { "icono": "🧴", "nombre": "Envase inflado" }, { "icono": "🚀", "nombre": "Lanzamiento" }, { "icono": "🧊", "nombre": "Glaciar" } ], "explicacion": "La composta devuelve nutrientes al suelo; así se parece más a un ciclo que a una línea.",
+          "prediccion": { "pregunta": "Se tira 1 de cada 5 tortillas. Para producirlas todas se usaron 500 litros. ¿Cuánta agua se desperdició con las tiradas?", "opciones": ["5 litros", "100 litros", "250 litros"], "correcta": 1, "explicacion": "500 ÷ 5 = 100 litros." } }
+      ] },
+    { "id": "5j7", "unidad": "5u4", "tipo": "gestion", "titulo": "Cooperativa consciente", "instrucciones": "Dirige una cooperativa escolar durante 8 decisiones. Cuida ambiente, salud, comunidad y confianza sin quedarte sin fondo.", "meta": 65, "dinero": 35,
+      "indicadores": [ { "id": "amb", "nombre": "Ambiente", "icono": "🌎", "inicio": 45 }, { "id": "salud", "nombre": "Salud", "icono": "🍎", "inicio": 45 }, { "id": "com", "nombre": "Comunidad", "icono": "🤝", "inicio": 45 }, { "id": "conf", "nombre": "Confianza", "icono": "🔎", "inicio": 45 } ],
+      "mensajeFinal": "Consumir de forma responsable implica mirar todo el camino del producto y decir la verdad sobre él.",
+      "eventos": [
+        { "icono": "🍊", "titulo": "¿Qué fruta comprar?", "texto": "Hay tres proveedores.", "opciones": [ { "texto": "Fruta de temporada de productores cercanos", "costo": 12, "efectos": { "com": 14, "amb": 8, "salud": 8 }, "consecuencia": "Viajó poco y apoyó a la región." }, { "texto": "Fruta importada en charolas", "costo": 10, "efectos": { "salud": 6, "amb": -10 }, "consecuencia": "Es nutritiva, pero viajó mucho y trae empaques." }, { "texto": "Frituras con mejor ganancia", "gana": 12, "efectos": { "salud": -14, "amb": -6 }, "consecuencia": "Ganaste dinero, pero afectó la salud y dejó basura." } ] },
+        { "icono": "📣", "titulo": "Un anuncio llamativo", "texto": "Quieren vender un jugo con mucha azúcar.", "opciones": [ { "texto": "Decir con claridad cuánta azúcar tiene", "efectos": { "conf": 14, "salud": 4 }, "consecuencia": "Se vendió menos, pero confían en ustedes." }, { "texto": "Anunciarlo como «100 % natural»", "gana": 14, "efectos": { "conf": -18, "salud": -8 }, "consecuencia": "El anuncio confundía y hubo quejas." }, { "texto": "Cambiarlo por agua de fruta sin azúcar", "costo": 8, "efectos": { "salud": 14, "conf": 6 }, "consecuencia": "Una opción más saludable." } ] },
+        { "icono": "🥤", "titulo": "Vasos", "texto": "Se usan 150 vasos al día.", "opciones": [ { "texto": "Descuento a quien traiga el suyo", "costo": 6, "efectos": { "amb": 14, "com": 4 }, "consecuencia": "Bajó mucho la basura." }, { "texto": "Vasos «verdes» que nadie puede compostar aquí", "costo": 10, "efectos": { "amb": 1, "conf": -6 }, "consecuencia": "Terminaron en la basura común." }, { "texto": "Los más baratos de plástico", "gana": 4, "efectos": { "amb": -14 }, "consecuencia": "Aumentaron los residuos." } ] },
+        { "icono": "🧾", "titulo": "Cuentas claras", "texto": "El grupo pregunta en qué se usa el dinero.", "opciones": [ { "texto": "Publicar ingresos y gastos cada semana", "costo": 2, "efectos": { "conf": 16, "com": 6 }, "consecuencia": "Todos pueden revisarlo." }, { "texto": "Decir que todo está bien", "efectos": { "conf": -10 }, "consecuencia": "Sin datos surgieron dudas." }, { "texto": "Mostrar solo las ganancias", "efectos": { "conf": -4 }, "consecuencia": "Faltó información." } ] },
+        { "icono": "🍱", "titulo": "Sobra comida", "texto": "Cada día sobran 10 tortas.", "opciones": [ { "texto": "Registrar pedidos y preparar lo necesario", "gana": 8, "efectos": { "amb": 10, "com": 2 }, "consecuencia": "Se desperdició menos comida, agua y dinero." }, { "texto": "Repartir lo que sobre en buen estado", "efectos": { "com": 8, "amb": 4 }, "consecuencia": "Se aprovechó, aunque sigue sobrando." }, { "texto": "Tirarlas", "efectos": { "amb": -12, "com": -6 }, "consecuencia": "Se tiró también el agua con que se produjeron." } ] },
+        { "icono": "🏭", "titulo": "Patrocinio", "texto": "Una marca ofrece dinero por llenar la escuela de anuncios.", "opciones": [ { "texto": "Aceptar solo apoyo sin publicidad dirigida a niños", "gana": 8, "efectos": { "conf": 6, "salud": 2 }, "consecuencia": "Llegó un apoyo menor con reglas claras." }, { "texto": "Aceptar todo", "gana": 30, "efectos": { "salud": -12, "conf": -10 }, "consecuencia": "Los anuncios influyeron en lo que se compra." }, { "texto": "Rechazar y organizar una feria de intercambio", "costo": 4, "efectos": { "com": 12, "amb": 8 }, "consecuencia": "Se reutilizaron juguetes y libros." } ] },
+        { "icono": "👩‍🌾", "titulo": "Precio justo", "texto": "La productora dice que no cubre sus costos.", "opciones": [ { "texto": "Revisar juntos las cuentas y acordar un precio justo", "costo": 10, "efectos": { "com": 14, "conf": 8 }, "consecuencia": "El acuerdo puede mantenerse." }, { "texto": "Cambiarla por la opción más barata", "gana": 6, "efectos": { "com": -14, "amb": -4 }, "consecuencia": "Perdió su venta y el producto viene de lejos." }, { "texto": "Pedirle que espere un año", "efectos": { "com": -8, "conf": -4 }, "consecuencia": "No pudo seguir en esas condiciones." } ] },
+        { "icono": "♻️", "titulo": "¿Qué medir?", "texto": "Quieren saber si mejoraron.", "opciones": [ { "texto": "Pesar residuos y encuestar cada mes, y publicar el resultado", "costo": 6, "efectos": { "conf": 12, "amb": 10, "salud": 4 }, "consecuencia": "Con datos pudieron corregir." }, { "texto": "Solo tomar fotos bonitas", "efectos": { "conf": -6 }, "consecuencia": "No demuestran si hubo cambios." }, { "texto": "Medir una vez y guardar el dato", "costo": 2, "efectos": { "amb": 2, "conf": -2 }, "consecuencia": "Un solo dato no permite comparar." } ] }
+      ] }
+  ],
+
+  "experimentos": [
+    {
+      "id": "5e1", "unidad": "5u1", "nombre": "¿Cuántos hay sin contarlos todos?",
+      "proposito": "Estimar una población con el método de marcar y recapturar.",
+      "supervision": true,
+      "aviso": "Un adulto cuida que nadie se lleve semillas a la boca, nariz u oídos.",
+      "materiales": ["Un puñado de frijoles claros (entre 80 y 120)", "Una bolsa de papel", "Plumón", "Un cuaderno"],
+      "procedimiento": ["Sin contar el total, pongan los frijoles en la bolsa.", "Saquen 20, márquenlos con plumón y regrésenlos. Mezclen bien.", "Sin ver, saquen 20 y cuenten cuántos tienen marca.", "Calculen: 20 × 20 ÷ marcados. Esa es la estimación. Si salieron 0, repitan.", "Cuenten todos los frijoles y comparen."],
+      "registro": { "tipo": "grafica", "pregunta": "¿Cuál fue su estimación y cuál el total real?", "etiquetas": ["Estimación", "Total real"], "unidad": "frijoles", "textoMayor": "El valor más alto" },
+      "explicacion": "La proporción de marcados en la muestra se parece a la de toda la población. Por azar puede variar; repetir y promediar ayuda. Quienes estudian fauna usan métodos parecidos, con permisos.",
+      "reflexion": ["¿Qué tan lejos estuvo la estimación?", "¿Qué pasaría si las marcas se borraran?"],
+      "relacion": "Conocer cuántos individuos hay permite saber si una población aumenta o está en riesgo."
+    },
+    {
+      "id": "5e2", "unidad": "5u2", "nombre": "El hábitat en pedazos",
+      "proposito": "Medir cómo aumenta el borde cuando un hábitat se fragmenta.",
+      "supervision": true,
+      "aviso": "Usen tijeras de punta redonda con un adulto cerca.",
+      "materiales": ["Una hoja blanca", "Una regla", "Tijeras de punta redonda", "Lápiz y colores"],
+      "procedimiento": ["Recorten un cuadrado de 16 cm por lado: es un hábitat.", "Midan su perímetro y calculen su área.", "Córtenlo en 4 cuadrados iguales y sumen los perímetros.", "Corten cada uno en 4 y vuelvan a sumar los 16 perímetros.", "Coloreen una orilla de 1 cm en cada pedazo y observen cuánto «interior» queda."],
+      "registro": { "tipo": "grafica", "pregunta": "¿Cuál fue la suma de los perímetros?", "etiquetas": ["1 pedazo", "4 pedazos", "16 pedazos"], "unidad": "cm", "textoMayor": "Con más borde" },
+      "explicacion": "El área total no cambia, pero el perímetro pasa de 64 a 128 y a 256 cm. Con más borde entra más calor, ruido y viento, y queda menos interior protegido.",
+      "reflexion": ["¿Qué especies perderían más?", "¿Cómo ayudaría un corredor?"],
+      "relacion": "No solo importa cuánto terreno se conserva, sino también qué tan conectado está."
+    },
+    {
+      "id": "5e3", "unidad": "5u3", "nombre": "El agua que se escapa",
+      "proposito": "Medir cuánta agua se evapora con y sin cubierta.",
+      "supervision": true,
+      "aviso": "Un adulto elige un lugar seguro y revisa los vasos. No beban esa agua.",
+      "materiales": ["Dos vasos iguales", "Agua de la llave", "Un plato pequeño para tapar", "Una regla", "Plumón"],
+      "procedimiento": ["Pongan la misma altura de agua en los dos vasos y márquenla.", "Tapen uno con el plato.", "Déjenlos juntos en un lugar cálido, sin mover, durante 3 días.", "Midan cuántos milímetros bajó el agua en cada uno.", "Usen el agua para una planta."],
+      "registro": { "tipo": "grafica", "pregunta": "¿Cuántos milímetros bajó el agua?", "etiquetas": ["Sin tapa", "Con tapa"], "unidad": "mm", "textoMayor": "Perdió más" },
+      "explicacion": "El agua se evapora desde su superficie. La tapa reduce el aire que se lleva el vapor, por eso se pierde menos.",
+      "reflexion": ["¿Qué variables mantuvieron iguales?", "¿Cómo aplicarían esto al riego o a los tinacos?"],
+      "relacion": "En climas cálidos, tapar recipientes y cubrir el suelo con hojas ayuda a conservar el agua."
+    },
+    {
+      "id": "5e4", "unidad": "5u4", "nombre": "El mapa de mi despensa",
+      "proposito": "Investigar de dónde vienen los productos y analizar los datos.",
+      "supervision": true,
+      "aviso": "Un adulto elige empaques limpios, sin vidrio ni productos de limpieza. No se necesita comprar nada.",
+      "materiales": ["10 empaques limpios y vacíos", "Una lupa (si tienes)", "Un cuaderno", "Lápiz y colores"],
+      "procedimiento": ["Busquen en cada empaque dónde se produjo.", "Clasifíquenlos: misma entidad, otra entidad de México o de otro país. Si no dice, anótenlo aparte.", "Cuenten cada grupo.", "Elijan uno y dibujen su posible recorrido.", "Escriban una pregunta que la etiqueta no responde."],
+      "registro": { "tipo": "grafica", "pregunta": "¿Cuántos productos hubo en cada grupo?", "etiquetas": ["Mi entidad", "Otra entidad", "Otro país", "No dice"], "unidad": "productos", "textoMayor": "El grupo más numeroso" },
+      "explicacion": "Los productos pueden recorrer distancias muy diferentes. Una muestra de 10 no representa todo lo que consumen, pero ayuda a hacer preguntas.",
+      "reflexion": ["¿Qué te sorprendió?", "¿Qué información deberían incluir las etiquetas?"],
+      "relacion": "Elegir con información reduce impactos y anima a las empresas a mejorar."
+    }
+  ],
+
+  "retos": [
+    { "id": "5r1", "unidad": "5u1", "titulo": "Campaña de un servicio invisible", "explicacion": "Muchos servicios ambientales se notan hasta que faltan.", "instrucciones": ["Elige un servicio ambiental de tu región e investiga en dos fuentes.", "Crea un cartel o audio de un minuto con un dato, su fuente y una acción.", "Compártelo con tu grupo, sin publicar datos personales."], "dias": 0, "evidencia": "¿Cómo comprobaste que tu información es confiable?" },
+    { "id": "5r2", "unidad": "5u2", "titulo": "Monitor de biodiversidad", "explicacion": "Observar con método permite notar cambios.", "instrucciones": ["Con un adulto, elige un punto seguro y una hora.", "Durante 5 días observa 5 minutos y anota qué aves o insectos ves y cuántos.", "Marca los días, haz una gráfica y escribe una pregunta."], "dias": 5, "evidencia": "¿Qué patrón viste y qué dato te falta para explicarlo?" },
+    { "id": "5r3", "unidad": "5u3", "titulo": "Meta de 5 días", "explicacion": "Una meta medible es más fácil de cumplir.", "instrucciones": ["Con tu familia elige una actividad y estima sus litros.", "Define una meta, por ejemplo reducir 15 %.", "Aplícala 5 días, marca cada uno y calcula si la lograron."], "dias": 5, "evidencia": "¿Qué porcentaje lograron y qué lo hizo fácil o difícil?" },
+    { "id": "5r4", "unidad": "5u4", "titulo": "Carta con responsables", "explicacion": "Los cambios avanzan cuando cada quien asume su parte.", "instrucciones": ["Con tu grupo elijan un producto de la cooperativa o de casa.", "Escriban una carta respetuosa que explique el problema, muestre evidencia y pida algo posible a quien pueda cambiarlo.", "Revísenla con un adulto, que decide si se entrega."], "dias": 0, "evidencia": "¿A quién le corresponde actuar y qué harás tú?" }
+  ]
+}
