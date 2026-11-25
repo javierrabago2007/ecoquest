@@ -64,7 +64,7 @@
           { "termino": "Sequía", "definicion": "Cuando pasa mucho tiempo sin llover y falta agua." }
         ],
         "preguntas": [
-          { "pregunta": "¿Quiénes necesitan agua para vivir?", "opciones": ["Solo las personas", "Personas, animales y plantas", "Solo las plantas"], "correcta": 1, "explicacion": "Todos los seres vivos necesitamos agua." },
+          { "pregunta": "¿Quiénes necesitan agua para vivir?", "opciones": ["Solo las personas y sus mascotas", "Personas, animales y plantas", "Solo las plantas"], "correcta": 1, "explicacion": "Todos los seres vivos necesitamos agua." },
           { "pregunta": "¿Qué es mejor tomar cuando tienes sed?", "opciones": ["Refresco", "Agua simple", "Jugo con mucha azúcar"], "correcta": 1, "explicacion": "El agua simple hidrata tu cuerpo y no tiene azúcar." },
           { "pregunta": "¿Qué haces mientras te cepillas los dientes?", "opciones": ["Cierro la llave", "Dejo la llave abierta"], "correcta": 0, "explicacion": "Cerrar la llave evita desperdiciar mucha agua." }
         ],
@@ -186,9 +186,9 @@
           { "termino": "Naturaleza", "definicion": "Todo lo que no hicieron las personas: plantas, animales, agua, aire, suelo y cielo." }
         ],
         "preguntas": [
-          { "pregunta": "¿Qué nos dan los árboles?", "opciones": ["Sombra y aire limpio", "Basura", "Ruido"], "correcta": 0, "explicacion": "Los árboles dan sombra, refrescan y ayudan a limpiar el aire." },
-          { "pregunta": "Si ves una hormiga, ¿qué haces?", "opciones": ["La aplasto", "La observo sin lastimarla"], "correcta": 1, "explicacion": "Observar sin lastimar es una forma de respeto." },
-          { "pregunta": "¿Qué pasa si tiramos basura en el monte?", "opciones": ["No pasa nada", "Dañamos a plantas y animales"], "correcta": 1, "explicacion": "La basura ensucia el suelo y el agua, y puede lastimar a los animales." }
+          { "pregunta": "¿Qué nos dan los árboles?", "opciones": ["Sombra y aire limpio", "Basura y mucho humo negro", "Ruido"], "correcta": 0, "explicacion": "Los árboles dan sombra, refrescan y ayudan a limpiar el aire." },
+          { "pregunta": "Si ves una hormiga, ¿qué haces?", "opciones": ["La piso o la guardo en un frasco", "La observo sin lastimarla"], "correcta": 1, "explicacion": "Observar sin lastimar es una forma de respeto." },
+          { "pregunta": "¿Qué pasa si tiramos basura en el monte?", "opciones": ["No pasa nada, porque el monte es grande", "Dañamos a plantas y animales"], "correcta": 1, "explicacion": "La basura ensucia el suelo y el agua, y puede lastimar a los animales." }
         ],
         "actividad": {
           "titulo": "Mi ser vivo favorito",
@@ -309,7 +309,7 @@
         ],
         "preguntas": [
           { "pregunta": "Hace mucho calor. ¿Qué haces?", "opciones": ["Tomo agua y busco la sombra", "Corro al sol al mediodía"], "correcta": 0, "explicacion": "El agua y la sombra protegen tu cuerpo del calor." },
-          { "pregunta": "¿Qué ropa conviene en un día caluroso?", "opciones": ["Suéter grueso y oscuro", "Ropa ligera y clara, y gorra"], "correcta": 1, "explicacion": "La ropa clara y ligera se calienta menos." },
+          { "pregunta": "¿Qué ropa conviene en un día caluroso?", "opciones": ["Suéter grueso y oscuro, sin gorra", "Ropa ligera y clara, y gorra"], "correcta": 1, "explicacion": "La ropa clara y ligera se calienta menos." },
           { "pregunta": "Si te sientes mareado por el calor, ¿qué haces?", "opciones": ["Me quedo callado", "Aviso a un adulto"], "correcta": 1, "explicacion": "Un adulto puede ayudarte a refrescarte y cuidarte." }
         ],
         "actividad": {
@@ -338,7 +338,7 @@
             "Establece relaciones entre la intensidad del sonido, la generación de problemas auditivos y la contaminación auditiva; propone y difunde medidas para el cuidado de la salud.",
             "Indaga cómo fabricar un juguete o instrumento musical que produzca sonido, construye uno y explica su funcionamiento y las características del sonido que produce."
           ],
-          "pagina": 43
+          "pagina": "43-44"
         }
       ],
       "libros": [
@@ -365,7 +365,7 @@
           { "termino": "Ruido", "definicion": "Sonido molesto que, si es muy fuerte, puede lastimar los oídos." }
         ],
         "preguntas": [
-          { "pregunta": "¿Cómo podemos producir un sonido?", "opciones": ["Golpeando, soplando o rasgando", "Solo mirando"], "correcta": 0, "explicacion": "Al golpear un tambor, soplar una flauta o rasgar una guitarra se produce sonido." },
+          { "pregunta": "¿Cómo podemos producir un sonido?", "opciones": ["Golpeando, soplando o rasgando", "Solo mirando un objeto sin tocarlo"], "correcta": 0, "explicacion": "Al golpear un tambor, soplar una flauta o rasgar una guitarra se produce sonido." },
           { "pregunta": "¿Qué sonido es más fuerte?", "opciones": ["Una sirena de ambulancia", "Un susurro"], "correcta": 0, "explicacion": "La sirena tiene mucho volumen para que todos la escuchen." },
           { "pregunta": "¿Qué ayuda a cuidar tus oídos?", "opciones": ["Escuchar música muy fuerte", "Bajar el volumen"], "correcta": 1, "explicacion": "Un volumen bajo protege tus oídos." }
         ],
@@ -430,8 +430,8 @@
         ],
         "preguntas": [
           { "pregunta": "¿Qué nos da el Sol?", "opciones": ["Luz y calor", "Lluvia y nieve"], "correcta": 0, "explicacion": "El Sol ilumina y calienta la Tierra." },
-          { "pregunta": "¿Cuándo vemos la Luna y las estrellas?", "opciones": ["Casi siempre en la noche", "Solo al mediodía"], "correcta": 0, "explicacion": "Se ven mejor cuando está oscuro." },
-          { "pregunta": "¿Podemos mirar el Sol directamente?", "opciones": ["Sí, un ratito", "Nunca, lastima los ojos"], "correcta": 1, "explicacion": "La luz del Sol es tan fuerte que puede dañar los ojos." }
+          { "pregunta": "¿Cuándo vemos la Luna y las estrellas?", "opciones": ["Casi siempre en la noche", "Solo al mediodía, con mucho sol"], "correcta": 0, "explicacion": "Se ven mejor cuando está oscuro." },
+          { "pregunta": "¿Podemos mirar el Sol directamente?", "opciones": ["Sí, un ratito y sin parpadear", "Nunca, lastima los ojos"], "correcta": 1, "explicacion": "La luz del Sol es tan fuerte que puede dañar los ojos." }
         ],
         "actividad": {
           "titulo": "Mi día, de la mañana a la noche",
@@ -493,8 +493,8 @@
           { "termino": "Croquis", "definicion": "Dibujo sencillo que muestra dónde están los lugares." }
         ],
         "preguntas": [
-          { "pregunta": "¿Qué es un área verde?", "opciones": ["Un lugar con plantas y árboles", "Un estacionamiento"], "correcta": 0, "explicacion": "Los parques y jardines son áreas verdes." },
-          { "pregunta": "¿Para qué sirven los árboles en la colonia?", "opciones": ["Dan sombra y refrescan", "Hacen más calor"], "correcta": 0, "explicacion": "Su sombra baja el calor y limpia el aire." },
+          { "pregunta": "¿Qué es un área verde?", "opciones": ["Un lugar con plantas y árboles", "Un estacionamiento pintado de verde"], "correcta": 0, "explicacion": "Los parques y jardines son áreas verdes." },
+          { "pregunta": "¿Para qué sirven los árboles en la colonia?", "opciones": ["Dan sombra y refrescan", "Hacen más calor y quitan el aire"], "correcta": 0, "explicacion": "Su sombra baja el calor y limpia el aire." },
           { "pregunta": "¿Quién te puede contar cómo era tu colonia antes?", "opciones": ["Una persona mayor", "Nadie"], "correcta": 0, "explicacion": "Las abuelas, los abuelos y los vecinos mayores recuerdan cómo era antes." }
         ],
         "actividad": {
@@ -689,10 +689,10 @@
       "titulo": "Resolvemos juntos",
       "instrucciones": "Lee o escucha cada situación y elige la mejor solución.",
       "items": [
-        { "pregunta": "Hay mucha basura en el patio. ¿Qué hacemos?", "opciones": ["Pedimos más botes y hacemos un cartel", "La dejamos ahí"], "correcta": 0, "explicacion": "Con más botes y un aviso, todos ayudan a tener el patio limpio." },
+        { "pregunta": "Hay mucha basura en el patio. ¿Qué hacemos?", "opciones": ["Pedimos más botes y hacemos un cartel", "La dejamos ahí hasta que alguien la recoja"], "correcta": 0, "explicacion": "Con más botes y un aviso, todos ayudan a tener el patio limpio." },
         { "pregunta": "Una llave del baño gotea. ¿A quién le avisamos?", "opciones": ["A la dirección o a un maestro", "A nadie"], "correcta": 0, "explicacion": "Las personas adultas pueden arreglarla y así se cuida el agua." },
-        { "pregunta": "En el recreo hace mucho calor y no hay sombra. ¿Qué podemos pedir?", "opciones": ["Plantar árboles o poner un techo", "Jugar al sol al mediodía"], "correcta": 0, "explicacion": "Los árboles y techos dan sombra y protegen del calor." },
-        { "pregunta": "¿Cómo pedimos ayuda a la directora o al director?", "opciones": ["Con una carta o un cartel", "Gritando en el patio"], "correcta": 0, "explicacion": "Una carta explica bien el problema y lo que necesitamos." },
+        { "pregunta": "En el recreo hace mucho calor y no hay sombra. ¿Qué podemos pedir?", "opciones": ["Plantar árboles o poner un techo", "Jugar al sol al mediodía para acostumbrarnos"], "correcta": 0, "explicacion": "Los árboles y techos dan sombra y protegen del calor." },
+        { "pregunta": "¿Cómo pedimos ayuda a la directora o al director?", "opciones": ["Con una carta o un cartel", "Gritando todos juntos en el patio"], "correcta": 0, "explicacion": "Una carta explica bien el problema y lo que necesitamos." },
         { "pregunta": "¿Qué es mejor para resolver un problema de la escuela?", "opciones": ["Trabajar juntos", "Que lo resuelva una sola persona"], "correcta": 0, "explicacion": "Entre todos tenemos más ideas y ayudamos más." }
       ]
     },
@@ -710,7 +710,7 @@
       "titulo": "Cuida tu planta",
       "instrucciones": "Cada día decide si riegas tu planta y dónde la pones. ¡Cuidado! Hace calor y la tierra se seca.",
       "dias": 5,
-      "etapas": ["🌰", "🌱", "🌿", "🪴", "🌻"],
+      "etapas": ["🌰", "🌱", "🌿", "🍀", "🌻"],
       "mensajes": {
         "bien": "¡Tu planta está feliz! Tuvo agua y luz del Sol.",
         "mucha": "¡Demasiada agua! Las raíces se ahogan. Riega solo un poquito.",

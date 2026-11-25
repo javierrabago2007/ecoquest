@@ -347,14 +347,18 @@ async function cargarDatos() {
   const lista = await fetch("datos/grados.json", { cache: "no-cache" }).then(r => r.json());
   grados = lista.grados;
   await Promise.all(grados.filter(g => g.estado === "listo").map(async g => {
-    datosGrado[g.grado] = await fetch("datos/" + g.archivo, { cache: "no-cache" }).then(r => r.json());
+    try {
+      const resp = await fetch("datos/" + g.archivo, { cache: "no-cache" });
+      if (resp.ok) datosGrado[g.grado] = await resp.json();
+    } catch (e) { console.warn("No se pudo cargar", g.archivo, e); }   // los demás grados siguen funcionando
   }));
+  if (!Object.keys(datosGrado).length) throw new Error("No se cargó ningún grado");
   sincronizarGrado();
 }
 
 /** Grado en uso: el del explorador (alumno) o el elegido por el adulto. */
 const gradoActual = () => (estado.perfil === "alumno" ? exploradorActivo()?.grado : almacen.grado) || 1;
-function sincronizarGrado() { datos = datosGrado[gradoActual()] || datosGrado[1]; }
+function sincronizarGrado() { datos = datosGrado[gradoActual()] || Object.values(datosGrado)[0]; }
 function ponerGrado(g) {
   if (!datosGrado[g]) return;
   if (estado.perfil === "alumno") exploradorActivo().grado = g; else almacen.grado = g;
@@ -363,7 +367,7 @@ function ponerGrado(g) {
 /** Ejecuta fn con el contenido de otro grado (p. ej. para ver el avance de un explorador de 2.º). */
 function conGrado(g, fn) {
   const antes = datos;
-  datos = datosGrado[g] || datosGrado[1];
+  datos = datosGrado[g] || Object.values(datosGrado)[0];
   try { return fn(); } finally { datos = antes; }
 }
 /** Los identificadores de 2.º a 6.º empiezan con el número del grado (2u1, 2j1…); los de 1.º no. */
@@ -371,7 +375,9 @@ const gradoDeId = id => { const m = /^([2-6])?[ujer]\d+$/.exec(id || ""); return
 const GRADO_EN_LETRAS = ["", "primer", "segundo", "tercer", "cuarto", "quinto", "sexto"];
 const gradoTexto = () => `${GRADO_EN_LETRAS[datos.grado]} grado`;
 /** Botones para elegir el grado. */
-const selectorGrado = () => `<section class="panel"><h2>Elige el grado</h2><div class="grados">${grados.map(g => g.estado === "listo"
+const selectorGrado = () => `<section class="panel"><h2>Elige el grado</h2><div class="grados">${grados.map(g => g.estado === "listo" && !datosGrado[g.grado]
+  ? `<button class="grado" onclick="location.reload()">${esc(g.nombre)}<small>no cargó: toca para reintentar</small></button>`
+  : g.estado === "listo"
   ? `<button class="grado ${g.grado === datos.grado ? "activo" : ""}" data-grado="${g.grado}" aria-pressed="${g.grado === datos.grado}">${esc(g.nombre)}</button>`
   : `<a class="grado" href="#grado/${g.grado}">${esc(g.nombre)}<small>en construcción</small></a>`).join("")}</div></section>`;
 document.addEventListener("click", ev => {
@@ -553,14 +559,6 @@ function encabezadoSeccion(icono, titulo, texto, seccion = "", extra = "") {
 }
 const CARTEL_ACCIONES = `<div class="cartel-mini"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 36C20 26 19 19 13 12" stroke="#3d8c4a" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M18 24C8 25 5 17 6 10C15 10 20 16 18 24Z" fill="#7cc46a"/><path d="M21 28C22 19 29 15 35 16C35 25 29 29 21 28Z" fill="#4fae5f"/></svg><b>Pequeñas acciones,<br>grandes cambios.</b></div>`;
 
-function tarjetaActividad(enlace, icono, titulo, texto, completa, color = "verde", extra = "") {
-  return `<a class="tarjeta-actividad color-${color}" href="${enlace}">
-    <span class="tarjeta-icono" aria-hidden="true">${icono}</span>
-    <span class="tarjeta-cuerpo"><b>${esc(titulo)}</b><small>${esc(texto)}</small>${extra}</span>
-    <span class="estado ${completa ? "completo" : ""}">${completa ? "✅ Hecho" : "Por hacer"}</span>
-  </a>`;
-}
-
 /** Cuadro de vinculación curricular oficial + libros + nota docente/familia, según perfil. */
 function bloqueCurricular(u) {
   const oficial = `
@@ -665,6 +663,12 @@ function pantallaAprende(idUnidad) {
   activarPreguntas(app.querySelector(".preguntas"));
   const btn = document.getElementById("terminarLeccion");
   btn.addEventListener("click", () => {
+    const faltan = [...app.querySelectorAll(".preguntas .pregunta")].filter(p => !p.querySelector(".opcion:disabled")).length;
+    if (faltan) {
+      app.querySelector('.pestana[data-p="preguntas"]').click();
+      app.querySelector(".pestanas").scrollIntoView({ block: "center" });
+      return avisar(`Antes de terminar, contesta ${faltan === 1 ? "la pregunta que falta" : `las ${faltan} preguntas`} de «¿Lo entendí?»`);
+    }
     marcarHecho(`aprende:${u.id}`);
     btn.disabled = true;
     btn.textContent = "✓ Lección terminada";
@@ -673,9 +677,10 @@ function pantallaAprende(idUnidad) {
 
 /** HTML de una pregunta de opción múltiple (se usa en Aprende). */
 function preguntaHtml(p, i) {
+  const ops = mezclar(p.opciones.map((o, j) => ({ o, j })));   // se mezclan; data-op conserva su número original
   return `<div class="pregunta" data-correcta="${p.correcta}" data-explicacion="${esc(p.explicacion)}">
     <p><b>${i + 1}. ${esc(p.pregunta)}</b> ${botonVoz(p.pregunta + " " + p.opciones.join(", "))}</p>
-    <div class="opciones">${p.opciones.map((o, j) => `<button class="opcion" data-op="${j}">${esc(o)}</button>`).join("")}</div>
+    <div class="opciones">${ops.map(({ o, j }) => `<button class="opcion" data-op="${j}">${esc(o)}</button>`).join("")}</div>
     <p class="retro" aria-live="polite"></p>
   </div>`;
 }
@@ -831,12 +836,13 @@ function finDeJuego(j, zona, aciertos, total, detalle = "") {
 /** Opción múltiple y verdadero/falso: una pregunta a la vez. */
 function juegoPreguntas(j, zona) {
   const esVF = j.tipo === "vf";
+  const revuelta = it => { const ops = mezclar(it.opciones.map((t, k) => ({ t, k }))); return { opciones: ops.map(o => o.t), correcta: ops.findIndex(o => o.k === it.correcta) }; };
   // "sombras": la pregunta muestra la silueta de un dibujo y al responder se revela.
   const items = esVF
     ? j.items.map(it => ({ pregunta: it.frase, opciones: ["✔️ Verdadero", "✖️ Falso"], correcta: it.respuesta ? 0 : 1, explicacion: it.explicacion }))
     : j.tipo === "sombras"
-      ? j.items.map(it => ({ pregunta: j.pregunta || "¿De quién es esta sombra?", imagen: it.icono, opciones: it.opciones, correcta: it.correcta, explicacion: it.explicacion }))
-      : j.items;
+      ? j.items.map(it => ({ pregunta: j.pregunta || "¿De quién es esta sombra?", imagen: it.icono, ...revuelta(it), explicacion: it.explicacion }))
+      : j.items.map(it => ({ ...it, ...revuelta(it) }));
   let i = 0, aciertos = 0;
 
   function mostrar() {
@@ -1055,7 +1061,7 @@ function juegoLoteria(j, zona) {
     if (cantadas.has(c.nombre)) {
       marcadas.add(k); b.classList.add("marcada");
       reaccion(true);
-      retro.className = "retro bien"; retro.textContent = `🫘 ¡Marcaste ${c.nombre}!`;
+      retro.className = "retro bien"; retro.textContent = `🌰 ¡Marcaste ${c.nombre}!`;
       if (marcadas.size === tabla.length) {
         reaccion(true, "¡LOTERÍA!"); hablar("¡Lotería!");
         setTimeout(() => finDeJuego(j, zona, Math.max(1, tabla.length - errores), tabla.length, `<p>¡Llenaste tu tabla! Marcas equivocadas: ${errores}</p>`), 1200);
@@ -1291,7 +1297,7 @@ function juegoGotas(j, zona) {
   const segundos = j.segundos || 30;
   zona.innerHTML = `
     <div class="marcador"><span>💧 Gotas: <b id="atrapadas">0</b></span><span><img class="ico-grifo" src="imagenes/icono-grifo.webp" alt=""> Fugas cerradas: <b id="fugas">0</b></span><span>⏱️ <b id="tiempo">${segundos}</b> s</span></div>
-    <div class="area-gotas" id="area"><div class="cubeta" id="cubeta">🪣</div></div>
+    <div class="area-gotas" id="area"><div class="cubeta" id="cubeta">${iconoMaterial("cubeta")}</div></div>
     <div class="controles-gotas">
       <button class="boton secundario" id="izq" aria-label="Mover a la izquierda">◀</button>
       <button class="boton" id="empezar">▶️ Empezar</button>
@@ -1378,12 +1384,12 @@ function juegoGotas(j, zona) {
 
 /** 🌱 Cuida tu planta: decidir agua y sol durante varios días. */
 function juegoPlanta(j, zona) {
-  const dias = j.dias || 5, etapas = j.etapas || ["🌰", "🌱", "🌿", "🪴", "🌻"], m = j.mensajes;
+  const dias = j.dias || 5, etapas = j.etapas || ["🌰", "🌱", "🌿", "🍀", "🌻"], m = j.mensajes;
   let dia = 1, agua = 40, lugar = null, etapa = 0, buenos = 0;
   zona.innerHTML = `
     <p class="contador">Día <b id="dia">1</b> de ${dias}</p>
     <div class="planta-juego">
-      <div class="maceta-zona" id="maceta"><span class="planta" id="planta">${etapas[0]}</span><div class="maceta">🪴</div><span class="lugar-icono" id="lugarIcono"></span></div>
+      <div class="maceta-zona" id="maceta"><span class="planta" id="planta">${etapas[0]}</span><div class="maceta">${iconoMaterial("maceta")}</div><span class="lugar-icono" id="lugarIcono"></span></div>
       <div class="medidores">
         <p><b>💧 Agua en la tierra</b></p>
         <div class="barra-agua"><span id="nivelAgua"></span><i class="marca-min"></i><i class="marca-max"></i></div>
@@ -1542,7 +1548,7 @@ function pantallaExperimento(id) {
           <table class="tabla-registro"><thead><tr><th>Dato</th><th>${esc(e.registro.unidad)}</th></tr></thead>
           <tbody>${e.registro.etiquetas.map((et, k) => `<tr><td>${esc(et)}</td><td><input type="number" step="0.1" min="0" max="999" class="dato" data-k="${k}" value="${esc(reg.datos?.[k] ?? "")}" aria-label="${esc(et)}"></td></tr>`).join("")}</tbody></table>
           <div id="grafica"></div>` : ""}
-        <textarea id="notaRegistro" rows="4" maxlength="300" placeholder="Escribe o dicta a un adulto lo que observaste (sin nombres)">${esc(reg.nota || "")}</textarea>
+        <textarea id="notaRegistro" aria-label="Lo que observé" rows="4" maxlength="300" placeholder="Escribe o dicta a un adulto lo que observaste (sin nombres)">${esc(reg.nota || "")}</textarea>
         <p class="pequeno">Se guarda solo en este dispositivo.</p>
         <div class="piensa"><b>💭 Piensa:</b> ${e.reflexion.map(r => esc(r)).join(" ")}</div>
         <button class="boton" id="terminarExp" ${hechoE ? "disabled" : ""}>${hechoE ? "✓ Experimento realizado" : "Ya lo realicé"}</button>
@@ -1633,7 +1639,7 @@ function pantallaReto(id) {
     <article class="ficha color-${u.color}">
       <header class="ficha-encabezado">
         <span class="ilustracion" aria-hidden="true">🌱</span>
-        <div><p class="pequeno">ACTÚA · ${esc(u.titulo)}</p><h1>${esc(r.titulo)}</h1>${ETQ_PROPUESTA}</div>
+        <div><p class="pequeno">ACTÚA · ${esc(u.titulo)}</p><h2 class="como-h1">${esc(r.titulo)}</h2>${ETQ_PROPUESTA}</div>
       </header>
       <section class="bloque"><h2>¿Por qué importa?</h2><p class="texto-grande">${esc(r.explicacion)} ${botonVoz(r.explicacion)}</p></section>
       <section class="bloque"><h2>¿Qué hago? ${botonVoz(r.instrucciones.join(". "))}</h2>
@@ -1641,11 +1647,13 @@ function pantallaReto(id) {
       </section>
       ${r.dias ? `<section class="bloque"><h2>📅 Mis días</h2>
         <div class="dias">${Array.from({ length: r.dias }, (_, k) => `<label class="dia"><input type="checkbox" data-k="${k}" ${prog.dias[k] ? "checked" : ""}><span>Día ${k + 1}</span></label>`).join("")}</div>
+        <label class="papel-reto"><input type="checkbox" id="papelReto" ${prog.papel ? "checked" : ""}> Ya llevamos los días en papel, con un adulto</label>
+        <p class="pequeno">Se marca un día por fecha. Si los anotaron en papel, marca la casilla de arriba para pasarlos todos.</p>
       </section>` : ""}
       <section class="bloque"><h2>💬 Mi reflexión</h2>
         <p>${esc(r.evidencia)} ${botonVoz(r.evidencia)}</p>
         <div class="caritas" role="radiogroup" aria-label="¿Cómo te sentiste?">${CARITAS.map(c => `<button class="carita ${prog.carita === c ? "elegida" : ""}" data-c="${c}" role="radio" aria-checked="${prog.carita === c}">${c}</button>`).join("")}</div>
-        <textarea id="notaReto" rows="3" maxlength="300" placeholder="Escribe o dibuja en tu cuaderno y anota aquí una frase (sin nombres)">${esc(prog.nota)}</textarea>
+        <textarea id="notaReto" aria-label="Mi reflexión" rows="3" maxlength="300" placeholder="Escribe o dibuja en tu cuaderno y anota aquí una frase (sin nombres)">${esc(prog.nota)}</textarea>
       </section>
       ${bloqueCurricular(u)}
       <p class="retro" id="retroReto" aria-live="polite"></p>
@@ -1655,14 +1663,25 @@ function pantallaReto(id) {
       </div>
     </article>`;
 
+  let ultimoDia = prog.ultimo || null;
   const guardar = () => {
     estado.retos[r.id] = {
       dias: [...app.querySelectorAll(".dia input")].map(c => c.checked),
       carita: app.querySelector(".carita.elegida")?.dataset.c || "",
-      nota: document.getElementById("notaReto").value
+      nota: document.getElementById("notaReto").value,
+      papel: !!document.getElementById("papelReto")?.checked,
+      ultimo: ultimoDia
     };
     guardarEstado();
   };
+  const hoy = new Date().toLocaleDateString("sv");   // fecha local AAAA-MM-DD
+  app.querySelectorAll(".dia input").forEach(c => c.addEventListener("change", () => {
+    if (document.getElementById("papelReto").checked) return;
+    if (!c.checked) { if (ultimoDia === hoy) ultimoDia = null; return; }
+    if (ultimoDia === hoy) { c.checked = false; return avisar("📅 Ya marcaste el día de hoy. ¡Vuelve mañana!"); }
+    ultimoDia = hoy;
+  }));
+  document.getElementById("papelReto")?.addEventListener("change", () => guardar());
   app.querySelectorAll(".dia input, #notaReto").forEach(el => el.addEventListener("change", guardar));
   app.querySelectorAll(".carita").forEach(b => b.addEventListener("click", () => {
     app.querySelectorAll(".carita").forEach(x => { x.classList.remove("elegida"); x.setAttribute("aria-checked", "false"); });
@@ -1684,9 +1703,10 @@ function pantallaReto(id) {
 
 /* ----- Código de progreso (sin cuentas ni datos personales) -----
    El código guarda SOLO qué actividades están completas, como una lista de sí/no,
-   en el orden de "ordenCodigo" (datos/primero.json).
-   Formato: EQ2-XXX-XXX-XXX-X  (EQ = EcoQuest, 2 = versión, la última letra es de control).
-   Los códigos EQ1 (primera versión) también se aceptan.
+   en el orden de "ordenCodigo" (en el archivo de cada grado).
+   Formato: EQ4-GXX-XXX-…  (4 = versión, G = grado, las DOS últimas letras son de control).
+   Hay un código por grado; el QR reúne los de todos los grados con avance (separados con +).
+   También se aceptan las versiones anteriores EQ1, EQ2 y EQ3.
    IMPORTANTE: al agregar contenido, sus claves se añaden AL FINAL de "ordenCodigo"
    y nunca se cambia lo anterior; así los códigos viejos siguen sirviendo. */
 
@@ -1695,14 +1715,15 @@ const ALFABETO_32 = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";   // sin I, L, O, U para
 /** Lista fija de todas las actividades, en orden. */
 const actividadesCodigo = () => datos.ordenCodigo;
 
-/** Letra de control: detecta cualquier error de UNA letra (los multiplicadores impares lo garantizan). */
-function letraControl(cuerpo, version = 2) {
-  let s = 7;
+/** Letras de control. Versión 4: dos letras, detectan cualquier letra equivocada y cualquier intercambio de letras vecinas. */
+function letraControl(cuerpo, version = 4) {
+  let s = 7, t = 5;
   for (let i = 0; i < cuerpo.length; i++) {
     const v = ALFABETO_32.indexOf(cuerpo[i]);
     s = version === 1 ? (s * 31 + v * (i + 3)) % 32 : (s + v * (2 * i + 1)) % 32;
+    t = (t + v * (i + 1)) % 31;
   }
-  return ALFABETO_32[s];
+  return ALFABETO_32[s] + (version === 4 ? ALFABETO_32[t] : "");
 }
 
 /** Crea el código a partir del progreso actual. */
@@ -1711,10 +1732,15 @@ function codigoProgreso(hechos = estado.hechos) {
   while (bits.length % 5) bits.push(0);
   let cuerpo = "";
   for (let i = 0; i < bits.length; i += 5) cuerpo += ALFABETO_32[bits.slice(i, i + 5).reduce((n, b) => n * 2 + b, 0)];
-  // 1.º: EQ2-…   ·   2.º a 6.º: EQ3- y el primer número es el grado.
-  if (datos.grado > 1) cuerpo = datos.grado + cuerpo;
+  cuerpo = datos.grado + cuerpo;
   const grupos = cuerpo.match(/.{1,3}/g).join("-");   // grupos de 3, fáciles de dictar
-  return `EQ${datos.grado > 1 ? 3 : 2}-${grupos}-${letraControl(cuerpo)}`;
+  return `EQ4-${grupos}-${letraControl(cuerpo)}`;
+}
+/** Códigos de todos los grados en los que hay avance (el del grado actual siempre aparece). */
+function codigosDeTodos(hechos = estado.hechos) {
+  return Object.keys(datosGrado).map(Number)
+    .filter(g => g === datos.grado || datosGrado[g].ordenCodigo.some(k => hechos[k]))
+    .map(g => ({ grado: g, nombre: datosGrado[g].nombreGrado, codigo: conGrado(g, () => codigoProgreso(hechos)) }));
 }
 
 const DIRECCION_PUBLICA = "https://javierrabago2007.github.io/ecoquest/";
@@ -1723,21 +1749,22 @@ const DIRECCION_PUBLICA = "https://javierrabago2007.github.io/ecoquest/";
 function enlaceProgreso() {
   // En la computadora de prueba (localhost) el QR usa la dirección pública; si no, otro celular no podría abrirlo.
   const base = /^(localhost|127\.)/.test(location.hostname) ? DIRECCION_PUBLICA : location.origin + location.pathname;
-  return base + "#cargar/" + codigoProgreso();   // sin ?…, siempre la dirección principal
+  return base + "#cargar/" + codigosDeTodos().map(c => c.codigo).join("+");   // sin ?…, siempre la dirección principal
 }
 
 /** Lee un código y devuelve las actividades que contiene: { ok, hechos: {"aprende:u1": true, ...} } */
 function leerCodigo(texto) {
   const limpio = String(texto).toUpperCase().replace(/[^0-9A-Z]/g, "").replace(/O/g, "0").replace(/[IL]/g, "1");
-  const version = Number((limpio.match(/^EQ([123])/) || [])[1]);
-  if (!version || limpio.length < 5) return { ok: false, mensaje: "Ese código no es de EcoQuest. Revisa que empiece con EQ2 o EQ3." };
-  const cuerpo = limpio.slice(3, -1), control = limpio.slice(-1);
-  if ([...cuerpo].some(c => !ALFABETO_32.includes(c)) || letraControl(cuerpo, version) !== control) {
+  const version = Number((limpio.match(/^EQ([1234])/) || [])[1]);
+  if (!version || limpio.length < 5) return { ok: false, mensaje: "Ese código no es de EcoQuest. Revisa que empiece con EQ y un número." };
+  const nc = version === 4 ? 2 : 1;
+  const cuerpo = limpio.slice(3, -nc), control = limpio.slice(-nc);
+  if (!cuerpo || [...cuerpo].some(c => !ALFABETO_32.includes(c)) || letraControl(cuerpo, version) !== control) {
     return { ok: false, mensaje: "El código tiene un error. Revisa letra por letra y vuelve a intentarlo." };
   }
-  const grado = version === 3 ? Number(cuerpo[0]) : 1;
+  const grado = version >= 3 ? Number(cuerpo[0]) : 1;
   if (!datosGrado[grado]) return { ok: false, mensaje: "Ese código es de un grado que todavía no está disponible." };
-  const bits = [...cuerpo.slice(version === 3 ? 1 : 0)].flatMap(c => { const v = ALFABETO_32.indexOf(c); return [16, 8, 4, 2, 1].map(p => (v & p) ? 1 : 0); });
+  const bits = [...cuerpo.slice(version >= 3 ? 1 : 0)].flatMap(c => { const v = ALFABETO_32.indexOf(c); return [16, 8, 4, 2, 1].map(p => (v & p) ? 1 : 0); });
   const hechos = {};
   datosGrado[grado].ordenCodigo.forEach((c, i) => { if (bits[i]) hechos[c] = true; });
   return { ok: true, hechos, grado };
@@ -1756,18 +1783,23 @@ function avanceDe(h) {
   return { hechas, total, pct: Math.round(hechas / total * 100), insignias: porTema.filter(n => n === 4).length, porTema };
 }
 
-/** Lee un código y SUMA sus actividades al progreso del explorador activo. */
+/** Lee uno o varios códigos (separados con +, coma o renglón) y SUMA sus actividades al explorador activo. */
 function aplicarCodigo(texto, soloRevisar = false) {
-  const leido = leerCodigo(texto);
-  if (!leido.ok) return leido;
+  const leido = { ok: true, hechos: {}, grados: [] };
+  for (const parte of String(texto).split(/[+,;\n]/).filter(x => x.trim())) {
+    const l = leerCodigo(parte);
+    if (!l.ok) return l;
+    Object.assign(leido.hechos, l.hechos); leido.grados.push(l.grado);
+  }
+  if (!leido.grados.length) return { ok: false, mensaje: "Escribe un código de EcoQuest." };
   const lista = Object.keys(leido.hechos);
   const nuevas = lista.filter(c => !estado.hechos[c]);
   const enCodigo = lista.length;
-  if (soloRevisar) return { ok: true, enCodigo, nuevas: nuevas.length };
+  if (soloRevisar) return { ok: true, enCodigo, nuevas: nuevas.length, grados: leido.grados };
   nuevas.forEach(c => { estado.hechos[c] = true; });
   guardarEstado();
   return {
-    ok: true, enCodigo, nuevas: nuevas.length,
+    ok: true, enCodigo, nuevas: nuevas.length, grados: leido.grados,
     mensaje: nuevas.length
       ? `🎉 ¡Listo! Se agregaron ${nuevas.length} actividad(es). El código tenía ${enCodigo} en total.`
       : `✓ El código es correcto. Ya tenías todas sus actividades (${enCodigo}).`
@@ -1795,7 +1827,7 @@ function pantallaCargar(codigo) {
     <section class="panel en-construccion">
       ${mascota("¡Encontré un progreso guardado!", 130)}
       <h1>¿Cargar este progreso?</h1>
-      <p>El código <b>${esc(codigo)}</b> tiene <b>${revision.enCodigo}</b> actividad(es) completadas.
+      <p>El código <b>${esc(codigo.split("+").join(" + "))}</b> (${revision.grados.map(g => g + ".º").join(", ")}) tiene <b>${revision.enCodigo}</b> actividad(es) completadas.
         ${revision.nuevas ? `Se agregarán <b>${revision.nuevas}</b> que aún no tienes en este dispositivo.` : "Ya tienes todas en este dispositivo."}</p>
       <p>Se cargará en el explorador <b>${esc(apodoDe(exploradorActivo()))}</b>. ¿No eres tú? <a href="#exploradores">Elige o crea tu explorador</a> y vuelve a escanear el código.</p>
       <p class="pequeno">No se borra nada de lo que ya tengas aquí.</p>
@@ -1806,7 +1838,7 @@ function pantallaCargar(codigo) {
     </section>`;
   document.getElementById("confirmarCarga").addEventListener("click", () => {
     const res = aplicarCodigo(codigo);
-    ponerGrado(leerCodigo(codigo).grado);
+    ponerGrado(res.grados[0]);
     avisar(res.mensaje);
     location.hash = "progreso";
   });
@@ -1978,7 +2010,7 @@ function pantallaGrupo() {
         <form class="forma" id="formGrupo">
           <h3>⌨️ Escribir los códigos</h3>
           <label for="codigosGrupo" class="pequeno">Uno por renglón. Puede anteponer número de lista o apodo y dos puntos.</label>
-          <textarea id="codigosGrupo" rows="3" spellcheck="false" placeholder="1: EQ2-XXX-XXX-XXX-X&#10;2: EQ2-XXX-XXX-XXX-X"></textarea>
+          <textarea id="codigosGrupo" rows="3" spellcheck="false" placeholder="1: EQ4-1XX-XXX-XXX-X-XX&#10;2: EQ4-1XX-XXX-XXX-X-XX"></textarea>
           <button class="boton secundario" type="submit">Agregar</button>
         </form>
       </div>
@@ -1995,6 +2027,8 @@ function pantallaGrupo() {
           <button class="boton secundario" id="cerrarEscaner">Terminar de escanear</button>
         </div>
       </div>
+      <div class="acciones"><button class="boton chico secundario" id="respaldarGrupo">💾 Guardar respaldo</button><label class="boton chico secundario">📂 Cargar respaldo<input type="file" id="cargarGrupo" accept=".json,application/json" class="solo-lector"></label></div>
+      <p class="pequeno">El respaldo es un archivo con las listas de todos los grados. Guárdelo en una USB o en otro dispositivo.</p>
       <p class="retro" id="retroGrupo" aria-live="polite"></p>
       <p class="pequeno">🔒 La lista se guarda solo en este dispositivo; no se envía a ningún lado. Use número de lista o apodo en lugar del nombre completo.</p>
     </section>
@@ -2072,6 +2106,37 @@ function pantallaGrupo() {
     </section>` : `
     <section class="panel en-construccion">${mascota("Aún no hay alumnos. Cree su lista por número o agregue códigos.", 110)}</section>`}`;
 
+  /* --- Respaldo de las listas --- */
+  document.getElementById("respaldarGrupo").addEventListener("click", () => {
+    const blob = new Blob([JSON.stringify({ ecoquest: "grupo", grupo: almacen.grupo || [] }, null, 1)], { type: "application/json" });
+    const enlace = document.createElement("a");
+    enlace.href = URL.createObjectURL(blob);
+    enlace.download = `respaldo-grupo-ecoquest-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(enlace); enlace.click(); enlace.remove();
+    setTimeout(() => URL.revokeObjectURL(enlace.href), 1000);
+    avisar("💾 Respaldo guardado");
+  });
+  document.getElementById("cargarGrupo").addEventListener("change", async ev => {
+    let mensaje;
+    try {
+      const d = JSON.parse(await ev.target.files[0].text());
+      if (d.ecoquest !== "grupo" || !Array.isArray(d.grupo)) throw new Error("formato");
+      let n = 0;
+      d.grupo.forEach(f => {
+        if (!f || typeof f.etiqueta !== "string" || typeof f.codigo !== "string" || !leerCodigo(f.codigo).ok) return;
+        const et = f.etiqueta.slice(0, 40), grado = leerCodigo(f.codigo).grado, fecha = isNaN(Date.parse(f.fecha)) ? new Date().toISOString() : f.fecha;
+        almacen.grupo = almacen.grupo || [];
+        const ya = almacen.grupo.find(x => x.etiqueta === et && (x.grado || 1) === grado);
+        // Si ya existe, se conserva el registro más reciente.
+        if (!ya) almacen.grupo.push({ etiqueta: et, codigo: f.codigo, fecha, grado });
+        else if (Date.parse(fecha) > Date.parse(ya.fecha)) { ya.codigo = f.codigo; ya.fecha = fecha; }
+        n++;
+      });
+      guardarEstado(); pantallaGrupo(); mensaje = `📂 Respaldo cargado: ${n} registro(s).`;
+    } catch (e) { mensaje = "Ese archivo no es un respaldo de EcoQuest."; }
+    avisar(mensaje);
+  });
+
   /* --- Lista por número, sin dispositivos --- */
   document.getElementById("formLista").addEventListener("submit", ev => {
     ev.preventDefault();
@@ -2097,7 +2162,7 @@ function pantallaGrupo() {
     const lineas = document.getElementById("codigosGrupo").value.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
     let nuevos = 0, actualizados = 0, errores = 0;
     lineas.forEach(l => {
-      const m = l.match(/^(.*?)[:\t]\s*(EQ[123].*)$/i);
+      const m = l.match(/^(.*?)[:\t]\s*(EQ[1234].*)$/i);
       const etiqueta = m && m[1].trim() ? m[1].trim().slice(0, 40) : etiquetaLibre();
       const codigo = (m ? m[2] : l).trim();
       if (!leerCodigo(codigo).ok) errores++;
@@ -2120,7 +2185,7 @@ function pantallaGrupo() {
     almacen.grupo.splice(Number(b.dataset.i), 1); guardarEstado(); pantallaGrupo();
   }));
   document.getElementById("vaciarGrupo")?.addEventListener("click", () => {
-    if (!confirm(`¿Vaciar la lista de ${datos.nombreGrado} en este dispositivo?`)) return;
+    if ((prompt(`Se borrará la lista de ${datos.nombreGrado}. Guarde antes un respaldo.\nPara confirmar, escriba VACIAR:`) || "").trim().toUpperCase() !== "VACIAR") return;
     almacen.grupo = almacen.grupo.filter(f => (f.grado || 1) !== datos.grado); guardarEstado(); pantallaGrupo();
   });
   document.getElementById("imprimirGrupo")?.addEventListener("click", () => window.print());
@@ -2196,7 +2261,9 @@ async function abrirEscaner() {
       ctx.drawImage(video, 0, 0);
       const img = ctx.getImageData(0, 0, lienzo.width, lienzo.height);
       const qr = jsQR(img.data, img.width, img.height, { inversionAttempts: "dontInvert" });
-      const m = qr && qr.data.match(/EQ[123][-0-9A-Z]+/i);
+      // El QR puede traer varios grados: se toma el del grado que se está viendo.
+      const ms = qr ? (decodificar(qr.data).match(/EQ[1234][-0-9A-Z]+/gi) || []) : [];
+      const m = ms.length ? [ms.find(x => leerCodigo(x).grado === datos.grado) || ms[0]] : null;
       if (m) {
         const leido = leerCodigo(m[0]);
         if (leido.ok) {
@@ -2258,8 +2325,8 @@ function pantallaProgreso() {
       <div class="caja-codigo">
         <div class="qr" id="qrProgreso" aria-label="Código QR de tu progreso"></div>
         <div>
-          <p class="pequeno">Tu código de progreso</p>
-          <p class="codigo" id="textoCodigo">${esc(codigoProgreso())}</p>
+          <p class="pequeno">Hay un código por cada grado en que has jugado. Guarda todos; el QR ya los incluye.</p>
+          ${codigosDeTodos().map(c => `<p class="codigo"><small>${esc(c.nombre)}</small> ${esc(c.codigo)}</p>`).join("")}
           <div class="acciones">
             <button class="boton" id="copiarCodigo">📋 Copiar código</button>
             <button class="boton secundario" id="imprimirCodigo">🖨️ Imprimir</button>
@@ -2273,7 +2340,7 @@ function pantallaProgreso() {
       <summary>📥 Ya tengo un código</summary>
       <p>¿Ya tienes un código? Escríbelo aquí. Se sumará a lo que ya tengas en este dispositivo; no se borra nada.</p>
       <form class="cargar-codigo" id="formCargar">
-        <input id="entradaCodigo" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="EQ2-XXX-XXX-XXX-X" aria-label="Código de progreso">
+        <input id="entradaCodigo" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="EQ4-XXX-XXX-XXX-X-XX" aria-label="Código de progreso">
         <button class="boton" type="submit">Cargar</button>
       </form>
       <p class="retro" id="retroCargar" aria-live="polite"></p>
@@ -2282,13 +2349,13 @@ function pantallaProgreso() {
     <section class="panel">
       <h2>¿Dónde se guarda mi progreso?</h2>
       <p>Se guarda solo en este navegador y en este dispositivo. No se envía a internet y no pide nombres. Si cambias de dispositivo, usa tu código de progreso (arriba). Si se borran los datos de navegación sin haber guardado el código, el progreso empieza de cero.</p>
-      <button class="boton secundario" id="borrar">🗑️ Borrar mi progreso</button>
+      <div class="acciones"><button class="boton secundario" id="borrarGrado">🗑️ Borrar solo ${esc(datos.nombreGrado)}</button><button class="boton secundario" id="borrar">🗑️ Borrar todos los grados</button></div>
     </section>`;
 
   // QR que abre EcoQuest con este progreso (#cargar/CÓDIGO)
   dibujarQR(document.getElementById("qrProgreso"), enlaceProgreso());
   document.getElementById("copiarCodigo").addEventListener("click", async () => {
-    const codigo = codigoProgreso();
+    const codigo = codigosDeTodos().map(c => c.codigo).join(" + ");
     try { await navigator.clipboard.writeText(codigo); avisar("📋 Código copiado: " + codigo); }
     catch (e) { avisar("Escribe el código en un papel: " + codigo); }
   });
@@ -2305,8 +2372,16 @@ function pantallaProgreso() {
     retro.textContent = res.mensaje;
     if (res.ok) setTimeout(pantallaProgreso, 1800);
   });
+  document.getElementById("borrarGrado").addEventListener("click", () => {
+    if (!confirm(`¿Seguro? Se borrará tu progreso de ${datos.nombreGrado}. Los demás grados no cambian.`)) return;
+    datos.ordenCodigo.forEach(k => { delete estado.hechos[k]; });
+    datos.juegos.forEach(j => { delete estado.puntajes[j.id]; });
+    datos.experimentos.forEach(e => { delete estado.registros[e.id]; });
+    datos.retos.forEach(t => { delete estado.retos[t.id]; });
+    guardarEstado(); avisar(`Progreso de ${datos.nombreGrado} borrado.`); pantallaProgreso();
+  });
   document.getElementById("borrar").addEventListener("click", () => {
-    if (!confirm("¿Seguro que quieres borrar todo tu progreso en este dispositivo?")) return;
+    if (!confirm("¿Seguro? Se borrará tu progreso de TODOS los grados en este dispositivo.")) return;
     const p = estado.perfil;
     estado = estadoInicial(); estado.perfil = p;
     guardarEstado();
@@ -2452,7 +2527,7 @@ function pantallaFamilia() {
         <li>Con mucho calor, salgan temprano o al atardecer y lleven agua.</li>
       </ul>
       <h2>Privacidad</h2>
-      <p>EcoQuest no pide nombres, correos ni contraseñas. Todo se guarda solo en este dispositivo.</p>
+      <p>EcoQuest no pide nombres, correos ni contraseñas. Todo se guarda solo en este dispositivo. <a href="#acerca">Más sobre privacidad</a>.</p>
     </section>`;
   activarCasa(pantallaFamilia);
 }
@@ -2530,6 +2605,12 @@ function pantallaAcerca() {
       <h2>¿Qué es oficial y qué no?</h2>
       <p>${ETQ_OFICIAL} Solo los contenidos y PDA que aparecen en los cuadros de «Vinculación curricular», copiados textualmente del Programa Sintético.</p>
       <p>${ETQ_PROPUESTA} Todo lo demás: explicaciones, juegos, experimentos, retos, insignias y la relación sugerida con los libros de texto.</p>
+      <h2>Independencia</h2>
+      <p>EcoQuest es un proyecto independiente. No es un producto de la Secretaría de Educación Pública ni cuenta con su aval; la etiqueta «Oficial · SEP» solo señala textos citados de sus documentos. Las cifras y situaciones de los juegos son simuladas.</p>
+      <h2>Privacidad</h2>
+      <p>EcoQuest no pide nombres, correos ni contraseñas y no usa publicidad ni rastreadores. El progreso, las notas y las listas se guardan solo en este dispositivo. Para mostrar su tipo de letra, la página la solicita a Google Fonts: ese servicio recibe datos técnicos de la conexión (como la dirección IP), pero EcoQuest no le envía el progreso ni lo que se escribe. La página se aloja en GitHub Pages, que también recibe datos técnicos de la visita. La cámara solo se usa si un adulto abre el escáner, y la imagen no se guarda ni se envía.</p>
+      <h2>Licencias</h2>
+      <p>Códigos QR: qrcode-generator (MIT) y jsQR (Apache 2.0). <a href="lib/LICENCIAS.txt">Ver licencias</a>.</p>
       <h2>Grados</h2>
       <p>Disponibles: ${grados.filter(g => g.estado === "listo").map(g => esc(g.nombre)).join(", ")}.${grados.some(g => g.estado !== "listo") ? " Los demás grados están en construcción." : ""} De 2.º a 6.º es una versión breve, de 4 temas por grado.</p>
     </section>`;
@@ -2559,7 +2640,7 @@ function pantallaNoEncontrada() {
 function vistaDeAdulto() {
   if (perfil() === "alumno") return;
   app.querySelectorAll("#terminarLeccion, #terminarExp, #terminarReto").forEach(b => { b.disabled = true; b.textContent = "👀 Vista de adulto"; });
-  app.querySelectorAll(".paso, .dato, #notaRegistro, .dia input, .carita, #notaReto").forEach(x => { x.disabled = true; });
+  app.querySelectorAll(".paso, .dato, #notaRegistro, .dia input, .carita, #notaReto, #papelReto").forEach(x => { x.disabled = true; });
 }
 
 /** Convierte %20 y similares sin fallar si el enlace está mal escrito. */
@@ -2596,7 +2677,7 @@ function enrutar() {
   sincronizarGrado();
   if (gId && gId !== datos.grado) ponerGrado(gId);
   pintarPerfil();
-  (Object.hasOwn(pantallas, ruta) ? pantallas[ruta] : pantallaNoEncontrada)();
+  (Object.prototype.hasOwnProperty.call(pantallas, ruta) ? pantallas[ruta] : pantallaNoEncontrada)();
   vistaDeAdulto();
   document.body.dataset.ruta = ruta;
 
@@ -2693,12 +2774,16 @@ const normal = t => String(t).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,
 function pantallaBuscar(q) {
   const n = normal(q);
   const coincide = (...textos) => textos.some(t => normal(t).includes(n));
-  const res = [
-    ...datos.unidades.filter(u => coincide(u.titulo, u.resumen, ...u.aprende.explicacion)).map(u => ({ e: `#aprende/${u.id}`, i: u.icono, t: u.titulo, d: "Aprende · " + u.resumen })),
-    ...datos.juegos.filter(j => coincide(j.titulo, j.instrucciones)).map(j => ({ e: `#juega/${j.id}`, i: ICONO_JUEGO[j.tipo] || "🎮", t: j.titulo, d: "Juega · " + TIPOS_JUEGO[j.tipo] })),
-    ...datos.experimentos.filter(x => coincide(x.nombre, x.proposito)).map(x => ({ e: `#experimenta/${x.id}`, i: "🧪", t: x.nombre, d: "Experimenta · " + x.proposito })),
-    ...datos.retos.filter(r => coincide(r.titulo, r.explicacion)).map(r => ({ e: `#actua/${r.id}`, i: "🌱", t: r.titulo, d: "Actúa · " + r.explicacion }))
-  ];
+  // Busca en todos los grados; primero los del grado actual.
+  const res = Object.values(datosGrado).sort((x, y) => (y === datos) - (x === datos) || x.grado - y.grado).flatMap(D => {
+    const pre = D === datos ? "" : D.nombreGrado + " · ";
+    return [
+      ...D.unidades.filter(u => coincide(u.titulo, u.resumen, ...u.aprende.explicacion)).map(u => ({ e: `#aprende/${u.id}`, i: u.icono, t: u.titulo, d: pre + "Aprende · " + u.resumen })),
+      ...D.juegos.filter(j => coincide(j.titulo, j.instrucciones)).map(j => ({ e: `#juega/${j.id}`, i: ICONO_JUEGO[j.tipo] || "🎮", t: j.titulo, d: pre + "Juega · " + TIPOS_JUEGO[j.tipo] })),
+      ...D.experimentos.filter(x => coincide(x.nombre, x.proposito)).map(x => ({ e: `#experimenta/${x.id}`, i: "🧪", t: x.nombre, d: pre + "Experimenta · " + x.proposito })),
+      ...D.retos.filter(t => coincide(t.titulo, t.explicacion)).map(t => ({ e: `#actua/${t.id}`, i: "🌱", t: t.titulo, d: pre + "Actúa · " + t.explicacion }))
+    ];
+  });
   app.innerHTML = `
     ${encabezadoSeccion("🔍", "Buscar", `${res.length} resultado(s) para «${esc(q)}»`, "buscar")}
     <div class="lista-unidades">${res.map(r => `<a class="tarjeta-actividad" href="${r.e}"><span class="tarjeta-icono" aria-hidden="true">${r.i}</span><span class="tarjeta-cuerpo"><b>${esc(r.t)}</b><small>${esc(r.d)}</small></span></a>`).join("") || `<div class="panel">${mascota("No encontré nada. Prueba con: agua, basura, desierto, calor…", 110)}</div>`}</div>`;

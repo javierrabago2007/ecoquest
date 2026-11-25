@@ -108,7 +108,7 @@ function juegoSopa(j, zona) {
     <p class="contador">Encontradas: <b id="halladas">0</b> de ${palabras.length}</p>
     <p class="pequeno">Lee cada definición, piensa la palabra y búscala. Toca su <b>primera</b> letra y luego la <b>última</b>. Puede ir hacia cualquier lado. No lleva acentos.</p>
     <div class="sopa-juego">
-      <div class="sopa" style="--n:${N}">${celdas.map((l, k) => `<button data-k="${k}" aria-label="${l}, fila ${Math.floor(k / N) + 1}, columna ${k % N + 1}">${l}</button>`).join("")}</div>
+      <div class="sopa-desliza"><div class="sopa" style="--n:${N}">${celdas.map((l, k) => `<button data-k="${k}" aria-label="${l}, fila ${Math.floor(k / N) + 1}, columna ${k % N + 1}">${l}</button>`).join("")}</div></div>
       <ol class="pistas-sopa">${palabras.map((p, k) => `<li data-k="${k}"><span>${esc(p.definicion)}</span> <b class="resp">${p.letras.length} letras</b><button class="boton chico secundario ayuda-sopa" data-k="${k}">💡 Pista (−1)</button></li>`).join("")}</ol>
     </div>
     <div class="acciones"><button class="boton secundario" id="rendirse">Terminar aquí</button></div>${PIE_RETO}`;
@@ -120,7 +120,7 @@ function juegoSopa(j, zona) {
     bs[inicio].classList.remove("marcada");
     const a = inicio; inicio = null;
     if (a === k) return;
-    const p = palabras.find(x => !x.hallada && ((x.pos[0] === a && x.pos.at(-1) === k) || (x.pos[0] === k && x.pos.at(-1) === a)));
+    const p = palabras.find(x => !x.hallada && ((x.pos[0] === a && x.pos[x.pos.length - 1] === k) || (x.pos[0] === k && x.pos[x.pos.length - 1] === a)));
     if (!p) { reaccion(false, "Ahí no está"); return decirReto(zona, false, "Ahí no hay ninguna de las palabras que buscas."); }
     p.hallada = true;
     p.pos.forEach(q => bs[q].classList.add("hallada"));
@@ -241,7 +241,7 @@ function juegoGestion(j, zona) {
   const est = Object.fromEntries(j.indicadores.map(i => [i.id, i.inicio]));
   const eventos = mezclar(j.eventos);
   let n = 0, dinero = j.dinero;
-  const barras = () => `<div class="indicadores">${j.indicadores.map(i => `<div class="indicador ${est[i.id] < 30 ? "bajo" : est[i.id] >= j.meta ? "alto" : ""}"><b>${i.icono} ${esc(i.nombre)}</b><div class="barra-ind"><span style="width:${est[i.id]}%"></span><i style="left:${j.meta}%"></i></div><small>${est[i.id]}</small></div>`).join("")}<div class="indicador dinero"><b>🪙 Fondo</b><strong>${dinero}</strong></div></div>`;
+  const barras = () => `<div class="indicadores">${j.indicadores.map(i => `<div class="indicador ${est[i.id] < 30 ? "bajo" : est[i.id] >= j.meta ? "alto" : ""}"><b>${i.icono} ${esc(i.nombre)}</b><div class="barra-ind"><span style="width:${est[i.id]}%"></span><i style="left:${j.meta}%"></i></div><small>${est[i.id]}</small></div>`).join("")}<div class="indicador dinero"><b>💰 Fondo</b><strong>${dinero}</strong></div></div>`;
   const logradas = () => j.indicadores.filter(i => est[i.id] >= j.meta).length;
   const fin = motivo => finDeJuego(j, zona, motivo ? 0 : logradas(), j.indicadores.length, `${barras()}<p>${esc(motivo || `Metas cumplidas: ${logradas()} de ${j.indicadores.length}.`)}</p><p>${esc(j.mensajeFinal || "")}</p>`);
   function mostrar() {
@@ -254,7 +254,7 @@ function juegoGestion(j, zona) {
       <p class="contador">Decisión ${n + 1} de ${eventos.length}</p>${barras()}
       <p class="pequeno">Meta: terminar con cada barra en ${j.meta} o más (rayita). Si una llega a 0, se acaba el juego.</p>
       <article class="expediente"><h2>${e.icono} ${esc(e.titulo)} ${botonVoz(e.texto)}</h2><p>${esc(e.texto)}</p></article>
-      <div class="decisiones">${ops.map((o, k) => `<button class="decision" data-k="${k}" ${(o.costo || 0) > dinero ? "disabled" : ""}><span>${esc(o.texto)}</span><b>${o.costo ? `🪙 −${o.costo}` : o.gana ? `🪙 +${o.gana}` : "🪙 0"}</b></button>`).join("")}</div>${PIE_RETO}`;
+      <div class="decisiones">${ops.map((o, k) => `<button class="decision" data-k="${k}" ${(o.costo || 0) > dinero ? "disabled" : ""}><span>${esc(o.texto)}</span><b>${o.costo ? `💰 −${o.costo}` : o.gana ? `💰 +${o.gana}` : "💰 0"}</b></button>`).join("")}</div>${PIE_RETO}`;
     zona.querySelectorAll(".decision").forEach((b, k) => b.addEventListener("click", () => {
       const o = ops[k];
       dinero += (o.gana || 0) - (o.costo || 0);
@@ -589,7 +589,7 @@ function juegoRed(j, zona) {
     zona.innerHTML = `
       <p class="contador">Nivel ${n + 1} de ${j.niveles.length} · Intentos: <span id="vidas">❤️❤️❤️</span></p>
       <h2>${esc(nv.titulo)}</h2><p>${esc(nv.texto)}</p>
-      <div class="metas-pres"><span>🪙 Costo: <b id="cCosto"></b> de ${nv.costo}</span><span>🌫️ Emisiones: <b id="cEmi"></b> de ${nv.emision}</span></div>
+      <div class="metas-pres"><span>💰 Costo: <b id="cCosto"></b> de ${nv.costo}</span><span>🌫️ Emisiones: <b id="cEmi"></b> de ${nv.emision}</span></div>
       ${P.map((p, k) => `<fieldset class="cat-pres periodo-red" data-p="${k}"><legend>${esc(p.nombre)} · necesita <b>${p.demanda}</b> · llevas <b class="llevas">0</b></legend>
         <div class="fuentes-red">${F.map((f, i) => `<div class="fuente-red"><span>${f.icono} ${esc(f.nombre)}<small>costo ${f.costo} · emite ${f.emision} · máx. ${f.disponible[k]}</small></span>
           <div class="paso-red"><button data-i="${i}" data-k="${k}" data-d="-1" aria-label="Quitar ${esc(f.nombre)} en ${esc(p.nombre)}">−</button><b id="u${i}_${k}">0</b><button data-i="${i}" data-k="${k}" data-d="1" aria-label="Agregar ${esc(f.nombre)} en ${esc(p.nombre)}">+</button></div></div>`).join("")}</div></fieldset>`).join("")}

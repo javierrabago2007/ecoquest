@@ -50,7 +50,7 @@
         "preguntas": [
           { "pregunta": "¿En qué lugar llueve muy poco?", "opciones": ["En la selva", "En el desierto", "En el manglar"], "correcta": 1, "explicacion": "En el desierto llueve poco; por eso sus plantas guardan agua." },
           { "pregunta": "¿Dónde crecen los manglares?", "opciones": ["En la costa", "En la cima de una montaña", "En la arena seca"], "correcta": 0, "explicacion": "Los manglares crecen junto al mar." },
-          { "pregunta": "¿Para qué le sirve al saguaro su tallo grueso?", "opciones": ["Para correr", "Para guardar agua", "Para volar"], "correcta": 1, "explicacion": "Su tallo guarda agua para los días sin lluvia." }
+          { "pregunta": "¿Para qué le sirve al saguaro su tallo grueso?", "opciones": ["Para esconderse del Sol", "Para guardar agua", "Para volar"], "correcta": 1, "explicacion": "Su tallo guarda agua para los días sin lluvia." }
         ],
         "actividad": {
           "titulo": "Dos paisajes, un cuaderno",
@@ -102,7 +102,7 @@
         "preguntas": [
           { "pregunta": "¿Qué le pasa al hielo cuando lo dejas al sol?", "opciones": ["Se hace más grande", "Se derrite", "No le pasa nada"], "correcta": 1, "explicacion": "El calor derrite el hielo y lo vuelve agua líquida." },
           { "pregunta": "¿Cuál de estos es un líquido?", "opciones": ["Una piedra", "El hielo", "La leche"], "correcta": 2, "explicacion": "La leche toma la forma del vaso: es líquida." },
-          { "pregunta": "¿Por qué se seca un charco?", "opciones": ["El agua se evapora o entra al suelo", "El agua se vuelve hielo", "Alguien se lo lleva"], "correcta": 0, "explicacion": "Una parte se va al aire como vapor y otra puede entrar al suelo." }
+          { "pregunta": "¿Por qué se seca un charco?", "opciones": ["El agua se evapora o entra al suelo", "El agua se vuelve hielo y se esconde", "Alguien se lo lleva"], "correcta": 0, "explicacion": "Una parte se va al aire como vapor y otra puede entrar al suelo." }
         ],
         "actividad": {
           "titulo": "Busca sólidos y líquidos",
@@ -161,7 +161,7 @@
         ],
         "preguntas": [
           { "pregunta": "¿Cuál acción ayuda al suelo?", "opciones": ["Tirar pilas en la tierra", "Poner la basura en su lugar", "Quemar llantas"], "correcta": 1, "explicacion": "La basura en su lugar no ensucia el suelo." },
-          { "pregunta": "¿Qué puede pasar si una bolsa llega al campo?", "opciones": ["Un animal puede comerla y enfermarse", "Se vuelve flor", "Nada"], "correcta": 0, "explicacion": "Algunos animales la confunden con comida." },
+          { "pregunta": "¿Qué puede pasar si una bolsa llega al campo?", "opciones": ["Un animal puede comerla y enfermarse", "Se deshace en un día y alimenta al suelo", "Nada"], "correcta": 0, "explicacion": "Algunos animales la confunden con comida." },
           { "pregunta": "Para ir a la tienda de la esquina, ¿qué contamina menos?", "opciones": ["Ir en carro", "Ir caminando con un adulto"], "correcta": 1, "explicacion": "Caminar no echa humo." }
         ],
         "actividad": {
@@ -212,9 +212,9 @@
           { "termino": "Empatía", "definicion": "Pensar en cómo se sienten los demás y en lo que necesitan." }
         ],
         "preguntas": [
-          { "pregunta": "¿Quiénes ayudan al saguaro a dar frutos?", "opciones": ["Murciélagos y abejas", "Los carros", "Las piedras"], "correcta": 0, "explicacion": "Llevan el polen entre las flores del saguaro." },
+          { "pregunta": "¿Quiénes ayudan al saguaro a dar frutos?", "opciones": ["Murciélagos y abejas", "Los carros y los camiones", "Las piedras"], "correcta": 0, "explicacion": "Llevan el polen entre las flores del saguaro." },
           { "pregunta": "¿Qué hacen los hongos con las hojas secas?", "opciones": ["Las pintan", "Ayudan a deshacerlas", "Las convierten en piedra"], "correcta": 1, "explicacion": "Así el suelo vuelve a tener alimento para las plantas." },
-          { "pregunta": "Encuentras un animal silvestre herido. ¿Qué haces?", "opciones": ["Lo toco", "Me lo llevo", "Aviso a un adulto"], "correcta": 2, "explicacion": "Un adulto puede pedir ayuda. Tocarlo puede ser peligroso." }
+          { "pregunta": "Encuentras un animal silvestre herido. ¿Qué haces?", "opciones": ["Lo toco", "Me lo llevo a mi casa", "Aviso a un adulto"], "correcta": 2, "explicacion": "Un adulto puede pedir ayuda. Tocarlo puede ser peligroso." }
         ],
         "actividad": {
           "titulo": "Mi red de la vida",
@@ -228,7 +228,7 @@
 
   "juegos": [
     { "id": "2j1", "unidad": "2u1", "tipo": "memorama", "titulo": "Memorama de paisajes", "instrucciones": "Voltea dos tarjetas y encuentra los pares de seres vivos y paisajes de México.",
-      "pares": [ { "icono": "🌵", "nombre": "Saguaro" }, { "icono": "🐒", "nombre": "Mono de la selva" }, { "icono": "🦀", "nombre": "Cangrejo del manglar" }, { "icono": "🐠", "nombre": "Pez del arrecife" }, { "icono": "🐆", "nombre": "Jaguar" }, { "icono": "🦅", "nombre": "Águila" }, { "icono": "🐢", "nombre": "Tortuga" }, { "icono": "🪸", "nombre": "Coral" } ] },
+      "pares": [ { "icono": "🌵", "nombre": "Saguaro" }, { "icono": "🐒", "nombre": "Mono de la selva" }, { "icono": "🦀", "nombre": "Cangrejo del manglar" }, { "icono": "🐠", "nombre": "Pez del arrecife" }, { "icono": "🐆", "nombre": "Jaguar" }, { "icono": "🦅", "nombre": "Águila" }, { "icono": "🐢", "nombre": "Tortuga" }, { "icono": "🐚", "nombre": "Coral" } ] },
     { "id": "2j2", "unidad": "2u1", "tipo": "sombras", "titulo": "¿Quién vive ahí?", "instrucciones": "Mira la silueta y descubre qué ser vivo es.", "pregunta": "¿De quién es esta silueta?",
       "items": [
         { "icono": "🐠", "opciones": ["Pez del arrecife", "Coyote", "Cardenal"], "correcta": 0, "explicacion": "Los peces de colores viven entre los corales." },
@@ -248,7 +248,7 @@
       "items": [
         { "nombre": "Hielo", "icono": "🧊", "bote": "sol", "explicacion": "El hielo es agua sólida: tiene forma propia." },
         { "nombre": "Leche", "icono": "🥛", "bote": "liq", "explicacion": "Toma la forma del vaso." },
-        { "nombre": "Piedra", "icono": "🪨", "bote": "sol", "explicacion": "Conserva su forma." },
+        { "nombre": "Piedra", "icono": "⛰️", "bote": "sol", "explicacion": "Conserva su forma." },
         { "nombre": "Jugo", "icono": "🧃", "bote": "liq", "explicacion": "El jugo de adentro toma la forma del envase." },
         { "nombre": "Lluvia", "icono": "🌧️", "bote": "liq", "explicacion": "La lluvia es agua líquida." },
         { "nombre": "Lápiz", "icono": "✏️", "bote": "sol", "explicacion": "El lápiz conserva su forma." },
