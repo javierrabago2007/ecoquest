@@ -1305,3 +1305,13 @@ body:not([data-perfil="alumno"]) .encabezado { border-bottom: 4px solid var(--ac
 /* Arreglos */
 .progreso-escena { flex-wrap: wrap; }
 @media (min-width: 981px) and (max-width: 1400px) { .marca-texto small { display: none; } .buscador { flex: 0 1 150px; min-width: 0; width: 150px; } .buscador input { min-width: 0; width: 100%; } }
+
+/* Logotipo (referencias/LOGOTIPO ECOQUEST.png) */
+.marca { flex-direction: column; align-items: flex-start; gap: 2px; flex: none; }
+.marca-img { display: block; height: 54px; width: auto; }
+.marca-lema { font-size: 11.5px; color: #2d5a43; font-weight: 500; line-height: 1; }
+@media (max-width: 1400px) { .marca-lema { display: none; } }
+@media (max-width: 640px) { .marca-img { height: 46px; } }
+
+/* Arreglo: el dibujo del explorador ya no se estira en Inicio */
+.barra-explorador > .avatar-ex { flex: none; min-width: 0; }
